@@ -1,0 +1,19 @@
+name: blab_design_system
+description: "BLab Design System - Flutter UI component library with Liquid Glass design language."
+version: 0.0.1
+homepage: https://github.com/lbo728/blab_design_system
+
+environment:
+  sdk: ^3.10.4
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
