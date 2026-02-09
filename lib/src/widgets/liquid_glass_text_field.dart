@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class LiquidGlassTextField extends StatefulWidget {
+class BLabTextField extends StatefulWidget {
   final TextEditingController controller;
   final String? label;
   final String? hintText;
@@ -12,7 +12,7 @@ class LiquidGlassTextField extends StatefulWidget {
   final Widget? suffixIcon;
   final int maxLines;
 
-  const LiquidGlassTextField({
+  const BLabTextField({
     super.key,
     required this.controller,
     this.label,
@@ -25,10 +25,10 @@ class LiquidGlassTextField extends StatefulWidget {
   });
 
   @override
-  State<LiquidGlassTextField> createState() => _LiquidGlassTextFieldState();
+  State<BLabTextField> createState() => _BLabTextFieldState();
 }
 
-class _LiquidGlassTextFieldState extends State<LiquidGlassTextField> {
+class _BLabTextFieldState extends State<BLabTextField> {
   bool _hasText = false;
 
   @override

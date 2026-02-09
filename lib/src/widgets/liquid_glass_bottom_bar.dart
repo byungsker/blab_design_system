@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 /// - 검색 버튼: 분리된 원형 버튼, 탭 시 검색 필드 표시
 /// - 물방울 확대 애니메이션: 롱프레스로 드래그하며 탭 전환
 /// - 렌즈 효과: 물방울 영역 내 콘텐츠 굴절
-class LiquidGlassBottomBar extends StatefulWidget {
+class BLabBottomBar extends StatefulWidget {
   final int selectedIndex;
   final ValueChanged<int> onTabSelected;
 
@@ -31,7 +31,7 @@ class LiquidGlassBottomBar extends StatefulWidget {
   /// 탭 라벨 (기본값: ['Home', 'Library', 'Stats', 'Calendar', 'MY'])
   final List<String>? tabLabels;
 
-  const LiquidGlassBottomBar({
+  const BLabBottomBar({
     super.key,
     required this.selectedIndex,
     required this.onTabSelected,
@@ -43,10 +43,10 @@ class LiquidGlassBottomBar extends StatefulWidget {
   });
 
   @override
-  State<LiquidGlassBottomBar> createState() => _LiquidGlassBottomBarState();
+  State<BLabBottomBar> createState() => _BLabBottomBarState();
 }
 
-class _LiquidGlassBottomBarState extends State<LiquidGlassBottomBar>
+class _BLabBottomBarState extends State<BLabBottomBar>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _slideAnimation;
@@ -100,7 +100,7 @@ class _LiquidGlassBottomBarState extends State<LiquidGlassBottomBar>
   }
 
   @override
-  void didUpdateWidget(LiquidGlassBottomBar oldWidget) {
+  void didUpdateWidget(BLabBottomBar oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.selectedIndex != widget.selectedIndex && !_isDragging) {
       _slideAnimation =

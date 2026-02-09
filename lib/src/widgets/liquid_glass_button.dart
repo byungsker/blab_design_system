@@ -6,22 +6,22 @@ import 'package:flutter/services.dart';
 import '../theme/app_colors.dart';
 import 'pressable_wrapper.dart';
 
-enum LiquidGlassButtonVariant { primary, secondary, destructive }
+enum BLabButtonVariant { primary, secondary, destructive }
 
-class LiquidGlassButton extends StatelessWidget {
+class BLabButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
   final IconData? icon;
-  final LiquidGlassButtonVariant variant;
+  final BLabButtonVariant variant;
   final bool isFullWidth;
   final Widget? child;
 
-  const LiquidGlassButton({
+  const BLabButton({
     super.key,
     required this.text,
     this.onPressed,
     this.icon,
-    this.variant = LiquidGlassButtonVariant.primary,
+    this.variant = BLabButtonVariant.primary,
     this.isFullWidth = false,
     this.child,
   });
@@ -34,15 +34,15 @@ class LiquidGlassButton extends StatelessWidget {
     Color textColor;
 
     switch (variant) {
-      case LiquidGlassButtonVariant.primary:
-        backgroundColor = AppColors.primary;
+      case BLabButtonVariant.primary:
+        backgroundColor = BLabColors.primary;
         textColor = Colors.white;
         break;
-      case LiquidGlassButtonVariant.destructive:
-        backgroundColor = AppColors.error;
+      case BLabButtonVariant.destructive:
+        backgroundColor = BLabColors.error;
         textColor = Colors.white;
         break;
-      case LiquidGlassButtonVariant.secondary:
+      case BLabButtonVariant.secondary:
         backgroundColor = isDark
             ? Colors.white.withValues(alpha: 0.12)
             : Colors.black.withValues(alpha: 0.08);
@@ -61,7 +61,7 @@ class LiquidGlassButton extends StatelessWidget {
             color: backgroundColor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: variant == LiquidGlassButtonVariant.secondary
+              color: variant == BLabButtonVariant.secondary
                   ? (isDark
                         ? Colors.white.withValues(alpha: 0.15)
                         : Colors.black.withValues(alpha: 0.08))
@@ -97,7 +97,7 @@ class LiquidGlassButton extends StatelessWidget {
       return Opacity(opacity: 0.5, child: content);
     }
 
-    return PressableWrapper(
+    return BLabPressableWrapper(
       onTap: () {
         HapticFeedback.selectionClick();
         onPressed!();
