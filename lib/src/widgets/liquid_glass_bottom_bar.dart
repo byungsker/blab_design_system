@@ -4,42 +4,83 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/// Liquid Glass 스타일 탭 아이템 정의
+///
+/// [BLabBottomBar]에 전달할 탭 항목을 정의합니다.
+class BLabBottomBarItem {
+  /// 비활성 상태 아이콘
+  final IconData icon;
+
+  /// 활성 상태 아이콘
+  final IconData activeIcon;
+
+  /// 탭 라벨
+  final String label;
+
+  const BLabBottomBarItem({
+    required this.icon,
+    required this.activeIcon,
+    required this.label,
+  });
+}
+
 /// Apple HIG Liquid Glass 스타일 Bottom Navigation Bar
 ///
 /// HIG_LIQUID_GLASS.md 참조:
 /// - Liquid Glass 재질: 반투명 유리, 콘텐츠 위에 떠 있는 형태
 /// - 적응형 색상: 아래 콘텐츠가 밝으면 어둡게, 어두우면 밝게
-/// - 검색 버튼: 분리된 원형 버튼, 탭 시 검색 필드 표시
+/// - 검색 버튼: 분리된 원형 버튼, 탭 시 검색 필드 표시 (optional)
 /// - 물방울 확대 애니메이션: 롱프레스로 드래그하며 탭 전환
 /// - 렌즈 효과: 물방울 영역 내 콘텐츠 굴절
+///
+/// 사용 예시:
+/// ```dart
+/// BLabBottomBar(
+///   tabs: const [
+///     BLabBottomBarItem(
+///       icon: Icons.shopping_cart_outlined,
+///       activeIcon: Icons.shopping_cart,
+///       label: 'Carts',
+///     ),
+///     BLabBottomBarItem(
+///       icon: Icons.archive_outlined,
+///       activeIcon: Icons.archive,
+///       label: 'Archive',
+///     ),
+///   ],
+///   selectedIndex: _selectedIndex,
+///   onTabSelected: (index) => setState(() => _selectedIndex = index),
+/// )
+/// ```
 class BLabBottomBar extends StatefulWidget {
+  /// 탭 항목 리스트 (최소 2개 이상)
+  final List<BLabBottomBarItem> tabs;
+
   final int selectedIndex;
   final ValueChanged<int> onTabSelected;
 
   /// 검색 버튼 탭 콜백: (버튼 위치, 버튼 크기) 전달
-  final void Function(Offset position, double size) onSearchTap;
+  /// null이면 검색 버튼을 표시하지 않음
+  final void Function(Offset position, double size)? onSearchTap;
 
-  /// 진행 중인 독서 모드로 전환 버튼 표시 여부
-  final bool showReadingDetailButton;
+  /// 첫 번째 탭에 chevron 아이콘 표시 여부 (앱별 커스텀 기능)
+  final bool showFirstTabChevron;
 
-  /// 진행 중인 독서 모드로 전환 버튼 탭 콜백
-  final VoidCallback? onReadingDetailTap;
+  /// 첫 번째 탭 chevron 탭 콜백
+  final VoidCallback? onFirstTabChevronTap;
 
   /// 마진 제거 여부 (애니메이션 스택에서 사용 시)
   final bool noMargin;
 
-  /// 탭 라벨 (기본값: ['Home', 'Library', 'Stats', 'Calendar', 'MY'])
-  final List<String>? tabLabels;
-
   const BLabBottomBar({
     super.key,
+    required this.tabs,
     required this.selectedIndex,
     required this.onTabSelected,
-    required this.onSearchTap,
-    this.showReadingDetailButton = false,
-    this.onReadingDetailTap,
+    this.onSearchTap,
+    this.showFirstTabChevron = false,
+    this.onFirstTabChevronTap,
     this.noMargin = false,
-    this.tabLabels,
   });
 
   @override
@@ -59,32 +100,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
   // 검색 버튼 위치 추적
   final GlobalKey _searchButtonKey = GlobalKey();
 
-  static const List<_TabItemData> _tabIcons = [
-    _TabItemData(
-      icon: CupertinoIcons.house,
-      activeIcon: CupertinoIcons.house_fill,
-    ),
-    _TabItemData(
-      icon: CupertinoIcons.square_stack_3d_up,
-      activeIcon: CupertinoIcons.square_stack_3d_up_fill,
-    ),
-    _TabItemData(
-      icon: CupertinoIcons.book,
-      activeIcon: CupertinoIcons.book_fill,
-    ),
-    _TabItemData(
-      icon: CupertinoIcons.calendar,
-      activeIcon: CupertinoIcons.calendar,
-    ),
-    _TabItemData(
-      icon: CupertinoIcons.person_crop_circle,
-      activeIcon: CupertinoIcons.person_crop_circle_fill,
-    ),
-  ];
-
-  List<String> _getTabLabels(BuildContext context) {
-    return widget.tabLabels ?? ['Home', 'Library', 'Stats', 'Calendar', 'MY'];
-  }
+  int get _tabCount => widget.tabs.length;
 
   @override
   void initState() {
@@ -134,10 +150,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
     if (!_isDragging || _tabWidth <= 0) return;
 
     final newPosition = details.localPosition.dx / _tabWidth;
-    final clampedPosition = newPosition.clamp(
-      0.0,
-      (_tabIcons.length - 1).toDouble(),
-    );
+    final clampedPosition = newPosition.clamp(0.0, (_tabCount - 1).toDouble());
 
     setState(() {
       _dragPosition = clampedPosition;
@@ -155,7 +168,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
   void _onLongPressEnd(LongPressEndDetails details) {
     if (!_isDragging) return;
 
-    final targetIndex = _dragPosition.round().clamp(0, _tabIcons.length - 1);
+    final targetIndex = _dragPosition.round().clamp(0, _tabCount - 1);
 
     setState(() {
       _isDragging = false;
@@ -180,15 +193,22 @@ class _BLabBottomBarState extends State<BLabBottomBar>
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    final content = Row(
-      children: [
-        // Pill TabBar (5개 탭)
-        Expanded(child: _buildLiquidGlassTabBar(isDark)),
-        const SizedBox(width: 12),
-        // 분리된 원형 검색 버튼
-        _buildSearchButton(isDark),
-      ],
-    );
+    final hasSearchButton = widget.onSearchTap != null;
+
+    final Widget tabBar = Expanded(child: _buildLiquidGlassTabBar(isDark));
+
+    final Widget content;
+    if (hasSearchButton) {
+      content = Row(
+        children: [
+          tabBar,
+          const SizedBox(width: 12),
+          _buildSearchButton(isDark),
+        ],
+      );
+    } else {
+      content = Row(children: [tabBar]);
+    }
 
     if (widget.noMargin) {
       return content;
@@ -234,8 +254,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
             ),
             child: LayoutBuilder(
               builder: (context, constraints) {
-                _tabWidth = constraints.maxWidth / _tabIcons.length;
-                final labels = _getTabLabels(context);
+                _tabWidth = constraints.maxWidth / _tabCount;
 
                 return Stack(
                   children: [
@@ -243,12 +262,12 @@ class _BLabBottomBarState extends State<BLabBottomBar>
                     _buildDropletIndicator(isDark, constraints.maxWidth, 0),
                     // 탭 아이템들
                     Row(
-                      children: List.generate(_tabIcons.length, (index) {
+                      children: List.generate(_tabCount, (index) {
+                        final tab = widget.tabs[index];
                         return Expanded(
                           child: _buildTabItem(
                             index,
-                            _tabIcons[index],
-                            labels[index],
+                            tab,
                             foregroundColor,
                             inactiveForegroundColor,
                           ),
@@ -287,7 +306,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
         final currentPosition = _isDragging
             ? _dragPosition
             : _slideAnimation.value;
-        final tabWidth = maxWidth / _tabIcons.length;
+        final tabWidth = maxWidth / _tabCount;
 
         return Positioned(
           left: chevronWidth + currentPosition * tabWidth,
@@ -347,8 +366,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
   /// 개별 탭 아이템
   Widget _buildTabItem(
     int index,
-    _TabItemData tab,
-    String label,
+    BLabBottomBarItem tab,
     Color foregroundColor,
     Color inactiveForegroundColor,
   ) {
@@ -377,7 +395,6 @@ class _BLabBottomBarState extends State<BLabBottomBar>
           return _buildTabContent(
             index,
             tab,
-            label,
             foregroundColor,
             inactiveForegroundColor,
             isSelected || overlap > 0.5,
@@ -391,13 +408,12 @@ class _BLabBottomBarState extends State<BLabBottomBar>
   /// 탭 콘텐츠 (아이콘 + 라벨)
   Widget _buildTabContent(
     int index,
-    _TabItemData tab,
-    String label,
+    BLabBottomBarItem tab,
     Color foregroundColor,
     Color inactiveForegroundColor,
     bool isHighlighted,
   ) {
-    final showArrow = index == 0 && widget.showReadingDetailButton;
+    final showArrow = index == 0 && widget.showFirstTabChevron;
     final iconColor = isHighlighted ? foregroundColor : inactiveForegroundColor;
 
     return Center(
@@ -426,7 +442,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
           ),
           const SizedBox(height: 2),
           Text(
-            label,
+            tab.label,
             style: TextStyle(
               color: iconColor,
               fontSize: 10,
@@ -464,7 +480,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
             _searchButtonKey.currentContext?.findRenderObject() as RenderBox?;
         if (renderBox != null) {
           final position = renderBox.localToGlobal(Offset.zero);
-          widget.onSearchTap(position, buttonSize);
+          widget.onSearchTap?.call(position, buttonSize);
         }
       },
       child: ClipRRect(
@@ -485,12 +501,4 @@ class _BLabBottomBarState extends State<BLabBottomBar>
       ),
     );
   }
-}
-
-/// 탭 아이템 데이터
-class _TabItemData {
-  final IconData icon;
-  final IconData activeIcon;
-
-  const _TabItemData({required this.icon, required this.activeIcon});
 }
