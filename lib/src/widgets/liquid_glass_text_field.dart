@@ -137,8 +137,8 @@ class _BLabTextFieldState extends State<BLabTextField> {
         child: Padding(
           padding: const EdgeInsets.only(right: 12),
           child: Container(
-            width: 20,
-            height: 20,
+            width: 16,
+            height: 16,
             decoration: BoxDecoration(
               color: isDark
                   ? Colors.white.withValues(alpha: 0.3)
@@ -150,7 +150,7 @@ class _BLabTextFieldState extends State<BLabTextField> {
               color: isDark
                   ? Colors.black.withValues(alpha: 0.7)
                   : Colors.white.withValues(alpha: 0.9),
-              size: 14,
+              size: 11,
             ),
           ),
         ),
