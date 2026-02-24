@@ -116,6 +116,38 @@ class _AnimatedSnackbarState extends State<_AnimatedSnackbar>
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final gradientColors = isDark
+        ? [
+            Colors.white.withValues(alpha: 0.15),
+            Colors.white.withValues(alpha: 0.08),
+          ]
+        : [
+            Colors.black.withValues(alpha: 0.06),
+            Colors.black.withValues(alpha: 0.03),
+          ];
+
+    final borderColor = widget.type == BLabSnackbarType.error
+        ? Colors.red.withValues(alpha: 0.7)
+        : isDark
+            ? Colors.white.withValues(alpha: 0.2)
+            : Colors.black.withValues(alpha: 0.1);
+
+    final borderWidth = widget.type == BLabSnackbarType.error ? 1.5 : 1.0;
+
+    final iconBorderColor = isDark
+        ? Colors.white.withValues(alpha: 0.5)
+        : Colors.black.withValues(alpha: 0.2);
+
+    final iconColor = isDark
+        ? Colors.white.withValues(alpha: 0.9)
+        : Colors.black.withValues(alpha: 0.7);
+
+    final textColor = isDark
+        ? Colors.white.withValues(alpha: 0.95)
+        : Colors.black.withValues(alpha: 0.85);
+
     return Positioned(
       bottom: widget.bottomOffset,
       left: 20,
@@ -139,21 +171,18 @@ class _AnimatedSnackbarState extends State<_AnimatedSnackbar>
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [
-                        Colors.white.withValues(alpha: 0.15),
-                        Colors.white.withValues(alpha: 0.08),
-                      ],
+                      colors: gradientColors,
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: widget.type == BLabSnackbarType.error
-                          ? Colors.red.withValues(alpha: 0.7)
-                          : Colors.white.withValues(alpha: 0.2),
-                      width: widget.type == BLabSnackbarType.error ? 1.5 : 1,
+                      color: borderColor,
+                      width: borderWidth,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.2),
+                        color: Colors.black.withValues(
+                          alpha: isDark ? 0.2 : 0.1,
+                        ),
                         blurRadius: 20,
                         offset: const Offset(0, 8),
                       ),
@@ -166,13 +195,13 @@ class _AnimatedSnackbarState extends State<_AnimatedSnackbar>
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.5),
+                            color: iconBorderColor,
                             width: 1.5,
                           ),
                         ),
                         child: Icon(
                           _getIcon(),
-                          color: Colors.white.withValues(alpha: 0.9),
+                          color: iconColor,
                           size: 20,
                         ),
                       ),
@@ -181,7 +210,7 @@ class _AnimatedSnackbarState extends State<_AnimatedSnackbar>
                         child: Text(
                           widget.message,
                           style: TextStyle(
-                            color: Colors.white.withValues(alpha: 0.95),
+                            color: textColor,
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             letterSpacing: -0.2,
