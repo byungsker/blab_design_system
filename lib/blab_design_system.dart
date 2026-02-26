@@ -15,3 +15,4 @@ export 'src/widgets/liquid_glass_text_field.dart';
 export 'src/widgets/liquid_glass_bottom_bar.dart';
 export 'src/widgets/pressable_wrapper.dart';
 export 'src/widgets/blab_snackbar.dart';
+export 'src/widgets/liquid_glass_tab_bar.dart';
