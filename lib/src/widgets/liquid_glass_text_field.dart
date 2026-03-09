@@ -138,28 +138,32 @@ class _BLabTextFieldState extends State<BLabTextField> {
     }
 
     if (!widget.readOnly && _hasText) {
-      return GestureDetector(
-        onTap: _clearText,
-        child: Padding(
-          padding: const EdgeInsets.only(right: 12),
-          child: Container(
-            width: 16,
-            height: 16,
-            decoration: BoxDecoration(
-              color: isDark
-                  ? Colors.white.withValues(alpha: 0.3)
-                  : Colors.black.withValues(alpha: 0.2),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              Icons.clear,
-              color: isDark
-                  ? Colors.black.withValues(alpha: 0.7)
-                  : Colors.white.withValues(alpha: 0.9),
-              size: 11,
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: _clearText,
+            child: Container(
+              width: 16,
+              height: 16,
+              margin: const EdgeInsets.only(right: 12),
+              decoration: BoxDecoration(
+                color: isDark
+                    ? Colors.white.withValues(alpha: 0.3)
+                    : Colors.black.withValues(alpha: 0.2),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.clear,
+                color: isDark
+                    ? Colors.black.withValues(alpha: 0.7)
+                    : Colors.white.withValues(alpha: 0.9),
+                size: 11,
+              ),
             ),
           ),
-        ),
+        ],
       );
     }
 
