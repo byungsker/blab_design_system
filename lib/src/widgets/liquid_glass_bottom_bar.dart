@@ -29,7 +29,7 @@ class BLabBottomBarItem {
 /// HIG_LIQUID_GLASS.md 참조:
 /// - Liquid Glass 재질: 반투명 유리, 콘텐츠 위에 떠 있는 형태
 /// - 적응형 색상: 아래 콘텐츠가 밝으면 어둡게, 어두우면 밝게
-/// - 검색 버튼: 분리된 원형 버튼, 탭 시 검색 필드 표시 (optional)
+  /// - 액션 버튼: 분리된 원형 버튼, 탭 시 콜백 실행 (optional, actionIcon으로 아이콘 커스텀)
 /// - 물방울 확대 애니메이션: 롱프레스로 드래그하며 탭 전환
 /// - 렌즈 효과: 물방울 영역 내 콘텐츠 굴절
 ///
@@ -59,9 +59,13 @@ class BLabBottomBar extends StatefulWidget {
   final int selectedIndex;
   final ValueChanged<int> onTabSelected;
 
-  /// 검색 버튼 탭 콜백: (버튼 위치, 버튼 크기) 전달
-  /// null이면 검색 버튼을 표시하지 않음
+  /// 액션 버튼 탭 콜백: (버튼 위치, 버튼 크기) 전달
+  /// null이면 액션 버튼을 표시하지 않음
   final void Function(Offset position, double size)? onSearchTap;
+
+  /// 액션 버튼 아이콘 (기본값: CupertinoIcons.search)
+  /// [onSearchTap]이 null이 아닐 때만 사용됨
+  final IconData? actionIcon;
 
   /// 첫 번째 탭에 chevron 아이콘 표시 여부 (앱별 커스텀 기능)
   final bool showFirstTabChevron;
@@ -78,6 +82,7 @@ class BLabBottomBar extends StatefulWidget {
     required this.selectedIndex,
     required this.onTabSelected,
     this.onSearchTap,
+    this.actionIcon,
     this.showFirstTabChevron = false,
     this.onFirstTabChevronTap,
     this.noMargin = false,
@@ -454,7 +459,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
     );
   }
 
-  /// 분리된 원형 검색 버튼 (Liquid Glass 효과)
+  /// 분리된 원형 액션 버튼 (Liquid Glass 효과)
   Widget _buildSearchButton(bool isDark) {
     // 탭바와 동일한 색상
     final glassColor = isDark
@@ -495,7 +500,7 @@ class _BLabBottomBarState extends State<BLabBottomBar>
               borderRadius: BorderRadius.circular(100),
               border: Border.all(color: borderColor, width: 0.5),
             ),
-            child: Icon(CupertinoIcons.search, color: iconColor, size: 22),
+            child: Icon(widget.actionIcon ?? CupertinoIcons.search, color: iconColor, size: 22),
           ),
         ),
       ),
