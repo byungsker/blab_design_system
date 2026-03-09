@@ -10,13 +10,14 @@ class BLabCard extends StatelessWidget {
   final EdgeInsets? padding;
   final BorderRadius? borderRadius;
   final VoidCallback? onTap;
-
+  final VoidCallback? onLongPress;
   const BLabCard({
     super.key,
     required this.child,
     this.padding,
     this.borderRadius,
     this.onTap,
+    this.onLongPress,
   });
 
   @override
@@ -47,12 +48,13 @@ class BLabCard extends StatelessWidget {
       ),
     );
 
-    if (onTap != null) {
+    if (onTap != null || onLongPress != null) {
       return BLabPressableWrapper(
         onTap: () {
           HapticFeedback.selectionClick();
-          onTap!();
+          onTap?.call();
         },
+        onLongPress: onLongPress,
         child: cardContent,
       );
     }
