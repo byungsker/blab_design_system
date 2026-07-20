@@ -43,7 +43,7 @@ Add the package from Git:
 dependencies:
   blab_design_system:
     git:
-      url: https://github.com/lbo728/blab_design_system.git
+      url: https://github.com/byungsker/blab_design_system.git
       ref: main
 ```
 
@@ -127,7 +127,7 @@ BLabSnackbar.show(
 
 ## Usage rules for consuming apps
 
-For consistent UI results, consuming apps should document package usage in their project-level agent or contributor instructions.
+For consistent UI results, consuming apps should document package usage in their project-level agent or contributor instructions. See [`docs/consuming-app-guide.md`](docs/consuming-app-guide.md) for a copyable app-level guide.
 
 Example rules used in Baroguni:
 
