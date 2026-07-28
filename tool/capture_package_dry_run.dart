@@ -15,13 +15,15 @@ Future<void> main(List<String> arguments) async {
     return;
   }
   final write = arguments.single == '--write';
-  final result = await Process.run(platformExecutable('flutter'), const [
-    'pub',
-    'publish',
-    '--dry-run',
-  ], workingDirectory: Directory.current.path);
+  final result = await Process.run(
+    platformExecutable('flutter'),
+    const ['pub', 'publish', '--dry-run'],
+    workingDirectory: Directory.current.path,
+    stdoutEncoding: utf8,
+    stderrEncoding: utf8,
+  );
   final output = '${result.stdout}${result.stderr}';
-  final files = _parseArchiveFiles(output);
+  final files = parsePackageArchiveFiles(output);
   final compressed = RegExp(
     r'Total compressed archive size: ([^\n.]+)',
   ).firstMatch(output)?.group(1);
@@ -105,7 +107,7 @@ bool packageDryRunInventoriesMatchStable(
           const JsonEncoder().convert(observedStable);
 }
 
-List<String> _parseArchiveFiles(String output) {
+List<String> parsePackageArchiveFiles(String output) {
   final stack = <String>[];
   final files = <String>[];
   final linePattern = RegExp(r'^([│ ]*)(?:├──|└──) (.+)$');

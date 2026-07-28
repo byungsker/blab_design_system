@@ -197,6 +197,19 @@ void main() {
         isFalse,
       );
     });
+
+    test('package tree parsing is stable for Windows CRLF output', () {
+      const output =
+          'Package contents:\r\n'
+          '├── lib\r\n'
+          '│   └── blab_design_system.dart (12 KB)\r\n'
+          '└── pubspec.yaml (2 KB)\r\n';
+
+      expect(package_dry_run_capture.parsePackageArchiveFiles(output), <String>[
+        'lib/blab_design_system.dart',
+        'pubspec.yaml',
+      ]);
+    });
   });
 
   group('Phase 5 compatibility classifier', () {
