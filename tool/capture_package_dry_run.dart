@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 
+import 'src/platform_executable.dart';
+
 Future<void> main(List<String> arguments) async {
   if (arguments.length != 1 ||
       !const {'--write', '--check'}.contains(arguments.single)) {
@@ -13,7 +15,7 @@ Future<void> main(List<String> arguments) async {
     return;
   }
   final write = arguments.single == '--write';
-  final result = await Process.run('flutter', const [
+  final result = await Process.run(platformExecutable('flutter'), const [
     'pub',
     'publish',
     '--dry-run',

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:yaml/yaml.dart';
 
 import 'src/phase4_evidence_validation.dart';
+import 'src/platform_executable.dart';
 
 Future<void> main(List<String> arguments) async {
   final execute = arguments.contains('--execute');
@@ -269,7 +270,7 @@ Future<_SmokeResult> _executeIsolated({
         );
       }
       final commandResult = await Process.run(
-        invocation.$1,
+        platformExecutable(invocation.$1),
         invocation.$2,
         workingDirectory: isolatedPackage.path,
       );

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'src/platform_executable.dart';
+
 Future<void> main() async {
   try {
     final passed = await runVerificationWithExampleBuildCleanup(
@@ -263,7 +265,7 @@ class ExampleBuildCleanupResult {
 Future<bool> _run(_VerificationCommand command) async {
   stdout.writeln('==> ${command.label}');
   final process = await Process.start(
-    command.executable,
+    platformExecutable(command.executable),
     command.arguments,
     workingDirectory: command.workingDirectory,
     mode: ProcessStartMode.inheritStdio,

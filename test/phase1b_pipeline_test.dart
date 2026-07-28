@@ -8,10 +8,17 @@ import 'package:yaml/yaml.dart';
 import '../tool/src/contract_validation.dart';
 import '../tool/src/doctor.dart';
 import '../tool/src/json_schema_validation.dart';
+import '../tool/src/platform_executable.dart';
 import '../tool/src/public_api_snapshot.dart';
 import '../tool/src/token_generation.dart';
 
 void main() {
+  test('Flutter command resolves to the Windows batch wrapper', () {
+    expect(platformExecutable('flutter', windows: true), 'flutter.bat');
+    expect(platformExecutable('flutter', windows: false), 'flutter');
+    expect(platformExecutable('dart', windows: true), 'dart');
+  });
+
   test('Dart SDK detection supports Windows executable names', () {
     final fixture = Directory.systemTemp.createTempSync(
       'blab-windows-dart-sdk-',
