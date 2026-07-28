@@ -189,7 +189,7 @@ ExampleBuildCleanupResult cleanupExactExampleBuild(Directory repositoryRoot) {
       );
     }
     final canonicalRoot = repositoryRoot.resolveSymbolicLinksSync();
-    final example = Directory('$canonicalRoot/example');
+    final example = Directory('$canonicalRoot${Platform.pathSeparator}example');
     if (FileSystemEntity.typeSync(example.path, followLinks: false) !=
         FileSystemEntityType.directory) {
       return ExampleBuildCleanupResult.failure(
@@ -198,7 +198,7 @@ ExampleBuildCleanupResult cleanupExactExampleBuild(Directory repositoryRoot) {
       );
     }
     final canonicalExample = example.resolveSymbolicLinksSync();
-    final build = Directory('$canonicalExample/build');
+    final build = Directory('$canonicalExample${Platform.pathSeparator}build');
     if (build.path.split(Platform.pathSeparator).last != 'build') {
       return ExampleBuildCleanupResult.failure(
         path: build.path,

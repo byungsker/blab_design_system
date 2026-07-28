@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -7,6 +8,7 @@ import '../tool/src/phase5_compatibility.dart';
 import '../tool/src/phase5_baseline_validation.dart';
 import '../tool/src/phase5_inventory_scope.dart';
 import '../tool/src/phase5_readiness_validation.dart';
+import '../tool/capture_package_dry_run.dart' as package_dry_run_capture;
 
 const _zeroSha256 =
     '0000000000000000000000000000000000000000000000000000000000000000';
@@ -127,7 +129,7 @@ void main() {
     });
 
     test(
-      'diff hygiene defaults to the active TDC base instead of stale refs',
+      'diff hygiene uses the active TDC base and rejects caller overrides',
       () async {
         final activeTdc =
             loadYaml(
@@ -138,13 +140,6 @@ void main() {
                 as YamlMap;
         final expectedBase =
             ((activeTdc['delivery'] as YamlMap)['expected_base_sha'] as String);
-        final localMain = await Process.run('git', <String>[
-          'rev-parse',
-          '--verify',
-          'main',
-        ]);
-        expect(localMain.exitCode, 0);
-        expect((localMain.stdout as String).trim(), isNot(expectedBase));
 
         final result = await Process.run('dart', <String>[
           'run',
@@ -155,8 +150,53 @@ void main() {
           result.stdout,
           contains('BLDS diff hygiene passed against $expectedBase'),
         );
+
+        final rejectedOverride = await Process.run(
+          'dart',
+          <String>['run', 'tool/validate_diff_hygiene.dart'],
+          environment: <String, String>{
+            ...Platform.environment,
+            'BLDS_DIFF_BASE': 'HEAD',
+          },
+        );
+        expect(rejectedOverride.exitCode, 1);
+        expect(
+          '${rejectedOverride.stdout}${rejectedOverride.stderr}',
+          contains('could not resolve a comparison base'),
+        );
       },
     );
+
+    test('package identity ignores only host-dependent compressed size', () {
+      final recorded = <String, Object?>{
+        'schema': 'blab.package-dry-run-inventory/v1',
+        'compressed_archive_size': '123 KB',
+        'compressed_archive_size_scope':
+            'informational-platform-dependent-local-observation',
+        'file_count': 82,
+        'name_manifest_sha256': 'names',
+        'content_manifest_sha256': 'content',
+      };
+      final anotherHost = Map<String, Object?>.of(recorded)
+        ..['compressed_archive_size'] = '121 KB';
+      expect(
+        package_dry_run_capture.packageDryRunInventoriesMatchStable(
+          jsonEncode(recorded),
+          anotherHost,
+        ),
+        isTrue,
+      );
+
+      final changedContent = Map<String, Object?>.of(anotherHost)
+        ..['content_manifest_sha256'] = 'changed';
+      expect(
+        package_dry_run_capture.packageDryRunInventoriesMatchStable(
+          jsonEncode(recorded),
+          changedContent,
+        ),
+        isFalse,
+      );
+    });
   });
 
   group('Phase 5 compatibility classifier', () {
@@ -517,7 +557,7 @@ tokens:
     );
 
     test(
-      'readiness package summary fails closed on size and file-count drift',
+      'readiness package summary fails on file-count and clean-state drift',
       () {
         final fixture = _fixture();
         addTearDown(() => fixture.deleteSync(recursive: true));
@@ -536,9 +576,15 @@ tokens:
           '${fixture.path}/contracts/release/phase5-readiness.yaml',
         );
         final canonical = readiness.readAsStringSync();
-        for (final drift in const ['122kb-82-files', '123kb-81-files']) {
+        for (final drift in const [
+          '81-files-deterministic-digests-clean-git-no-publication',
+          '82-files-deterministic-digests-dirty-git-warning-no-publication',
+        ]) {
           readiness.writeAsStringSync(
-            canonical.replaceFirst('123kb-82-files', drift),
+            canonical.replaceFirst(
+              '82-files-deterministic-digests-clean-git-no-publication',
+              drift,
+            ),
           );
           expect(
             validatePackageDryRunOnly(fixture),

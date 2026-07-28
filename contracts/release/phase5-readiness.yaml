@@ -17,7 +17,7 @@ local_preparation:
   changelog: "implemented"
   compatibility_matrix: "implemented"
   release_checklist: "implemented-blocked"
-  package_dry_run: "123kb-82-files-deterministic-digests-clean-git-no-publication"
+  package_dry_run: "82-files-deterministic-digests-clean-git-no-publication"
   rights_provenance: "implemented-with-human-unknowns"
   notices: "implemented-draft"
   sbom: "implemented-local-resolution-inventory"

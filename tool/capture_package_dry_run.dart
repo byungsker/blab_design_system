@@ -45,6 +45,8 @@ Future<void> main(List<String> arguments) async {
     'exit_code': result.exitCode,
     'archive_name': 'blab_design_system-0.2.0.tar.gz',
     'compressed_archive_size': compressed,
+    'compressed_archive_size_scope':
+        'informational-platform-dependent-local-observation',
     'warning_ids': warnings,
     'file_count': files.length,
     'name_manifest_sha256': sha256
@@ -64,7 +66,8 @@ Future<void> main(List<String> arguments) async {
     file
       ..parent.createSync(recursive: true)
       ..writeAsStringSync(encoded, flush: true);
-  } else if (!file.existsSync() || file.readAsStringSync() != encoded) {
+  } else if (!file.existsSync() ||
+      !packageDryRunInventoriesMatchStable(file.readAsStringSync(), document)) {
     stderr.writeln(
       'Package dry-run inventory drift detected. Run '
       '`dart run tool/capture_package_dry_run.dart --write`.',
@@ -78,6 +81,26 @@ Future<void> main(List<String> arguments) async {
     '${result.exitCode}, warnings ${warnings.join(', ')}. No publication '
     'was performed.',
   );
+}
+
+bool packageDryRunInventoriesMatchStable(
+  String recordedSource,
+  Map<String, Object?> observed,
+) {
+  final recordedValue = jsonDecode(recordedSource);
+  if (recordedValue is! Map) {
+    return false;
+  }
+  final recorded = recordedValue.map(
+    (key, value) => MapEntry(key.toString(), value),
+  );
+  final recordedSize = recorded.remove('compressed_archive_size');
+  final observedStable = Map<String, Object?>.of(observed)
+    ..remove('compressed_archive_size');
+  return recordedSize is String &&
+      recordedSize.isNotEmpty &&
+      const JsonEncoder().convert(recorded) ==
+          const JsonEncoder().convert(observedStable);
 }
 
 List<String> _parseArchiveFiles(String output) {

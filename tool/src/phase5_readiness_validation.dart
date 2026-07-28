@@ -808,17 +808,13 @@ void _validatePackageDryRun(Directory root, List<String> errors) {
     if (compressedSize is! String || fileCount is! int) {
       errors.add('Canonical package inventory size or file count is invalid.');
     } else {
-      final sizeSlug = compressedSize.toLowerCase().replaceAll(
-        RegExp(r'\s+'),
-        '',
-      );
       final rawWarnings = inventory['warning_ids'];
       final warningSlug =
           rawWarnings is List && rawWarnings.contains('dirty-git-state')
           ? 'dirty-git-warning'
           : 'clean-git';
       final expectedSummary =
-          '$sizeSlug-$fileCount-files-deterministic-digests-'
+          '$fileCount-files-deterministic-digests-'
           '$warningSlug-no-publication';
       if (localPreparation['package_dry_run'] != expectedSummary) {
         errors.add(
@@ -835,6 +831,15 @@ void _validatePackageDryRun(Directory root, List<String> errors) {
       boundary['release_ready'] != false ||
       boundary['publication_ready'] != false) {
     errors.add('Package dry-run authority boundary was weakened.');
+  }
+  if (inventory['compressed_archive_size_scope'] !=
+          'informational-platform-dependent-local-observation' ||
+      archive['compressed_size_scope'] !=
+          inventory['compressed_archive_size_scope']) {
+    errors.add(
+      'Compressed package size must remain a platform-dependent local '
+      'observation.',
+    );
   }
   if (metadata['exit_code'] != inventory['exit_code'] ||
       archive['archive_name'] != inventory['archive_name'] ||

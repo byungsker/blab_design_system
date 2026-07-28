@@ -20,7 +20,9 @@ release, publication, Git, credential, registry, or consumer authority.
   SPDX, CycloneDX, and unsigned attestation templates.
 - [x] Package is aligned to the accepted repository-only `0.2.0` target and
   remains local-unreleased.
-- [x] Nonpublishing dry-run inventory reduced from 7 MB to 123 KB compressed
+- [x] Nonpublishing dry-run inventory reduced from 7 MB to an observed 123 KB
+      compressed on the capture host; cross-host identity uses deterministic
+      file-name and content-manifest digests
   after candidate process-only exclusions; 82 files remain and the `doc`
   convention warning is resolved. The compatibility baseline, capture
   artifacts, test/tool evidence, and internal authority packets are excluded.

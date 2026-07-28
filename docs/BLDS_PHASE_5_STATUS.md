@@ -96,7 +96,8 @@ unchanged. Design and Quality re-review remain required.
   exposed a 7 MB archive containing repository-only font/golden evidence plus
   the `docs` layout warning. A scoped `.pubignore` and conventional
   `doc/README.md` index and candidate process-only exclusions reduced the
-  latest captured inventory to 82 files and 123 KB compressed while preserving
+  latest captured inventory to 82 files and an observed 123 KB compressed on
+  the capture host while preserving
   runtime, candidate contracts/schemas, example, and root
   notices. The test fixtures, goldens, root generated evidence, API snapshot,
   build/recovery state, and `.codex` are absent. The only remaining dry-run
@@ -104,7 +105,8 @@ unchanged. Design and Quality re-review remain required.
   exits 0 without publishing. Exact package composition remains
   TDC/DevOps/human-authority bound. Package-capture files
   are themselves excluded, eliminating self-reference; two consecutive runs
-  match deterministic archive-name and content-manifest digests.
+  match deterministic archive-name and content-manifest digests. Compressed
+  size remains informational because archive compression varies by host.
 
 ## Negative gates
 
