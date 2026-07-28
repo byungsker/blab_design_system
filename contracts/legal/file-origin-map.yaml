@@ -1454,7 +1454,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "3fd59665763b00e320b1b70978768c0378a80042f6ba1615b52e08e30629a7bd"
+      "sha256": "0698c67a301ac5d4c0d1b56cb27fb5e668567ef236d6c93e21bb4504e9b056aa"
     },
     {
       "path": "tool/src/platform_executable.dart",
