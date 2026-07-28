@@ -1300,7 +1300,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "eec58ef5ad0498247c289f6955371a274cd24443da05124f3e7efe3043d8cac2"
+      "sha256": "a49ce8223bd5e406d6f183c3085412e7b710ae0cf795a8e91f4ca099bcfa2365"
     },
     {
       "path": "test/phase2_foundation_test.dart",
@@ -1335,7 +1335,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "a451a51ebcf66ab27a16b7eec8789272e126fe09a8ed45002a973b800ec41335"
+      "sha256": "f0edae33546167717f1c92a86810040fc2ff855119ae0a0ddff85ae3c9e85689"
     },
     {
       "path": "test/support/phase4_candidate_harness.dart",
@@ -1468,7 +1468,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "419a4fcb74db88b9cd2a6576a34a5c0bb6f8e7f1beb70832347b663ec1373e8f"
+      "sha256": "f4002b9b0473cc3409d98e19ba6cf737a31c4439833b873b02da73a4299a56e5"
     },
     {
       "path": "tool/src/token_generation.dart",

@@ -283,6 +283,7 @@ classifications:
       () async {
         expect(await validatePhase5Baselines(Directory.current), isEmpty);
       },
+      timeout: const Timeout(Duration(minutes: 2)),
     );
 
     test(

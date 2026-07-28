@@ -8,9 +8,26 @@ import 'package:yaml/yaml.dart';
 import '../tool/src/contract_validation.dart';
 import '../tool/src/doctor.dart';
 import '../tool/src/json_schema_validation.dart';
+import '../tool/src/public_api_snapshot.dart';
 import '../tool/src/token_generation.dart';
 
 void main() {
+  test('Dart SDK detection supports Windows executable names', () {
+    final fixture = Directory.systemTemp.createTempSync(
+      'blab-windows-dart-sdk-',
+    );
+    addTearDown(() => fixture.deleteSync(recursive: true));
+    Directory('${fixture.path}${Platform.pathSeparator}lib').createSync();
+    final executable = File(
+      '${fixture.path}${Platform.pathSeparator}bin'
+      '${Platform.pathSeparator}dart.exe',
+    )..createSync(recursive: true);
+    executable.writeAsStringSync('fixture');
+
+    expect(isDartSdkDirectory(fixture, executableName: 'dart.exe'), isTrue);
+    expect(isDartSdkDirectory(fixture, executableName: 'dart'), isFalse);
+  });
+
   group('Phase 1B deterministic outputs', () {
     test('owns every approved local output with stable structured data', () {
       final first = buildGeneratedTokenOutputs(Directory.current);

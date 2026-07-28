@@ -12,8 +12,9 @@ export 'public_api_compatibility.dart';
 
 Future<String> buildPublicApiSnapshot(Directory repositoryRoot) async {
   final root = repositoryRoot.absolute;
-  final libraryPath = '${root.path}/$publicLibraryPath';
-  if (!File(libraryPath).existsSync()) {
+  final library = File.fromUri(root.uri.resolve(publicLibraryPath));
+  final libraryPath = library.path;
+  if (!library.existsSync()) {
     throw StateError('Missing public library: $libraryPath');
   }
 
@@ -70,12 +71,14 @@ Future<String> buildPublicApiSnapshot(Directory repositoryRoot) async {
 String _findDartSdkPath() {
   var directory = File(Platform.resolvedExecutable).parent;
   while (true) {
-    if (_isDartSdk(directory)) {
+    if (isDartSdkDirectory(directory)) {
       return directory.path;
     }
 
-    final siblingSdk = Directory('${directory.path}/dart-sdk');
-    if (_isDartSdk(siblingSdk)) {
+    final siblingSdk = Directory(
+      '${directory.path}${Platform.pathSeparator}dart-sdk',
+    );
+    if (isDartSdkDirectory(siblingSdk)) {
       return siblingSdk.path;
     }
 
@@ -91,9 +94,14 @@ String _findDartSdkPath() {
   );
 }
 
-bool _isDartSdk(Directory directory) {
-  return File('${directory.path}/bin/dart').existsSync() &&
-      Directory('${directory.path}/lib').existsSync();
+bool isDartSdkDirectory(Directory directory, {String? executableName}) {
+  final dartExecutable =
+      executableName ?? (Platform.isWindows ? 'dart.exe' : 'dart');
+  return File(
+        '${directory.path}${Platform.pathSeparator}bin'
+        '${Platform.pathSeparator}$dartExecutable',
+      ).existsSync() &&
+      Directory('${directory.path}${Platform.pathSeparator}lib').existsSync();
 }
 
 void _writeElement(StringBuffer buffer, Element element) {
