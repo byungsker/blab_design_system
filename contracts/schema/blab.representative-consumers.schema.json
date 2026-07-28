@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://byungskerlab.local/blab/representative-consumers.schema.json",
+  "title": "Blab representative consumer evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "metadata", "policy", "consumers"],
+  "properties": {
+    "schema": {"const": "blab.representative-consumers/v1"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "status", "as_of", "source"],
+      "properties": {
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "status": {"const": "one-confirmed-direct-consumer-smoke-pending"},
+        "as_of": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+        "source": {"type": "string", "minLength": 1}
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mutation", "isolation", "clean_source_required", "pinned_commit_required", "custody_required", "default_execution"],
+      "properties": {
+        "mutation": {"const": "consumer-worktree-forbidden"},
+        "isolation": {"const": "temporary-archive-only"},
+        "clean_source_required": {"const": true},
+        "pinned_commit_required": {"const": true},
+        "custody_required": {"const": "confirmed"},
+        "default_execution": {"const": "inspect-only"}
+      }
+    },
+    "consumers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "direct_consumer", "repository", "commit", "local_path", "package_path", "custody", "execution_authority", "worktree_requirement", "smoke", "evidence"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "direct_consumer": {"type": "boolean"},
+          "repository": {"type": "string", "minLength": 1},
+          "commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+          "local_path": {"type": ["string", "null"]},
+          "package_path": {"type": ["string", "null"]},
+          "custody": {"enum": ["confirmed", "unverified", "missing"]},
+          "execution_authority": {"enum": ["confirmed", "unverified", "missing"]},
+          "worktree_requirement": {"const": "clean-and-head-matches-pin"},
+          "smoke": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "commands"],
+            "properties": {
+              "status": {"enum": ["pending", "not-applicable-missing-consumer"]},
+              "commands": {
+                "type": "array",
+                "items": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    }
+  }
+}

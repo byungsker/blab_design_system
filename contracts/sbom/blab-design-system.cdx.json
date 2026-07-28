@@ -1,0 +1,1105 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:00000000-0000-5000-8000-a9427f04b805",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-28T00:00:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "BLDS Phase5 inventory generator",
+          "version": "0.1.0"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "blab:scope",
+        "value": "local-unreleased-resolution-not-authoritative-release-composition"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/_fe_analyzer_shared@93.0.0",
+      "name": "_fe_analyzer_shared",
+      "version": "93.0.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/_fe_analyzer_shared@93.0.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/analyzer@10.0.1",
+      "name": "analyzer",
+      "version": "10.0.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "dev"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/analyzer@10.0.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/async@2.13.1",
+      "name": "async",
+      "version": "2.13.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/async@2.13.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/blab_design_system@0.2.0",
+      "name": "blab_design_system",
+      "version": "0.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "root"
+        },
+        {
+          "name": "blab:source",
+          "value": "root"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "project-license-observed-holder-authority-unresolved"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/boolean_selector@2.1.2",
+      "name": "boolean_selector",
+      "version": "2.1.2",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/boolean_selector@2.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/characters@1.4.0",
+      "name": "characters",
+      "version": "1.4.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/characters@1.4.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/clock@1.1.2",
+      "name": "clock",
+      "version": "1.1.2",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/clock@1.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/collection@1.19.1",
+      "name": "collection",
+      "version": "1.19.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/collection@1.19.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/convert@3.1.2",
+      "name": "convert",
+      "version": "3.1.2",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/convert@3.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/crypto@3.0.7",
+      "name": "crypto",
+      "version": "3.0.7",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "dev"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/crypto@3.0.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/fake_async@1.3.3",
+      "name": "fake_async",
+      "version": "1.3.3",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/fake_async@1.3.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/file@7.0.1",
+      "name": "file",
+      "version": "7.0.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/file@7.0.1"
+    },
+    {
+      "type": "framework",
+      "bom-ref": "pkg:pub/flutter@0.0.0",
+      "name": "flutter",
+      "version": "0.0.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "direct"
+        },
+        {
+          "name": "blab:source",
+          "value": "sdk"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/flutter_lints@6.0.0",
+      "name": "flutter_lints",
+      "version": "6.0.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "dev"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/flutter_lints@6.0.0"
+    },
+    {
+      "type": "framework",
+      "bom-ref": "pkg:pub/flutter_test@0.0.0",
+      "name": "flutter_test",
+      "version": "0.0.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "dev"
+        },
+        {
+          "name": "blab:source",
+          "value": "sdk"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/glob@2.1.3",
+      "name": "glob",
+      "version": "2.1.3",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/glob@2.1.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/leak_tracker@11.0.2",
+      "name": "leak_tracker",
+      "version": "11.0.2",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/leak_tracker@11.0.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/leak_tracker_flutter_testing@3.0.10",
+      "name": "leak_tracker_flutter_testing",
+      "version": "3.0.10",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/leak_tracker_flutter_testing@3.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/leak_tracker_testing@3.0.2",
+      "name": "leak_tracker_testing",
+      "version": "3.0.2",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/leak_tracker_testing@3.0.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/lints@6.1.0",
+      "name": "lints",
+      "version": "6.1.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/lints@6.1.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/matcher@0.12.17",
+      "name": "matcher",
+      "version": "0.12.17",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/matcher@0.12.17"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/material_color_utilities@0.11.1",
+      "name": "material_color_utilities",
+      "version": "0.11.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/material_color_utilities@0.11.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/meta@1.17.0",
+      "name": "meta",
+      "version": "1.17.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/meta@1.17.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/package_config@2.2.0",
+      "name": "package_config",
+      "version": "2.2.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/package_config@2.2.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/path@1.9.1",
+      "name": "path",
+      "version": "1.9.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/path@1.9.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/pub_semver@2.2.0",
+      "name": "pub_semver",
+      "version": "2.2.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/pub_semver@2.2.0"
+    },
+    {
+      "type": "framework",
+      "bom-ref": "pkg:pub/sky_engine@0.0.0",
+      "name": "sky_engine",
+      "version": "0.0.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "sdk"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/source_span@1.10.2",
+      "name": "source_span",
+      "version": "1.10.2",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/source_span@1.10.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/stack_trace@1.12.1",
+      "name": "stack_trace",
+      "version": "1.12.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/stack_trace@1.12.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/stream_channel@2.1.4",
+      "name": "stream_channel",
+      "version": "2.1.4",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/stream_channel@2.1.4"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/string_scanner@1.4.1",
+      "name": "string_scanner",
+      "version": "1.4.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/string_scanner@1.4.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/term_glyph@1.2.2",
+      "name": "term_glyph",
+      "version": "1.2.2",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/term_glyph@1.2.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/test_api@0.7.7",
+      "name": "test_api",
+      "version": "0.7.7",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/test_api@0.7.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/typed_data@1.4.0",
+      "name": "typed_data",
+      "version": "1.4.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/typed_data@1.4.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/vector_math@2.2.0",
+      "name": "vector_math",
+      "version": "2.2.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/vector_math@2.2.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/vm_service@15.2.0",
+      "name": "vm_service",
+      "version": "15.2.0",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/vm_service@15.2.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/watcher@1.2.1",
+      "name": "watcher",
+      "version": "1.2.1",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "transitive"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/watcher@1.2.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pub/yaml@3.1.3",
+      "name": "yaml",
+      "version": "3.1.3",
+      "properties": [
+        {
+          "name": "blab:dependency-kind",
+          "value": "dev"
+        },
+        {
+          "name": "blab:source",
+          "value": "hosted"
+        },
+        {
+          "name": "blab:license-review",
+          "value": "not-reviewed-noassertion"
+        }
+      ],
+      "purl": "pkg:pub/yaml@3.1.3"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:pub/_fe_analyzer_shared@93.0.0",
+      "dependsOn": [
+        "pkg:pub/meta@1.17.0",
+        "pkg:pub/source_span@1.10.2"
+      ]
+    },
+    {
+      "ref": "pkg:pub/analyzer@10.0.1",
+      "dependsOn": [
+        "pkg:pub/_fe_analyzer_shared@93.0.0",
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/convert@3.1.2",
+        "pkg:pub/crypto@3.0.7",
+        "pkg:pub/glob@2.1.3",
+        "pkg:pub/meta@1.17.0",
+        "pkg:pub/package_config@2.2.0",
+        "pkg:pub/path@1.9.1",
+        "pkg:pub/pub_semver@2.2.0",
+        "pkg:pub/source_span@1.10.2",
+        "pkg:pub/watcher@1.2.1",
+        "pkg:pub/yaml@3.1.3"
+      ]
+    },
+    {
+      "ref": "pkg:pub/async@2.13.1",
+      "dependsOn": [
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/meta@1.17.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/blab_design_system@0.2.0",
+      "dependsOn": [
+        "pkg:pub/analyzer@10.0.1",
+        "pkg:pub/crypto@3.0.7",
+        "pkg:pub/flutter@0.0.0",
+        "pkg:pub/flutter_lints@6.0.0",
+        "pkg:pub/flutter_test@0.0.0",
+        "pkg:pub/yaml@3.1.3"
+      ]
+    },
+    {
+      "ref": "pkg:pub/boolean_selector@2.1.2",
+      "dependsOn": [
+        "pkg:pub/source_span@1.10.2",
+        "pkg:pub/string_scanner@1.4.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/characters@1.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/clock@1.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/collection@1.19.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/convert@3.1.2",
+      "dependsOn": [
+        "pkg:pub/typed_data@1.4.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/crypto@3.0.7",
+      "dependsOn": [
+        "pkg:pub/typed_data@1.4.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/fake_async@1.3.3",
+      "dependsOn": [
+        "pkg:pub/clock@1.1.2",
+        "pkg:pub/collection@1.19.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/file@7.0.1",
+      "dependsOn": [
+        "pkg:pub/meta@1.17.0",
+        "pkg:pub/path@1.9.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/flutter@0.0.0",
+      "dependsOn": [
+        "pkg:pub/characters@1.4.0",
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/material_color_utilities@0.11.1",
+        "pkg:pub/meta@1.17.0",
+        "pkg:pub/sky_engine@0.0.0",
+        "pkg:pub/vector_math@2.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/flutter_lints@6.0.0",
+      "dependsOn": [
+        "pkg:pub/lints@6.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/flutter_test@0.0.0",
+      "dependsOn": [
+        "pkg:pub/clock@1.1.2",
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/fake_async@1.3.3",
+        "pkg:pub/flutter@0.0.0",
+        "pkg:pub/leak_tracker_flutter_testing@3.0.10",
+        "pkg:pub/matcher@0.12.17",
+        "pkg:pub/meta@1.17.0",
+        "pkg:pub/path@1.9.1",
+        "pkg:pub/stack_trace@1.12.1",
+        "pkg:pub/stream_channel@2.1.4",
+        "pkg:pub/test_api@0.7.7",
+        "pkg:pub/vector_math@2.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/glob@2.1.3",
+      "dependsOn": [
+        "pkg:pub/async@2.13.1",
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/file@7.0.1",
+        "pkg:pub/path@1.9.1",
+        "pkg:pub/string_scanner@1.4.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/leak_tracker@11.0.2",
+      "dependsOn": [
+        "pkg:pub/clock@1.1.2",
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/meta@1.17.0",
+        "pkg:pub/path@1.9.1",
+        "pkg:pub/vm_service@15.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/leak_tracker_flutter_testing@3.0.10",
+      "dependsOn": [
+        "pkg:pub/flutter@0.0.0",
+        "pkg:pub/leak_tracker@11.0.2",
+        "pkg:pub/leak_tracker_testing@3.0.2",
+        "pkg:pub/matcher@0.12.17",
+        "pkg:pub/meta@1.17.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/leak_tracker_testing@3.0.2",
+      "dependsOn": [
+        "pkg:pub/leak_tracker@11.0.2",
+        "pkg:pub/matcher@0.12.17",
+        "pkg:pub/meta@1.17.0"
+      ]
+    },
+    {
+      "ref": "pkg:pub/lints@6.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/matcher@0.12.17",
+      "dependsOn": [
+        "pkg:pub/async@2.13.1",
+        "pkg:pub/meta@1.17.0",
+        "pkg:pub/stack_trace@1.12.1",
+        "pkg:pub/term_glyph@1.2.2",
+        "pkg:pub/test_api@0.7.7"
+      ]
+    },
+    {
+      "ref": "pkg:pub/material_color_utilities@0.11.1",
+      "dependsOn": [
+        "pkg:pub/collection@1.19.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/meta@1.17.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/package_config@2.2.0",
+      "dependsOn": [
+        "pkg:pub/path@1.9.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/path@1.9.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/pub_semver@2.2.0",
+      "dependsOn": [
+        "pkg:pub/collection@1.19.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/sky_engine@0.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/source_span@1.10.2",
+      "dependsOn": [
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/path@1.9.1",
+        "pkg:pub/term_glyph@1.2.2"
+      ]
+    },
+    {
+      "ref": "pkg:pub/stack_trace@1.12.1",
+      "dependsOn": [
+        "pkg:pub/path@1.9.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/stream_channel@2.1.4",
+      "dependsOn": [
+        "pkg:pub/async@2.13.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/string_scanner@1.4.1",
+      "dependsOn": [
+        "pkg:pub/source_span@1.10.2"
+      ]
+    },
+    {
+      "ref": "pkg:pub/term_glyph@1.2.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/test_api@0.7.7",
+      "dependsOn": [
+        "pkg:pub/async@2.13.1",
+        "pkg:pub/boolean_selector@2.1.2",
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/meta@1.17.0",
+        "pkg:pub/source_span@1.10.2",
+        "pkg:pub/stack_trace@1.12.1",
+        "pkg:pub/stream_channel@2.1.4",
+        "pkg:pub/string_scanner@1.4.1",
+        "pkg:pub/term_glyph@1.2.2"
+      ]
+    },
+    {
+      "ref": "pkg:pub/typed_data@1.4.0",
+      "dependsOn": [
+        "pkg:pub/collection@1.19.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/vector_math@2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/vm_service@15.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pub/watcher@1.2.1",
+      "dependsOn": [
+        "pkg:pub/async@2.13.1",
+        "pkg:pub/path@1.9.1"
+      ]
+    },
+    {
+      "ref": "pkg:pub/yaml@3.1.3",
+      "dependsOn": [
+        "pkg:pub/collection@1.19.1",
+        "pkg:pub/source_span@1.10.2",
+        "pkg:pub/string_scanner@1.4.1"
+      ]
+    }
+  ]
+}

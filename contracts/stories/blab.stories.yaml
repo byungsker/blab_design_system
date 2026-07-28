@@ -1,0 +1,138 @@
+schema: "blab.story-manifest/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "implemented-local-candidate-evidence"
+  contract_ref: "contracts/components/state-applicability.yaml"
+  registration_source: "example/lib/story_catalog.dart"
+  determinism:
+    network: "forbidden"
+    clock: "fixed-or-not-used"
+    randomness: "forbidden"
+    customer_data: "forbidden"
+  candidate_capture_scope:
+    shared_harness: "test/support/phase4_candidate_harness.dart"
+    required_component_ids: ["button", "text-field", "segmented-control", "tab-bar", "bottom-bar", "pressable-wrapper", "card", "snackbar", "keyboard-accessory-bar"]
+    fixture_modes: ["en-US", "ko-KR", "synthetic-40-percent-expansion", "ar-RTL-bidi", "text-scale-2", "reduced-motion", "360-narrow"]
+    evidence: "Candidate captures assert all nine public families are fully framed and use public API for a persistent Snackbar under the same MaterialApp.builder overlay-root scenario context."
+    claim: "deterministic-reproducibility-only"
+    excluded_claims: ["Design-approved visual conformance", "accessibility conformance", "runtime font policy", "locale translation approval"]
+
+unsupported_fixture_categories:
+  - id: "loading"
+    reason: "No current public component has implemented loading evidence; Button loading-busy remains conditional and unclaimed."
+  - id: "no-results"
+    reason: "No current public component contract defines a no-results state; this remains a product pattern rather than a fabricated widget state."
+
+stories:
+  - component_id: "button"
+    public_type: "BLabButton"
+    story_id: "button"
+    source: "example/lib/stories/button_story.dart"
+    fixtures:
+      - {id: "button.default", label: "Default and destructive variants", states: ["default", "destructive-variant"], setup: "Enabled callbacks; fixed labels; no external effects."}
+      - {id: "button.hover", label: "Pointer hover", states: ["hover-pointer"], setup: "Mouse pointer enters the enabled primary button."}
+      - {id: "button.pressed", label: "Pressed", states: ["pressed"], setup: "Pointer-down is held without activation."}
+      - {id: "button.focus", label: "Keyboard-visible focus", states: ["focus"], setup: "Tab traversal focuses the enabled primary button."}
+      - {id: "button.disabled", label: "Disabled", states: ["disabled"], setup: "onPressed is null."}
+
+  - component_id: "text-field"
+    public_type: "BLabTextField"
+    story_id: "text-field"
+    source: "example/lib/stories/text_field_story.dart"
+    fixtures:
+      - {id: "text-field.empty", label: "Empty", states: ["empty"], setup: "Controller text is the empty string."}
+      - {id: "text-field.populated", label: "Populated", states: ["populated"], setup: "Controller has fixed sample text."}
+      - {id: "text-field.hover", label: "Pointer hover", states: ["hover-pointer"], setup: "Mouse pointer enters an enabled unfocused field."}
+      - {id: "text-field.focus", label: "Keyboard-visible focus", states: ["focus"], setup: "Tab traversal focuses an enabled field."}
+      - {id: "text-field.read-only", label: "Read only", states: ["read-only"], setup: "readOnly is true with fixed text."}
+      - {id: "text-field.obscured", label: "Obscured", states: ["obscured"], setup: "obscureText is true with fixed text."}
+      - {id: "text-field.multiline", label: "Multiline", states: ["multiline"], setup: "maxLines is four."}
+      - {id: "text-field.disabled", label: "Disabled", states: ["disabled"], setup: "enabled is false."}
+      - {id: "text-field.required", label: "Required", states: ["required"], setup: "isRequired is true."}
+      - {id: "text-field.invalid", label: "Invalid with error help", states: ["invalid", "error-help"], setup: "Fixed invalid value and localized errorText are supplied."}
+      - {id: "text-field.clear", label: "Clear action", states: ["clear-action"], setup: "Enabled populated field receives pointer or keyboard activation on its clear action."}
+
+  - component_id: "segmented-control"
+    public_type: "BLabSegmentedControl"
+    story_id: "segmented-control"
+    source: "example/lib/stories/segmented_story.dart"
+    fixtures:
+      - {id: "segmented-control.default", label: "Controlled selected and unselected", states: ["unselected", "selected", "controlled-selection"], setup: "Fixed items and controlled selectedValue."}
+      - {id: "segmented-control.hover", label: "Pointer hover", states: ["hover-pointer"], setup: "Mouse pointer enters an enabled unselected item."}
+      - {id: "segmented-control.pressed", label: "Pressed", states: ["pressed"], setup: "Pointer-down is held on an enabled unselected item."}
+      - {id: "segmented-control.focus", label: "Keyboard focus and roving focus", states: ["keyboard-visible-focus", "keyboard-roving-focus"], setup: "Tab enters the control and arrow navigation moves focus."}
+      - {id: "segmented-control.disabled", label: "Disabled item", states: ["disabled-item-or-control"], setup: "One fixed item has enabled false."}
+      - {id: "segmented-control.scroll-overflow", label: "Owned narrow overflow", states: ["scrollable-overflow"], setup: "Five fixed items render in an 80 logical-pixel viewport."}
+
+  - component_id: "tab-bar"
+    public_type: "BLabTabBar"
+    story_id: "tab-bar"
+    source: "example/lib/stories/tab_bar_story.dart"
+    fixtures:
+      - {id: "tab-bar.default", label: "Controller-selected and unselected", states: ["unselected", "selected-current", "controller-controlled-selection"], setup: "Fixed labels and TabController index."}
+      - {id: "tab-bar.hover", label: "Pointer hover", states: ["hover-pointer"], setup: "Mouse pointer enters an unselected tab."}
+      - {id: "tab-bar.pressed", label: "Pressed", states: ["pressed"], setup: "Pointer-down is held on an unselected tab."}
+      - {id: "tab-bar.focus", label: "Keyboard focus and roving focus", states: ["keyboard-visible-focus", "keyboard-roving-focus"], setup: "Tab enters the tab list and arrow navigation moves focus."}
+      - {id: "tab-bar.scroll-overflow", label: "Scrollable overflow", states: ["scrollable-overflow-when-isScrollable"], setup: "Six fixed labels render with isScrollable true."}
+
+  - component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    story_id: "bottom-bar"
+    source: "example/lib/stories/bottom_bar_story.dart"
+    fixtures:
+      - {id: "bottom-bar.default", label: "Controlled selected and unselected tabs", states: ["unselected", "selected-current"], setup: "Three fixed tabs and controlled selectedIndex."}
+      - {id: "bottom-bar.hover", label: "Pointer hover", states: ["hover-pointer"], setup: "Mouse pointer enters an unselected tab."}
+      - {id: "bottom-bar.pressed", label: "Pressed", states: ["pressed"], setup: "Pointer-down is held on an unselected tab."}
+      - {id: "bottom-bar.focus", label: "Keyboard-visible focus", states: ["focus"], setup: "Tab traversal focuses a tab or optional action."}
+      - {id: "bottom-bar.drag", label: "Long-press drag selection", states: ["long-press-drag"], setup: "Long press begins and fixed pointer positions move across tabs."}
+      - {id: "bottom-bar.action", label: "Optional action", states: ["optional-action-with-callback-and-localized-label"], setup: "Action callback and fixed semantic label are supplied."}
+      - {id: "bottom-bar.expanded", label: "Controlled first-tab disclosure", states: ["expanded-with-callback-localized-label-and-controlled-state"], setup: "Chevron callback, localized labels, and controlled expanded state are supplied."}
+
+  - component_id: "pressable-wrapper"
+    public_type: "BLabPressableWrapper"
+    story_id: "pressable-wrapper"
+    source: "example/lib/stories/pressable_story.dart"
+    fixtures:
+      - {id: "pressable-wrapper.default", label: "Default actionable wrapper", states: ["default"], setup: "Fixed child and onTap callback."}
+      - {id: "pressable-wrapper.hover", label: "Pointer hover", states: ["hover-pointer"], setup: "Mouse pointer enters an actionable wrapper."}
+      - {id: "pressable-wrapper.pressed", label: "Pressed", states: ["pressed"], setup: "Pointer-down is held without activation."}
+      - {id: "pressable-wrapper.focus", label: "Keyboard-visible focus", states: ["focus"], setup: "Tab traversal focuses the actionable wrapper."}
+      - {id: "pressable-wrapper.long-press", label: "Long press", states: ["long-press-when-supplied"], setup: "A fixed onLongPress callback is supplied."}
+
+  - component_id: "card"
+    public_type: "BLabCard"
+    story_id: "card"
+    source: "example/lib/stories/card_story.dart"
+    fixtures:
+      - {id: "card.default", label: "Static default", states: ["static-default"], setup: "No action callbacks are supplied."}
+      - {id: "card.hover", label: "Actionable pointer hover", states: ["interactive-hover-when-actionable"], setup: "Mouse pointer enters a card with onTap."}
+      - {id: "card.pressed", label: "Actionable pressed", states: ["interactive-pressed-when-actionable"], setup: "Pointer-down is held on a card with onTap."}
+      - {id: "card.focus", label: "Actionable keyboard focus", states: ["interactive-focus-when-actionable"], setup: "Tab traversal focuses a card with onTap."}
+      - {id: "card.long-press", label: "Long press", states: ["long-press"], setup: "A fixed onLongPress callback is supplied."}
+      - {id: "card.role", label: "Role determined by action", states: ["role-determined-by-action"], setup: "Separate tap-only, long-press-only, and dual-action fixtures use fixed labels."}
+
+  - component_id: "snackbar"
+    public_type: "BLabSnackbar"
+    story_id: "snackbar"
+    source: "example/lib/stories/snackbar_story.dart"
+    fixtures:
+      - {id: "snackbar.lifecycle", label: "Managed lifecycle", states: ["entering", "visible", "exiting", "programmatic-close"], setup: "Persistent managed snackbar uses controlled pump durations and explicit close."}
+      - {id: "snackbar.types", label: "Status types and live announcement", states: ["success", "error", "warning", "info", "live-announcement"], setup: "Fixed local messages; no network or customer data."}
+      - {id: "snackbar.actions", label: "Action and dismiss", states: ["action", "dismiss"], setup: "Fixed action and dismiss callbacks with localized labels."}
+      - {id: "snackbar.hover", label: "Pointer hover", states: ["hover-pointer", "timer-paused"], setup: "Mouse pointer enters a timed managed snackbar."}
+      - {id: "snackbar.pressed", label: "Pressed", states: ["pressed"], setup: "Pointer-down is held on the action."}
+      - {id: "snackbar.focus", label: "Keyboard-visible focus", states: ["keyboard-visible-focus"], setup: "Tab traversal focuses the action or dismiss control."}
+
+  - component_id: "keyboard-accessory-bar"
+    public_type: "BLabKeyboardAccessoryBar"
+    story_id: "keyboard-accessory-bar"
+    source: "example/lib/stories/keyboard_accessory_story.dart"
+    fixtures:
+      - {id: "keyboard-accessory-bar.default", label: "Complete enabled actions", states: ["default"], setup: "All fixed callbacks and semantic labels are supplied."}
+      - {id: "keyboard-accessory-bar.hover", label: "Pointer hover", states: ["hover-pointer"], setup: "Mouse pointer enters an enabled action."}
+      - {id: "keyboard-accessory-bar.pressed", label: "Pressed", states: ["pressed"], setup: "Pointer-down is held on an enabled action."}
+      - {id: "keyboard-accessory-bar.focus", label: "Keyboard-visible focus", states: ["focus"], setup: "Tab traversal focuses an enabled action."}
+      - {id: "keyboard-accessory-bar.disabled", label: "Per-action disabled", states: ["disabled-per-action"], setup: "Capability flags remain false while Done remains enabled."}
+      - {id: "keyboard-accessory-bar.repeat", label: "Undo and redo repeat", states: ["repeated-action-active-for-undo-redo"], setup: "Fixed long-press repeat cadence is driven by controlled test pumps."}
+      - {id: "keyboard-accessory-bar.scroll-overflow", label: "Conditional narrow overflow", states: ["scrollable-overflow"], setup: "Complete action set renders at fixed 320 and 360 logical-pixel widths."}

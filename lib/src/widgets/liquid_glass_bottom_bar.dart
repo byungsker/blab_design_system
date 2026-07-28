@@ -4,78 +4,43 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// Liquid Glass 스타일 탭 아이템 정의
-///
-/// [BLabBottomBar]에 전달할 탭 항목을 정의합니다.
+import '../foundation/focus_visibility.dart';
+import '../foundation/keyboard_activation.dart';
+import '../foundation/reduced_motion.dart';
+import '../foundation/visual_mode_resolver.dart';
+import '../generated/blab_token_data.g.dart';
+import '../theme/app_motion.dart';
+import '../theme/app_radius.dart';
+import '../theme/app_spacing.dart';
+import '../theme/app_typography.dart';
+import '../theme/blab_token_theme.dart';
+
+/// Defines one product-labeled item in [BLabBottomBar].
 class BLabBottomBarItem {
-  /// 비활성 상태 아이콘
-  final IconData icon;
-
-  /// 활성 상태 아이콘
-  final IconData activeIcon;
-
-  /// 탭 라벨
-  final String label;
-
   const BLabBottomBarItem({
     required this.icon,
     required this.activeIcon,
     required this.label,
   });
+
+  /// Icon used while the item is not selected.
+  final IconData icon;
+
+  /// Icon used while the item is selected.
+  final IconData activeIcon;
+
+  /// Caller-owned, localized product label.
+  final String label;
 }
 
-/// Apple HIG Liquid Glass 스타일 Bottom Navigation Bar
+/// Controlled Blab bottom navigation with supplemental touch drag.
 ///
-/// HIG_LIQUID_GLASS.md 참조:
-/// - Liquid Glass 재질: 반투명 유리, 콘텐츠 위에 떠 있는 형태
-/// - 적응형 색상: 아래 콘텐츠가 밝으면 어둡게, 어두우면 밝게
-  /// - 액션 버튼: 분리된 원형 버튼, 탭 시 콜백 실행 (optional, actionIcon으로 아이콘 커스텀)
-/// - 물방울 확대 애니메이션: 롱프레스로 드래그하며 탭 전환
-/// - 렌즈 효과: 물방울 영역 내 콘텐츠 굴절
-///
-/// 사용 예시:
-/// ```dart
-/// BLabBottomBar(
-///   tabs: const [
-///     BLabBottomBarItem(
-///       icon: Icons.shopping_cart_outlined,
-///       activeIcon: Icons.shopping_cart,
-///       label: 'Carts',
-///     ),
-///     BLabBottomBarItem(
-///       icon: Icons.archive_outlined,
-///       activeIcon: Icons.archive,
-///       label: 'Archive',
-///     ),
-///   ],
-///   selectedIndex: _selectedIndex,
-///   onTabSelected: (index) => setState(() => _selectedIndex = index),
-/// )
-/// ```
+/// [selectedIndex] remains caller-owned. Re-activating the selected item still
+/// invokes [onTabSelected]. The optional action is accessibility-conformant
+/// only when [actionSemanticLabel] is supplied. The optional first-tab
+/// disclosure is conformant only when its callback, localized semantic label,
+/// and expanded state are all supplied.
 class BLabBottomBar extends StatefulWidget {
-  /// 탭 항목 리스트 (최소 2개 이상)
-  final List<BLabBottomBarItem> tabs;
-
-  final int selectedIndex;
-  final ValueChanged<int> onTabSelected;
-
-  /// 액션 버튼 탭 콜백: (버튼 위치, 버튼 크기) 전달
-  /// null이면 액션 버튼을 표시하지 않음
-  final void Function(Offset position, double size)? onSearchTap;
-
-  /// 액션 버튼 아이콘 (기본값: CupertinoIcons.search)
-  /// [onSearchTap]이 null이 아닐 때만 사용됨
-  final IconData? actionIcon;
-
-  /// 첫 번째 탭에 chevron 아이콘 표시 여부 (앱별 커스텀 기능)
-  final bool showFirstTabChevron;
-
-  /// 첫 번째 탭 chevron 탭 콜백
-  final VoidCallback? onFirstTabChevronTap;
-
-  /// 마진 제거 여부 (애니메이션 스택에서 사용 시)
-  final bool noMargin;
-
   const BLabBottomBar({
     super.key,
     required this.tabs,
@@ -86,282 +51,508 @@ class BLabBottomBar extends StatefulWidget {
     this.showFirstTabChevron = false,
     this.onFirstTabChevronTap,
     this.noMargin = false,
-  });
+    this.actionSemanticLabel,
+    this.firstTabChevronSemanticLabel,
+    this.firstTabChevronExpanded,
+  }) : assert(tabs.length >= 2),
+       assert(selectedIndex >= 0 && selectedIndex < tabs.length);
+
+  final List<BLabBottomBarItem> tabs;
+  final int selectedIndex;
+  final ValueChanged<int> onTabSelected;
+
+  /// Optional separate action callback receiving its global origin and size.
+  final void Function(Offset position, double size)? onSearchTap;
+
+  /// Optional action icon. Defaults to [CupertinoIcons.search].
+  final IconData? actionIcon;
+
+  /// Caller-owned localized label for the optional action.
+  ///
+  /// A legacy action without this label remains source-compatible and
+  /// pointer-operable, but is intentionally excluded from conformance claims.
+  final String? actionSemanticLabel;
+
+  /// Whether the legacy first-tab chevron is visible.
+  final bool showFirstTabChevron;
+
+  /// Optional first-tab chevron callback.
+  final VoidCallback? onFirstTabChevronTap;
+
+  /// Caller-owned localized label for the first-tab disclosure.
+  final String? firstTabChevronSemanticLabel;
+
+  /// Controlled expanded state for the first-tab disclosure.
+  final bool? firstTabChevronExpanded;
+
+  /// Removes the component-owned horizontal and safe-area outer spacing.
+  final bool noMargin;
 
   @override
   State<BLabBottomBar> createState() => _BLabBottomBarState();
 }
 
 class _BLabBottomBarState extends State<BLabBottomBar>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _slideAnimation;
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
+  final BLabKeyboardActivationController _keyboardActivation =
+      BLabKeyboardActivationController();
+  final BLabKeyboardActivationController _actionKeyboardActivation =
+      BLabKeyboardActivationController();
+  final BLabKeyboardActivationController _chevronKeyboardActivation =
+      BLabKeyboardActivationController();
+  final BLabFocusVisibilityController _localFocusVisibility =
+      BLabFocusVisibilityController();
+  final List<FocusNode> _focusNodes = <FocusNode>[];
+  final GlobalKey _actionKey = GlobalKey();
+  final FocusNode _actionFocusNode = FocusNode(
+    debugLabel: 'BottomBar optional action',
+  );
+  final FocusNode _chevronFocusNode = FocusNode(
+    debugLabel: 'BottomBar first-tab disclosure',
+  );
 
-  // 롱프레스 드래그 상태
+  late final AnimationController _selectionController;
+  late Animation<double> _selectionAnimation;
+  late int _rovingIndex;
+  int? _hoveredIndex;
+  int? _pressedIndex;
   bool _isDragging = false;
-  double _dragPosition = 0.0;
-  double _tabWidth = 0.0;
-
-  // 검색 버튼 위치 추적
-  final GlobalKey _searchButtonKey = GlobalKey();
+  bool _dragAwaitingControlledReconcile = false;
+  double _dragPosition = 0;
+  double _tabWidth = 0;
+  PointerDeviceKind? _lastPointerKind;
 
   int get _tabCount => widget.tabs.length;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 300),
+    WidgetsBinding.instance.addObserver(this);
+    _rovingIndex = widget.selectedIndex;
+    _reconcileFocusNodes();
+    _selectionController = AnimationController(
+      duration: BLabMotion.durSurface,
       vsync: this,
+    )..value = 1;
+    _selectionAnimation = AlwaysStoppedAnimation<double>(
+      widget.selectedIndex.toDouble(),
     );
-    _slideAnimation = Tween<double>(
-      begin: widget.selectedIndex.toDouble(),
-      end: widget.selectedIndex.toDouble(),
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
   }
 
   @override
   void didUpdateWidget(BLabBottomBar oldWidget) {
     super.didUpdateWidget(oldWidget);
+    final focusedIndex = _focusedIndex();
+    _reconcileFocusNodes();
+    if (_rovingIndex >= _tabCount) {
+      _rovingIndex = widget.selectedIndex;
+    }
     if (oldWidget.selectedIndex != widget.selectedIndex && !_isDragging) {
-      _slideAnimation =
-          Tween<double>(
-            begin: _slideAnimation.value,
-            end: widget.selectedIndex.toDouble(),
-          ).animate(
-            CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
-          );
-      _controller.forward(from: 0);
+      if (!_dragAwaitingControlledReconcile) {
+        _animateSelection(widget.selectedIndex.toDouble());
+      }
+      if (focusedIndex == null) _rovingIndex = widget.selectedIndex;
+    }
+  }
+
+  void _reconcileFocusNodes() {
+    while (_focusNodes.length < widget.tabs.length) {
+      final index = _focusNodes.length;
+      _focusNodes.add(
+        FocusNode(debugLabel: 'BottomBar ${widget.tabs[index].label}'),
+      );
+    }
+    while (_focusNodes.length > widget.tabs.length) {
+      _focusNodes.removeLast().dispose();
+    }
+  }
+
+  int? _focusedIndex() {
+    for (var index = 0; index < _focusNodes.length; index += 1) {
+      if (_focusNodes[index].hasFocus) return index;
+    }
+    return null;
+  }
+
+  BLabFocusVisibilityController _focusVisibility(BuildContext context) =>
+      BLabFocusVisibilityScope.maybeOf(context) ?? _localFocusVisibility;
+
+  void _animateSelection(double target) {
+    final current = _selectionAnimation.value;
+    final reduced = BLabReducedMotionPolicy.of(context);
+    final duration = reduced.resolve(
+      duration: BLabMotion.durSurface,
+      role: BLabTransitionRole.nonEssential,
+    );
+    _selectionController.duration = duration == Duration.zero
+        ? const Duration(microseconds: 1)
+        : duration;
+    _selectionAnimation = Tween<double>(begin: current, end: target).animate(
+      CurvedAnimation(parent: _selectionController, curve: BLabMotion.ease),
+    );
+    if (duration == Duration.zero) {
+      _selectionController.value = 1;
+    } else {
+      _selectionController.forward(from: 0);
+    }
+  }
+
+  void _activate(int index, {required bool ownPointerFocus}) {
+    if (ownPointerFocus) {
+      setState(() => _rovingIndex = index);
+      _focusNodes[index].requestFocus();
+    }
+    widget.onTabSelected(index);
+  }
+
+  void _moveFocus(int index) {
+    if (_rovingIndex != index) setState(() => _rovingIndex = index);
+    _focusNodes[index].requestFocus();
+  }
+
+  void _clearPressedIndex(int index) {
+    if (_pressedIndex == index) setState(() => _pressedIndex = null);
+  }
+
+  void _cancelPointerInteraction() {
+    final restoreSelection = _isDragging;
+    if (!restoreSelection && _pressedIndex == null) return;
+    setState(() {
+      _pressedIndex = null;
+      _isDragging = false;
+      _dragAwaitingControlledReconcile = false;
+    });
+    if (restoreSelection) {
+      _animateSelection(widget.selectedIndex.toDouble());
+    }
+  }
+
+  KeyEventResult _handleTabKey(
+    BuildContext context,
+    int index,
+    KeyEvent event,
+  ) {
+    final visibility = _focusVisibility(context);
+    visibility.registerKeyboardIntent(
+      event.logicalKey,
+      shiftPressed: HardwareKeyboard.instance.isShiftPressed,
+    );
+    final key = event.logicalKey;
+    if (key == LogicalKeyboardKey.tab ||
+        key == LogicalKeyboardKey.arrowUp ||
+        key == LogicalKeyboardKey.arrowDown) {
+      return KeyEventResult.ignored;
+    }
+    final horizontal =
+        key == LogicalKeyboardKey.arrowLeft ||
+        key == LogicalKeyboardKey.arrowRight;
+    final boundary =
+        key == LogicalKeyboardKey.home || key == LogicalKeyboardKey.end;
+    if (horizontal || boundary) {
+      if (event is KeyDownEvent) {
+        final direction = Directionality.of(context);
+        final step = switch (key) {
+          LogicalKeyboardKey.arrowRight =>
+            direction == TextDirection.ltr ? 1 : -1,
+          LogicalKeyboardKey.arrowLeft =>
+            direction == TextDirection.ltr ? -1 : 1,
+          _ => 0,
+        };
+        final target = switch (key) {
+          LogicalKeyboardKey.home => 0,
+          LogicalKeyboardKey.end => _tabCount - 1,
+          _ => (index + step + _tabCount) % _tabCount,
+        };
+        _moveFocus(target);
+      }
+      return KeyEventResult.handled;
+    }
+    if ((key == LogicalKeyboardKey.enter ||
+            key == LogicalKeyboardKey.numpadEnter ||
+            key == LogicalKeyboardKey.space) &&
+        event is KeyDownEvent) {
+      setState(() => _pressedIndex = index);
+    } else if ((key == LogicalKeyboardKey.enter ||
+            key == LogicalKeyboardKey.numpadEnter ||
+            key == LogicalKeyboardKey.space) &&
+        event is KeyUpEvent) {
+      setState(() => _pressedIndex = null);
+    }
+    return _keyboardActivation.handleKeyEvent(
+      event,
+      onActivate: () => _activate(index, ownPointerFocus: false),
+    );
+  }
+
+  void _onLongPressStart(LongPressStartDetails details) {
+    if (_lastPointerKind != PointerDeviceKind.touch) return;
+    setState(() {
+      _pressedIndex = null;
+      _isDragging = true;
+      _dragPosition = _selectionAnimation.value;
+    });
+  }
+
+  void _onLongPressMoveUpdate(LongPressMoveUpdateDetails details) {
+    if (!_isDragging || _tabWidth <= 0) return;
+    final physical =
+        ((details.localPosition.dx - BLabSpacing.s2 - (_tabWidth / 2)) /
+                _tabWidth)
+            .clamp(0.0, (_tabCount - 1).toDouble());
+    final direction = Directionality.of(context);
+    final logical = direction == TextDirection.ltr
+        ? physical
+        : (_tabCount - 1) - physical;
+    setState(() => _dragPosition = logical);
+  }
+
+  void _onLongPressEnd(LongPressEndDetails details) {
+    if (!_isDragging) return;
+    final target = _dragPosition.round().clamp(0, _tabCount - 1);
+    final committedPosition = _dragPosition;
+    setState(() {
+      _isDragging = false;
+      _dragAwaitingControlledReconcile = true;
+      _rovingIndex = target;
+    });
+    _selectionAnimation = AlwaysStoppedAnimation<double>(committedPosition);
+    _selectionController.value = 1;
+    _focusVisibility(context).registerPointer(PointerDeviceKind.touch);
+    _focusNodes[target].requestFocus();
+    widget.onTabSelected(target);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_dragAwaitingControlledReconcile) return;
+      _dragAwaitingControlledReconcile = false;
+      _animateSelection(widget.selectedIndex.toDouble());
+    });
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _keyboardActivation.reset();
+    _actionKeyboardActivation.reset();
+    _chevronKeyboardActivation.reset();
+    if (_pressedIndex != null || _isDragging) {
+      setState(() {
+        _pressedIndex = null;
+        _isDragging = false;
+      });
     }
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+    for (final node in _focusNodes) {
+      node.dispose();
+    }
+    _actionFocusNode.dispose();
+    _chevronFocusNode.dispose();
+    _selectionController.dispose();
+    _keyboardActivation.reset();
+    _actionKeyboardActivation.reset();
+    _chevronKeyboardActivation.reset();
+    _localFocusVisibility.dispose();
     super.dispose();
-  }
-
-  /// 롱프레스 시작
-  void _onLongPressStart(LongPressStartDetails details) {
-    setState(() {
-      _isDragging = true;
-      _dragPosition = _slideAnimation.value;
-    });
-    HapticFeedback.mediumImpact();
-  }
-
-  /// 롱프레스 드래그 중
-  void _onLongPressMoveUpdate(LongPressMoveUpdateDetails details) {
-    if (!_isDragging || _tabWidth <= 0) return;
-
-    final newPosition = details.localPosition.dx / _tabWidth;
-    final clampedPosition = newPosition.clamp(0.0, (_tabCount - 1).toDouble());
-
-    setState(() {
-      _dragPosition = clampedPosition;
-    });
-
-    // 탭 경계를 넘을 때 햅틱 피드백
-    final currentTab = _dragPosition.round();
-    final previousTab = (_dragPosition - 0.1).round();
-    if (currentTab != previousTab) {
-      HapticFeedback.selectionClick();
-    }
-  }
-
-  /// 롱프레스 종료
-  void _onLongPressEnd(LongPressEndDetails details) {
-    if (!_isDragging) return;
-
-    final targetIndex = _dragPosition.round().clamp(0, _tabCount - 1);
-
-    setState(() {
-      _isDragging = false;
-    });
-
-    // 애니메이션으로 최종 위치로 이동
-    _slideAnimation = Tween<double>(
-      begin: _dragPosition,
-      end: targetIndex.toDouble(),
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
-    _controller.forward(from: 0);
-
-    // 탭 선택
-    if (targetIndex != widget.selectedIndex) {
-      widget.onTabSelected(targetIndex);
-    }
-
-    HapticFeedback.lightImpact();
   }
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final resolved = BLabVisualModeResolver.of(context);
+    final colors = _BottomBarTokenColors.forMode(resolved.mode);
+    final highContrast =
+        resolved.mode == BLabVisualMode.highContrastLight ||
+        resolved.mode == BLabVisualMode.highContrastDark;
+    final interactionDuration = BLabReducedMotionPolicy.of(context).resolve(
+      duration: BLabMotion.durPress,
+      role: BLabTransitionRole.nonEssential,
+    );
 
-    final hasSearchButton = widget.onSearchTap != null;
-
-    final Widget tabBar = Expanded(child: _buildLiquidGlassTabBar(isDark));
-
-    final Widget content;
-    if (hasSearchButton) {
-      content = Row(
-        children: [
-          tabBar,
-          const SizedBox(width: 12),
-          _buildSearchButton(isDark),
-        ],
-      );
-    } else {
-      content = Row(children: [tabBar]);
+    final tabBar = Expanded(
+      child: _buildTabBar(
+        context,
+        colors: colors,
+        highContrast: highContrast,
+        interactionDuration: interactionDuration,
+        blur: resolved.tokens.glassBlur,
+      ),
+    );
+    final children = <Widget>[tabBar];
+    if (widget.onSearchTap != null) {
+      children
+        ..add(SizedBox(width: BLabSpacing.s4))
+        ..add(
+          _buildAction(
+            context,
+            colors: colors,
+            highContrast: highContrast,
+            blur: resolved.tokens.glassBlur,
+          ),
+        );
     }
+    final content = Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: children,
+    );
+    if (widget.noMargin) return content;
 
-    if (widget.noMargin) {
-      return content;
-    }
-
-    final bottomPadding = MediaQuery.of(context).viewPadding.bottom;
-    return Container(
-      margin: EdgeInsets.only(left: 12, right: 12, bottom: bottomPadding > 0 ? bottomPadding : 22),
+    final media = MediaQuery.of(context);
+    final safeBottom = media.padding.bottom;
+    final safeAreaAlreadyConsumed =
+        safeBottom == 0 && media.viewPadding.bottom > 0;
+    final outerBottom = safeBottom > 0
+        ? safeBottom
+        : safeAreaAlreadyConsumed
+        ? 0.0
+        : 22.0;
+    return Padding(
+      padding: EdgeInsets.only(
+        left: BLabSpacing.s4,
+        right: BLabSpacing.s4,
+        bottom: outerBottom,
+      ),
       child: content,
     );
   }
 
-  /// Liquid Glass 효과가 적용된 TabBar
-  Widget _buildLiquidGlassTabBar(bool isDark) {
-    // HIG 적응형 색상
-    final glassColor = isDark
-        ? Colors.white.withValues(alpha: 0.12)
-        : Colors.black.withValues(alpha: 0.08);
-
-    final borderColor = isDark
-        ? Colors.white.withValues(alpha: 0.15)
-        : Colors.black.withValues(alpha: 0.08);
-
-    final foregroundColor = isDark ? Colors.white : Colors.black;
-    final inactiveForegroundColor = isDark
-        ? Colors.white.withValues(alpha: 0.5)
-        : Colors.black.withValues(alpha: 0.5);
-
-    return GestureDetector(
-      onLongPressStart: _onLongPressStart,
-      onLongPressMoveUpdate: _onLongPressMoveUpdate,
-      onLongPressEnd: _onLongPressEnd,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(100),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 25, sigmaY: 25),
-          child: Container(
-            height: 62,
-            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-            decoration: BoxDecoration(
-              color: glassColor,
-              borderRadius: BorderRadius.circular(100),
-              border: Border.all(color: borderColor, width: 0.5),
-            ),
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                _tabWidth = constraints.maxWidth / _tabCount;
-
-                return Stack(
+  Widget _buildTabBar(
+    BuildContext context, {
+    required _BottomBarTokenColors colors,
+    required bool highContrast,
+    required Duration interactionDuration,
+    required double blur,
+  }) {
+    final surface = DecoratedBox(
+      key: const ValueKey<String>('BLabBottomBar.surface'),
+      decoration: BoxDecoration(
+        color: colors.containerSurface,
+        borderRadius: BLabRadius.pillRect,
+        border: Border.all(color: colors.containerBorder, width: 1),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(BLabSpacing.s2),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            _tabWidth = constraints.maxWidth / _tabCount;
+            return Stack(
+              clipBehavior: Clip.none,
+              children: [
+                _buildSelectedSurface(
+                  colors,
+                  constraints.maxWidth,
+                  highContrast,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // 물방울 인디케이터 (렌즈 효과)
-                    _buildDropletIndicator(isDark, constraints.maxWidth, 0),
-                    // 탭 아이템들
-                    Row(
-                      children: List.generate(_tabCount, (index) {
-                        final tab = widget.tabs[index];
-                        return Expanded(
-                          child: _buildTabItem(
-                            index,
-                            tab,
-                            foregroundColor,
-                            inactiveForegroundColor,
-                          ),
-                        );
-                      }),
-                    ),
+                    for (var index = 0; index < _tabCount; index += 1)
+                      Expanded(
+                        child: _buildTabItem(
+                          context,
+                          index,
+                          colors,
+                          interactionDuration,
+                        ),
+                      ),
                   ],
-                );
-              },
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+    final clipped = ClipRRect(
+      borderRadius: BLabRadius.pillRect,
+      child: highContrast
+          ? surface
+          : BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+              child: surface,
             ),
+    );
+    final tabBar = Semantics(
+      key: const ValueKey<String>('BLabBottomBar.semantics'),
+      role: SemanticsRole.tabBar,
+      container: true,
+      explicitChildNodes: true,
+      child: Listener(
+        onPointerDown: (event) => _lastPointerKind = event.kind,
+        onPointerCancel: (_) => _cancelPointerInteraction(),
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          excludeFromSemantics: true,
+          onLongPressStart: _onLongPressStart,
+          onLongPressMoveUpdate: _onLongPressMoveUpdate,
+          onLongPressEnd: _onLongPressEnd,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 62),
+            child: clipped,
           ),
         ),
       ),
     );
+    if (!widget.showFirstTabChevron) return tabBar;
+    return Stack(
+      fit: StackFit.passthrough,
+      clipBehavior: Clip.none,
+      children: [tabBar, _buildChevron(context, colors)],
+    );
   }
 
-  /// 물방울 인디케이터 (렌즈 효과 포함)
-  Widget _buildDropletIndicator(
-    bool isDark,
+  Widget _buildSelectedSurface(
+    _BottomBarTokenColors colors,
     double maxWidth,
-    double chevronWidth,
+    bool highContrast,
   ) {
-    final indicatorColor = isDark
-        ? Colors.white.withValues(alpha: 0.22)
-        : Colors.black.withValues(alpha: 0.12);
-
-    // 렌즈 효과를 위한 하이라이트 색상
-    final highlightColor = isDark
-        ? Colors.white.withValues(alpha: 0.35)
-        : Colors.white.withValues(alpha: 0.6);
-
     return AnimatedBuilder(
-      animation: _slideAnimation,
+      animation: _selectionController,
       builder: (context, child) {
-        // 드래그 중이면 드래그 위치, 아니면 애니메이션 값 사용
-        final currentPosition = _isDragging
+        final logicalPosition = _isDragging
             ? _dragPosition
-            : _slideAnimation.value;
-        final tabWidth = maxWidth / _tabCount;
-
+            : _selectionAnimation.value;
+        final direction = Directionality.of(context);
+        final physicalPosition = direction == TextDirection.ltr
+            ? logicalPosition
+            : (_tabCount - 1) - logicalPosition;
+        final width = maxWidth / _tabCount;
         return Positioned(
-          left: chevronWidth + currentPosition * tabWidth,
+          left: physicalPosition * width,
           top: 0,
           bottom: 0,
-          width: tabWidth,
-          child: Center(
-            child: Container(
-              width: tabWidth - 8,
-              height: 54,
+          width: width,
+          child: Padding(
+            padding: EdgeInsets.all(BLabSpacing.s2),
+            child: DecoratedBox(
+              key: const ValueKey<String>('BLabBottomBar.selected'),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                // 물방울 렌즈 효과: 그라디언트로 굴절 시뮬레이션
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    highlightColor,
-                    indicatorColor,
-                    indicatorColor.withValues(alpha: indicatorColor.a * 0.7),
-                  ],
-                  stops: const [0.0, 0.3, 1.0],
-                ),
-                // 내부 그림자로 깊이감
-                boxShadow: [
-                  BoxShadow(
-                    color: isDark
-                        ? Colors.white.withValues(alpha: 0.1)
-                        : Colors.black.withValues(alpha: 0.05),
-                    blurRadius: 8,
-                    spreadRadius: -2,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
+                color: colors.selectedSurface,
+                borderRadius: BLabRadius.pillRect,
+                boxShadow: highContrast
+                    ? const <BoxShadow>[]
+                    : <BoxShadow>[
+                        BoxShadow(
+                          color: colors.selectedShadow,
+                          blurRadius: 8,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
               ),
-              // 내부 하이라이트 (상단 반사광)
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.center,
-                    colors: [
-                      Colors.white.withValues(alpha: isDark ? 0.15 : 0.4),
-                      Colors.transparent,
-                    ],
-                  ),
-                ),
-              ),
+              child: highContrast
+                  ? null
+                  : DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BLabRadius.pillRect,
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            colors.selectedHighlight,
+                            Colors.transparent,
+                          ],
+                        ),
+                      ),
+                    ),
             ),
           ),
         );
@@ -369,90 +560,169 @@ class _BLabBottomBarState extends State<BLabBottomBar>
     );
   }
 
-  /// 개별 탭 아이템
   Widget _buildTabItem(
+    BuildContext context,
     int index,
-    BLabBottomBarItem tab,
-    Color foregroundColor,
-    Color inactiveForegroundColor,
+    _BottomBarTokenColors colors,
+    Duration interactionDuration,
   ) {
-    final isSelected = widget.selectedIndex == index;
-
-    return GestureDetector(
-      onTap: () {
-        HapticFeedback.selectionClick();
-        widget.onTabSelected(index);
-      },
-      behavior: HitTestBehavior.opaque,
-      child: AnimatedBuilder(
-        animation: _slideAnimation,
-        builder: (context, child) {
-          // 현재 위치 (드래그 중이면 드래그 위치 사용)
-          final currentPosition = _isDragging
-              ? _dragPosition
-              : _slideAnimation.value;
-
-          // 물방울과의 거리 계산 (0~1 범위로 정규화)
-          final distance = (currentPosition - index).abs();
-
-          // 물방울이 이 탭과 겹치는 정도 (0: 완전히 겹침, 1: 전혀 안겹침)
-          final overlap = (1.0 - distance).clamp(0.0, 1.0);
-
-          return _buildTabContent(
-            index,
-            tab,
-            foregroundColor,
-            inactiveForegroundColor,
-            isSelected || overlap > 0.5,
-          );
-        },
-        child: null,
-      ),
+    final selected = widget.selectedIndex == index;
+    final visibility = _focusVisibility(context);
+    final showFocus = visibility.shouldShowVisibleFocus(
+      hasFocus: _focusNodes[index].hasFocus,
     );
-  }
+    final dragActive = _isDragging && _dragPosition.round() == index;
+    final interactionColor = dragActive
+        ? colors.dragOverlay
+        : _pressedIndex == index
+        ? colors.pressedOverlay
+        : _hoveredIndex == index
+        ? colors.hoverOverlay
+        : Colors.transparent;
+    final foreground = selected
+        ? colors.selectedForeground
+        : colors.unselectedForeground;
 
-  /// 탭 콘텐츠 (아이콘 + 라벨)
-  Widget _buildTabContent(
-    int index,
-    BLabBottomBarItem tab,
-    Color foregroundColor,
-    Color inactiveForegroundColor,
-    bool isHighlighted,
-  ) {
-    final showArrow = index == 0 && widget.showFirstTabChevron;
-    final iconColor = isHighlighted ? foregroundColor : inactiveForegroundColor;
-
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+    return Semantics(
+      key: ValueKey<String>('BLabBottomBar.item.$index.semantics'),
+      role: SemanticsRole.tab,
+      container: true,
+      label: widget.tabs[index].label,
+      selected: selected,
+      inMutuallyExclusiveGroup: true,
+      onTap: () => _activate(index, ownPointerFocus: false),
+      child: Stack(
+        fit: StackFit.passthrough,
+        clipBehavior: Clip.none,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              if (showArrow)
-                Padding(
-                  padding: const EdgeInsets.only(right: 4),
-                  child: Icon(
-                    CupertinoIcons.chevron_up_chevron_down,
-                    color: iconColor,
-                    size: 12,
+          Focus(
+            focusNode: _focusNodes[index],
+            skipTraversal: _rovingIndex != index,
+            onFocusChange: (hasFocus) {
+              if (!hasFocus) {
+                _keyboardActivation.reset();
+                if (_pressedIndex == index) _pressedIndex = null;
+              }
+              if (mounted) setState(() {});
+            },
+            onKeyEvent: (node, event) => _handleTabKey(context, index, event),
+            child: ExcludeSemantics(
+              child: MouseRegion(
+                onEnter: (_) => setState(() => _hoveredIndex = index),
+                onExit: (_) => setState(() {
+                  if (_hoveredIndex == index) _hoveredIndex = null;
+                  if (_pressedIndex == index) _pressedIndex = null;
+                }),
+                child: Listener(
+                  onPointerDown: (event) {
+                    visibility.registerPointer(event.kind);
+                    setState(() => _pressedIndex = index);
+                  },
+                  onPointerUp: (_) => _clearPressedIndex(index),
+                  onPointerCancel: (_) => _clearPressedIndex(index),
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    excludeFromSemantics: true,
+                    onTapCancel: () => _clearPressedIndex(index),
+                    onTapUp: (_) => _clearPressedIndex(index),
+                    onTap: () => _activate(index, ownPointerFocus: true),
+                    child: ConstrainedBox(
+                      key: ValueKey<String>('BLabBottomBar.item.$index.target'),
+                      constraints: const BoxConstraints(
+                        minWidth: 44,
+                        minHeight: 54,
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned.fill(
+                            child: AnimatedContainer(
+                              key: ValueKey<String>(
+                                'BLabBottomBar.item.$index.interaction',
+                              ),
+                              duration: interactionDuration,
+                              curve: BLabMotion.ease,
+                              decoration: BoxDecoration(
+                                color: interactionColor,
+                                borderRadius: BLabRadius.pillRect,
+                              ),
+                            ),
+                          ),
+                          if (showFocus)
+                            Positioned.fill(
+                              child: DecoratedBox(
+                                key: ValueKey<String>(
+                                  'BLabBottomBar.item.$index.focusRing',
+                                ),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: colors.focusOuterRing,
+                                    width: 3,
+                                  ),
+                                  borderRadius: BLabRadius.pillRect,
+                                ),
+                              ),
+                            ),
+                          if (showFocus)
+                            Positioned.fill(
+                              left: 3,
+                              top: 3,
+                              right: 3,
+                              bottom: 3,
+                              child: DecoratedBox(
+                                key: ValueKey<String>(
+                                  'BLabBottomBar.item.$index.focusOutline',
+                                ),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: colors.focusOutline,
+                                    width: 2,
+                                  ),
+                                  borderRadius: BLabRadius.pillRect,
+                                ),
+                              ),
+                            ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  index == 0 && widget.showFirstTabChevron
+                                  ? 20
+                                  : 2,
+                              vertical: 2,
+                            ),
+                            child: Center(
+                              widthFactor: 1,
+                              heightFactor: 1,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    selected
+                                        ? widget.tabs[index].activeIcon
+                                        : widget.tabs[index].icon,
+                                    color: foreground,
+                                    size: 24,
+                                  ),
+                                  SizedBox(height: BLabSpacing.xs),
+                                  Text(
+                                    widget.tabs[index].label,
+                                    textAlign: TextAlign.center,
+                                    style: BLabTypography.tab.copyWith(
+                                      color: foreground,
+                                      fontWeight: selected
+                                          ? FontWeight.w600
+                                          : FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              Icon(
-                isHighlighted ? tab.activeIcon : tab.icon,
-                color: iconColor,
-                size: 24,
               ),
-            ],
-          ),
-          const SizedBox(height: 2),
-          Text(
-            tab.label,
-            style: TextStyle(
-              color: iconColor,
-              fontSize: 10,
-              fontWeight: isHighlighted ? FontWeight.w600 : FontWeight.w500,
             ),
           ),
         ],
@@ -460,51 +730,272 @@ class _BLabBottomBarState extends State<BLabBottomBar>
     );
   }
 
-  /// 분리된 원형 액션 버튼 (Liquid Glass 효과)
-  Widget _buildSearchButton(bool isDark) {
-    // 탭바와 동일한 색상
-    final glassColor = isDark
-        ? Colors.white.withValues(alpha: 0.12)
-        : Colors.black.withValues(alpha: 0.08);
-
-    final borderColor = isDark
-        ? Colors.white.withValues(alpha: 0.15)
-        : Colors.black.withValues(alpha: 0.08);
-
-    final iconColor = isDark
-        ? Colors.white.withValues(alpha: 0.9)
-        : Colors.black.withValues(alpha: 0.7);
-
-    const buttonSize = 62.0;
-
-    return GestureDetector(
-      key: _searchButtonKey,
-      onTap: () {
-        HapticFeedback.selectionClick();
-        // 검색 버튼의 화면 위치 계산
-        final RenderBox? renderBox =
-            _searchButtonKey.currentContext?.findRenderObject() as RenderBox?;
-        if (renderBox != null) {
-          final position = renderBox.localToGlobal(Offset.zero);
-          widget.onSearchTap?.call(position, buttonSize);
-        }
+  Widget _buildChevron(BuildContext context, _BottomBarTokenColors colors) {
+    final visibility = _focusVisibility(context);
+    final semanticLabel = widget.firstTabChevronSemanticLabel?.trim();
+    final completeContract =
+        widget.onFirstTabChevronTap != null &&
+        semanticLabel?.isNotEmpty == true &&
+        widget.firstTabChevronExpanded != null;
+    final target = Focus(
+      focusNode: _chevronFocusNode,
+      canRequestFocus: completeContract,
+      onFocusChange: (hasFocus) {
+        if (!hasFocus) _chevronKeyboardActivation.reset();
+        if (mounted) setState(() {});
       },
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(100),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 25, sigmaY: 25),
-          child: Container(
-            width: 62,
-            height: 62,
-            decoration: BoxDecoration(
-              color: glassColor,
-              borderRadius: BorderRadius.circular(100),
-              border: Border.all(color: borderColor, width: 0.5),
+      onKeyEvent: (node, event) => _chevronKeyboardActivation.handleKeyEvent(
+        event,
+        enabled: completeContract,
+        onActivate: widget.onFirstTabChevronTap ?? () {},
+      ),
+      child: Listener(
+        onPointerDown: (event) {
+          visibility.registerPointer(event.kind);
+          if (mounted) setState(() {});
+        },
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          excludeFromSemantics: true,
+          onTap: widget.onFirstTabChevronTap,
+          child: SizedBox(
+            key: const ValueKey<String>('BLabBottomBar.chevron.target'),
+            width: 44,
+            height: 44,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                if (visibility.shouldShowVisibleFocus(
+                  hasFocus: _chevronFocusNode.hasFocus,
+                ))
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: colors.focusOuterRing,
+                        width: 3,
+                      ),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                if (visibility.shouldShowVisibleFocus(
+                  hasFocus: _chevronFocusNode.hasFocus,
+                ))
+                  Padding(
+                    padding: const EdgeInsets.all(3),
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: colors.focusOutline,
+                          width: 2,
+                        ),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                Icon(
+                  CupertinoIcons.chevron_up_chevron_down,
+                  color: widget.selectedIndex == 0
+                      ? colors.selectedForeground
+                      : colors.unselectedForeground,
+                  size: 12,
+                ),
+              ],
             ),
-            child: Icon(widget.actionIcon ?? CupertinoIcons.search, color: iconColor, size: 22),
           ),
         ),
       ),
     );
+    final child = completeContract
+        ? Tooltip(
+            message: semanticLabel!,
+            child: Semantics(
+              key: const ValueKey<String>('BLabBottomBar.chevron.semantics'),
+              button: true,
+              label: semanticLabel,
+              expanded: widget.firstTabChevronExpanded,
+              onTap: widget.onFirstTabChevronTap,
+              child: target,
+            ),
+          )
+        : ExcludeSemantics(child: target);
+    return PositionedDirectional(start: 0, top: 5, child: child);
   }
+
+  Widget _buildAction(
+    BuildContext context, {
+    required _BottomBarTokenColors colors,
+    required bool highContrast,
+    required double blur,
+  }) {
+    const size = 62.0;
+    final semanticLabel = widget.actionSemanticLabel?.trim();
+    final completeContract = semanticLabel?.isNotEmpty == true;
+    final visibility = _focusVisibility(context);
+
+    void activate() {
+      final renderBox =
+          _actionKey.currentContext?.findRenderObject() as RenderBox?;
+      if (renderBox == null) return;
+      widget.onSearchTap?.call(renderBox.localToGlobal(Offset.zero), size);
+    }
+
+    final decorated = SizedBox(
+      key: const ValueKey<String>('BLabBottomBar.action.target'),
+      width: size,
+      height: size,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          DecoratedBox(
+            key: const ValueKey<String>('BLabBottomBar.action.decoration'),
+            decoration: BoxDecoration(
+              color: colors.actionSurface,
+              borderRadius: BLabRadius.pillRect,
+              border: Border.all(color: colors.containerBorder, width: 1),
+            ),
+          ),
+          if (visibility.shouldShowVisibleFocus(
+            hasFocus: _actionFocusNode.hasFocus,
+          ))
+            DecoratedBox(
+              decoration: BoxDecoration(
+                border: Border.all(color: colors.focusOuterRing, width: 3),
+                shape: BoxShape.circle,
+              ),
+            ),
+          if (visibility.shouldShowVisibleFocus(
+            hasFocus: _actionFocusNode.hasFocus,
+          ))
+            Padding(
+              padding: const EdgeInsets.all(3),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  border: Border.all(color: colors.focusOutline, width: 2),
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          Icon(
+            widget.actionIcon ?? CupertinoIcons.search,
+            color: colors.actionForeground,
+            size: 22,
+          ),
+        ],
+      ),
+    );
+    final surface = ClipRRect(
+      borderRadius: BLabRadius.pillRect,
+      child: highContrast
+          ? decorated
+          : BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+              child: decorated,
+            ),
+    );
+    final target = Focus(
+      focusNode: _actionFocusNode,
+      canRequestFocus: completeContract,
+      onFocusChange: (hasFocus) {
+        if (!hasFocus) _actionKeyboardActivation.reset();
+        if (mounted) setState(() {});
+      },
+      onKeyEvent: (node, event) => _actionKeyboardActivation.handleKeyEvent(
+        event,
+        enabled: completeContract,
+        onActivate: activate,
+      ),
+      child: Listener(
+        onPointerDown: (event) {
+          visibility.registerPointer(event.kind);
+          if (mounted) setState(() {});
+        },
+        child: GestureDetector(
+          key: _actionKey,
+          behavior: HitTestBehavior.opaque,
+          excludeFromSemantics: true,
+          onTap: activate,
+          child: surface,
+        ),
+      ),
+    );
+    if (!completeContract) return ExcludeSemantics(child: target);
+    return Tooltip(
+      message: semanticLabel!,
+      child: Semantics(
+        key: const ValueKey<String>('BLabBottomBar.action.semantics'),
+        button: true,
+        label: semanticLabel,
+        onTap: activate,
+        child: target,
+      ),
+    );
+  }
+}
+
+class _BottomBarTokenColors {
+  const _BottomBarTokenColors({
+    required this.containerSurface,
+    required this.containerBorder,
+    required this.selectedSurface,
+    required this.selectedHighlight,
+    required this.selectedForeground,
+    required this.unselectedForeground,
+    required this.hoverOverlay,
+    required this.pressedOverlay,
+    required this.dragOverlay,
+    required this.focusOutline,
+    required this.focusOuterRing,
+    required this.actionSurface,
+    required this.actionForeground,
+    required this.selectedShadow,
+  });
+
+  factory _BottomBarTokenColors.forMode(BLabVisualMode mode) {
+    final values = switch (mode) {
+      BLabVisualMode.light => BlabGeneratedTokenData.light,
+      BLabVisualMode.dark => BlabGeneratedTokenData.dark,
+      BLabVisualMode.highContrastLight =>
+        BlabGeneratedTokenData.highContrastLight,
+      BLabVisualMode.highContrastDark =>
+        BlabGeneratedTokenData.highContrastDark,
+    };
+    Color token(String name) => _parseGeneratedColor(values[name]!);
+    return _BottomBarTokenColors(
+      containerSurface: token('component.bottom-bar.container-surface'),
+      containerBorder: token('component.bottom-bar.container-border'),
+      selectedSurface: token('component.bottom-bar.selected-surface'),
+      selectedHighlight: token('component.bottom-bar.selected-highlight'),
+      selectedForeground: token('component.bottom-bar.selected-foreground'),
+      unselectedForeground: token('component.bottom-bar.unselected-foreground'),
+      hoverOverlay: token('component.bottom-bar.hover-overlay'),
+      pressedOverlay: token('component.bottom-bar.pressed-overlay'),
+      dragOverlay: token('component.bottom-bar.drag-overlay'),
+      focusOutline: token('component.bottom-bar.focus-outline'),
+      focusOuterRing: token('component.bottom-bar.focus-outer-ring'),
+      actionSurface: token('component.bottom-bar.action-surface'),
+      actionForeground: token('component.bottom-bar.action-foreground'),
+      selectedShadow: token('component.bottom-bar.selected-shadow'),
+    );
+  }
+
+  final Color containerSurface;
+  final Color containerBorder;
+  final Color selectedSurface;
+  final Color selectedHighlight;
+  final Color selectedForeground;
+  final Color unselectedForeground;
+  final Color hoverOverlay;
+  final Color pressedOverlay;
+  final Color dragOverlay;
+  final Color focusOutline;
+  final Color focusOuterRing;
+  final Color actionSurface;
+  final Color actionForeground;
+  final Color selectedShadow;
+}
+
+Color _parseGeneratedColor(String source) {
+  final hexadecimal = source.substring(1);
+  final argb = hexadecimal.length == 6 ? 'FF$hexadecimal' : hexadecimal;
+  return Color(int.parse(argb, radix: 16));
 }

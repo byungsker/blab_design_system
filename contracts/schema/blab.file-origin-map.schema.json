@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.file-origin-map/v1",
+  "type": "object",
+  "required": ["schema", "metadata", "files"],
+  "properties": {
+    "schema": {"const": "blab.file-origin-map/v1"},
+    "metadata": {
+      "type": "object",
+      "required": ["version", "status", "as_of", "file_count", "coverage", "boundary", "selection"],
+      "properties": {
+        "status": {"const": "fresh-clone-equivalent-candidate-inventory-rights-unresolved"},
+        "selection": {
+          "type": "object",
+          "required": ["tracked", "candidate", "excluded"]
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "origin", "license_status", "evidence", "sha256"]
+      }
+    }
+  },
+  "additionalProperties": false
+}

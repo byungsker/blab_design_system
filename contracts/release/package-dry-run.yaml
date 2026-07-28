@@ -1,0 +1,38 @@
+schema: "blab.package-dry-run/v1"
+
+metadata:
+  as_of: "2026-07-28"
+  command: "flutter pub publish --dry-run"
+  package: "blab_design_system"
+  version: "0.2.0"
+  publication_performed: false
+  exit_code: 0
+  result: "passed-clean-git-no-publication"
+
+archive:
+  inventory: "contracts/release/package-dry-run-inventory.json"
+  archive_name: "blab_design_system-0.2.0.tar.gz"
+  file_count: 82
+  compressed_size_reported: "123 KB"
+  name_manifest_sha256: "03a29fd83b5b91210df496af46546b477e3768ff648a76f4eb2fab957df250a5"
+  content_manifest_sha256: "4b73b911f4800910e56ea327fd528d3b7971e2557e06f571fd5337ab4f106133"
+  exact_release_composition_approved: false
+  notable_inclusions:
+    - "runtime lib and pubspec"
+    - "contracts and schemas"
+    - "root LICENSE, README, THIRD_PARTY_NOTICES, and conventional doc index"
+  verified_exclusions:
+    - "test/assets including Phase 4 font binaries and license copies"
+    - "test/goldens candidate PNGs"
+    - "root generated outputs and analyzer API snapshot"
+    - "test, tool, agent, IDE, internal authority, SBOM, package-capture, compatibility-baseline, and golden process evidence"
+    - "build, recovery, .dart_tool, and prohibited .codex paths"
+  decision_required: "Obtain human approval for the exact package composition and separate final release/publication authority."
+
+warnings: []
+
+boundary:
+  registry_mutation: false
+  release_target: "0.2.0-repository-only"
+  release_ready: false
+  publication_ready: false

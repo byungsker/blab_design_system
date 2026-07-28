@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.active-target-delivery-contract/v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "metadata",
+    "delivery",
+    "pull_request",
+    "authority",
+    "gates",
+    "legacy_tag",
+    "claim_boundary"
+  ],
+  "properties": {
+    "schema": {
+      "const": "blab.active-target-delivery-contract/v1"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "contract_id",
+        "status",
+        "accepted_on",
+        "owner",
+        "authoritative_source"
+      ]
+    },
+    "delivery": {
+      "type": "object",
+      "required": [
+        "delivery_unit",
+        "delivery_profile",
+        "target_version",
+        "target_version_source",
+        "expected_base_branch",
+        "expected_base_sha",
+        "expected_head_branch",
+        "promotion_path",
+        "rollback_before_merge",
+        "rollback_after_merge",
+        "protected_design_restoration_sha256",
+        "protected_design_restoration_source"
+      ]
+    },
+    "pull_request": {
+      "type": "object",
+      "required": [
+        "base",
+        "head",
+        "draft",
+        "required_metadata"
+      ]
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "source",
+        "branch",
+        "isolated_worktree",
+        "commit",
+        "push",
+        "draft_pull_request",
+        "protected_design_restoration",
+        "github_approval",
+        "merge",
+        "tag",
+        "release",
+        "publication",
+        "deployment",
+        "consumer_mutation"
+      ]
+    },
+    "gates": {
+      "type": "object",
+      "required": [
+        "creation",
+        "promotion"
+      ]
+    },
+    "legacy_tag": {
+      "type": "object",
+      "required": [
+        "tag",
+        "observed_commit",
+        "observed_manifest_version",
+        "disposition"
+      ]
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

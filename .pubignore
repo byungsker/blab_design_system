@@ -1,0 +1,49 @@
+# Local and build state
+.codex/
+.claude/
+.github/
+.idea/
+.dart_tool/
+build/
+example/.dart_tool/
+example/build/
+coverage/
+.DS_Store
+.metadata
+*.iml
+*.log
+*.bak
+*.orig
+*.rej
+recovery/
+AGENTS.md
+DESIGN.md
+analysis_options.yaml
+dart_test.yaml
+
+# Repository-only generated evidence; runtime generated Dart remains in lib/.
+generated/
+api/
+
+# Test and engineering process sources are repository evidence, not runtime.
+test/
+tool/
+
+# Internal authority, custody, attestation, dependency-resolution, capture, and
+# immutable comparison evidence. Their conclusions remain summarized in the
+# candidate policy, rights contract, and root notices without shipping these
+# process artifacts.
+contracts/approvals/
+contracts/delivery/
+contracts/legal/attestations/
+contracts/legal/file-origin-map.yaml
+contracts/sbom/
+contracts/release/package-dry-run.yaml
+contracts/release/package-dry-run-inventory.json
+contracts/compatibility/baselines/
+contracts/compatibility/baseline-provenance.yaml
+contracts/compatibility/baseline-admission.template.yaml
+
+# The conventional package documentation entry is doc/README.md. The complete
+# living documentation remains in the source repository under docs/.
+docs/

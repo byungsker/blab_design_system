@@ -1,0 +1,174 @@
+schema: "blab.rights-provenance/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "local-preparation-human-authority-unresolved"
+  as_of: "2026-07-28"
+  scope: "repository and potential package inputs"
+  legal_boundary: "Preparation and issue spotting only; not qualified legal advice, publication approval, or a rights determination."
+
+project_license:
+  spdx_id: "MIT"
+  license_file: "LICENSE"
+  selected_by: "byungsker"
+  selected_on: "2026-07-25"
+  notice_text_observed: "Copyright (c) 2026 byungsker and byungskerlab"
+  copyright_holder_identity_status: "unknown-requires-human-authority"
+  notice_authority_status: "unknown-requires-human-authority"
+  release_or_publication_authorized: false
+
+origin_inventory:
+  file_level_map: "contracts/legal/file-origin-map.yaml"
+  third_party_notices: "THIRD_PARTY_NOTICES.md"
+  spdx_sbom: "contracts/sbom/blab-design-system.spdx.json"
+  cyclonedx_sbom: "contracts/sbom/blab-design-system.cdx.json"
+  package_composition_status: "unknown-no-authoritative-release-target"
+
+astryx:
+  evidence_packet: "contracts/legal/astryx-0.1.3-evidence.yaml"
+  role: "capability-method-evidence-only"
+  source_copy_authorized: false
+  non_derivation_status: "unproven-human-attestation-required"
+
+phase4_test_assets:
+  distribution_scope: "repository-test-fixtures-not-pubspec-runtime-assets"
+  authoritative_notice: "test/assets/fonts/THIRD_PARTY_NOTICES.md"
+  entries:
+    - id: "noto-sans-kr"
+      path: "test/assets/fonts/NotoSansKR[wght].ttf"
+      sha256: "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252"
+      license: "OFL-1.1"
+      license_path: "test/assets/fonts/LICENSE-NOTO-SANS-KR.txt"
+    - id: "noto-sans-arabic"
+      path: "test/assets/fonts/NotoSansArabic[wdth,wght].ttf"
+      sha256: "63111b5b2e074dd48cc67692e0a2726d86ee94c1c37fe8598257b7b4e87e869e"
+      license: "OFL-1.1"
+      license_path: "test/assets/fonts/LICENSE-NOTO-SANS-ARABIC.txt"
+    - id: "material-icons"
+      path: "test/assets/fonts/MaterialIcons-Regular.otf"
+      sha256: "d9865b671a09d683d13a863089d8825e0f61a37696ce5d7d448bc8023aa62453"
+      license: "CC-BY-4.0"
+      license_path: "test/assets/fonts/LICENSE-MATERIAL-ICONS.txt"
+    - id: "cupertino-icons"
+      path: "test/assets/fonts/CupertinoIcons.ttf"
+      sha256: "67c44fe9183b002e79dde7f6977e2988661c9a3e4a3c5fce968787efdbed823c"
+      license: "MIT"
+      license_path: "test/assets/fonts/LICENSE-CUPERTINO-ICONS.txt"
+
+remote_fonts:
+  activation_authorized: false
+  production_strategy_status: "unknown-requires-design-legal-product-decision"
+  privacy_assessment_status: "hypotheses-only-activation-blocked"
+  jurisdictions: "unknown"
+  terms_retrieval_status: "not-retrieved"
+  terms_effective_dates: "unknown"
+  css_source: "docs/design/tokens.css"
+  css_import_inventory:
+    - path: "docs/design/tokens.css"
+      package_archive: "excluded-current-dry-run"
+      packaged_in_current_dry_run: false
+      role: "design-token-authoring-source-and-optional-browser-css-reference"
+      immutable_compatibility_baseline: false
+      runtime_asset: false
+      activation_authorized: false
+      activation_condition: "remote-requests-only-if-consumer-explicitly-loads-this-css"
+      exact_release_composition_approved: false
+    - path: "contracts/compatibility/baselines/head-ee78fbe.tokens.css"
+      package_archive: "excluded-current-dry-run"
+      packaged_in_current_dry_run: false
+      role: "immutable-compatibility-baseline-not-runtime-css"
+      immutable_compatibility_baseline: true
+      runtime_asset: false
+      activation_authorized: false
+      activation_condition: "remote-requests-only-if-consumer-explicitly-loads-this-css"
+      exact_release_composition_approved: false
+  entries:
+    - id: "pretendard-variable"
+      css_url: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css"
+      upstream: "https://github.com/orioncactus/pretendard"
+      observed_version: "v1.3.9"
+      observed_license: "OFL-1.1"
+      provider: "jsDelivr"
+      request_fact: "Loading the CSS causes an end-user browser request to the provider with ordinary network request metadata."
+      provider_terms_and_notice_review: "unknown"
+      privacy_lifecycle:
+        data_elements:
+          ip_address: "expected-if-explicitly-loaded"
+          requested_url: "expected-if-explicitly-loaded"
+          user_agent_and_os: "expected-browser-request-metadata-if-explicitly-loaded"
+          referrer: "browser-policy-and-context-dependent-unknown"
+        provider_role_hypothesis: "jsdelivr-provider-or-independent-controller-role-unknown"
+        controller_processor_hypothesis: "unknown-requires-legal-provider-terms-review"
+        processing_locations_and_transfers: "unknown"
+        retention: "unknown"
+        deletion: "unknown"
+        data_subject_rights: "unknown"
+        lawful_basis_hypothesis: "unknown"
+        consent_hypothesis: "unknown"
+        notice_hypothesis: "required-scope-and-copy-unknown"
+        terms_retrieval_status: "not-retrieved"
+        terms_effective_date: "unknown"
+        jurisdictions: "unknown"
+    - id: "jetbrains-mono-google-fonts"
+      css_url: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      font_binary_origin_pattern: "Google Fonts CSS may reference fonts.gstatic.com; exact returned URLs and bytes are provider- and request-dependent and are not pinned here."
+      upstream: "https://github.com/JetBrains/JetBrainsMono"
+      observed_version: "provider-managed-unpinned"
+      observed_license: "OFL-1.1"
+      provider: "Google Fonts"
+      request_fact: "Loading the CSS and referenced font binaries causes end-user browser requests to Google-operated domains with ordinary network request metadata."
+      provider_terms_and_notice_review: "unknown"
+      privacy_lifecycle:
+        data_elements:
+          ip_address: "expected-if-explicitly-loaded"
+          requested_url: "expected-if-explicitly-loaded"
+          user_agent_and_os: "expected-browser-request-metadata-if-explicitly-loaded"
+          referrer: "browser-policy-and-context-dependent-unknown"
+        provider_role_hypothesis: "google-provider-or-independent-controller-role-unknown"
+        controller_processor_hypothesis: "unknown-requires-legal-provider-terms-review"
+        processing_locations_and_transfers: "unknown"
+        retention: "unknown"
+        deletion: "unknown"
+        data_subject_rights: "unknown"
+        lawful_basis_hypothesis: "unknown"
+        consent_hypothesis: "unknown"
+        notice_hypothesis: "required-scope-and-copy-unknown"
+        terms_retrieval_status: "not-retrieved"
+        terms_effective_date: "unknown"
+        jurisdictions: "unknown"
+
+human_attestations:
+  reusable_approval_forbidden: true
+  templates:
+    - id: "BLDS-PHASE5-ORIGIN-ATTESTATION-TEMPLATE"
+      path: "contracts/legal/attestations/origin-attestation.template.yaml"
+      status: "unsigned"
+      scope: "non-derivation-assets-figma-and-contributor-origin"
+    - id: "BLDS-PHASE5-RELEASE-AUTHORITY-TEMPLATE"
+      path: "contracts/legal/attestations/release-authority.template.yaml"
+      status: "unsigned"
+      scope: "exact-release-target-and-publication-authority"
+
+blockers:
+  - "legal copyright holder and MIT notice authority"
+  - "baro-app transfer or relicense authority"
+  - "contributor aliases and restrictions"
+  - "publication markets, channels, jurisdictions, and package composition"
+  - "production font strategy"
+  - "non-derivation, asset, and Figma origin attestations"
+  - "final release authority"
+  - "remote CI"
+  - "two clean pinned direct Flutter consumers"
+
+resolved_facts:
+  - id: "canonical-repository-owner-and-remote"
+    disposition: "fact-resolved-local-artifacts-reconciled"
+    canonical_repository: "https://github.com/byungsker/blab_design_system"
+    legacy_redirect_alias: "https://github.com/lbo728/blab_design_system"
+    observed_on: "2026-07-28"
+    legal_boundary: "Repository identity only; no ownership, relicensing, contribution, non-derivation, delivery, release, or publication conclusion."
+  - id: "exact-target-delivery-contract"
+    disposition: "owner-approved-active-creation-authority-only"
+    contract: "contracts/delivery/blab-design-system-0.2.0.yaml"
+    observed_on: "2026-07-28"
+    legal_boundary: "Delivery creation authority only; no rights, release, or publication conclusion."

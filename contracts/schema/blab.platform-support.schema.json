@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://byungskerlab.local/blab/platform-support.schema.json",
+  "title": "Blab supported toolchain and platform matrix",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "metadata", "toolchain", "platforms", "ci"],
+  "properties": {
+    "schema": {"const": "blab.platform-support/v1"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "status", "as_of", "claim_boundary"],
+      "properties": {
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "status": {"const": "local-evidence-and-ci-configuration-only"},
+        "as_of": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+        "claim_boundary": {
+          "const": "Local execution is limited to the macOS arm64 package evidence and one BLabButton-only Chrome widget suite. The browser result is not full-package web, browser-matrix, device, assistive-technology, haptic, rendering-conformance, shared-web-package, or public-support evidence. CI entries are syntax-validated configuration and are not remote-run evidence."
+        }
+      }
+    },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dart_constraint", "flutter_constraint", "locally_executed"],
+      "properties": {
+        "dart_constraint": {"const": "^3.10.4"},
+        "flutter_constraint": {"const": ">=3.38.5"},
+        "locally_executed": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["dart", "flutter", "host_os", "host_arch"],
+          "properties": {
+            "dart": {"const": "3.10.4"},
+            "flutter": {"const": "3.38.5"},
+            "host_os": {"const": "macos"},
+            "host_arch": {"const": "arm64"}
+          }
+        }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "package_support", "local_evidence", "ci_configuration", "limitations"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "package_support": {"enum": ["declared-platform-neutral", "unverified"]},
+          "local_evidence": {"enum": ["executed", "not-executed", "component-scoped-executed"]},
+          "ci_configuration": {"enum": ["syntax-validated-only", "not-configured"]},
+          "limitations": {"type": "string", "minLength": 1},
+          "browser_widget_evidence": {"$ref": "#/$defs/browserWidgetEvidence"}
+        }
+      }
+    },
+    "ci": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workflow", "remote_execution", "matrix"],
+      "properties": {
+        "workflow": {"const": ".github/workflows/verify.yml"},
+        "remote_execution": {"const": "not-claimed"},
+        "matrix": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["os", "flutter", "checks", "status"],
+            "properties": {
+              "os": {"type": "string", "minLength": 1},
+              "flutter": {"const": "3.38.5"},
+              "checks": {
+                "type": "array",
+                "items": {"type": "string", "minLength": 1}
+              },
+              "status": {"const": "syntactically-configured-not-executed-remotely"}
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "browserWidgetEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "component",
+        "scope",
+        "command",
+        "exit_code",
+        "tests_passed",
+        "tests_failed",
+        "browser",
+        "browser_version",
+        "flutter",
+        "dart",
+        "host_os",
+        "host_arch",
+        "executed_on",
+        "limitations"
+      ],
+      "properties": {
+        "component": {"const": "BLabButton"},
+        "scope": {"const": "single-component-browser-widget-suite-only"},
+        "command": {"const": "flutter test --platform chrome test/blab_button_test.dart"},
+        "exit_code": {"const": 0},
+        "tests_passed": {"const": 61},
+        "tests_failed": {"const": 0},
+        "browser": {"const": "Chrome"},
+        "browser_version": {"const": "150.0.7871.187"},
+        "flutter": {"const": "3.38.5"},
+        "dart": {"const": "3.10.4"},
+        "host_os": {"const": "macos"},
+        "host_arch": {"const": "arm64"},
+        "executed_on": {"const": "2026-07-28"},
+        "limitations": {
+          "type": "array",
+          "minItems": 9,
+          "items": {
+            "enum": [
+              "not-full-package-web-test",
+              "not-web-build-or-deployment",
+              "not-browser-matrix",
+              "not-physical-device",
+              "not-assistive-technology",
+              "not-haptic",
+              "not-golden-or-rendering-conformance",
+              "not-shared-web-package-authority",
+              "not-public-web-support"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

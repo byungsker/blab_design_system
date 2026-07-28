@@ -1,0 +1,85 @@
+schema: "blab.phase5-readiness/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "local-preparation-implemented-exit-blocked"
+  as_of: "2026-07-28"
+  package_version: "0.2.0"
+  package_state: "local-unreleased"
+  release_target: "0.2.0-repository-only"
+
+local_preparation:
+  compatibility_policy: "implemented"
+  classifier: "implemented"
+  migration_registry: "implemented-no-op"
+  codemod: "not-applicable-no-repeated-deterministic-renames"
+  rollback_rehearsal: "implemented-repository-artifacts-only"
+  changelog: "implemented"
+  compatibility_matrix: "implemented"
+  release_checklist: "implemented-blocked"
+  package_dry_run: "123kb-82-files-deterministic-digests-clean-git-no-publication"
+  rights_provenance: "implemented-with-human-unknowns"
+  notices: "implemented-draft"
+  sbom: "implemented-local-resolution-inventory"
+  human_attestations: "unsigned-templates-only"
+
+exit:
+  phase5_complete: false
+  delivery_ready: false
+  publication_ready: false
+  decision: "REQUEST_CHANGES"
+  tdc: "blocked"
+  two_consumer_exit: "unmet"
+  direct_flutter_consumers:
+    confirmed: 1
+    clean_pinned_rehearsed: 0
+    required: 2
+  opencs:
+    classification: "web-adapter-experiment"
+    direct_flutter_consumer: false
+    counts_toward_two_consumer_exit: false
+
+blockers:
+  - id: "copyright-holder-and-mit-notice-authority"
+    owner: "byungsker-legal"
+  - id: "baro-app-transfer-or-relicense-authority"
+    owner: "byungsker-legal"
+  - id: "contributor-aliases-and-restrictions"
+    owner: "byungsker-legal"
+  - id: "publication-markets-channels-jurisdictions-and-package-composition"
+    owner: "byungsker-product-legal-devops"
+  - id: "production-font-strategy"
+    owner: "byungsker-design-legal"
+  - id: "non-derivation-asset-and-figma-origin-attestations"
+    owner: "human-contributors-design-legal"
+  - id: "final-release-authority"
+    owner: "byungsker"
+  - id: "remote-ci"
+    owner: "engineering-devops"
+  - id: "two-clean-pinned-direct-flutter-consumers"
+    owner: "engineering-frontend-product-owners"
+
+resolved_gates:
+  - id: "canonical-repository-owner-and-remote"
+    disposition: "fact-resolved-local-artifacts-reconciled"
+    canonical_repository: "https://github.com/byungsker/blab_design_system"
+    legacy_redirect_alias: "https://github.com/lbo728/blab_design_system"
+    observed_on: "2026-07-28"
+    evidence:
+      - "GitHub API resolves lbo728/blab_design_system to byungsker/blab_design_system."
+      - "The canonical repository is public, unarchived, and uses main as its default branch."
+      - "Read-only remote resolution observed main at 9ac903c448685c31d37cbaf4340990e7c0e8226c and dev at ee78fbeb2e2e49c8e4069d798bab87590cc60fa9."
+    boundary: "Repository identity is resolved. This does not establish copyright ownership, source provenance, delivery authority, release authority, or publication readiness. The local Git origin remains a legacy redirect alias and is not mutated by this record."
+  - id: "exact-target-delivery-contract"
+    disposition: "owner-approved-active-creation-authority-only"
+    contract: "contracts/delivery/blab-design-system-0.2.0.yaml"
+    target_version: "0.2.0"
+    observed_on: "2026-07-28"
+    boundary: "Branch, isolated worktree, exact protected DESIGN.md restoration, commit, push, and draft-PR creation only. GitHub approval, merge, tag, release, publication, deployment, and consumer mutation remain unauthorized."
+
+authority:
+  git_mutation: false
+  release: false
+  publication: false
+  deployment: false
+  consumer_mutation: false

@@ -1,0 +1,51 @@
+schema: "blab.representative-consumers/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "one-confirmed-direct-consumer-smoke-pending"
+  as_of: "2026-07-28"
+  source: "Local committed-HEAD and package-manifest inspection; no consumer mutation."
+
+policy:
+  mutation: "consumer-worktree-forbidden"
+  isolation: "temporary-archive-only"
+  clean_source_required: true
+  pinned_commit_required: true
+  custody_required: "confirmed"
+  default_execution: "inspect-only"
+
+consumers:
+  - id: "baroguni-app"
+    direct_consumer: true
+    repository: "https://github.com/byungsker/baroguni.git"
+    commit: "efa512c7d3539ba176cb5cb3c085d9906f6c4c84"
+    local_path: "../baro-app"
+    package_path: "app"
+    custody: "unverified"
+    execution_authority: "unverified"
+    worktree_requirement: "clean-and-head-matches-pin"
+    smoke:
+      status: "pending"
+      commands: ["flutter pub get", "flutter analyze", "flutter test", "flutter build bundle --release"]
+    evidence:
+      - "git -C ../baro-app rev-parse HEAD"
+      - "git -C ../baro-app remote -v"
+      - "git -C ../baro-app show HEAD:app/pubspec.yaml"
+      - "Committed pubspec directly depends on BLDS from https://github.com/lbo728/blab_design_system.git at moving ref main."
+      - "Current local consumer worktree is dirty, so execution is refused."
+  - id: "second-direct-flutter-consumer"
+    direct_consumer: false
+    repository: "unconfirmed"
+    commit: null
+    local_path: null
+    package_path: null
+    custody: "missing"
+    execution_authority: "missing"
+    worktree_requirement: "clean-and-head-matches-pin"
+    smoke:
+      status: "not-applicable-missing-consumer"
+      commands: []
+    evidence:
+      - "Phase 0 inventory confirms no second direct BLDS Flutter package consumer."
+      - "book-golas/app is a divergent local implementation, not a direct package consumer."
+      - "OpenCS is a web adapter experiment, not a Flutter package consumer."

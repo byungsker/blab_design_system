@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.package-composition-candidate/v1",
+  "type": "object",
+  "required": ["schema", "metadata", "included_classes", "excluded_classes", "dependency_license_boundary", "decision_boundary"],
+  "properties": {
+    "schema": {"const": "blab.package-composition-candidate/v1"},
+    "metadata": {"type": "object", "required": ["version", "as_of", "status", "human_approved", "exact_release_composition_approved", "release_authorized", "publication_authorized"]},
+    "included_classes": {"type": "array", "minItems": 1},
+    "excluded_classes": {"type": "array", "minItems": 1},
+    "dependency_license_boundary": {"type": "object", "required": ["resolved_dependency_count", "dependency_license_status", "clearance_claimed"]},
+    "decision_boundary": {"type": "object", "required": ["candidate_only", "composition_changes_require_human_approval", "target_delivery_contract_required", "clean_authoritative_source_required", "publication_performed"]}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,26 @@
+schema: "blab.compatibility-baseline-admission/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "template-only-no-admission"
+  as_of: "2026-07-28"
+
+authority:
+  status: "human-approval-required"
+  approved: false
+  approver: null
+  approval_id: null
+  target_delivery_contract: null
+
+boundary:
+  mutate_existing_baseline: false
+  new_immutable_baseline_required: true
+  independently_verified_git_commit_required: true
+  reproducible_api_and_token_evidence_required: true
+  admission_performed: false
+
+request:
+  origin_commit: null
+  api_baseline_path: null
+  token_baseline_path: null
+  rationale: null

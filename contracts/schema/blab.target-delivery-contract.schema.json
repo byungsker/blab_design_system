@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://byungskerlab.local/blab/target-delivery-contract.schema.json",
+  "title": "Blab blocked Target Delivery Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "metadata",
+    "observed",
+    "required_contract",
+    "readiness",
+    "claim_boundary"
+  ],
+  "properties": {
+    "schema": {"const": "blab.target-delivery-contract/v1"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "status", "observed_on", "delivery_profile"],
+      "properties": {
+        "version": {"const": "0.1.0"},
+        "status": {"const": "blocked-unverified-human-contract"},
+        "observed_on": {"const": "2026-07-28"},
+        "delivery_profile": {"const": "package-or-local"}
+      }
+    },
+    "observed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["branch", "head", "package_version", "package_version_source"],
+      "properties": {
+        "branch": {"const": "dev"},
+        "head": {"const": "ee78fbeb2e2e49c8e4069d798bab87590cc60fa9"},
+        "package_version": {"const": "0.0.1"},
+        "package_version_source": {"const": "pubspec.yaml"}
+      }
+    },
+    "required_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "delivery_unit",
+        "target_version",
+        "target_version_source",
+        "expected_base_branch",
+        "expected_head_branch",
+        "pull_request",
+        "promotion_path",
+        "delivery_authority"
+      ],
+      "properties": {
+        "delivery_unit": {"const": "phase4-evidence"},
+        "target_version": {"type": "null"},
+        "target_version_source": {"type": "null"},
+        "expected_base_branch": {"type": "null"},
+        "expected_head_branch": {"type": "null"},
+        "pull_request": {"type": "null"},
+        "promotion_path": {"type": "null"},
+        "delivery_authority": {"type": "null"}
+      }
+    },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_evidence_verification",
+        "git_delivery",
+        "decision",
+        "blockers"
+      ],
+      "properties": {
+        "local_evidence_verification": {"const": "allowed"},
+        "git_delivery": {"const": "blocked"},
+        "decision": {"const": "REQUEST_CHANGES"},
+        "blockers": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "claim_boundary": {"type": "string", "minLength": 1}
+  }
+}

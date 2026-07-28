@@ -1,0 +1,41 @@
+schema: "blab.compatibility-baseline/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "immutable-head-derived"
+  captured_on: "2026-07-28"
+  captured_by: "engineering-design-system-frontend"
+  mutation_policy: "never-regenerate-in-place"
+  admission_workflow: "contracts/compatibility/baseline-admission.template.yaml"
+
+origin:
+  kind: "git-head-derived"
+  repository_observed_remote: "https://github.com/lbo728/blab_design_system.git"
+  canonical_repository_owner_status: "unresolved"
+  commit: "ee78fbeb2e2e49c8e4069d798bab87590cc60fa9"
+  branch_observed: "dev"
+  git_object_validation: "required-cat-file-commit"
+  authority_boundary: "Observed Git facts are provenance only and do not authorize delivery."
+
+api:
+  path: "contracts/compatibility/baselines/head-ee78fbe.api.txt"
+  generator: "tool/public_api_snapshot.dart from Phase 5 worktree"
+  analyzer_version: "10.0.1"
+  source_tree: "disposable git archive of origin.commit"
+  tool_overlay: "Only pinned analyzer tooling and current pubspec tool dependencies were overlaid; package source remained origin.commit."
+  reproducibility_check: "analyzer-regeneration-from-origin-commit-lib-blobs-with-pinned-local-package-config-no-network"
+  sha256: "69d604922ef6f4109dcf03afc23fcc5b9c5cf0342afa0fd422dcdd556fc16089"
+  body_sha256: "4ed63740550bfd9c8e0312dad52db6765bc6c2ceb0791b1b5222896054f04d8f"
+
+tokens:
+  path: "contracts/compatibility/baselines/head-ee78fbe.tokens.css"
+  source_path_at_origin: "docs/design/tokens.css"
+  parser: "css-custom-property-snapshot/v1"
+  reproducibility_check: "byte-equality-with-git-show-origin.commit-source_path_at_origin"
+  sha256: "e774b7e7ba7faedbd8d2dc18dc4faf9fbd179d89ebaa2a0a46dbc89949fd1e75"
+  typed_contract_boundary: "Typed primitive, semantic, and component token IDs are classified as additive relative to this legacy HEAD baseline."
+
+phase0_history:
+  reference: "docs/BLDS_PHASE_0_BASELINE.md"
+  immutable_source_digest: "27400bff8776551ca6803dd799bf12d83020320b33979d30649fc61fad88bf4f"
+  limitation: "The HEAD-derived baseline is used for executable comparison; the Phase 0 digest remains historical evidence and is not overwritten."

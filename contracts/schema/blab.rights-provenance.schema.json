@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.rights-provenance/v1",
+  "type": "object",
+  "required": ["schema", "metadata", "project_license", "origin_inventory", "astryx", "phase4_test_assets", "remote_fonts", "human_attestations", "blockers", "resolved_facts"],
+  "properties": {
+    "schema": {"const": "blab.rights-provenance/v1"},
+    "metadata": {"type": "object", "required": ["version", "status", "legal_boundary"]},
+    "project_license": {"type": "object", "required": ["spdx_id", "license_file", "notice_text_observed", "copyright_holder_identity_status", "notice_authority_status", "release_or_publication_authorized"]},
+    "origin_inventory": {"type": "object", "required": ["file_level_map", "third_party_notices", "spdx_sbom", "cyclonedx_sbom", "package_composition_status"]},
+    "astryx": {"type": "object", "required": ["evidence_packet", "role", "source_copy_authorized", "non_derivation_status"]},
+    "phase4_test_assets": {"type": "object", "required": ["distribution_scope", "authoritative_notice", "entries"]},
+    "remote_fonts": {
+      "type": "object",
+      "required": ["activation_authorized", "production_strategy_status", "privacy_assessment_status", "jurisdictions", "terms_retrieval_status", "terms_effective_dates", "css_source", "css_import_inventory", "entries"],
+      "properties": {
+        "activation_authorized": {"const": false},
+        "production_strategy_status": {"const": "unknown-requires-design-legal-product-decision"},
+        "privacy_assessment_status": {"const": "hypotheses-only-activation-blocked"},
+        "jurisdictions": {"const": "unknown"},
+        "terms_retrieval_status": {"const": "not-retrieved"},
+        "terms_effective_dates": {"const": "unknown"},
+        "css_source": {"type": "string", "minLength": 1},
+        "css_import_inventory": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["path", "package_archive", "packaged_in_current_dry_run", "role", "immutable_compatibility_baseline", "runtime_asset", "activation_authorized", "activation_condition", "exact_release_composition_approved"],
+            "properties": {
+              "path": {"type": "string", "minLength": 1},
+              "package_archive": {"enum": ["included-current-dry-run", "excluded-current-dry-run"]},
+              "packaged_in_current_dry_run": {"type": "boolean"},
+              "role": {"type": "string", "minLength": 1},
+              "immutable_compatibility_baseline": {"type": "boolean"},
+              "runtime_asset": {"const": false},
+              "activation_authorized": {"const": false},
+              "activation_condition": {"const": "remote-requests-only-if-consumer-explicitly-loads-this-css"},
+              "exact_release_composition_approved": {"const": false}
+            },
+            "additionalProperties": false
+          }
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "css_url", "upstream", "observed_version", "observed_license", "provider", "request_fact", "provider_terms_and_notice_review", "privacy_lifecycle"]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "human_attestations": {"type": "object", "required": ["reusable_approval_forbidden", "templates"]},
+    "blockers": {"type": "array", "minItems": 9},
+    "resolved_facts": {"type": "array", "minItems": 2}
+  },
+  "additionalProperties": false
+}

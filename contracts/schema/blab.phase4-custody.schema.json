@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://byungskerlab.local/blab/phase4-custody.schema.json",
+  "title": "Blab Phase 4 custody and delivery-unit scope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "metadata",
+    "owned_files",
+    "shared_delivery_files",
+    "excluded_paths",
+    "claims"
+  ],
+  "properties": {
+    "schema": {"const": "blab.phase4-custody/v1"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "status",
+        "as_of",
+        "delivery_unit",
+        "delivery_profile",
+        "implementation_owner",
+        "design_owner",
+        "target_delivery_contract"
+      ],
+      "properties": {
+        "version": {"const": "0.1.0"},
+        "status": {"const": "local-delivery-unit-bounded"},
+        "as_of": {"const": "2026-07-28"},
+        "delivery_unit": {"const": "phase4-evidence"},
+        "delivery_profile": {"const": "package-or-local"},
+        "implementation_owner": {"const": "engineering-design-system-frontend"},
+        "design_owner": {"const": "byungskerlab-design-team"},
+        "target_delivery_contract": {
+          "const": "contracts/delivery/phase4-target-delivery.yaml"
+        }
+      }
+    },
+    "owned_files": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "shared_delivery_files": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "excluded_paths": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package_runtime_files_changed_by_phase4",
+        "public_api_files_changed_by_phase4",
+        "scope"
+      ],
+      "properties": {
+        "package_runtime_files_changed_by_phase4": {
+          "type": "array"
+        },
+        "public_api_files_changed_by_phase4": {
+          "type": "array"
+        },
+        "scope": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

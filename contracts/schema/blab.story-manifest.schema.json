@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://byungskerlab.local/blab/story-manifest.schema.json",
+  "title": "Blab Phase 4 story manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "metadata", "unsupported_fixture_categories", "stories"],
+  "properties": {
+    "schema": {"const": "blab.story-manifest/v1"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "status", "contract_ref", "registration_source", "determinism", "candidate_capture_scope"],
+      "properties": {
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "status": {"const": "implemented-local-candidate-evidence"},
+        "contract_ref": {"const": "contracts/components/state-applicability.yaml"},
+        "registration_source": {"const": "example/lib/story_catalog.dart"},
+        "determinism": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["network", "clock", "randomness", "customer_data"],
+          "properties": {
+            "network": {"const": "forbidden"},
+            "clock": {"const": "fixed-or-not-used"},
+            "randomness": {"const": "forbidden"},
+            "customer_data": {"const": "forbidden"}
+          }
+        },
+        "candidate_capture_scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["shared_harness", "required_component_ids", "fixture_modes", "evidence", "claim", "excluded_claims"],
+          "properties": {
+            "shared_harness": {"const": "test/support/phase4_candidate_harness.dart"},
+            "required_component_ids": {
+              "type": "array",
+              "items": {"type": "string", "minLength": 1}
+            },
+            "fixture_modes": {
+              "type": "array",
+              "items": {"type": "string", "minLength": 1}
+            },
+            "evidence": {"type": "string", "minLength": 1},
+            "claim": {"const": "deterministic-reproducibility-only"},
+            "excluded_claims": {
+              "type": "array",
+              "items": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "unsupported_fixture_categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "reason"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "stories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["component_id", "public_type", "story_id", "source", "fixtures"],
+        "properties": {
+          "component_id": {"type": "string", "minLength": 1},
+          "public_type": {"type": "string", "pattern": "^BLab"},
+          "story_id": {"type": "string", "minLength": 1},
+          "source": {"type": "string", "pattern": "^example/lib/stories/"},
+          "fixtures": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "label", "states", "setup"],
+              "properties": {
+                "id": {"type": "string", "pattern": "^[a-z0-9-]+\\.[a-z0-9-]+$"},
+                "label": {"type": "string", "minLength": 1},
+                "states": {
+                  "type": "array",
+                  "items": {"type": "string", "minLength": 1}
+                },
+                "setup": {"type": "string", "minLength": 1}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

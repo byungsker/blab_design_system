@@ -1,0 +1,21 @@
+name: blab_design_system_example
+description: "Storybook / example app for the BLab Design System — showcases tokens and widgets."
+publish_to: 'none'
+
+version: 0.0.1
+
+environment:
+  sdk: ^3.10.4
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  blab_design_system:
+    path: ..
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
