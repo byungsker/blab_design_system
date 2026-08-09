@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "delivery_units": {
+    "governance": {
+      "active_versions": ["1.0.0"],
+      "promotion_sources": {
+        "release": {},
+        "hotfix": {}
+      }
+    },
+    "blab-design-system": {
+      "active_versions": ["0.2.0"],
+      "promotion_sources": {
+        "release": {},
+        "hotfix": {}
+      }
+    }
+  }
+}
