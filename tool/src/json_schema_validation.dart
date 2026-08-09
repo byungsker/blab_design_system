@@ -16,6 +16,7 @@ const _supportedSchemaKeywords = <String>{
   'pattern',
   'minimum',
   'minItems',
+  'maxItems',
   'items',
 };
 
@@ -166,6 +167,14 @@ class _JsonSchemaValidator {
     if (minItems != null && (minItems is! int || minItems < 0)) {
       throw FormatException('Invalid JSON Schema minItems at $path.');
     }
+
+    final maxItems = schema['maxItems'];
+    if (maxItems != null && (maxItems is! int || maxItems < 0)) {
+      throw FormatException('Invalid JSON Schema maxItems at $path.');
+    }
+    if (minItems is int && maxItems is int && minItems > maxItems) {
+      throw FormatException('JSON Schema minItems exceeds maxItems at $path.');
+    }
   }
 
   void _validateInstance(
@@ -226,6 +235,10 @@ class _JsonSchemaValidator {
       final minItems = schema['minItems'];
       if (minItems is int && instance.length < minItems) {
         errors.add('$path: minItems constraint failed.');
+      }
+      final maxItems = schema['maxItems'];
+      if (maxItems is int && instance.length > maxItems) {
+        errors.add('$path: maxItems constraint failed.');
       }
       final items = schema['items'];
       if (items != null) {

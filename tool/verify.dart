@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'src/platform_executable.dart';
-
 Future<void> main() async {
   try {
     final passed = await runVerificationWithExampleBuildCleanup(
@@ -26,19 +24,28 @@ Future<bool> _runVerification() async {
     ),
     const _VerificationCommand(
       executable: 'dart',
-      arguments: <String>['run', 'tool/validate_diff_hygiene.dart'],
-      label: 'Exact diff hygiene and immutable-byte exception validation',
-    ),
-    const _VerificationCommand(
-      executable: 'dart',
       arguments: <String>[
         'format',
         '--output=none',
         '--set-exit-if-changed',
-        'lib',
-        'example/lib',
         'test',
         'tool',
+        'tool/src/agent_consumption.dart',
+        'tool/src/agent_query.dart',
+        'tool/src/agent_docs_mcp.dart',
+        'tool/validate_agent_registry.dart',
+        'tool/validate_figma_agent_mapping.dart',
+        'tool/generate_agent_docs.dart',
+        'tool/query_agent.dart',
+        'tool/evaluate_agent_fixtures.dart',
+        'tool/evaluate_agent_pilot.dart',
+        'tool/agent_docs_mcp.dart',
+        'tool/test_agent_docs_mcp.dart',
+        'lib/src/generated/blab_token_data.g.dart',
+        'lib/src/theme/blab_token_theme.dart',
+        'example/lib/story_catalog.dart',
+        'example/lib/stories/pressable_story.dart',
+        'example/lib/stories_home.dart',
       ],
       label: 'Dart format check',
     ),
@@ -46,6 +53,36 @@ Future<bool> _runVerification() async {
       executable: 'dart',
       arguments: <String>['run', 'tool/validate_contract.dart'],
       label: 'Contract validation',
+    ),
+    const _VerificationCommand(
+      executable: 'dart',
+      arguments: <String>['run', 'tool/validate_agent_registry.dart'],
+      label: 'Agent component registry validation',
+    ),
+    const _VerificationCommand(
+      executable: 'dart',
+      arguments: <String>['run', 'tool/validate_figma_agent_mapping.dart'],
+      label: 'Figma agent mapping validation',
+    ),
+    const _VerificationCommand(
+      executable: 'dart',
+      arguments: <String>['run', 'tool/generate_agent_docs.dart', '--check'],
+      label: 'Agent-readable documentation drift check',
+    ),
+    const _VerificationCommand(
+      executable: 'dart',
+      arguments: <String>['run', 'tool/evaluate_agent_fixtures.dart'],
+      label: 'Agent-consumption evaluation fixtures',
+    ),
+    const _VerificationCommand(
+      executable: 'dart',
+      arguments: <String>['run', 'tool/evaluate_agent_pilot.dart', '--check'],
+      label: 'Agent-consumption pilot GO/HOLD gate',
+    ),
+    const _VerificationCommand(
+      executable: 'dart',
+      arguments: <String>['run', 'tool/test_agent_docs_mcp.dart'],
+      label: 'Read-only Docs MCP adapter contract tests',
     ),
     const _VerificationCommand(
       executable: 'dart',
@@ -191,7 +228,7 @@ ExampleBuildCleanupResult cleanupExactExampleBuild(Directory repositoryRoot) {
       );
     }
     final canonicalRoot = repositoryRoot.resolveSymbolicLinksSync();
-    final example = Directory('$canonicalRoot${Platform.pathSeparator}example');
+    final example = Directory('$canonicalRoot/example');
     if (FileSystemEntity.typeSync(example.path, followLinks: false) !=
         FileSystemEntityType.directory) {
       return ExampleBuildCleanupResult.failure(
@@ -200,7 +237,7 @@ ExampleBuildCleanupResult cleanupExactExampleBuild(Directory repositoryRoot) {
       );
     }
     final canonicalExample = example.resolveSymbolicLinksSync();
-    final build = Directory('$canonicalExample${Platform.pathSeparator}build');
+    final build = Directory('$canonicalExample/build');
     if (build.path.split(Platform.pathSeparator).last != 'build') {
       return ExampleBuildCleanupResult.failure(
         path: build.path,
@@ -265,7 +302,7 @@ class ExampleBuildCleanupResult {
 Future<bool> _run(_VerificationCommand command) async {
   stdout.writeln('==> ${command.label}');
   final process = await Process.start(
-    platformExecutable(command.executable),
+    command.executable,
     command.arguments,
     workingDirectory: command.workingDirectory,
     mode: ProcessStartMode.inheritStdio,

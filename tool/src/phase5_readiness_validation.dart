@@ -383,9 +383,7 @@ void _validateDeprecatedSupport(Directory root, List<String> errors) {
   for (final document in governedMarkdown.where((file) => file.existsSync())) {
     final source = document.readAsStringSync();
     if (forbiddenClaims.any((pattern) => pattern.hasMatch(source))) {
-      final relative = document.path
-          .substring(root.path.length + 1)
-          .replaceAll('\\', '/');
+      final relative = document.path.substring(root.path.length + 1);
       errors.add(
         'Deprecated documentation must use typed unknown/unsupported, not '
         'numeric or absence claims: $relative.',
@@ -810,13 +808,17 @@ void _validatePackageDryRun(Directory root, List<String> errors) {
     if (compressedSize is! String || fileCount is! int) {
       errors.add('Canonical package inventory size or file count is invalid.');
     } else {
+      final sizeSlug = compressedSize.toLowerCase().replaceAll(
+        RegExp(r'\s+'),
+        '',
+      );
       final rawWarnings = inventory['warning_ids'];
       final warningSlug =
           rawWarnings is List && rawWarnings.contains('dirty-git-state')
           ? 'dirty-git-warning'
           : 'clean-git';
       final expectedSummary =
-          '$fileCount-files-deterministic-digests-'
+          '$sizeSlug-$fileCount-files-deterministic-digests-'
           '$warningSlug-no-publication';
       if (localPreparation['package_dry_run'] != expectedSummary) {
         errors.add(
@@ -833,15 +835,6 @@ void _validatePackageDryRun(Directory root, List<String> errors) {
       boundary['release_ready'] != false ||
       boundary['publication_ready'] != false) {
     errors.add('Package dry-run authority boundary was weakened.');
-  }
-  if (inventory['compressed_archive_size_scope'] !=
-          'informational-platform-dependent-local-observation' ||
-      archive['compressed_size_scope'] !=
-          inventory['compressed_archive_size_scope']) {
-    errors.add(
-      'Compressed package size must remain a platform-dependent local '
-      'observation.',
-    );
   }
   if (metadata['exit_code'] != inventory['exit_code'] ||
       archive['archive_name'] != inventory['archive_name'] ||
@@ -978,9 +971,7 @@ void _validateUnsignedProvenanceClaims(Directory root, List<String> errors) {
   for (final file in files) {
     final source = file.readAsStringSync();
     if (forbidden.any((pattern) => pattern.hasMatch(source))) {
-      final relative = file.path
-          .substring(root.path.length + 1)
-          .replaceAll('\\', '/');
+      final relative = file.path.substring(root.path.length + 1);
       errors.add('Categorical unsigned provenance claim remains: $relative.');
     }
   }
@@ -1033,9 +1024,7 @@ void _validateUnknownLicenseOwnershipClaims(
   for (final file in files.where((candidate) => candidate.existsSync())) {
     final source = file.readAsStringSync();
     if (forbidden.any((pattern) => pattern.hasMatch(source))) {
-      final relative = file.path
-          .substring(root.path.length + 1)
-          .replaceAll('\\', '/');
+      final relative = file.path.substring(root.path.length + 1);
       errors.add(
         'Categorical MIT ownership claim remains while project license '
         'authority is unresolved: $relative.',

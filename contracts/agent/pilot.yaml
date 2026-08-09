@@ -1,0 +1,40 @@
+schema: "blab.agent-pilot/v1"
+version: "0.1.0"
+workflow:
+  id: "baroguni-bottom-bar-accessibility-remediation"
+  product: "Baroguni"
+  issue: "BLA-7 / BAR-86"
+  description: "Use BLDS agent-readable contracts to inspect BottomBar semantics before an accessibility-large remediation."
+  baseline:
+    observed: "The current consumer uses a fixed 62px BottomBar and needs an app-local adapter for the action semantic label API."
+    evidence:
+      - "project/baroguni/issues/BAR-86.md"
+      - "project/blab-design-system/issues/BLA-7.md"
+    limit: "This pilot measures contract retrieval and unsupported-state safety; it does not claim consumer runtime performance or a completed accessibility remediation."
+decision:
+  fixture_source: "contracts/agent/evaluation-fixtures.yaml"
+  denominator: 10
+  minimum_pass: 9
+  maximum_critical_failures: 0
+  go_definition: "GO only when at least 9 of 10 fixed fixtures pass, critical failures are zero, and every reported evidence path resolves."
+  hold_conditions:
+    - "Any critical fixture fails."
+    - "A query claims an unsupported or not-applicable state as implemented."
+    - "A source or evidence path is missing."
+    - "The registry, mapping, or generated documentation is stale."
+maintenance:
+  owner: "BLDS Engineering Team / Design System Engineer"
+  verification_command: "dart run tool/verify.dart"
+  manual_lookup_comparison: "A repository-wide manual lookup baseline was not measured in this cycle; no productivity claim is made."
+  triggers:
+    - "Any semantic contract, token, state applicability, public API, example, test, or design evidence change."
+    - "Any consumer reports a mismatch between agent guidance and implemented behavior."
+    - "Before enabling a new remote adapter or adding a component to the reviewed Figma set."
+  current_cycle:
+    cycle_duration_seconds: 0.71
+    manual_repairs: 0
+    unresolved_drift: 0
+    critical_defects: 0
+decision_after_pilot:
+  docs_mcp: "GO"
+  multi_platform: "DEFER — Rule-of-Two evidence is not present in this pilot."

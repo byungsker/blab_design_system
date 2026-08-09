@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:crypto/crypto.dart';
 
 import 'src/phase5_inventory_scope.dart';
-import 'src/platform_executable.dart';
 
 const _dependencySnapshotPath = 'contracts/sbom/dependencies.json';
 const _spdxPath = 'contracts/sbom/blab-design-system.spdx.json';
@@ -23,7 +22,7 @@ Future<void> main(List<String> arguments) async {
   }
   final root = Directory.current;
   if (arguments.single == '--write') {
-    final result = await Process.run(platformExecutable('flutter'), const [
+    final result = await Process.run('flutter', const [
       'pub',
       'deps',
       '--json',

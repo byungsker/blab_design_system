@@ -1,0 +1,173 @@
+schema: "blab.figma-agent-mapping/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "repository-local-read-only"
+  source_of_truth: "contracts/blab.design.yaml"
+  registry_source: "contracts/components/agent-registry.yaml"
+  visual_reference: "docs/design/FIGMA.md"
+  figma_file_key: "tOz5Wt6IsQyfDL7loNeUw5"
+  remote_mutation: false
+  reviewed_set:
+    - "BLab/BottomBar"
+  review_rule: "Start with the pilot component and every pilot-relevant state; add another component only with explicit evidence."
+
+mappings:
+  - id: "blab-bottom-bar-component"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    flutter_source: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+    state: "component"
+    props:
+      - "item-count"
+      - "style"
+      - "safe-area"
+    token_references:
+      - "component.bottom-bar.container-surface"
+      - "component.bottom-bar.container-border"
+      - "component.bottom-bar.selected-surface"
+    mapping_status: "verified"
+    evidence_status: "repository-metadata-verified"
+    evidence:
+      - "docs/design/FIGMA.md"
+      - "lib/src/widgets/liquid_glass_bottom_bar.dart"
+      - "generated/agent-registry.v1.json"
+
+  - id: "blab-bottom-bar-unselected"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    flutter_source: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+    state: "unselected"
+    props: ["selected-index"]
+    token_references:
+      - "component.bottom-bar.unselected-foreground"
+    mapping_status: "verified"
+    evidence_status: "repository-metadata-verified"
+    evidence:
+      - "contracts/components/state-applicability.yaml"
+      - "generated/component-state-coverage.yaml"
+      - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+
+  - id: "blab-bottom-bar-selected"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    flutter_source: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+    state: "selected-current"
+    props: ["selected-index"]
+    token_references:
+      - "component.bottom-bar.selected-surface"
+      - "component.bottom-bar.selected-foreground"
+      - "component.bottom-bar.selected-highlight"
+    mapping_status: "verified"
+    evidence_status: "repository-metadata-verified"
+    evidence:
+      - "contracts/components/state-applicability.yaml"
+      - "generated/component-state-coverage.yaml"
+      - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+
+  - id: "blab-bottom-bar-pressed"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    flutter_source: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+    state: "pressed"
+    props: ["selected-index"]
+    token_references:
+      - "component.bottom-bar.pressed-overlay"
+    mapping_status: "verified"
+    evidence_status: "repository-metadata-verified"
+    evidence:
+      - "contracts/components/state-applicability.yaml"
+      - "generated/component-state-coverage.yaml"
+      - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+
+  - id: "blab-bottom-bar-focus"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    flutter_source: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+    state: "focus"
+    props: ["selected-index"]
+    token_references:
+      - "component.bottom-bar.focus-outline"
+      - "component.bottom-bar.focus-outer-ring"
+    mapping_status: "verified"
+    evidence_status: "repository-metadata-verified"
+    evidence:
+      - "contracts/components/state-applicability.yaml"
+      - "generated/component-state-coverage.yaml"
+      - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+
+  - id: "blab-bottom-bar-action"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    flutter_source: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+    state: "optional-action-with-callback-and-localized-label"
+    props:
+      - "action-callback"
+      - "localized-action-label"
+    token_references:
+      - "component.bottom-bar.action-surface"
+      - "component.bottom-bar.action-foreground"
+    mapping_status: "verified"
+    evidence_status: "repository-metadata-verified"
+    evidence:
+      - "contracts/components/state-applicability.yaml"
+      - "generated/component-state-coverage.yaml"
+      - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+
+  - id: "blab-bottom-bar-disabled-absent"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    flutter_source: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+    state: "disabled"
+    props: []
+    token_references: []
+    mapping_status: "absent"
+    evidence_status: "contract-absence"
+    reason: "The design contract marks disabled as not applicable for BLabBottomBar."
+    evidence:
+      - "contracts/components/state-applicability.yaml"
+      - "generated/component-state-coverage.yaml"
+
+  - id: "blab-bottom-bar-loading-absent"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    flutter_source: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+    state: "loading"
+    props: []
+    token_references: []
+    mapping_status: "absent"
+    evidence_status: "contract-absence"
+    reason: "The design contract marks loading as not applicable for BLabBottomBar."
+    evidence:
+      - "contracts/components/state-applicability.yaml"
+      - "generated/component-state-coverage.yaml"
+
+  - id: "blab-bottom-bar-future-state"
+    figma_component: "BLab/BottomBar"
+    figma_path: "03. Components/Navigation/BLab/BottomBar"
+    registry_component_id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    state: "future-design-state"
+    props: []
+    token_references: []
+    mapping_status: "not-yet-reviewed"
+    evidence_status: "not-reviewed"
+    reason: "No additional Figma state is claimed until a design decision and implementation evidence exist."
+    evidence:
+      - "docs/design/FIGMA.md"

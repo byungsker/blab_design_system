@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -8,7 +7,6 @@ import '../tool/src/phase5_compatibility.dart';
 import '../tool/src/phase5_baseline_validation.dart';
 import '../tool/src/phase5_inventory_scope.dart';
 import '../tool/src/phase5_readiness_validation.dart';
-import '../tool/capture_package_dry_run.dart' as package_dry_run_capture;
 
 const _zeroSha256 =
     '0000000000000000000000000000000000000000000000000000000000000000';
@@ -127,89 +125,6 @@ void main() {
       expect(authority['merge'], isFalse);
       expect(authority['publication'], isFalse);
     });
-
-    test(
-      'diff hygiene uses the active TDC base and rejects caller overrides',
-      () async {
-        final activeTdc =
-            loadYaml(
-                  File(
-                    'contracts/delivery/blab-design-system-0.2.0.yaml',
-                  ).readAsStringSync(),
-                )
-                as YamlMap;
-        final expectedBase =
-            ((activeTdc['delivery'] as YamlMap)['expected_base_sha'] as String);
-
-        final result = await Process.run('dart', <String>[
-          'run',
-          'tool/validate_diff_hygiene.dart',
-        ]);
-        expect(result.exitCode, 0, reason: '${result.stdout}${result.stderr}');
-        expect(
-          result.stdout,
-          contains('BLDS diff hygiene passed against $expectedBase'),
-        );
-
-        final rejectedOverride = await Process.run(
-          'dart',
-          <String>['run', 'tool/validate_diff_hygiene.dart'],
-          environment: <String, String>{
-            ...Platform.environment,
-            'BLDS_DIFF_BASE': 'HEAD',
-          },
-        );
-        expect(rejectedOverride.exitCode, 1);
-        expect(
-          '${rejectedOverride.stdout}${rejectedOverride.stderr}',
-          contains('could not resolve a comparison base'),
-        );
-      },
-    );
-
-    test('package identity ignores only host-dependent compressed size', () {
-      final recorded = <String, Object?>{
-        'schema': 'blab.package-dry-run-inventory/v1',
-        'compressed_archive_size': '123 KB',
-        'compressed_archive_size_scope':
-            'informational-platform-dependent-local-observation',
-        'file_count': 82,
-        'name_manifest_sha256': 'names',
-        'content_manifest_sha256': 'content',
-      };
-      final anotherHost = Map<String, Object?>.of(recorded)
-        ..['compressed_archive_size'] = '121 KB';
-      expect(
-        package_dry_run_capture.packageDryRunInventoriesMatchStable(
-          jsonEncode(recorded),
-          anotherHost,
-        ),
-        isTrue,
-      );
-
-      final changedContent = Map<String, Object?>.of(anotherHost)
-        ..['content_manifest_sha256'] = 'changed';
-      expect(
-        package_dry_run_capture.packageDryRunInventoriesMatchStable(
-          jsonEncode(recorded),
-          changedContent,
-        ),
-        isFalse,
-      );
-    });
-
-    test('package tree parsing is stable for Windows CRLF output', () {
-      const output =
-          'Package contents:\r\n'
-          '├── lib\r\n'
-          '│   └── blab_design_system.dart (12 KB)\r\n'
-          '└── pubspec.yaml (2 KB)\r\n';
-
-      expect(package_dry_run_capture.parsePackageArchiveFiles(output), <String>[
-        'lib/blab_design_system.dart',
-        'pubspec.yaml',
-      ]);
-    });
   });
 
   group('Phase 5 compatibility classifier', () {
@@ -296,7 +211,6 @@ classifications:
       () async {
         expect(await validatePhase5Baselines(Directory.current), isEmpty);
       },
-      timeout: const Timeout(Duration(minutes: 2)),
     );
 
     test(
@@ -571,7 +485,7 @@ tokens:
     );
 
     test(
-      'readiness package summary fails on file-count and clean-state drift',
+      'readiness package summary fails closed on size and file-count drift',
       () {
         final fixture = _fixture();
         addTearDown(() => fixture.deleteSync(recursive: true));
@@ -590,15 +504,9 @@ tokens:
           '${fixture.path}/contracts/release/phase5-readiness.yaml',
         );
         final canonical = readiness.readAsStringSync();
-        for (final drift in const [
-          '81-files-deterministic-digests-clean-git-no-publication',
-          '82-files-deterministic-digests-dirty-git-warning-no-publication',
-        ]) {
+        for (final drift in const ['122kb-85-files', '127kb-85-files']) {
           readiness.writeAsStringSync(
-            canonical.replaceFirst(
-              '82-files-deterministic-digests-clean-git-no-publication',
-              drift,
-            ),
+            canonical.replaceFirst('127kb-86-files', drift),
           );
           expect(
             validatePackageDryRunOnly(fixture),

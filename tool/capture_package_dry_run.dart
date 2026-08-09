@@ -3,8 +3,6 @@ import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 
-import 'src/platform_executable.dart';
-
 Future<void> main(List<String> arguments) async {
   if (arguments.length != 1 ||
       !const {'--write', '--check'}.contains(arguments.single)) {
@@ -15,15 +13,13 @@ Future<void> main(List<String> arguments) async {
     return;
   }
   final write = arguments.single == '--write';
-  final result = await Process.run(
-    platformExecutable('flutter'),
-    const ['pub', 'publish', '--dry-run'],
-    workingDirectory: Directory.current.path,
-    stdoutEncoding: utf8,
-    stderrEncoding: utf8,
-  );
+  final result = await Process.run('flutter', const [
+    'pub',
+    'publish',
+    '--dry-run',
+  ], workingDirectory: Directory.current.path);
   final output = '${result.stdout}${result.stderr}';
-  final files = parsePackageArchiveFiles(output);
+  final files = _parseArchiveFiles(output);
   final compressed = RegExp(
     r'Total compressed archive size: ([^\n.]+)',
   ).firstMatch(output)?.group(1);
@@ -49,8 +45,6 @@ Future<void> main(List<String> arguments) async {
     'exit_code': result.exitCode,
     'archive_name': 'blab_design_system-0.2.0.tar.gz',
     'compressed_archive_size': compressed,
-    'compressed_archive_size_scope':
-        'informational-platform-dependent-local-observation',
     'warning_ids': warnings,
     'file_count': files.length,
     'name_manifest_sha256': sha256
@@ -70,8 +64,7 @@ Future<void> main(List<String> arguments) async {
     file
       ..parent.createSync(recursive: true)
       ..writeAsStringSync(encoded, flush: true);
-  } else if (!file.existsSync() ||
-      !packageDryRunInventoriesMatchStable(file.readAsStringSync(), document)) {
+  } else if (!file.existsSync() || file.readAsStringSync() != encoded) {
     stderr.writeln(
       'Package dry-run inventory drift detected. Run '
       '`dart run tool/capture_package_dry_run.dart --write`.',
@@ -87,27 +80,7 @@ Future<void> main(List<String> arguments) async {
   );
 }
 
-bool packageDryRunInventoriesMatchStable(
-  String recordedSource,
-  Map<String, Object?> observed,
-) {
-  final recordedValue = jsonDecode(recordedSource);
-  if (recordedValue is! Map) {
-    return false;
-  }
-  final recorded = recordedValue.map(
-    (key, value) => MapEntry(key.toString(), value),
-  );
-  final recordedSize = recorded.remove('compressed_archive_size');
-  final observedStable = Map<String, Object?>.of(observed)
-    ..remove('compressed_archive_size');
-  return recordedSize is String &&
-      recordedSize.isNotEmpty &&
-      const JsonEncoder().convert(recorded) ==
-          const JsonEncoder().convert(observedStable);
-}
-
-List<String> parsePackageArchiveFiles(String output) {
+List<String> _parseArchiveFiles(String output) {
   final stack = <String>[];
   final files = <String>[];
   final linePattern = RegExp(r'^([│ ]*)(?:├──|└──) (.+)$');

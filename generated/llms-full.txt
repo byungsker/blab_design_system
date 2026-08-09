@@ -1,0 +1,416 @@
+# BLDS full agent-readable index
+
+Generated from the repository-owned BLDS contracts.
+
+## Generated sources
+
+- `contracts/components/agent-registry.yaml` — `1939e15dba6875a4a7aa2ed2b31c07dcfe4d9b155450b24455f10319281c6cfc`
+- `contracts/components/state-applicability.yaml` — `1aabd860a7422f9cac6e825088e796cf329d92f34114dec308f8a8c12ac0648f`
+- `generated/component-state-coverage.yaml` — `0fda4cb18f97d88158c83e82e78033a8b8851e0454104eb5307b6e3cef2a6466`
+- `contracts/tokens/blab.tokens.yaml` — `a94701b1191e3daa8dee88177d3523ce9c8ae8b5f56f5efdf0016f053d634dbe`
+- `contracts/components/figma-agent-mapping.yaml` — `99b584442387369163a3ddb346cd407f6023ae0a0ad61d52a1d10d743536a7d8`
+
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabButton
+
+Primary, secondary, and destructive action control.
+
+## Usage boundary
+
+Use for an explicit user action; do not use as a selected or loading control until those states are claimed.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/liquid_glass_button.dart`
+- Example: `example/lib/stories/button_story.dart`
+- Test: `test/blab_button_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_BUTTON_STATUS.md`
+
+## Token references
+
+- `component.button.primary.background`
+- `component.button.primary.foreground`
+- `component.button.focus-outer-ring`
+- `semantic.focus.ring`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- 44x44 minimum interactive target
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabTextField
+
+Single-line and multiline text input with helper, error, read-only, and clear-action semantics.
+
+## Usage boundary
+
+Use for user text entry; validation and loading behavior remain conditional or unclaimed where the state contract says so.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/liquid_glass_text_field.dart`
+- Example: `example/lib/stories/text_field_story.dart`
+- Test: `test/blab_text_field_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md`
+
+## Token references
+
+- `component.text-field.label`
+- `component.text-field.hint`
+- `component.text-field.focus-outline`
+- `component.text-field.error-border`
+- `semantic.focus.ring`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- Text scaling must remain ambient
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabSegmentedControl
+
+Controlled selection among a small set of mutually exclusive options.
+
+## Usage boundary
+
+Use for controlled selection; use owned horizontal overflow only under the documented conditional contract.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/blab_segmented_control.dart`
+- Example: `example/lib/stories/segmented_story.dart`
+- Test: `test/blab_segmented_control_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md`
+
+## Token references
+
+- `component.segmented.container-surface`
+- `component.segmented.selected-surface`
+- `component.segmented.selected-foreground`
+- `component.segmented.focus-outline`
+- `semantic.focus.ring`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- Controlled selection and roving keyboard focus
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabTabBar
+
+Controlled in-screen navigation across a small set of tabs.
+
+## Usage boundary
+
+Use for in-screen tab switching; do not substitute for bottom navigation or uncontrolled selection.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/liquid_glass_tab_bar.dart`
+- Example: `example/lib/stories/tab_bar_story.dart`
+- Test: `test/blab_tab_bar_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_TAB_BAR_STATUS.md`
+
+## Token references
+
+- `component.tab.container-surface`
+- `component.tab.selected-indicator`
+- `component.tab.selected-foreground`
+- `component.tab.focus-outline`
+- `semantic.focus.ring`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- Controlled selection
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabBottomBar
+
+Bottom navigation with selected, focus, drag, optional action, and localized label behavior.
+
+## Usage boundary
+
+Use for top-level product navigation; accessibility-large reflow and action semantics remain bounded by the consumer and state contract.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/liquid_glass_bottom_bar.dart`
+- Example: `example/lib/stories/bottom_bar_story.dart`
+- Test: `test/blab_bottom_bar_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md`
+
+## Token references
+
+- `component.bottom-bar.container-surface`
+- `component.bottom-bar.selected-surface`
+- `component.bottom-bar.selected-foreground`
+- `component.bottom-bar.action-surface`
+- `component.bottom-bar.focus-outline`
+- `semantic.focus.ring`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- 44x44 minimum interactive target
+- Accessibility-large reflow must not shrink text to hide overflow
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabPressableWrapper
+
+Interaction primitive for press, hover, focus, and action-derived semantics.
+
+## Usage boundary
+
+Use only when the wrapped content has a real action; static content must not receive interactive semantics.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/pressable_wrapper.dart`
+- Example: `example/lib/stories/pressable_story.dart`
+- Test: `test/blab_pressable_card_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md`
+
+## Token references
+
+- `component.pressable.hover-overlay`
+- `component.pressable.pressed-overlay`
+- `component.pressable.focus-outline`
+- `semantic.focus.ring`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- Haptic policy is default-deny
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabCard
+
+Glass surface container that may become actionable when an explicit action is supplied.
+
+## Usage boundary
+
+Use as a visual grouping surface; derive interactive semantics only from an actual action callback.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/liquid_glass_card.dart`
+- Example: `example/lib/stories/card_story.dart`
+- Test: `test/blab_pressable_card_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md`
+
+## Token references
+
+- `component.card.surface`
+- `component.card.border`
+- `component.pressable.focus-outline`
+- `semantic.surface.glass`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- Static cards must remain non-interactive
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabSnackbar
+
+Transient feedback surface for success, error, warning, and info messages.
+
+## Usage boundary
+
+Use for short-lived feedback with readable timing and optional action; do not use as persistent content or modal error handling.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/blab_snackbar.dart`
+- Example: `example/lib/stories/snackbar_story.dart`
+- Test: `test/blab_snackbar_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_SNACKBAR_STATUS.md`
+
+## Token references
+
+- `component.snackbar.surface`
+- `component.snackbar.foreground`
+- `component.snackbar.border`
+- `semantic.status.success`
+- `semantic.status.error`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- Do not steal focus from the current task
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
+<!-- GENERATED CODE - DO NOT EDIT. -->
+<!-- Sources: contracts/components/agent-registry.yaml, contracts/components/state-applicability.yaml, generated/component-state-coverage.yaml, contracts/tokens/blab.tokens.yaml, contracts/components/figma-agent-mapping.yaml -->
+# BLabKeyboardAccessoryBar
+
+Keyboard accessory actions for navigation, editing, and completion.
+
+## Usage boundary
+
+Use alongside an active text-input flow; action availability and overflow remain explicit per item.
+
+## Source and evidence
+
+- Source: `lib/src/widgets/keyboard_accessory_bar.dart`
+- Example: `example/lib/stories/keyboard_accessory_story.dart`
+- Test: `test/blab_keyboard_accessory_bar_test.dart`
+- Documentation: `docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md`
+
+## Token references
+
+- `component.keyboard-accessory.surface-start`
+- `component.keyboard-accessory.border`
+- `component.keyboard-accessory.foreground`
+- `component.keyboard-accessory.focus-outline`
+- `semantic.focus.ring`
+
+## State contract
+
+### Required
+
+- None recorded.
+
+### Conditional
+
+- None recorded.
+
+### Not applicable
+
+- None recorded.
+
+## Platform constraints
+
+- Flutter package API
+- Horizontal overflow is owned and scrollable when conditional
+
+Generated from the BLDS registry and state contract. Not-claimed behavior must not be presented as implemented.
