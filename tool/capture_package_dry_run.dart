@@ -13,11 +13,11 @@ Future<void> main(List<String> arguments) async {
     return;
   }
   final write = arguments.single == '--write';
-  final result = await Process.run('flutter', const [
-    'pub',
-    'publish',
-    '--dry-run',
-  ], workingDirectory: Directory.current.path);
+  final result = await Process.run(
+    Platform.isWindows ? 'flutter.bat' : 'flutter',
+    const ['pub', 'publish', '--dry-run'],
+    workingDirectory: Directory.current.path,
+  );
   final output = '${result.stdout}${result.stderr}';
   final files = _parseArchiveFiles(output);
   final compressed = RegExp(

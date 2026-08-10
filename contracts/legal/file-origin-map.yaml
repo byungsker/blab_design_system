@@ -1503,7 +1503,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "9125e55878fc3173400793646d8a422f91e7177bb62fafbc15ba3967104ac214"
+      "sha256": "2d4af64291a08eb617712b808d7054c479fcdc16058dd888ba9b85dfd7e01b05"
     },
     {
       "path": "tool/classify_compatibility.dart",
