@@ -381,7 +381,9 @@ void _validateDeprecatedSupport(Directory root, List<String> errors) {
   for (final document in governedMarkdown.where((file) => file.existsSync())) {
     final source = document.readAsStringSync();
     if (forbiddenClaims.any((pattern) => pattern.hasMatch(source))) {
-      final relative = document.path.substring(root.path.length + 1);
+      final relative = document.path
+          .substring(root.path.length + 1)
+          .replaceAll('\\', '/');
       errors.add(
         'Deprecated documentation must use typed unknown/unsupported, not '
         'numeric or absence claims: $relative.',
@@ -969,7 +971,9 @@ void _validateUnsignedProvenanceClaims(Directory root, List<String> errors) {
   for (final file in files) {
     final source = file.readAsStringSync();
     if (forbidden.any((pattern) => pattern.hasMatch(source))) {
-      final relative = file.path.substring(root.path.length + 1);
+      final relative = file.path
+          .substring(root.path.length + 1)
+          .replaceAll('\\', '/');
       errors.add('Categorical unsigned provenance claim remains: $relative.');
     }
   }
@@ -1022,7 +1026,9 @@ void _validateUnknownLicenseOwnershipClaims(
   for (final file in files.where((candidate) => candidate.existsSync())) {
     final source = file.readAsStringSync();
     if (forbidden.any((pattern) => pattern.hasMatch(source))) {
-      final relative = file.path.substring(root.path.length + 1);
+      final relative = file.path
+          .substring(root.path.length + 1)
+          .replaceAll('\\', '/');
       errors.add(
         'Categorical MIT ownership claim remains while project license '
         'authority is unresolved: $relative.',
