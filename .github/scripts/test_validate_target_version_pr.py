@@ -80,6 +80,21 @@ class ValidatorSecurityTests(unittest.TestCase):
         with self.assertRaises(MODULE.PolicyError):
             MODULE.validate()
 
+    def test_bootstrap_accepts_complete_governance_scope_without_trusted_policy(self) -> None:
+        body = (
+            "Target-Delivery-Unit: governance\n"
+            "Target-Version: 1.0.0\n"
+            "Delivery-Profile: package-or-local"
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            self.configure(
+                head="chore/governance/1.0.0/open-blab-design-system-0.2.0",
+                body=body,
+                paths=sorted(MODULE.BOOTSTRAP_GOVERNANCE_PATHS),
+                trusted_policy_path=str(Path(directory) / "missing-branch-policy.json"),
+            )
+            self.assertIn("target-version policy passed", MODULE.validate())
+
     def test_bootstrap_rejects_non_governance_path_without_trusted_policy(self) -> None:
         body = (
             "Target-Delivery-Unit: governance\n"
@@ -96,6 +111,38 @@ class ValidatorSecurityTests(unittest.TestCase):
             )
             with self.assertRaises(MODULE.PolicyError):
                 MODULE.validate()
+
+    def test_missing_proposed_policy_fails_closed_for_dotfile_path(self) -> None:
+        body = (
+            "Target-Delivery-Unit: governance\n"
+            "Target-Version: 1.0.0\n"
+            "Delivery-Profile: package-or-local"
+        )
+        self.configure(
+            head="chore/governance/1.0.0/open-blab-design-system-0.2.0",
+            body=body,
+            paths=[".byungskerlab/branch-policy.json"],
+        )
+        os.environ["BRANCH_POLICY_CONFIG"] = ".byungskerlab/branch-policy.json"
+        os.environ.pop("PR_POLICY_JSON_B64")
+        with self.assertRaises(MODULE.PolicyError):
+            MODULE.validate()
+
+    def test_missing_proposed_registry_fails_closed_for_dotfile_path(self) -> None:
+        body = (
+            "Target-Delivery-Unit: governance\n"
+            "Target-Version: 1.0.0\n"
+            "Delivery-Profile: package-or-local"
+        )
+        self.configure(
+            head="chore/governance/1.0.0/open-blab-design-system-0.2.0",
+            body=body,
+            paths=[".byungskerlab/release-lines.json"],
+        )
+        os.environ["BRANCH_POLICY_CONFIG"] = ".byungskerlab/branch-policy.json"
+        os.environ.pop("PR_REGISTRY_JSON_B64")
+        with self.assertRaises(MODULE.PolicyError):
+            MODULE.validate()
 
 
 if __name__ == "__main__":

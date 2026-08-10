@@ -34,6 +34,7 @@ BOOTSTRAP_GOVERNANCE_PATHS = frozenset(
         ".byungskerlab/branch-policy.json",
         ".byungskerlab/release-lines.json",
         ".github/scripts/validate_target_version_pr.py",
+        ".github/scripts/test_validate_target_version_pr.py",
         ".github/workflows/target-version.yml",
         "AGENTS.md",
     }
@@ -42,6 +43,11 @@ BOOTSTRAP_GOVERNANCE_PATHS = frozenset(
 
 class PolicyError(ValueError):
     """Raised for a fail-closed delivery-policy violation."""
+
+
+def repository_path(path: Path) -> str:
+    value = path.as_posix()
+    return value[2:] if value.startswith("./") else value
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -142,7 +148,7 @@ def validate() -> str:
     branch_type = match.group("type")
     unit = match.group("unit")
     version = match.group("version")
-    policy_path = config_path.as_posix().lstrip("./")
+    policy_path = repository_path(config_path)
     proposed_policy = os.environ.get("PR_POLICY_JSON_B64", "")
     if policy_path in paths and not proposed_policy:
         raise PolicyError("proposed policy JSON is missing")
@@ -179,7 +185,7 @@ def validate() -> str:
         registry_path = config_path.parent.parent / source_path
     else:
         registry_path = config_path.parent / source_path
-    registry_repo_path = registry_path.as_posix().lstrip("./")
+    registry_repo_path = repository_path(registry_path)
     proposed_registry = os.environ.get("PR_REGISTRY_JSON_B64", "")
     if registry_repo_path in paths and not proposed_registry:
         raise PolicyError("proposed release registry JSON is missing")
