@@ -47,7 +47,7 @@ The goal is not to create a generic public design system for every Flutter app. 
 
 ## Public API checklist
 
-Before finishing, check:
+Before finishing a task, check:
 
 - [ ] New public APIs are exported from `lib/blab_design_system.dart`.
 - [ ] README examples still compile conceptually with the exported names.
