@@ -132,6 +132,19 @@ def validate() -> str:
     registry = load_json(registry_path)
     if registry.get("schema_version") != 1:
         raise PolicyError("release registry schema_version must be 1")
+    registry_units = registry.get("delivery_units")
+    if not isinstance(registry_units, dict) or set(registry_units) != set(units):
+        raise PolicyError("policy/registry delivery units differ")
+    for unit_name, unit_policy in units.items():
+        registry_unit = registry_units.get(unit_name)
+        if not isinstance(unit_policy, dict) or not isinstance(registry_unit, dict):
+            raise PolicyError(f"invalid delivery unit record: {unit_name}")
+        active_versions = unit_policy.get("active_versions")
+        registry_versions = registry_unit.get("active_versions")
+        if not isinstance(active_versions, list) or registry_versions != active_versions:
+            raise PolicyError(
+                f"policy/registry active versions differ for {unit_name}"
+            )
 
     head = os.environ.get("PR_HEAD_REF", "")
     base = os.environ.get("PR_BASE_REF", "")
@@ -143,15 +156,13 @@ def validate() -> str:
     unit = match.group("unit")
     version = match.group("version")
     unit_policy = units.get(unit)
-    registry_unit = registry.get("delivery_units", {}).get(unit)
+    registry_unit = registry_units.get(unit)
     if not isinstance(unit_policy, dict) or not isinstance(registry_unit, dict):
         raise PolicyError(f"unknown delivery unit: {unit}")
 
     active = unit_policy.get("active_versions")
     if not isinstance(active, list) or version not in active:
         raise PolicyError(f"target version {version} is not active for {unit}")
-    if registry_unit.get("active_versions") != active:
-        raise PolicyError(f"policy/registry active versions differ for {unit}")
     profile = unit_policy.get("profile")
     if not isinstance(profile, str) or not profile:
         raise PolicyError(f"delivery unit {unit} has no profile")
