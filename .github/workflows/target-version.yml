@@ -77,3 +77,6 @@ jobs:
           PR_POLICY_JSON_B64: ${{ steps.pr.outputs.policy_json_b64 }}
           PR_REGISTRY_JSON_B64: ${{ steps.pr.outputs.registry_json_b64 }}
         run: python3 .github/scripts/validate_target_version_pr.py
+
+      - name: Run trusted validator regression tests
+        run: python3 .github/scripts/test_validate_target_version_pr.py

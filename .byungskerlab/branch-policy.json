@@ -14,6 +14,7 @@
         ".byungskerlab/release-lines.json",
         ".github/workflows/target-version.yml",
         ".github/scripts/validate_target_version_pr.py",
+        ".github/scripts/test_validate_target_version_pr.py",
         "AGENTS.md"
       ]
     },
