@@ -45,6 +45,16 @@ def load_json(path: Path) -> dict[str, Any]:
     return value
 
 
+def load_json_b64(encoded: str, label: str) -> dict[str, Any]:
+    try:
+        value = json.loads(base64.b64decode(encoded, validate=True))
+    except (ValueError, json.JSONDecodeError, UnicodeDecodeError) as exc:
+        raise PolicyError(f"invalid proposed governance JSON: {label}") from exc
+    if not isinstance(value, dict):
+        raise PolicyError(f"proposed governance JSON must be an object: {label}")
+    return value
+
+
 def metadata_value(body: str, key: str) -> str:
     matches = re.findall(
         rf"(?mi)^[ \t]*{re.escape(key)}[ \t]*:[ \t]*([^\r\n]*)$", body
@@ -105,7 +115,16 @@ def validate() -> str:
     config_path = Path(
         os.environ.get("BRANCH_POLICY_CONFIG", ".byungskerlab/branch-policy.json")
     )
-    config = load_json(config_path)
+    paths = changed_files(os.environ.get("PR_CHANGED_FILES_B64", ""))
+    policy_path = config_path.as_posix().lstrip("./")
+    proposed_policy = os.environ.get("PR_POLICY_JSON_B64", "")
+    if policy_path in paths and not proposed_policy:
+        raise PolicyError("proposed policy JSON is missing")
+    config = (
+        load_json_b64(proposed_policy, policy_path)
+        if proposed_policy
+        else load_json(config_path)
+    )
     if config.get("schema_version") != 1:
         raise PolicyError("policy schema_version must be 1")
     units = config.get("delivery_units")
@@ -129,7 +148,15 @@ def validate() -> str:
         registry_path = config_path.parent.parent / source_path
     else:
         registry_path = config_path.parent / source_path
-    registry = load_json(registry_path)
+    registry_repo_path = registry_path.as_posix().lstrip("./")
+    proposed_registry = os.environ.get("PR_REGISTRY_JSON_B64", "")
+    if registry_repo_path in paths and not proposed_registry:
+        raise PolicyError("proposed release registry JSON is missing")
+    registry = (
+        load_json_b64(proposed_registry, registry_repo_path)
+        if proposed_registry
+        else load_json(registry_path)
+    )
     if registry.get("schema_version") != 1:
         raise PolicyError("release registry schema_version must be 1")
     registry_units = registry.get("delivery_units")
@@ -169,7 +196,7 @@ def validate() -> str:
     check_paths(
         unit,
         unit_policy,
-        changed_files(os.environ.get("PR_CHANGED_FILES_B64", "")),
+        paths,
     )
 
     expected = {

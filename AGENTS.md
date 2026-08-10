@@ -54,7 +54,8 @@ checkout.
   `contracts/delivery/phase4-custody.yaml`.
 - Golden equality is reproducibility evidence, not accessibility or visual
   conformance.
-- Run `dart run tool/verify.dart` and inspect the final scope before reporting
+- For package delivery work where the verification tooling is present, run
+  `dart run tool/verify.dart` and inspect the final scope before reporting
   engineering completion.
 - A local pass does not authorize delivery, approval, release, publication, or
   a conformance claim.
