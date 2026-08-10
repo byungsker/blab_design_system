@@ -11,6 +11,17 @@ Blab remains the semantic and visual authority. Product identity, vocabulary,
 localization, token meaning, and design approval remain with the byungskerlab
 Design Team.
 
+## Bootstrap sequencing
+
+This instruction file is installed by the governance bootstrap before the
+BLDS 0.2.0 package restoration is promoted. The current pre-bootstrap `main`
+baseline has `DESIGN.md` SHA-256
+`b8329de0ebbd718705b75f6bcb976cfe6d2ae379228a9f04d22c42c6697e37e1` and does
+not yet contain `tool/verify.dart`. That is an incomplete baseline, not a
+conformance claim. Product PR #10 must restore the protected design source to
+the required SHA below and provide the verification command before product
+promotion; the trusted target-version check must pass after this bootstrap.
+
 ## Protected sources and local configuration
 
 - `DESIGN.md` is a protected legacy source. Its required SHA-256 is
