@@ -29,7 +29,6 @@ pull_request:
     Target-Delivery-Unit: "blab-design-system"
     Target-Version: "0.2.0"
     Delivery-Profile: "package-or-local"
-    Promotion-Source-SHA: "not-applicable-normal-work-pr"
 
 authority:
   source: "byungsker acceptance in the active Codex thread on 2026-07-28"

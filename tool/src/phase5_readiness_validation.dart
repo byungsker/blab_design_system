@@ -133,9 +133,7 @@ void _validateActiveTargetDelivery(Directory root, List<String> errors) {
       pullRequest['draft'] != true ||
       requiredMetadata['Target-Delivery-Unit'] != 'blab-design-system' ||
       requiredMetadata['Target-Version'] != '0.2.0' ||
-      requiredMetadata['Delivery-Profile'] != 'package-or-local' ||
-      requiredMetadata['Promotion-Source-SHA'] !=
-          'not-applicable-normal-work-pr') {
+      requiredMetadata['Delivery-Profile'] != 'package-or-local') {
     errors.add('Active Target Delivery pull-request metadata is inconsistent.');
   }
   for (final key in const [

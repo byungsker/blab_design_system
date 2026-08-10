@@ -111,6 +111,11 @@ Future<bool> _runVerification() async {
     ),
     const _VerificationCommand(
       executable: 'dart',
+      arguments: <String>['run', 'tool/validate_package_dry_run.dart'],
+      label: 'Deterministic package dry-run inventory validation',
+    ),
+    const _VerificationCommand(
+      executable: 'dart',
       arguments: <String>[
         'run',
         'tool/generate_phase5_inventories.dart',
@@ -238,7 +243,7 @@ ExampleBuildCleanupResult cleanupExactExampleBuild(Directory repositoryRoot) {
     }
     final canonicalExample = example.resolveSymbolicLinksSync();
     final build = Directory('$canonicalExample/build');
-    if (build.path.split(Platform.pathSeparator).last != 'build') {
+    if (!isExactExampleBuildPath(build.path)) {
       return ExampleBuildCleanupResult.failure(
         path: build.path,
         detail: 'Cleanup target basename must be build.',
@@ -278,6 +283,10 @@ ExampleBuildCleanupResult cleanupExactExampleBuild(Directory repositoryRoot) {
       detail: error.message,
     );
   }
+}
+
+bool isExactExampleBuildPath(String path) {
+  return path.replaceAll('\\', '/').split('/').last == 'build';
 }
 
 class ExampleBuildCleanupResult {

@@ -81,12 +81,11 @@ The future draft PR must contain exactly one of each:
 Target-Delivery-Unit: blab-design-system
 Target-Version: 0.2.0
 Delivery-Profile: package-or-local
-Promotion-Source-SHA: not-applicable-normal-work-pr
 ```
 
-This is a normal work PR, not a release or hotfix PR. The promotion-source SHA
-field remains present exactly once and uses the typed
-`not-applicable-normal-work-pr` value.
+This is a normal work PR, not a release or hotfix PR. `Promotion-Source-SHA`
+is forbidden on normal work pull requests and remains required, with the
+approved source SHA, only for release and hotfix promotion pull requests.
 
 ## Bootstrap dependency
 

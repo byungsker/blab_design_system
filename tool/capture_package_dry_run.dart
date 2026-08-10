@@ -64,7 +64,8 @@ Future<void> main(List<String> arguments) async {
     file
       ..parent.createSync(recursive: true)
       ..writeAsStringSync(encoded, flush: true);
-  } else if (!file.existsSync() || file.readAsStringSync() != encoded) {
+  } else if (!file.existsSync() ||
+      !_matchesDeterministicInventory(file, document)) {
     stderr.writeln(
       'Package dry-run inventory drift detected. Run '
       '`dart run tool/capture_package_dry_run.dart --write`.',
@@ -78,6 +79,29 @@ Future<void> main(List<String> arguments) async {
     '${result.exitCode}, warnings ${warnings.join(', ')}. No publication '
     'was performed.',
   );
+}
+
+bool _matchesDeterministicInventory(
+  File canonicalFile,
+  Map<String, Object?> observed,
+) {
+  final canonical = jsonDecode(canonicalFile.readAsStringSync());
+  if (canonical is! Map<String, dynamic>) return false;
+  return packageDryRunInventoriesMatchStable(
+    Map<String, Object?>.from(canonical),
+    observed,
+  );
+}
+
+bool packageDryRunInventoriesMatchStable(
+  Map<String, Object?> canonical,
+  Map<String, Object?> observed,
+) {
+  final canonicalComparable = Map<String, Object?>.from(canonical)
+    ..remove('compressed_archive_size');
+  final observedComparable = Map<String, Object?>.from(observed)
+    ..remove('compressed_archive_size');
+  return jsonEncode(canonicalComparable) == jsonEncode(observedComparable);
 }
 
 List<String> _parseArchiveFiles(String output) {

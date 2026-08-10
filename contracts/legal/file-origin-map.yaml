@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "status": "fresh-clone-equivalent-candidate-inventory-rights-unresolved",
     "as_of": "2026-07-28",
-    "file_count": 250,
+    "file_count": 251,
     "coverage": "Git-tracked files plus explicitly allowed, nonignored candidate paths. Git-ignored files, local editor configuration, symlinks, and arbitrary untracked root files are excluded before content access.",
     "boundary": "Repository-authored classification is not a human rights or non-derivation attestation. This scope is fresh-clone-equivalent delivery evidence, not a visible-worktree inventory.",
     "selection": {
@@ -201,7 +201,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "ab8adaa16f20671f78ee83c539248b1fe9dd41308cd21417372c214a93bbf375"
+      "sha256": "cd291b900a0cb29a153010c8047869359d6e2aa26539579f7187e13686c8831b"
     },
     {
       "path": "contracts/delivery/phase4-custody.yaml",
@@ -677,7 +677,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "bc331dd04fdcda83f48f70f30c186f019e890494ed60b569086766c9e639f896"
+      "sha256": "4308bd7b677ba91ff9ae9932796b4d9cbcb5482a4a703038e98dbe08b191218c"
     },
     {
       "path": "docs/consuming-app-guide.md",
@@ -1503,7 +1503,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "35a17b2a3c43731454e2ba5725eb5009f37f6a7536705d9bfc22cc239309afb2"
+      "sha256": "9125e55878fc3173400793646d8a422f91e7177bb62fafbc15ba3967104ac214"
     },
     {
       "path": "tool/classify_compatibility.dart",
@@ -1650,7 +1650,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "5d11e893b42cd7c31ab5127ff7b3c15ac5f1d53d75da4819d8828a5e0aa652e2"
+      "sha256": "02133f89f861edc33e9a55723f8694cf8afadfd574bd4a7ea36321b7a946f7b2"
     },
     {
       "path": "tool/src/platform_executable.dart",
@@ -1723,6 +1723,13 @@
       "sha256": "5eafa7d9940e42649775cadecdef548820547eaa6944ad021dbbb5db8c34f8d3"
     },
     {
+      "path": "tool/validate_package_dry_run.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "cb4df893cd3102b40967a76b54e0f9f49899734d1e5a67daa1b04059e0f73d5e"
+    },
+    {
       "path": "tool/validate_phase4_evidence.dart",
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
@@ -1748,7 +1755,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "5109f0803cba342aab60c3f4e53ad401987fa6ca7531415e8bbfd18257c159e7"
+      "sha256": "d2c257701eb00c5fa50c54b05537de3f870a8a1262830e30ade81e3b3c2edaf3"
     },
     {
       "path": "tool/validate_workflow.dart",
@@ -1762,7 +1769,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "aa7fc743d441cd156b36ced8b954aec104c134c9329ff4360090e5650ef495a9"
+      "sha256": "35f303255bb532d0a489b028fd2c257e95ce16aa0033f7ff064f8b2a94eee1b2"
     }
   ]
 }

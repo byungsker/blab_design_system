@@ -3,6 +3,14 @@ import 'dart:io';
 import 'verify.dart' as verification;
 
 Future<void> main() async {
+  _expect(
+    verification.isExactExampleBuildPath(r'C:\workspace\example/build'),
+    'Windows mixed-separator example/build path must retain its build basename.',
+  );
+  _expect(
+    !verification.isExactExampleBuildPath(r'C:\workspace\example/build-old'),
+    'Only the exact build basename may be accepted for cleanup.',
+  );
   final fixture = Directory.systemTemp.createTempSync(
     'blab-verify-cleanup-test-',
   );
