@@ -54,7 +54,7 @@
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
-      "sha256": "9e9fe992a2d8f7d7327eec155654a2786a3b73b60d233d5dc0505d70782664f6"
+      "sha256": "eae02cf5f11d35ed3f210165fbe044830f110caa8ae3b3026b540a60882922ec"
     },
     {
       "path": "CHANGELOG.md",
