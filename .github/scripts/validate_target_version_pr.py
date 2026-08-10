@@ -91,7 +91,12 @@ def check_ancestry(source_sha: str) -> bool:
     repository = os.environ.get("GITHUB_REPOSITORY", "")
     head_sha = os.environ.get("PR_HEAD_SHA", "")
     token = os.environ.get("GH_TOKEN", "")
-    if not repository or not re.fullmatch(r"[0-9a-f]{40}", head_sha) or not token:
+    if (
+        not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repository)
+        or not re.fullmatch(r"[0-9a-f]{40}", head_sha)
+        or not re.fullmatch(r"[0-9a-f]{40}", source_sha)
+        or not token
+    ):
         return False
     request = urllib.request.Request(
         f"https://api.github.com/repos/{repository}/compare/{source_sha}...{head_sha}",
@@ -131,16 +136,21 @@ def validate() -> str:
     if not isinstance(units, dict) or not units:
         raise PolicyError("policy delivery_units must be non-empty")
 
-    source = next(
-        (
-            unit.get("target_version_source")
-            for unit in units.values()
-            if isinstance(unit, dict) and unit.get("target_version_source")
-        ),
-        None,
-    )
-    if not isinstance(source, str) or not source:
-        raise PolicyError("target version source is missing")
+    sources: list[str] = []
+    for unit_name, unit in units.items():
+        if not isinstance(unit, dict):
+            raise PolicyError(f"invalid delivery unit record: {unit_name}")
+        source_value = unit.get("target_version_source")
+        if not isinstance(source_value, str) or not source_value:
+            raise PolicyError(f"target version source is missing for {unit_name}")
+        if not isinstance(unit.get("production_branch"), str) or not unit.get(
+            "production_branch"
+        ):
+            raise PolicyError(f"production branch is missing for {unit_name}")
+        sources.append(source_value)
+    if len(set(sources)) != 1:
+        raise PolicyError("delivery units use divergent target version sources")
+    source = sources[0]
     source_path = Path(source)
     if source_path.is_absolute():
         registry_path = source_path
@@ -168,7 +178,13 @@ def validate() -> str:
             raise PolicyError(f"invalid delivery unit record: {unit_name}")
         active_versions = unit_policy.get("active_versions")
         registry_versions = registry_unit.get("active_versions")
-        if not isinstance(active_versions, list) or registry_versions != active_versions:
+        if (
+            not isinstance(active_versions, list)
+            or not isinstance(registry_versions, list)
+            or not all(isinstance(version_value, str) for version_value in active_versions)
+            or not all(isinstance(version_value, str) for version_value in registry_versions)
+            or set(registry_versions) != set(active_versions)
+        ):
             raise PolicyError(
                 f"policy/registry active versions differ for {unit_name}"
             )
@@ -208,8 +224,10 @@ def validate() -> str:
         if metadata_value(body, key) != value:
             raise PolicyError(f"{key} does not match the committed policy")
 
-    production_branch = unit_policy.get("production_branch", "main")
-    if not isinstance(production_branch, str) or base != production_branch:
+    production_branch = unit_policy.get("production_branch")
+    if not isinstance(production_branch, str) or not production_branch:
+        raise PolicyError(f"production branch is missing for {unit}")
+    if base != production_branch:
         raise PolicyError(f"base must be {production_branch}")
 
     promotion_metadata = re.findall(
@@ -219,8 +237,13 @@ def validate() -> str:
         if promotion_metadata:
             raise PolicyError("Promotion-Source-SHA is forbidden on normal work PRs")
     else:
-        sources = registry_unit.get("promotion_sources", {})
-        source_record = sources.get(branch_type, {}).get(version)
+        sources = registry_unit.get("promotion_sources")
+        if not isinstance(sources, dict):
+            raise PolicyError("promotion source is not recorded")
+        source_by_version = sources.get(branch_type)
+        if not isinstance(source_by_version, dict):
+            raise PolicyError("promotion source is not recorded")
+        source_record = source_by_version.get(version)
         if not isinstance(source_record, dict) or not isinstance(
             source_record.get("sha"), str
         ):
