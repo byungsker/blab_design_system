@@ -29,6 +29,15 @@ METADATA_KEYS = (
     "Target-Version",
     "Delivery-Profile",
 )
+BOOTSTRAP_GOVERNANCE_PATHS = frozenset(
+    {
+        ".byungskerlab/branch-policy.json",
+        ".byungskerlab/release-lines.json",
+        ".github/scripts/validate_target_version_pr.py",
+        ".github/workflows/target-version.yml",
+        "AGENTS.md",
+    }
+)
 
 
 class PolicyError(ValueError):
@@ -120,7 +129,19 @@ def validate() -> str:
     config_path = Path(
         os.environ.get("BRANCH_POLICY_CONFIG", ".byungskerlab/branch-policy.json")
     )
+    trusted_config_path = Path(
+        os.environ.get("TRUSTED_BRANCH_POLICY_CONFIG", str(config_path))
+    )
     paths = changed_files(os.environ.get("PR_CHANGED_FILES_B64", ""))
+    head = os.environ.get("PR_HEAD_REF", "")
+    base = os.environ.get("PR_BASE_REF", "")
+    body = os.environ.get("PR_BODY", "")
+    match = WORK_RE.fullmatch(head) or PROMOTION_RE.fullmatch(head)
+    if not match:
+        raise PolicyError("head branch does not match the delivery contract")
+    branch_type = match.group("type")
+    unit = match.group("unit")
+    version = match.group("version")
     policy_path = config_path.as_posix().lstrip("./")
     proposed_policy = os.environ.get("PR_POLICY_JSON_B64", "")
     if policy_path in paths and not proposed_policy:
@@ -137,13 +158,13 @@ def validate() -> str:
         raise PolicyError("policy delivery_units must be non-empty")
 
     sources: list[str] = []
-    for unit_name, unit in units.items():
-        if not isinstance(unit, dict):
+    for unit_name, unit_record in units.items():
+        if not isinstance(unit_record, dict):
             raise PolicyError(f"invalid delivery unit record: {unit_name}")
-        source_value = unit.get("target_version_source")
+        source_value = unit_record.get("target_version_source")
         if not isinstance(source_value, str) or not source_value:
             raise PolicyError(f"target version source is missing for {unit_name}")
-        if not isinstance(unit.get("production_branch"), str) or not unit.get(
+        if not isinstance(unit_record.get("production_branch"), str) or not unit_record.get(
             "production_branch"
         ):
             raise PolicyError(f"production branch is missing for {unit_name}")
@@ -189,15 +210,6 @@ def validate() -> str:
                 f"policy/registry active versions differ for {unit_name}"
             )
 
-    head = os.environ.get("PR_HEAD_REF", "")
-    base = os.environ.get("PR_BASE_REF", "")
-    body = os.environ.get("PR_BODY", "")
-    match = WORK_RE.fullmatch(head) or PROMOTION_RE.fullmatch(head)
-    if not match:
-        raise PolicyError("head branch does not match the delivery contract")
-    branch_type = match.group("type")
-    unit = match.group("unit")
-    version = match.group("version")
     unit_policy = units.get(unit)
     registry_unit = registry_units.get(unit)
     if not isinstance(unit_policy, dict) or not isinstance(registry_unit, dict):
@@ -209,11 +221,23 @@ def validate() -> str:
     profile = unit_policy.get("profile")
     if not isinstance(profile, str) or not profile:
         raise PolicyError(f"delivery unit {unit} has no profile")
-    check_paths(
-        unit,
-        unit_policy,
-        paths,
-    )
+    if trusted_config_path.exists():
+        trusted_config = load_json(trusted_config_path)
+        trusted_units = trusted_config.get("delivery_units")
+        if not isinstance(trusted_units, dict):
+            raise PolicyError("trusted policy delivery_units is invalid")
+        trusted_unit_policy = trusted_units.get(unit)
+        if not isinstance(trusted_unit_policy, dict):
+            raise PolicyError(f"trusted policy has no delivery unit: {unit}")
+        check_paths(unit, trusted_unit_policy, paths)
+    elif unit == "governance":
+        unauthorized = [path for path in paths if path not in BOOTSTRAP_GOVERNANCE_PATHS]
+        if unauthorized:
+            raise PolicyError(
+                f"bootstrap governance path outside immutable allowlist: {unauthorized[0]}"
+            )
+    else:
+        raise PolicyError("trusted branch policy is missing")
 
     expected = {
         "Target-Delivery-Unit": unit,
