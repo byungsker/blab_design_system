@@ -1,0 +1,56 @@
+name: target-version
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  target-version:
+    name: target-version
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out trusted default-branch code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+
+      - name: Read pull request metadata through the API
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const { owner, repo } = context.repo;
+            const number = context.payload.pull_request.number;
+            const pull = await github.rest.pulls.get({ owner, repo, pull_number: number });
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number: number,
+              per_page: 100,
+            });
+            core.setOutput('head_ref', pull.data.head.ref);
+            core.setOutput('base_ref', pull.data.base.ref);
+            core.setOutput('body', pull.data.body || '');
+            core.setOutput('changed_files_b64', Buffer.from(
+              JSON.stringify(files.map((file) => file.filename)),
+              'utf8',
+            ).toString('base64'));
+
+      - name: Validate target delivery contract
+        env:
+          BRANCH_POLICY_CONFIG: .byungskerlab/branch-policy.json
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          PR_BASE_REF: ${{ steps.pr.outputs.base_ref }}
+          PR_BODY: ${{ steps.pr.outputs.body }}
+          PR_CHANGED_FILES_B64: ${{ steps.pr.outputs.changed_files_b64 }}
+          PR_HEAD_REF: ${{ steps.pr.outputs.head_ref }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python3 .github/scripts/validate_target_version_pr.py

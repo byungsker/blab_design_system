@@ -12,6 +12,8 @@
       "allowed_paths": [
         ".byungskerlab/branch-policy.json",
         ".byungskerlab/release-lines.json",
+        ".github/workflows/target-version.yml",
+        ".github/scripts/validate_target_version_pr.py",
         "AGENTS.md"
       ]
     },
@@ -24,10 +26,9 @@
       "work_bases": ["main"],
       "allowed_paths": [
         ".gitattributes",
-        ".github/**",
+        ".github/workflows/verify.yml",
         ".gitignore",
         ".pubignore",
-        "AGENTS.md",
         "CHANGELOG.md",
         "DESIGN.md",
         "LICENSE",
