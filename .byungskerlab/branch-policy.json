@@ -29,6 +29,7 @@
         ".github/workflows/verify.yml",
         ".gitignore",
         ".pubignore",
+        "AGENTS.md",
         "CHANGELOG.md",
         "DESIGN.md",
         "LICENSE",
