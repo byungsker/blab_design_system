@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 
+import 'src/platform_executable.dart';
+
 Future<void> main(List<String> arguments) async {
   if (arguments.length != 1 ||
       !const {'--write', '--check'}.contains(arguments.single)) {
@@ -14,9 +16,11 @@ Future<void> main(List<String> arguments) async {
   }
   final write = arguments.single == '--write';
   final result = await Process.run(
-    Platform.isWindows ? 'flutter.bat' : 'flutter',
+    platformExecutable('flutter'),
     const ['pub', 'publish', '--dry-run'],
     workingDirectory: Directory.current.path,
+    stdoutEncoding: utf8,
+    stderrEncoding: utf8,
   );
   final output = '${result.stdout}${result.stderr}';
   final files = _parseArchiveFiles(output);
