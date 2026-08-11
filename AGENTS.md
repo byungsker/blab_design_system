@@ -1,77 +1,61 @@
-# BLab Design System Agent Instructions
+# BLDS project engineering harness
 
-These instructions apply when an AI coding agent or human contributor works inside the `blab_design_system` repository.
+## Scope and routing
 
-This repository owns the shared Flutter UI foundation used by BLab mobile products such as BookGolas and Baroguni. Keep the package small, product-driven, and safe for consuming apps.
+This repository uses the global Engineering Team harness. Shared frontend
+system work routes through:
 
-## Repository purpose
+`engineering-team > engineering-frontend > engineering-design-system-frontend`
 
-BLab Design System is a reusable Flutter package for shared mobile UI foundations:
+Blab remains the semantic and visual authority. Product identity, vocabulary,
+localization, token meaning, and design approval remain with the byungskerlab
+Design Team.
 
-- design tokens: `BLabColors`, `BLabTypography`
-- themes: `BLabTheme.light`, `BLabTheme.dark`
-- components: `BLabButton`, `BLabCard`, `BLabTextField`, `BLabSnackbar`, `BLabBottomBar`, `BLabPressableWrapper`
+## Bootstrap sequencing
 
-The goal is not to create a generic public design system for every Flutter app. The goal is to extract repeated UI decisions from BLab products into stable package APIs that consuming apps and agent-assisted workflows can use consistently.
+This instruction file is installed by the governance bootstrap before the
+BLDS 0.2.0 package restoration is promoted. The current pre-bootstrap `main`
+baseline has `DESIGN.md` SHA-256
+`b8329de0ebbd718705b75f6bcb976cfe6d2ae379228a9f04d22c42c6697e37e1` and does
+not yet contain `tool/verify.dart`. That is an incomplete baseline, not a
+conformance claim. Product PR #10 must restore the protected design source to
+the required SHA below and provide the verification command before product
+promotion; the trusted target-version check must pass after this bootstrap.
 
-## Core rules
+## Protected sources and local configuration
 
-- MUST keep public APIs stable for consuming apps unless the task explicitly asks for a breaking change.
-- MUST export new public tokens, themes, and components from `lib/blab_design_system.dart`.
-- MUST preserve light and dark mode compatibility when changing visual components.
-- MUST prefer product-driven components over generic abstractions. Add a component when it is repeated or likely to be reused by consuming apps.
-- MUST update `README.md` when adding or changing public usage patterns.
-- MUST update `docs/consuming-app-guide.md` when a change affects how product apps should use BLab.
-- MUST NOT add app-specific business logic to this package.
-- MUST NOT hard-code product-specific copy, routes, database models, or feature flows in reusable components.
-- MUST NOT introduce raw one-off visual styles that bypass existing BLab tokens without explaining why.
+- `DESIGN.md` is a protected legacy source. Its required SHA-256 is
+  `3efc7ad9cb1872e53f857b1e44422fad5040d6302fdfba9c6a94f2a96ca53bd4`.
+  Do not edit it or update the expected hash to accommodate drift.
+- `.codex/` is local, user-owned configuration and is excluded from delivery.
+  Never edit, delete, publish, or use it as repository evidence.
+- Local configuration, credentials, identity, repository state, or a matching
+  account never grants task authority.
 
-## When adding a new component
+## Authority boundaries
 
-1. Confirm the pattern is reusable across screens or apps, not a one-off screen detail.
-2. Add the component under `lib/src/widgets/` or the appropriate `lib/src/` subdirectory.
-3. Use existing tokens such as `BLabColors`, `BLabTypography`, and `BLabTheme` where practical.
-4. Support light/dark mode if the component renders surfaces, borders, shadows, or text.
-5. Export the component from `lib/blab_design_system.dart`.
-6. Add a short usage example or component mention to `README.md`.
-7. If consuming apps should prefer this component over a raw Material widget, update `docs/consuming-app-guide.md`.
-8. Run verification before finishing.
+No task implicitly authorizes Git branch/worktree changes, commits, pushes,
+pull requests, merges, releases, publication, deployment, consumer mutation,
+credential changes, or external-account actions.
 
-## When changing an existing component
+Before any Git or delivery action, load the company Target Delivery Contract
+rules and verify an authoritative delivery unit, exact target version and
+source, base, head, pull-request metadata, and promotion path. Missing values
+are a fail-closed `REQUEST_CHANGES`, not permission to infer them.
 
-1. Check whether the change affects existing consuming apps.
-2. Preserve constructor names and parameter behavior when possible.
-3. If a breaking API change is necessary, document the migration path in the commit or PR summary.
-4. Keep haptics, animation behavior, keyboard handling, and accessibility behavior intentional.
-5. Run verification before finishing.
+Consumer checks are read-only by default. Any authorized execution must use a
+validated disposable archive and must never write to a source consumer
+checkout.
 
-## Public API checklist
+## Verification and completion
 
-Before finishing a task, check:
-
-- [ ] New public APIs are exported from `lib/blab_design_system.dart`.
-- [ ] README examples still compile conceptually with the exported names.
-- [ ] Consuming-app guidance is updated if usage rules changed.
-- [ ] No product-specific business logic was added to the package.
-- [ ] Light/dark behavior remains consistent.
-
-## Verification
-
-Run these commands before considering a code or public-documentation change complete:
-
-```bash
-flutter analyze
-flutter test
-```
-
-If the change is documentation-only, still run at least `flutter analyze` when practical, because README/API changes often expose export or naming mismatches.
-
-## Consuming app guidance
-
-Other projects do not automatically inherit this repository's `AGENTS.md` just because they import this package. Product apps that use BLab should carry their own project-level agent instructions and can copy or reference the rules in:
-
-```txt
-docs/consuming-app-guide.md
-```
-
-Use that guide when updating BookGolas, Baroguni, or future BLab app repositories.
+- Preserve unrelated and pre-existing user changes.
+- Keep Phase 4 claims bounded by
+  `contracts/delivery/phase4-custody.yaml`.
+- Golden equality is reproducibility evidence, not accessibility or visual
+  conformance.
+- For package delivery work where the verification tooling is present, run
+  `dart run tool/verify.dart` and inspect the final scope before reporting
+  engineering completion.
+- A local pass does not authorize delivery, approval, release, publication, or
+  a conformance claim.

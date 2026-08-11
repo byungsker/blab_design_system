@@ -1,0 +1,82 @@
+name: target-version
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  target-version:
+    name: target-version
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out trusted default-branch code
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Read pull request metadata through the API
+        id: pr
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const { owner, repo } = context.repo;
+            const number = context.payload.pull_request.number;
+            const pull = await github.rest.pulls.get({ owner, repo, pull_number: number });
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number: number,
+              per_page: 100,
+            });
+            core.setOutput('head_ref', pull.data.head.ref);
+            core.setOutput('head_sha', pull.data.head.sha);
+            core.setOutput('base_ref', pull.data.base.ref);
+            core.setOutput('body', pull.data.body || '');
+            const changedPaths = files.map((file) => file.filename);
+            core.setOutput('changed_files_b64', Buffer.from(JSON.stringify(changedPaths), 'utf8').toString('base64'));
+
+            const headRepository = pull.data.head.repo;
+            const governanceFiles = new Set([
+              '.byungskerlab/branch-policy.json',
+              '.byungskerlab/release-lines.json',
+            ]);
+            for (const path of governanceFiles) {
+              if (!changedPaths.includes(path)) continue;
+              if (!headRepository) throw new Error(`head repository is unavailable for ${path}`);
+              const content = await github.rest.repos.getContent({
+                owner: headRepository.owner.login,
+                repo: headRepository.name,
+                path,
+                ref: pull.data.head.sha,
+              });
+              if (Array.isArray(content.data) || content.data.type !== 'file' || !content.data.content) {
+                throw new Error(`governance path is not a file: ${path}`);
+              }
+              const text = Buffer.from(content.data.content.replace(/\n/g, ''), 'base64').toString('utf8');
+              core.setOutput(path.endsWith('branch-policy.json') ? 'policy_json_b64' : 'registry_json_b64', Buffer.from(text, 'utf8').toString('base64'));
+            }
+
+      - name: Validate target delivery contract
+        env:
+          BRANCH_POLICY_CONFIG: .byungskerlab/branch-policy.json
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          PR_BASE_REF: ${{ steps.pr.outputs.base_ref }}
+          PR_BODY: ${{ steps.pr.outputs.body }}
+          PR_CHANGED_FILES_B64: ${{ steps.pr.outputs.changed_files_b64 }}
+          PR_HEAD_REF: ${{ steps.pr.outputs.head_ref }}
+          PR_HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          PR_POLICY_JSON_B64: ${{ steps.pr.outputs.policy_json_b64 }}
+          PR_REGISTRY_JSON_B64: ${{ steps.pr.outputs.registry_json_b64 }}
+        run: python3 .github/scripts/validate_target_version_pr.py
+
+      - name: Run trusted validator regression tests
+        run: python3 .github/scripts/test_validate_target_version_pr.py
