@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "status": "fresh-clone-equivalent-candidate-inventory-rights-unresolved",
     "as_of": "2026-07-28",
-    "file_count": 251,
+    "file_count": 256,
     "coverage": "Git-tracked files plus explicitly allowed, nonignored candidate paths. Git-ignored files, local editor configuration, symlinks, and arbitrary untracked root files are excluded before content access.",
     "boundary": "Repository-authored classification is not a human rights or non-derivation attestation. This scope is fresh-clone-equivalent delivery evidence, not a visible-worktree inventory.",
     "selection": {
@@ -15,11 +15,46 @@
   },
   "files": [
     {
+      "path": ".byungskerlab/branch-policy.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "fd5073085bac503dc178136f1bae5a2caeea171943f8727279e543c6cd3c9809"
+    },
+    {
+      "path": ".byungskerlab/release-lines.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "2ae67503c79c3c6cafbef50e9939848b9083f7f95d3303167df3432114c62f4b"
+    },
+    {
       "path": ".gitattributes",
       "origin": "repository-worktree-origin",
       "license_status": "project-license-observed-human-rights-unverified",
       "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
       "sha256": "c600ccd3428e68dd858aa36964701fba46cc27f4415f7db1a194cb7afb45bb8c"
+    },
+    {
+      "path": ".github/scripts/test_validate_target_version_pr.py",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "a3d181f74eec9c40e1bc53fed9d58d856cccd254759d055d88559ba73e4a4743"
+    },
+    {
+      "path": ".github/scripts/validate_target_version_pr.py",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "2aba34d47148f4aecf4a0fc5160530f421440d3c0663cc41620ee72290e9b5ef"
+    },
+    {
+      "path": ".github/workflows/target-version.yml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "81219a9b3b3c124b1d4d3d7576346fc05d677adb12d7314b67fc74a1bd80ec96"
     },
     {
       "path": ".github/workflows/verify.yml",
