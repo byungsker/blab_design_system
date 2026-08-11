@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "allowed_actor_prefixes": ["codex"],
+  "delivery_units": {
+    "governance": {
+      "profile": "package-or-local",
+      "mode": "continuous",
+      "active_versions": ["1.0.0"],
+      "target_version_source": ".byungskerlab/release-lines.json",
+      "production_branch": "main",
+      "work_bases": ["main"],
+      "allowed_paths": [
+        ".byungskerlab/branch-policy.json",
+        ".byungskerlab/release-lines.json",
+        ".github/workflows/target-version.yml",
+        ".github/scripts/validate_target_version_pr.py",
+        ".github/scripts/test_validate_target_version_pr.py",
+        "AGENTS.md"
+      ]
+    },
+    "blab-design-system": {
+      "profile": "package-or-local",
+      "mode": "continuous",
+      "active_versions": ["0.2.0"],
+      "target_version_source": ".byungskerlab/release-lines.json",
+      "production_branch": "main",
+      "work_bases": ["main"],
+      "allowed_paths": [
+        ".gitattributes",
+        ".github/workflows/verify.yml",
+        ".gitignore",
+        ".pubignore",
+        "CHANGELOG.md",
+        "DESIGN.md",
+        "LICENSE",
+        "README.md",
+        "THIRD_PARTY_NOTICES.md",
+        "api/**",
+        "contracts/**",
+        "dart_test.yaml",
+        "doc/**",
+        "docs/**",
+        "example/**",
+        "generated/**",
+        "lib/**",
+        "pubspec.lock",
+        "pubspec.yaml",
+        "test/**",
+        "tool/**"
+      ]
+    }
+  }
+}
