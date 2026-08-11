@@ -32,7 +32,7 @@ consumer mutation, or GitHub approval.
 | change type | `feat` |
 | scope slug | `astryx-capability-adoption` |
 | canonical repository | `byungsker/blab_design_system` |
-| verified source base | remote `main` at `9ac903c448685c31d37cbaf4340990e7c0e8226c`, observed 2026-07-28 |
+| verified source base | current remote `main` at `aa5e857b0c97c6ca9cd86f27b5591c28b5c143ac`, synchronized after the trusted governance bootstrap merge |
 | expected head | `codex/feature/blab-design-system/0.2.0/astryx-capability-adoption` |
 | pull request | draft PR from the proposed head to `main`, with exact Target Delivery metadata |
 | promotion | repository-only review; merge remains unauthorized until trusted CI, branch governance, Design, Quality, rights, and delivery gates pass |
@@ -42,6 +42,16 @@ consumer mutation, or GitHub approval.
 | consumer mutation | explicitly excluded |
 | rollback before merge | abandon the isolated delivery branch/worktree; preserve the current source worktree |
 | rollback after merge | revert the merge through a separately authorized PR; never move or reuse `v0.1.0` |
+
+## Base synchronization addendum (2026-08-12)
+
+The originally accepted creation base was `main@9ac903c448685c31d37cbaf4340990e7c0e8226c`.
+The trusted governance bootstrap was subsequently merged as
+`aa5e857b0c97c6ca9cd86f27b5591c28b5c143ac`, and PR #10 now targets that current
+canonical `main` commit. The active machine-readable contract and its Phase 5
+validator therefore use `aa5e857b0c97c6ca9cd86f27b5591c28b5c143ac` as the
+current expected base. This synchronizes delivery metadata only; it does not
+grant product merge, release, publication, deployment, or consumer authority.
 
 `0.2.0` is accepted because the package contains substantial additive work and
 the compatibility classifier records two approved breaking token-value

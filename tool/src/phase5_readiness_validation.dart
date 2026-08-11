@@ -120,7 +120,7 @@ void _validateActiveTargetDelivery(Directory root, List<String> errors) {
           'docs/BLDS_TARGET_DELIVERY_PROPOSAL.md#owner-acceptance-record' ||
       delivery['expected_base_branch'] != 'main' ||
       delivery['expected_base_sha'] !=
-          '9ac903c448685c31d37cbaf4340990e7c0e8226c' ||
+          'aa5e857b0c97c6ca9cd86f27b5591c28b5c143ac' ||
       delivery['expected_head_branch'] != head ||
       delivery['protected_design_restoration_sha256'] !=
           '3efc7ad9cb1872e53f857b1e44422fad5040d6302fdfba9c6a94f2a96ca53bd4' ||
