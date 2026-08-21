@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://byungskerlab.local/blab/visual-baselines.schema.json",
+  "title": "Blab Phase 4 local visual baselines",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "metadata",
+    "claim_boundary",
+    "policy",
+    "required_component_families",
+    "known_residuals",
+    "capture_matrix",
+    "capture_environment",
+    "font_fixtures",
+    "baselines"
+  ],
+  "properties": {
+    "schema": {"const": "blab.visual-baselines/v1"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "status",
+        "visual_intent_owner",
+        "capture_owner",
+        "reproducibility_reviewer",
+        "approved_by",
+        "approved_on",
+        "decision_ref",
+        "approval_scope",
+        "baseline_design_approval",
+        "baseline_reviewed_on",
+        "baseline_reviewer_role",
+        "baseline_review_evidence_ref",
+        "baseline_approval_scope",
+        "baseline_approval_artifact"
+      ],
+      "properties": {
+        "version": {"const": "0.3.0"},
+        "status": {"const": "design-approved-local-baselines"},
+        "visual_intent_owner": {"const": "byungskerlab-design-team"},
+        "capture_owner": {"const": "engineering-design-system-frontend"},
+        "reproducibility_reviewer": {"const": "engineering-quality-reviewer"},
+        "approved_by": {"type": "string", "minLength": 1},
+        "approved_on": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+        "decision_ref": {"type": "string", "minLength": 1},
+        "approval_scope": {"const": "capture-workflow-only-not-baseline-images"},
+        "baseline_design_approval": {"const": "design-approved-local"},
+        "baseline_reviewed_on": {"const": "2026-07-28"},
+        "baseline_reviewer_role": {"const": "byungskerlab-design-team"},
+        "baseline_review_evidence_ref": {
+          "const": "design-final-gate-handoff:button_contrast_standard_goldens:2026-07-28"
+        },
+        "baseline_approval_scope": {
+          "const": "local-reproducibility-and-fixture-review-only"
+        },
+        "baseline_approval_artifact": {
+          "const": "contracts/approvals/phase4-local-baselines.design-approval.yaml"
+        }
+      }
+    },
+    "claim_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["establishes", "excludes"],
+      "properties": {
+        "establishes": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "excludes": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "golden_update_requires_design_decision_ref",
+        "automatic_golden_acceptance_forbidden",
+        "figma_is_downstream_mirror",
+        "golden_equality_is_not_accessibility_evidence",
+        "deterministic_environment_required"
+      ],
+      "properties": {
+        "golden_update_requires_design_decision_ref": {"const": true},
+        "automatic_golden_acceptance_forbidden": {"const": true},
+        "figma_is_downstream_mirror": {"const": true},
+        "golden_equality_is_not_accessibility_evidence": {"const": true},
+        "deterministic_environment_required": {"const": true}
+      }
+    },
+    "required_component_families": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "known_residuals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status", "measured_result", "target", "impact", "source"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "status": {"const": "open-compatibility-locked"},
+          "measured_result": {"type": "string", "minLength": 1},
+          "target": {"type": "string", "minLength": 1},
+          "impact": {"type": "string", "minLength": 1},
+          "source": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "capture_matrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brightness", "text_scalers", "locales", "locale_fixtures", "reduced_motion", "narrow_viewport", "expansion_claim"],
+      "properties": {
+        "brightness": {"type": "array", "items": {"type": "string"}},
+        "text_scalers": {"type": "array", "items": {"type": "string"}},
+        "locales": {"type": "array", "items": {"type": "string"}},
+        "locale_fixtures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "locale", "text"],
+            "properties": {
+              "id": {"type": "string", "minLength": 1},
+              "locale": {"type": "string", "minLength": 2},
+              "text": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "reduced_motion": {"type": "array", "items": {"type": "boolean"}},
+        "narrow_viewport": {"const": "360x1400"},
+        "expansion_claim": {"const": "rune-count-only synthetic stress; no 40 percent rendered-width claim"}
+      }
+    },
+    "capture_environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "framework",
+        "dart",
+        "renderer",
+        "host",
+        "device_pixel_ratio",
+        "network_during_capture",
+        "clock",
+        "font_policy",
+        "test_suites",
+        "shared_harness",
+        "overlay_context",
+        "update_commands",
+        "check_commands"
+      ],
+      "properties": {
+        "framework": {"type": "string", "minLength": 1},
+        "dart": {"type": "string", "minLength": 1},
+        "renderer": {"const": "flutter-test"},
+        "host": {"type": "string", "minLength": 1},
+        "device_pixel_ratio": {"const": 1},
+        "network_during_capture": {"const": "forbidden"},
+        "clock": {"const": "not-used"},
+        "font_policy": {"type": "string", "minLength": 1},
+        "test_suites": {"type": "array", "items": {"type": "string", "pattern": "^test/"}},
+        "shared_harness": {"const": "test/support/phase4_candidate_harness.dart"},
+        "overlay_context": {"type": "string", "minLength": 1},
+        "update_commands": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "check_commands": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "font_fixtures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "purpose",
+          "source_repository",
+          "pinned_commit",
+          "source_url",
+          "path",
+          "sha256",
+          "license",
+          "license_path",
+          "runtime_asset"
+        ],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "purpose": {"type": "string", "minLength": 1},
+          "source_repository": {"type": "string", "minLength": 1},
+          "pinned_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+          "source_url": {"type": "string", "pattern": "^https://"},
+          "path": {"type": "string", "pattern": "^test/assets/fonts/"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "license": {"enum": ["OFL-1.1", "CC-BY-4.0", "MIT"]},
+          "license_path": {"type": "string", "pattern": "^test/assets/fonts/LICENSE-"},
+          "runtime_asset": {"const": false}
+        }
+      }
+    },
+    "baselines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "approval_status", "path", "sha256", "width", "height", "capture"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^phase4-"},
+          "approval_status": {"const": "design-approved-local"},
+          "path": {"type": "string", "pattern": "^test/goldens/candidates/phase4-.*\\.png$"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "width": {"type": "integer", "minimum": 320},
+          "height": {"type": "integer", "minimum": 800},
+          "capture": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["brightness", "high_contrast", "text_scaler", "locale", "direction", "reduced_motion", "viewport", "fixture_font"],
+            "properties": {
+              "brightness": {"enum": ["light", "dark"]},
+              "high_contrast": {"type": "boolean"},
+              "text_scaler": {"enum": ["1.0", "2.0"]},
+              "locale": {"enum": ["en-US", "ko-KR", "en-XA", "ar"]},
+              "direction": {"enum": ["ltr", "rtl"]},
+              "reduced_motion": {"type": "boolean"},
+              "viewport": {"type": "string", "pattern": "^[0-9]+x[0-9]+$"},
+              "fixture_font": {"enum": ["noto-sans-kr-variable", "noto-sans-arabic-variable"]}
+            }
+          }
+        }
+      }
+    }
+  }
+}

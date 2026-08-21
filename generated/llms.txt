@@ -1,0 +1,43 @@
+# BLDS agent-readable index
+
+> Generated from the repository-owned BLDS contracts. This index is a read-only discovery surface; it is not semantic authority.
+
+## Authority
+
+- Semantic SSOT: `contracts/blab.design.yaml`
+- Registry: `agent-registry.v1.json`
+- Query contract: repository-local and read-only
+- Remote mutation: forbidden
+
+## Sources
+
+- `contracts/components/agent-registry.yaml` — `1939e15dba6875a4a7aa2ed2b31c07dcfe4d9b155450b24455f10319281c6cfc`
+- `contracts/components/state-applicability.yaml` — `1aabd860a7422f9cac6e825088e796cf329d92f34114dec308f8a8c12ac0648f`
+- `generated/component-state-coverage.yaml` — `0fda4cb18f97d88158c83e82e78033a8b8851e0454104eb5307b6e3cef2a6466`
+- `contracts/tokens/blab.tokens.yaml` — `a94701b1191e3daa8dee88177d3523ce9c8ae8b5f56f5efdf0016f053d634dbe`
+- `contracts/components/figma-agent-mapping.yaml` — `99b584442387369163a3ddb346cd407f6023ae0a0ad61d52a1d10d743536a7d8`
+
+## Foundations
+
+- [Token foundation](agent-docs/foundation/tokens.md)
+- [State and accessibility contract](agent-docs/accessibility/states.md)
+- [Figma-to-BLDS mapping contract](../contracts/components/figma-agent-mapping.yaml)
+
+## Components
+
+- [BLabButton](agent-docs/components/button.md) — Primary, secondary, and destructive action control.
+- [BLabTextField](agent-docs/components/text-field.md) — Single-line and multiline text input with helper, error, read-only, and clear-action semantics.
+- [BLabSegmentedControl](agent-docs/components/segmented-control.md) — Controlled selection among a small set of mutually exclusive options.
+- [BLabTabBar](agent-docs/components/tab-bar.md) — Controlled in-screen navigation across a small set of tabs.
+- [BLabBottomBar](agent-docs/components/bottom-bar.md) — Bottom navigation with selected, focus, drag, optional action, and localized label behavior.
+- [BLabPressableWrapper](agent-docs/components/pressable-wrapper.md) — Interaction primitive for press, hover, focus, and action-derived semantics.
+- [BLabCard](agent-docs/components/card.md) — Glass surface container that may become actionable when an explicit action is supplied.
+- [BLabSnackbar](agent-docs/components/snackbar.md) — Transient feedback surface for success, error, warning, and info messages.
+- [BLabKeyboardAccessoryBar](agent-docs/components/keyboard-accessory-bar.md) — Keyboard accessory actions for navigation, editing, and completion.
+
+## Interpretation rules
+
+- `required` means the state is required by the design contract.
+- `conditional` means the state needs its documented runtime or API condition.
+- `not_applicable` means the component must not simulate that state.
+- Missing or unverified evidence must be reported as not claimed.

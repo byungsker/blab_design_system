@@ -1,0 +1,26 @@
+schema: "blab.human-attestation-template/v1"
+
+attestation:
+  id: "BLDS-PHASE5-ORIGIN-ATTESTATION-TEMPLATE"
+  status: "unsigned"
+  signer_legal_name: null
+  signer_aliases: []
+  signer_authority_basis: null
+  signed_on: null
+  exact_scope:
+    repository_commit_or_archive_sha256: null
+    source_files: []
+    assets: []
+    figma_file_and_nodes: []
+    astryx_non_derivation_statement: null
+    baro_app_transfer_or_relicense_basis: null
+    contributor_restrictions_or_exclusions: []
+  statement: null
+  evidence_refs: []
+  limitations: []
+
+rules:
+  human_signature_required: true
+  template_is_not_approval: true
+  reuse_for_other_scope_forbidden: true
+  publication_authority_granted: false

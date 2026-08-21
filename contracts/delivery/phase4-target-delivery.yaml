@@ -1,0 +1,35 @@
+schema: "blab.target-delivery-contract/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "blocked-unverified-human-contract"
+  observed_on: "2026-07-28"
+  delivery_profile: "package-or-local"
+
+observed:
+  branch: "dev"
+  head: "ee78fbeb2e2e49c8e4069d798bab87590cc60fa9"
+  package_version: "0.0.1"
+  package_version_source: "pubspec.yaml"
+
+required_contract:
+  delivery_unit: "phase4-evidence"
+  target_version: null
+  target_version_source: null
+  expected_base_branch: null
+  expected_head_branch: null
+  pull_request: null
+  promotion_path: null
+  delivery_authority: null
+
+readiness:
+  local_evidence_verification: "allowed"
+  git_delivery: "blocked"
+  decision: "REQUEST_CHANGES"
+  blockers:
+    - "Authoritative exact target version and source are missing; observed package version 0.0.1 is not a target-version decision."
+    - "Expected base and head branches are unverified."
+    - "Pull-request metadata and delivery authority are missing."
+    - "Promotion path and rollback target are unverified."
+
+claim_boundary: "This typed blocked record preserves observed repository facts without granting Git, pull-request, release, publication, or promotion authority. Its blocked delivery state does not invalidate local Phase 4 evidence checks."

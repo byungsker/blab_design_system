@@ -1,0 +1,39 @@
+schema: "blab.package-dry-run/v1"
+
+metadata:
+  as_of: "2026-07-28"
+  command: "flutter pub publish --dry-run"
+  package: "blab_design_system"
+  version: "0.2.0"
+  publication_performed: false
+  exit_code: 0
+  result: "passed-clean-git-state"
+
+archive:
+  inventory: "contracts/release/package-dry-run-inventory.json"
+  archive_name: "blab_design_system-0.2.0.tar.gz"
+  file_count: 86
+  compressed_size_reported: "127 KB"
+  compressed_size_scope: "informational-platform-dependent-local-observation"
+  name_manifest_sha256: "c5aafe17d76d92ed89eaa53f912f0b7907fb78120691ac220e0745bb96018c57"
+  content_manifest_sha256: "fae8f35416cb9b8263503a8c5ecaa49cef737342056fc855680b86b015fa1cbb"
+  exact_release_composition_approved: false
+  notable_inclusions:
+    - "runtime lib and pubspec"
+    - "contracts and schemas"
+    - "root LICENSE, README, THIRD_PARTY_NOTICES, and conventional doc index"
+  verified_exclusions:
+    - "test/assets including Phase 4 font binaries and license copies"
+    - "test/goldens candidate PNGs"
+    - "root generated outputs and analyzer API snapshot"
+    - "test, tool, agent, IDE, internal authority, SBOM, package-capture, compatibility-baseline, and golden process evidence"
+    - "build, recovery, .dart_tool, and prohibited .codex paths"
+  decision_required: "Define the authoritative package composition in the exact Target Delivery Contract before another release rehearsal."
+
+warnings: []
+
+boundary:
+  registry_mutation: false
+  release_target: null
+  release_ready: false
+  publication_ready: false

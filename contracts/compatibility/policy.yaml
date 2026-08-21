@@ -1,0 +1,81 @@
+schema: "blab.compatibility-policy/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "implemented-local-unreleased"
+  as_of: "2026-07-28"
+  package_version: "0.2.0"
+  package_state: "local-unreleased"
+  owner: "engineering-design-system-frontend"
+  design_authority: "byungskerlab-design-team"
+
+scope:
+  surfaces:
+    - "dart-public-api"
+    - "css-custom-properties"
+    - "typed-token-contract"
+  baseline: "contracts/compatibility/baseline-provenance.yaml"
+  migrations: "contracts/migrations/registry.yaml"
+
+vocabulary:
+  stable:
+    definition: "Public API and token names not explicitly marked experimental."
+    change_rules: "additive-first-deprecation-required-before-removal"
+  experimental:
+    definition: "Names explicitly declared experimental in a reviewed contract."
+    api_name_patterns: ["BLabExperimental"]
+    token_id_segments: [".experimental."]
+    current_entries: []
+    change_rules: "may-change-with-changelog-and-migration-note-but-never-silently"
+
+classifications:
+  additive:
+    examples:
+      - "new public declaration"
+      - "new optional named parameter with a default or nullable type"
+      - "new typed token or CSS custom property"
+    release_effect: "eligible-for-next-0.x-minor-or-patch-only-after-release-gates"
+  deprecated:
+    support_status: "not-supported-in-phase5-classifier"
+    result_status: "unknown-not-detected"
+    limitation: "No deterministic Dart annotation or machine-readable token-deprecation parser is implemented in Phase 5; a numeric zero is forbidden."
+    examples:
+      - "stable name retained with an explicit replacement and annotation"
+    release_effect: "source-compatible-warning-period"
+  breaking:
+    examples:
+      - "public declaration or member removal"
+      - "required parameter addition"
+      - "parameter, return, inheritance, or constant-value change"
+      - "stable enum value change"
+      - "token removal, type change, value change, reference change, or semantic-layer move"
+    release_effect: "blocked-without-migration-and-authority"
+
+zero_x_policy:
+  additive_release: "0.x.y may contain additive changes after all gates pass"
+  breaking_release: "requires explicit target version and human authority; never inferred from 0.x"
+  deprecation_minimum:
+    published_releases: 2
+    elapsed_days: 90
+    rule: "both-thresholds-must-be-met"
+  removal_requirements:
+    - "deprecated annotation or machine-readable token deprecation"
+    - "replacement and migration registry entry"
+    - "two published releases and 90 elapsed days after first published deprecation"
+    - "two clean pinned direct Flutter consumer rehearsals"
+    - "Design approval for semantic or visual meaning changes"
+    - "exact Target Delivery Contract and final release authority"
+  generated_checksum_only_drift:
+    classification: "ignored"
+    rule: "header, input checksum, and content checksum lines are excluded from semantic comparison"
+
+gates:
+  breaking_or_removal:
+    fail_closed: true
+    required_migration_status: "approved"
+    required_authority_status: "approved"
+  stale_migration:
+    fail_closed: true
+  publication:
+    authorized: false
+    reason: "No exact TDC, final release authority, completed rights review, remote CI, or two clean pinned consumers."

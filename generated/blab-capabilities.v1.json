@@ -1,0 +1,299 @@
+{
+  "schema": "blab.capabilities/v1",
+  "_generated": {
+    "notice": "GENERATED CODE - DO NOT EDIT.",
+    "sources": [
+      "contracts/blab.design.yaml"
+    ],
+    "source_checksum_sha256": "50c65767a39356e1b3c91e5ec53ff3e17886537422ad7509e3233767b97c3738",
+    "content_checksum_sha256": "6bef9494129ae5dbb730e20911c6a563e5f39024d7e79b67a1984049f62f7cfe"
+  },
+  "version": "0.1.0",
+  "capabilities": [
+    {
+      "id": "accessibility-implementation-evidence",
+      "phase": 2,
+      "status": "implemented-local",
+      "evidence": [
+        "docs/BLDS_PHASE_2_STATUS.md",
+        "lib/src/foundation/focus_owned_overlay.dart",
+        "lib/src/foundation/focus_visibility.dart",
+        "lib/src/foundation/focus_visual.dart",
+        "lib/src/foundation/haptic_policy.dart",
+        "lib/src/foundation/interactive_target.dart",
+        "lib/src/foundation/keyboard_activation.dart",
+        "lib/src/foundation/reduced_motion.dart",
+        "lib/src/foundation/semantic_interaction.dart",
+        "lib/src/foundation/text_scaling.dart",
+        "lib/src/foundation/visual_mode_resolver.dart",
+        "test/phase2_foundation_test.dart"
+      ]
+    },
+    {
+      "id": "aggregate-local-verification",
+      "phase": 1,
+      "status": "implemented-local",
+      "evidence": [
+        "tool/verify.dart"
+      ]
+    },
+    {
+      "id": "button-component-state-implementation",
+      "phase": 3,
+      "status": "implemented-local-family-partial",
+      "scope": {
+        "component_family": "button",
+        "public_type": "BLabButton",
+        "global_capability_complete": false,
+        "loading_busy_claimed": false
+      },
+      "evidence": [
+        "docs/BLDS_PHASE_3_BUTTON_STATUS.md",
+        "example/lib/stories/button_story.dart",
+        "generated/component-state-coverage.yaml",
+        "lib/src/widgets/liquid_glass_button.dart",
+        "test/blab_button_test.dart"
+      ]
+    },
+    {
+      "id": "component-state-contract-coverage",
+      "phase": 1,
+      "status": "implemented-contract-only",
+      "evidence": [
+        "contracts/components/state-applicability.yaml",
+        "generated/component-state-coverage.yaml"
+      ]
+    },
+    {
+      "id": "deterministic-contract-generation",
+      "phase": 1,
+      "status": "implemented-local",
+      "evidence": [
+        "tool/generate_tokens.dart",
+        "tool/src/token_generation.dart"
+      ]
+    },
+    {
+      "id": "distribution-mirrors",
+      "phase": 5,
+      "status": "not-started",
+      "evidence": []
+    },
+    {
+      "id": "figma-local-mapping",
+      "phase": 1,
+      "status": "implemented-local-no-remote-mutation",
+      "evidence": [
+        "generated/figma-token-mapping.json"
+      ]
+    },
+    {
+      "id": "github-actions-verification",
+      "phase": 1,
+      "status": "implemented-local",
+      "evidence": [
+        ".github/workflows/verify.yml"
+      ]
+    },
+    {
+      "id": "keyboard-accessory-component-state-implementation",
+      "phase": 3,
+      "status": "implemented-local-family-partial",
+      "scope": {
+        "component_family": "keyboard-accessory-bar",
+        "public_type": "BLabKeyboardAccessoryBar",
+        "global_capability_complete": false,
+        "required_claimed": true,
+        "unsupported_claimed": false
+      },
+      "evidence": [
+        "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_DESIGN_DECISION.md",
+        "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md",
+        "example/lib/stories/keyboard_accessory_story.dart",
+        "generated/component-state-coverage.yaml",
+        "lib/src/widgets/keyboard_accessory_bar.dart",
+        "test/blab_keyboard_accessory_bar_test.dart"
+      ]
+    },
+    {
+      "id": "migration-and-release",
+      "phase": 5,
+      "status": "local-preparation-implemented-exit-blocked",
+      "scope": {
+        "compatibility_classifier_implemented": true,
+        "migration_rehearsal_implemented": true,
+        "rights_preparation_implemented": true,
+        "phase5_exit_complete": false,
+        "conformance_claimed": false,
+        "release_authorized": false,
+        "publication_authorized": false
+      },
+      "evidence": [
+        "contracts/legal/rights-provenance.yaml",
+        "contracts/release/phase5-readiness.yaml",
+        "docs/BLDS_PHASE_5_STATUS.md",
+        "tool/classify_compatibility.dart",
+        "tool/rehearse_phase5_migration.dart"
+      ]
+    },
+    {
+      "id": "offline-doctor",
+      "phase": 1,
+      "status": "implemented-local",
+      "evidence": [
+        "contracts/schema/blab.doctor.schema.json",
+        "tool/blab_doctor.dart"
+      ]
+    },
+    {
+      "id": "pressable-card-component-state-implementation",
+      "phase": 3,
+      "status": "implemented-local-family-partial",
+      "scope": {
+        "component_family": "pressable-wrapper-and-card",
+        "public_types": [
+          "BLabPressableWrapper",
+          "BLabCard"
+        ],
+        "global_capability_complete": false,
+        "required_claimed": true,
+        "unsupported_claimed": false
+      },
+      "evidence": [
+        "docs/BLDS_PHASE_3_PRESSABLE_CARD_DESIGN_DECISION.md",
+        "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md",
+        "example/lib/stories/card_story.dart",
+        "generated/component-state-coverage.yaml",
+        "lib/src/widgets/liquid_glass_card.dart",
+        "lib/src/widgets/pressable_wrapper.dart",
+        "test/blab_pressable_card_test.dart"
+      ]
+    },
+    {
+      "id": "public-api-snapshot",
+      "phase": 1,
+      "status": "implemented-local",
+      "evidence": [
+        "api/blab_design_system.api.txt",
+        "tool/public_api_snapshot.dart"
+      ]
+    },
+    {
+      "id": "segmented-control-component-state-implementation",
+      "phase": 3,
+      "status": "implemented-local-family-partial",
+      "scope": {
+        "component_family": "segmented-control",
+        "public_type": "BLabSegmentedControl",
+        "global_capability_complete": false,
+        "required_claimed": true,
+        "unsupported_claimed": false
+      },
+      "evidence": [
+        "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_DESIGN_DECISION.md",
+        "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md",
+        "example/lib/stories/segmented_story.dart",
+        "generated/component-state-coverage.yaml",
+        "lib/src/widgets/blab_segmented_control.dart",
+        "test/blab_segmented_control_test.dart"
+      ]
+    },
+    {
+      "id": "snackbar-component-state-implementation",
+      "phase": 3,
+      "status": "implemented-local-family-partial",
+      "scope": {
+        "component_family": "snackbar",
+        "public_type": "BLabSnackbar",
+        "global_capability_complete": false,
+        "required_claimed": true,
+        "unsupported_claimed": false
+      },
+      "evidence": [
+        "docs/BLDS_PHASE_3_SNACKBAR_DESIGN_DECISION.md",
+        "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md",
+        "example/lib/stories/snackbar_story.dart",
+        "generated/component-state-coverage.yaml",
+        "lib/src/widgets/blab_snackbar.dart",
+        "test/blab_snackbar_test.dart"
+      ]
+    },
+    {
+      "id": "tab-bar-component-state-implementation",
+      "phase": 3,
+      "status": "implemented-local-family-partial",
+      "scope": {
+        "component_family": "tab-bar",
+        "public_type": "BLabTabBar",
+        "global_capability_complete": false,
+        "required_claimed": true,
+        "disabled_claimed": false,
+        "unsupported_claimed": false
+      },
+      "evidence": [
+        "docs/BLDS_PHASE_3_TAB_BAR_DESIGN_DECISION.md",
+        "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md",
+        "example/lib/stories/tab_bar_story.dart",
+        "generated/component-state-coverage.yaml",
+        "lib/src/widgets/liquid_glass_tab_bar.dart",
+        "test/blab_tab_bar_test.dart"
+      ]
+    },
+    {
+      "id": "text-field-component-state-implementation",
+      "phase": 3,
+      "status": "implemented-local-family-partial",
+      "scope": {
+        "component_family": "text-field",
+        "public_type": "BLabTextField",
+        "global_capability_complete": false,
+        "required_claimed": true,
+        "loading_claimed": false
+      },
+      "evidence": [
+        "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md",
+        "example/lib/stories/text_field_story.dart",
+        "generated/component-state-coverage.yaml",
+        "lib/src/widgets/liquid_glass_text_field.dart",
+        "test/blab_text_field_test.dart"
+      ]
+    },
+    {
+      "id": "visual-baseline-images",
+      "phase": 4,
+      "status": "implemented-local",
+      "scope": {
+        "candidate_only": true,
+        "design_approved_identity_count": 10,
+        "accessibility_conformance": false,
+        "locale_conformance": false,
+        "visual_conformance": false
+      },
+      "evidence": [
+        "contracts/approvals/phase4-local-baselines.design-approval.yaml",
+        "contracts/visual-baselines.yaml",
+        "docs/BLDS_PHASE_4_STATUS.md"
+      ]
+    },
+    {
+      "id": "web-adapter",
+      "phase": 3,
+      "status": "not-started",
+      "evidence": []
+    }
+  ],
+  "phase_status": {
+    "phase-1": "implemented-local-verification-required",
+    "phase-2": "implemented-local-parent-gates-required",
+    "phase-3": "all-nine-existing-component-families-implemented-local-parent-gates-required",
+    "phase-4": "implemented-local-candidate-evidence-parent-gates-required",
+    "phase-5": "local-preparation-implemented-exit-blocked"
+  },
+  "claims": {
+    "accessibility_conformance": false,
+    "component_state_implementation": false,
+    "locale_conformance": false,
+    "release_authorized": false,
+    "visual_conformance": false
+  }
+}

@@ -1,0 +1,1817 @@
+{
+  "schema": "blab.file-origin-map/v1",
+  "metadata": {
+    "version": "0.1.0",
+    "status": "fresh-clone-equivalent-candidate-inventory-rights-unresolved",
+    "as_of": "2026-07-28",
+    "file_count": 257,
+    "coverage": "Git-tracked files plus explicitly allowed, nonignored candidate paths. Git-ignored files, local editor configuration, symlinks, and arbitrary untracked root files are excluded before content access.",
+    "boundary": "Repository-authored classification is not a human rights or non-derivation attestation. This scope is fresh-clone-equivalent delivery evidence, not a visible-worktree inventory.",
+    "selection": {
+      "tracked": "git ls-files --cached",
+      "candidate": "git ls-files --others --exclude-standard restricted to explicit repository delivery roots and files",
+      "excluded": "ignored files, local editor configuration, symlinks, and arbitrary untracked root files"
+    }
+  },
+  "files": [
+    {
+      "path": ".byungskerlab/branch-policy.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "fd5073085bac503dc178136f1bae5a2caeea171943f8727279e543c6cd3c9809"
+    },
+    {
+      "path": ".byungskerlab/release-lines.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "2ae67503c79c3c6cafbef50e9939848b9083f7f95d3303167df3432114c62f4b"
+    },
+    {
+      "path": ".gitattributes",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "c600ccd3428e68dd858aa36964701fba46cc27f4415f7db1a194cb7afb45bb8c"
+    },
+    {
+      "path": ".github/scripts/test_validate_target_version_pr.py",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "a3d181f74eec9c40e1bc53fed9d58d856cccd254759d055d88559ba73e4a4743"
+    },
+    {
+      "path": ".github/scripts/validate_target_version_pr.py",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "2aba34d47148f4aecf4a0fc5160530f421440d3c0663cc41620ee72290e9b5ef"
+    },
+    {
+      "path": ".github/workflows/target-version.yml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "81219a9b3b3c124b1d4d3d7576346fc05d677adb12d7314b67fc74a1bd80ec96"
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "0f4ffbf62956190b189c0d87119dc2f0c935d5b2e78a5c39fdd4a13d47468e68"
+    },
+    {
+      "path": ".gitignore",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d6ba97b615a2dbc3246f9b723857a9d623450d74093deb9d9ad02951c480c5c6"
+    },
+    {
+      "path": ".metadata",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "0242146261e2cd4f4c3bbde9085883cbbe4f10e2d7e3d92203515414651bac46"
+    },
+    {
+      "path": ".pubignore",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "35e6a4842bd2db761157505d218db7d7d4dd5c0118491574789f7eaa376f34b8"
+    },
+    {
+      "path": "AGENTS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "828cb5586c5c900f2798eb7e342f4cd53ab32c377a7b9e02b30e3fc1369946b4"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "02c073e5d58c7c51ec49b9b5f37bb809e53601ab7d309d111d87b9ac8f8f0d24"
+    },
+    {
+      "path": "DESIGN.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3efc7ad9cb1872e53f857b1e44422fad5040d6302fdfba9c6a94f2a96ca53bd4"
+    },
+    {
+      "path": "LICENSE",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "deace725bfd219f8dc83381f3b33a6910bd3772d4b9f6b069710e3ae3803d997"
+    },
+    {
+      "path": "README.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "12fd25f63df5dcd78db91ac32832537a194b4e4e26c93561a3eb1c419eab73b9"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "5a2cba6bb8f8896eba6add1cffdc0dfefc64f6533f61d86a6ccc8d19f4d1fc9c"
+    },
+    {
+      "path": "analysis_options.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "df692318073ecc5f3b8a759a1f9338eb21995900d3c2bc1fbcd2c7780a1c7c6e"
+    },
+    {
+      "path": "api/blab_design_system.api.txt",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "469f79a1c46da12bb4ac76a55565bcbe118e82a7fe3cc694b63a6ea71794ac5c"
+    },
+    {
+      "path": "contracts/agent/evaluation-fixtures.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "442c3fd1a69522752fdf735b15da9528e11a8151cec0ec34a7396234db593c40"
+    },
+    {
+      "path": "contracts/agent/pilot.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b4f2f23ae45bba277efd1cc4f0163b6be32bf5c67806732e71d94667adfcf886"
+    },
+    {
+      "path": "contracts/approvals/phase4-local-baselines.design-approval.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "5fda463a5e38d61e226a425286189ae4a4052e83a6ecfc737bbc7a1dcc8f8767"
+    },
+    {
+      "path": "contracts/blab.design.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "50c65767a39356e1b3c91e5ec53ff3e17886537422ad7509e3233767b97c3738"
+    },
+    {
+      "path": "contracts/compatibility/baseline-admission.template.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d6b6f30113cbb6222fcb29ef338a91e465eb839124bf87c09e245feb45319767"
+    },
+    {
+      "path": "contracts/compatibility/baseline-provenance.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b5987f801045913b9f8b41a1b621974aa4ce3faeac4e951111273d06bc03f739"
+    },
+    {
+      "path": "contracts/compatibility/baselines/head-ee78fbe.api.txt",
+      "origin": "git-head-derived-baseline",
+      "license_status": "same-project-rights-unresolved",
+      "evidence": "contracts/compatibility/baseline-provenance.yaml",
+      "sha256": "69d604922ef6f4109dcf03afc23fcc5b9c5cf0342afa0fd422dcdd556fc16089"
+    },
+    {
+      "path": "contracts/compatibility/baselines/head-ee78fbe.tokens.css",
+      "origin": "git-head-derived-baseline",
+      "license_status": "same-project-rights-unresolved",
+      "evidence": "contracts/compatibility/baseline-provenance.yaml",
+      "sha256": "e774b7e7ba7faedbd8d2dc18dc4faf9fbd179d89ebaa2a0a46dbc89949fd1e75"
+    },
+    {
+      "path": "contracts/compatibility/policy.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1d114e3cab2f30c8920adcb2d8382078c21303c5e2d2e64921ee42a6409bae0a"
+    },
+    {
+      "path": "contracts/components/agent-registry.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1939e15dba6875a4a7aa2ed2b31c07dcfe4d9b155450b24455f10319281c6cfc"
+    },
+    {
+      "path": "contracts/components/figma-agent-mapping.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "99b584442387369163a3ddb346cd407f6023ae0a0ad61d52a1d10d743536a7d8"
+    },
+    {
+      "path": "contracts/components/state-applicability.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1aabd860a7422f9cac6e825088e796cf329d92f34114dec308f8a8c12ac0648f"
+    },
+    {
+      "path": "contracts/consumers/representative-consumers.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "13a04d3755d9bea42189f8e317c806929666eb1ce094fdfebed120f600c0050b"
+    },
+    {
+      "path": "contracts/delivery/blab-design-system-0.2.0.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "f6277ae9d9803de0a3d09c4a8938240fe0a8c9e6e00db8c58510249cd5e36c03"
+    },
+    {
+      "path": "contracts/delivery/phase4-custody.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3bca94d655d6620557bb22f3ddbc96e794f111aa0ebab78564d909b9ac9fa631"
+    },
+    {
+      "path": "contracts/delivery/phase4-target-delivery.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "55170a732ed5fa85287c1d357e21ac3952e8e4fe20bf4e3299eccee52b2b93f2"
+    },
+    {
+      "path": "contracts/glossary/blab.terms.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "bcb6a2622f4c5e4f014ea70ada25d093d71262b23faa2dcafc86b842137f3207"
+    },
+    {
+      "path": "contracts/legal/astryx-0.1.3-evidence.yaml",
+      "origin": "metadata-only-capability-evidence",
+      "license_status": "no-astryx-content-copy-claimed-not-proven",
+      "evidence": "docs/BLDS_PHASE_0_BASELINE.md",
+      "sha256": "1056ff5e6c0423cf4cb28f5b69abd5f007e7cc591797d0731578c146af2a9358"
+    },
+    {
+      "path": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "df8dd6fc556f98d90a18f12a4b095733653b10cb9b5050b99faf45b8b381c771"
+    },
+    {
+      "path": "contracts/legal/attestations/release-authority.template.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "cd29daa323fa5990eaa61cd5bd5285aa179d5136235817ebcebbc3396bac933b"
+    },
+    {
+      "path": "contracts/legal/file-origin-map.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": null
+    },
+    {
+      "path": "contracts/legal/rights-provenance.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d13af88f233ad53cb5ba81440cf9a1d3109fe77972bf6559658e387e0a7ac35a"
+    },
+    {
+      "path": "contracts/migrations/registry.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "fc027cf3ed0c4ca6722d6c3eff5a0232d30746802abe8f10fb4ee5a65bca6642"
+    },
+    {
+      "path": "contracts/platform-support.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "301c95226c17e962f7b5b5df343971324885cff43125ea0a5f84cf798082afe8"
+    },
+    {
+      "path": "contracts/release/package-composition-candidate.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "796c2723aaeeb8b2404ea3c91031a8fa1ff7e9ffc72471ee79d79b9caf38740b"
+    },
+    {
+      "path": "contracts/release/package-dry-run-inventory.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "db982b6d931915d9fccb7c4df7c12132733a55bd89e7839521c5685028d13f14"
+    },
+    {
+      "path": "contracts/release/package-dry-run.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "cc2072a193912e15a746aeea291ec9d6da6551f499df80c98001fed76b3946e8"
+    },
+    {
+      "path": "contracts/release/phase5-readiness.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d9fbb4a966547345ed072743090fd69f0f0e6223e15267c5c79d1f5098e707fc"
+    },
+    {
+      "path": "contracts/sbom/blab-design-system.cdx.json",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "67afde82d91ab77f12774da33a57aefedbc93176c41b532d62cd7d989c4fbbee"
+    },
+    {
+      "path": "contracts/sbom/blab-design-system.spdx.json",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "9d061e8722eeeb17fe11f46101dc8d97fe1c96a6f936db1be98d7ea38351cc09"
+    },
+    {
+      "path": "contracts/sbom/dependencies.json",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "26a8934002005b06e810ea71a15697963bd27b4038aa0ae8e97e893773633ec9"
+    },
+    {
+      "path": "contracts/schema/blab.active-target-delivery-contract.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "f2fabded9070a96fc5a417d3228e3da3cac3623760e8fcaa9ce614230ae7c9a2"
+    },
+    {
+      "path": "contracts/schema/blab.compatibility-baseline-admission.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "ea2abef820ad249b33224eae98144576565b2363ba4fb8a2a446967c65e6d5e8"
+    },
+    {
+      "path": "contracts/schema/blab.compatibility-policy.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "8c1f00fdfb56e2a4899f2f8ef38386c072592cfb8b4eea174b62e0a6a6fcb034"
+    },
+    {
+      "path": "contracts/schema/blab.design.schema.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "23b846c5d8f940544ff337b2a6d5d68e0872659e8724227862f9a6e5042fd1c7"
+    },
+    {
+      "path": "contracts/schema/blab.doctor.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "ade3c5ea9041f90e2cca87dda3884d3d21977b30669f2eb751aa696d2b179ea6"
+    },
+    {
+      "path": "contracts/schema/blab.file-origin-map.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "42e31321193d06535ac9d0249ce4176b581c80444c085243aa794b7b2680b8ee"
+    },
+    {
+      "path": "contracts/schema/blab.migration-registry.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "76ba7f3e18c833fd6d79b31cfa3b24df32741b66e71320d574a0166521803988"
+    },
+    {
+      "path": "contracts/schema/blab.package-composition-candidate.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "cf71a1c529e1cea091c7eabad350de7eb50e7fb7ef71a74de519ea52782e2774"
+    },
+    {
+      "path": "contracts/schema/blab.package-dry-run.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "fc38db0b3b7e47581e6c32be26d8f80446a427efef2cbd4b4c56a388ad206b42"
+    },
+    {
+      "path": "contracts/schema/blab.phase4-custody.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e9dcbcea22fbc254f33320b94b97e86f5b2fdac71a6c5d4a953b34d369b7577b"
+    },
+    {
+      "path": "contracts/schema/blab.phase4-design-approval.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1362de023f0c654d4b1d85509f881e9181098172e31233b80747f598cad2e069"
+    },
+    {
+      "path": "contracts/schema/blab.phase5-readiness.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1efcc758631c4212e286f46623f13cf28f9e411fe3402daa4dced60645f0d3ad"
+    },
+    {
+      "path": "contracts/schema/blab.platform-support.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "304008d73c4f16be0d4996f21b6f82eb52f52363c9973e98355ceadf09ad0145"
+    },
+    {
+      "path": "contracts/schema/blab.representative-consumers.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "eaa7bb7b041088dc5590f0bd0b72470a5c9dcb0b0515abeb7225a2fd3552b121"
+    },
+    {
+      "path": "contracts/schema/blab.rights-provenance.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "14070fa57350293502435cfaaa948dd2708c1698515b7ad2b96a18e179940e73"
+    },
+    {
+      "path": "contracts/schema/blab.story-manifest.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "75fbf538bcfc7ebadd203dad9d42094578b2982776100c29867ac5bc48d89093"
+    },
+    {
+      "path": "contracts/schema/blab.target-delivery-contract.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "7fb2f060ca0f5e70490bba3d614de48522d5f3e9d3cdc994a59bf09e0166f7e1"
+    },
+    {
+      "path": "contracts/schema/blab.visual-baselines.schema.json",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "0e03cd07d7cada96e493c5c2d4b461a70562b6c92867dcffa0755264636e4fe6"
+    },
+    {
+      "path": "contracts/stories/blab.stories.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "cff3ff3118d4ea974a5af5906bbfd204cfc22032452210923c131c105ff10242"
+    },
+    {
+      "path": "contracts/tokens/blab.tokens.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "a94701b1191e3daa8dee88177d3523ce9c8ae8b5f56f5efdf0016f053d634dbe"
+    },
+    {
+      "path": "contracts/visual-baselines.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3d6ec931fa76e8ce44be2b3e06cc4acceeb2ae6b983596f1dcc7c2ef1bf66101"
+    },
+    {
+      "path": "dart_test.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "ffbf96a39ad0f0a9ddd61b74fe493a1bb1cc63b4fe1b33abf3c0da0a866caa63"
+    },
+    {
+      "path": "doc/README.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "02c62117f84391e9e748788d75805e188fabd3bda4834d84e0777e399a2e556b"
+    },
+    {
+      "path": "docs/ASTRYX_CAPABILITY_ADOPTION_PLAN.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1bd32a30039b089bbfe03c81b0574cf6c07b61f92acaca27e8441ccdcf436510"
+    },
+    {
+      "path": "docs/BLDS_AGENT_CONSUMPTION_PRD.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "f22126d31a0b2218c83241c0bbbf0f5c694ff70ceb7b058d2ee00203aa41840a"
+    },
+    {
+      "path": "docs/BLDS_COMPATIBILITY_MATRIX.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1f57c891b2a4a9d03ab15adf04d139578eab9880d5755df15a8d1c1b4e566cf3"
+    },
+    {
+      "path": "docs/BLDS_PHASE_0_BASELINE.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "947020f32ea4591c23ba9687d8906b88a25479cfa873ec2e9e76ab1562f2ecf5"
+    },
+    {
+      "path": "docs/BLDS_PHASE_1_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "99a7a25fd986e5b625b4d3500b5f9494174065ad63606f2509fa16c32d4da108"
+    },
+    {
+      "path": "docs/BLDS_PHASE_2_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "904042cd996b0bd686bfe3b68815a90dbcbf86282d9557c6abb6a84609179e46"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_BOTTOM_BAR_DESIGN_DECISION.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3136a218e6dbb5ca7b234b1e81a097fb9b9f440849f518087c641ce437ce78ef"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "f1924aa978e2a122a05ee83a610de26429502284eacc9a8b05763ddef1648150"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "ef051e9ba1c963c9b9884f7f729c3c97cec451ef1e83f087c6ab465a02c4144c"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_BUTTON_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "de848f435e3d70332b99de27a5d3cc036db06e7ad54c4a0087fe66cfaf7f4d19"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_DESIGN_DECISION.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "569f3f5254abafc24c4081c838ec0dab2d265cb3b8b59d7d15a7bed68fa1e5a4"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "9b797ab318e5f4395760691046af5f795804a3444fdbd804450bdb80eac4bdf5"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_NAVIGATION_DESIGN_DEPENDENCY.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b1e221e9fdc1db13469614533e2b2358d716b01d4dfb1bbe54e6579b8001ec99"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_PRESSABLE_CARD_DESIGN_DECISION.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "dd370ad97a21d83d06739311fcddbe043acb5803d07b1b60c751d6bb47880092"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "63fd4aa846f8b6ee4ba5972a24ad13c64c9dc41fef00e8701ee5e33f1b0fd903"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_DESIGN_DECISION.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1aa3b0d744a8363222f738a55d88b30b894e9cb47a7be7589e3df19f96028beb"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_SCROLLABLE_OVERFLOW_ADDENDUM.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e2bb16f47a48ebd43cc0a13fce99491cbd678c9890fee9947ebd2cd9c89e54ff"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b59d45c12351f9f3da2311640ed546d9433e4a133ddbabe69b0825563d52f495"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_SNACKBAR_DESIGN_DECISION.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "f4950937b314307fee7bd870accf720ff8d1a401aadb42632e5ea29ba85fbb7f"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "666fcd0718b14a3c7e45c1418b971c752946af9f9f81d79c7f8d0ec685022ce9"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_TAB_BAR_DESIGN_DECISION.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "271efa79113fe29ad61dee6d2536e1a2dc45b9cb1680bb3bea425011fa745fee"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "420621857423efb56ca3f86f23ebf563cb90990c30c6e4cddfd7af230fe9ef8e"
+    },
+    {
+      "path": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "ff5b5d6befd20994cb03f3640f3f013cb85de9479f1a4b6dccc4cad13ae35b33"
+    },
+    {
+      "path": "docs/BLDS_PHASE_4_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "dddf9420e7f1d2b3aa77c402c437530cab1b6e50e5837ec9b53aafbf49a989c5"
+    },
+    {
+      "path": "docs/BLDS_PHASE_5_ROLLBACK.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e7afeb17ef78c4c8f287dcbde4c57f3cb675cd99811a168e28669e7919a9be89"
+    },
+    {
+      "path": "docs/BLDS_PHASE_5_STATUS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e2070d45ea0d44f367409f5653b483cfc0651110951e3a4394afac91b33325e9"
+    },
+    {
+      "path": "docs/BLDS_RELEASE_CHECKLIST.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "201c86a152b36c855c3fa1761e4384d3f13d7729ef7885d384479a230bf3bcd5"
+    },
+    {
+      "path": "docs/BLDS_TARGET_DELIVERY_PROPOSAL.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "34657d684e4f03105f79bd142c1e5d01ae19c97483575110fc19d4521d200178"
+    },
+    {
+      "path": "docs/consuming-app-guide.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "4a21735c35183cc72e3abde5119b5050db44b5284dfc31ca753b3a2fea10708f"
+    },
+    {
+      "path": "docs/design/A11Y.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "43ce1a76b83ca93aa43554844a78c78ff0cf769fa5bdebe3771613d0db090505"
+    },
+    {
+      "path": "docs/design/BRAND.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3f8513f5c353823088bfb21cdb277e3c64508e2f499788b385dfda36f716815b"
+    },
+    {
+      "path": "docs/design/COMPONENTS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "457851de6251807ed8299c116161075083662fb731250782b46dfcc781909d4e"
+    },
+    {
+      "path": "docs/design/DO_DONT.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "315c9880b76e87ecbfdf1d33a0109a76d944064990e7fb3386a0d6e8895c9df7"
+    },
+    {
+      "path": "docs/design/FIGMA.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "a0fb76ae0b47f0a4ea1f388b559088bba491555dd842bca672e7fb3386089756"
+    },
+    {
+      "path": "docs/design/MOTION.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "9dc6f2246ba734edfa33fb83dca81b580313df99a1cfb3dc091af6757be4ab51"
+    },
+    {
+      "path": "docs/design/PATTERNS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "8019abe00fb06f8d31ef709dda9a39a07e0affc94ad28c414a0d977926ca64e8"
+    },
+    {
+      "path": "docs/design/README.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "00cd710958e747273813137c25e92e78bf533ce3e5b2d23173695053e7b320d0"
+    },
+    {
+      "path": "docs/design/TOKENS.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "88b86ca2d871acccec81f3557e6c2c854c74199847661bacae72f550d7d02af2"
+    },
+    {
+      "path": "docs/design/tokens.css",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e774b7e7ba7faedbd8d2dc18dc4faf9fbd179d89ebaa2a0a46dbc89949fd1e75"
+    },
+    {
+      "path": "example/README.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "28b475f28f55434013f90a9767b1aa1c9517cee5b54b8ecec0bc1364e8ab108d"
+    },
+    {
+      "path": "example/lib/main.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "68da0e36cbb7294ce9ded841a5daf65882fab95202dd358dcd4566c56ddba1d8"
+    },
+    {
+      "path": "example/lib/stories/bottom_bar_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "8e0c9f234b3c021ebf9e69083f28002248f4369725df75edde062dbe6e04098d"
+    },
+    {
+      "path": "example/lib/stories/button_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "4956dd27dee66ec174577f15b2d85f003cf3d5e2d24175f74faf9bd88be9bf25"
+    },
+    {
+      "path": "example/lib/stories/card_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "ef49fbfd9bd57ea5f6666cda0fddc5dbd0d10809af846412db774c71b80d6b68"
+    },
+    {
+      "path": "example/lib/stories/keyboard_accessory_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b66ef2682bb9d2d8a66b9918bed1f069d7df43da18b2c9f33ae2d22132302950"
+    },
+    {
+      "path": "example/lib/stories/pressable_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "c5012387e6285e4c3b1f51bfd07534045b1369506d8f2f409d1e31cf11cdfda9"
+    },
+    {
+      "path": "example/lib/stories/segmented_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "c04f59397523c584d859a9a54669de7df8fe19bc9a51950ab71442c02aca7d7f"
+    },
+    {
+      "path": "example/lib/stories/snackbar_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b3f927f4d9be27188b827a82a48ff4848194df766d3296379dd67bf93b806e7b"
+    },
+    {
+      "path": "example/lib/stories/tab_bar_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "4e60b7f42e33539a2a68403adaebe440f40a277ad9a40eebe1eb48cfb699a68a"
+    },
+    {
+      "path": "example/lib/stories/text_field_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3cbc7e3604fabd5bebec67656bd6c5da7d31490e8fed2a62ae90332a51878039"
+    },
+    {
+      "path": "example/lib/stories/tokens_story.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b4f70fb0440db4a0d1942c57d54a6095e8eb2830d79e9d0f1ec76c263d30dda9"
+    },
+    {
+      "path": "example/lib/stories_home.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "77c111a348d342903dc5d203e853940b0f79d3d1fbb1519ff9f6387fc6b534eb"
+    },
+    {
+      "path": "example/lib/story_catalog.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "626f31f1c2e7476c3c2fdfee9750a1ca011554bc34108e1e99c3bc5619a7a51a"
+    },
+    {
+      "path": "example/pubspec.lock",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "6df80bc9d658fd53a5c739745d55273a2428d715c7bc44d66e8087d76c3c2c95"
+    },
+    {
+      "path": "example/pubspec.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "6620765ed99302b61d36fc0f5e6262fad0731e96c62b35d47da801c8efc23447"
+    },
+    {
+      "path": "generated/agent-docs/accessibility/states.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "4668903680377014f390f783d96f79be76f20351cf522d5b474c9366b3bf97ef"
+    },
+    {
+      "path": "generated/agent-docs/components/bottom-bar.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "f05709c30d4bd72970d635ca9f01d2ea17a0d258a0127f03b4e30067c7fc97cf"
+    },
+    {
+      "path": "generated/agent-docs/components/button.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "dc0ea85fd2243c60fe71aa55536a23cff4d080e1e8421401a389e6e05e396a37"
+    },
+    {
+      "path": "generated/agent-docs/components/card.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "bba7e69c45506a01150be77e2596eadf40519b374ffd7a44a5ab5180d5c2335a"
+    },
+    {
+      "path": "generated/agent-docs/components/keyboard-accessory-bar.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "bc2df8798ab7001d861f928efd47e96712bc16cff6fb4cf9881e3d658ca62b49"
+    },
+    {
+      "path": "generated/agent-docs/components/pressable-wrapper.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "a9f7744f0425af577aeae294224c089877fd817fbeea74cf99d9d3811030505a"
+    },
+    {
+      "path": "generated/agent-docs/components/segmented-control.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "61c655dece341e69ba810541d148eae3d08052061b41d02d9ff4f6b8b9d76b6d"
+    },
+    {
+      "path": "generated/agent-docs/components/snackbar.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "b55e0955df2f78a635c29594cbb4201b1dadd887e74c4f16f604c627cdf537aa"
+    },
+    {
+      "path": "generated/agent-docs/components/tab-bar.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "66af0993cae9a0a012d2a6a488f4d1f493b8de17f51011c800f81750524d38de"
+    },
+    {
+      "path": "generated/agent-docs/components/text-field.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "09703d8990cadb7e36ef718f175c7bdf5f742ae77243895511759aa955b666fd"
+    },
+    {
+      "path": "generated/agent-docs/foundation/tokens.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "893f477b69909d37a4c3533558c8b94b2c66f9e4897aa7cb9f825d58037a0051"
+    },
+    {
+      "path": "generated/agent-pilot-result.v1.json",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "9248bd5a451ec6869c80d970818d6425b5176e508a64ea0e99e21515ef628739"
+    },
+    {
+      "path": "generated/agent-registry.v1.json",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "9f6a62c3c1dec2ac7f437a3ff32bf0b3814c5ec5a26bf0d8b13db7e51fbc16b2"
+    },
+    {
+      "path": "generated/blab-capabilities.v1.json",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "330f3ad8bf9e0fb79af15308e9201b040c6c690226ecba2340c70f9d19f9f650"
+    },
+    {
+      "path": "generated/blab.tokens.css",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "6436f56bc38e1d3b473a25987be08592641d40aadb5db219292d2ad164ee8076"
+    },
+    {
+      "path": "generated/component-state-coverage.yaml",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "0fda4cb18f97d88158c83e82e78033a8b8851e0454104eb5307b6e3cef2a6466"
+    },
+    {
+      "path": "generated/figma-token-mapping.json",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "154655b1de2abb1112e2d8de63f81c7645963d926f843fcec0e79e49e7447192"
+    },
+    {
+      "path": "generated/llms-full.txt",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "6b81c47718bd31322848d2f5ad46200680536fea7b06736b6c8c0060b6e04a0e"
+    },
+    {
+      "path": "generated/llms.txt",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "15a57a3c61fb53ac3ba71e90228743d91c41f2e2b5716b5a5960d5cd367412dc"
+    },
+    {
+      "path": "generated/token-reference.ko-KR.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "6cf1bf3c00e286139dfbcf57249d1a4781c9d4f4506da390025b3b05c0313ccb"
+    },
+    {
+      "path": "generated/token-traceability.md",
+      "origin": "repository-generated",
+      "license_status": "project-license-observed-holder-authority-unresolved",
+      "evidence": "deterministic repository tooling",
+      "sha256": "e630c2cbdc8c8449bfc5bfd33e783309a44826b18a10357330f64926eaa645a3"
+    },
+    {
+      "path": "lib/blab_design_system.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b196df8e286f7e87aac015fa7196d4db79b2759f5ca68268634fd4dbbe0abf7c"
+    },
+    {
+      "path": "lib/src/foundation/focus_owned_overlay.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "cf75a510be82a6f27c769f4db00b3d0fcbe9ff20b5b7e3c7af36b271c460e133"
+    },
+    {
+      "path": "lib/src/foundation/focus_visibility.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "dbc02e40f73aae15f100c18aa65a6ef44fd92b8742e253976f3aec169e63454f"
+    },
+    {
+      "path": "lib/src/foundation/focus_visual.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "000fd5c1f4552020b6d0ad7772f7eef2784b1b79214c23b0e09d916a294001f9"
+    },
+    {
+      "path": "lib/src/foundation/haptic_policy.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "332bfb7fd05971243e6dd117c88c9d73748bef231e9ac982d4e365eecd2b11e5"
+    },
+    {
+      "path": "lib/src/foundation/interactive_target.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "59143bae4ea8c246ee680858f9e15b4bf43d3aee16fc26ca8ca96bc5f93bbe5c"
+    },
+    {
+      "path": "lib/src/foundation/keyboard_activation.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d6aa8b397cb375a1a0256d7dda1e997954628dc50ba06b4f37d3d70494a84e18"
+    },
+    {
+      "path": "lib/src/foundation/reduced_motion.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e1444c71b55957bb64d5cd68b214bc07e4ea98212ae96e1abeb0172a5c9b2b1a"
+    },
+    {
+      "path": "lib/src/foundation/semantic_interaction.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "bb55cd559da4ee2e2ca2d883636ec0fc0dee2298de00894ddfb243d5e51f470d"
+    },
+    {
+      "path": "lib/src/foundation/text_scaling.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "0a3235a89aa90fec92cfc84f0931ed1dfaf047248293b3d45707b883c3db6419"
+    },
+    {
+      "path": "lib/src/foundation/visual_mode_resolver.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d6db7f627a5c735fb6f806a44ce8c1aade6fb51dd2b85c8f599e90731745d508"
+    },
+    {
+      "path": "lib/src/generated/blab_token_data.g.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e21efb4c6aba26e26af65b7148a0990403ec5acf94e0b704cc9269c3e4687efc"
+    },
+    {
+      "path": "lib/src/theme/app_colors.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "df609cf2dcf7b37cfd1bcccc01ce1b06d91591c76d150c57f3013b2b960458c7"
+    },
+    {
+      "path": "lib/src/theme/app_glass.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "41bc7c6a7d725604a5f2ca43569e960994fef14662c21ce735f5d26e97b67b7a"
+    },
+    {
+      "path": "lib/src/theme/app_motion.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "65a1b13831b7d556646d5e1685d59e3148f0b3e73a58a39790cd4cfd600087b0"
+    },
+    {
+      "path": "lib/src/theme/app_radius.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "7bf70bb9fd41d9a5f18bcea24ccab6a786d9ee7ccba476f0eb148868b6f6b26e"
+    },
+    {
+      "path": "lib/src/theme/app_shadow.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "4070145042024e3e8d964f82efbe691492027813eb71e3ddfbd87749737c04b5"
+    },
+    {
+      "path": "lib/src/theme/app_spacing.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d75f7651ab42b377ebf187de5fb9b027037d55ecca13c19254159c962e2534ee"
+    },
+    {
+      "path": "lib/src/theme/app_theme.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3235183c9b3aa3c5a271417806cdc04babe39a1e0f65aa716960ec6561630c0c"
+    },
+    {
+      "path": "lib/src/theme/app_typography.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b4b1ec9bb74298442758a09ff6104d8d837bb694bcb168153aee28b373a1fb7d"
+    },
+    {
+      "path": "lib/src/theme/blab_token_theme.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "33d1d5cee27fb0a3d50eda93b36352e2f19378cc3a1206d09e232d0f53d529ea"
+    },
+    {
+      "path": "lib/src/widgets/blab_segmented_control.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "c1911b55046c1bf5633adda645070a2de8d5a4b3ac19437b9dc1a93b9e699cf6"
+    },
+    {
+      "path": "lib/src/widgets/blab_snackbar.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "efa9f7d8eccdcae01b913cd4c25a05a14e19e7a1138f12e9e089f4f0a0f33bf8"
+    },
+    {
+      "path": "lib/src/widgets/keyboard_accessory_bar.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "02cde4f9e75e01f13cff753db1555141e9219ad5848a221b6e83e26aaa0c1ec9"
+    },
+    {
+      "path": "lib/src/widgets/liquid_glass_bottom_bar.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "93bdad82e4148d36a4dabde98935a742c998aff618a36e73abbe6b3abd50fc9c"
+    },
+    {
+      "path": "lib/src/widgets/liquid_glass_button.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "fca58bb9c9f4ce8056f980f9c843321d04cf3b054062597120abe1f36914b1cb"
+    },
+    {
+      "path": "lib/src/widgets/liquid_glass_card.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "90b4ffdbdd3f8e3d644137ee62bcbd852c679b22a2b4a8205e21ea7b7bee6dfa"
+    },
+    {
+      "path": "lib/src/widgets/liquid_glass_tab_bar.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "a5ac68dfeec6ca866be28e09cbc997966a791930cf104e418ce0dd5d113a4248"
+    },
+    {
+      "path": "lib/src/widgets/liquid_glass_text_field.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "2780bc171dc30de47f7f13c38ea565b4fa2a6343c047e7a74921daa2a55e7ac8"
+    },
+    {
+      "path": "lib/src/widgets/pressable_wrapper.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "4af7dded05b182081c73a93d8a8d30aae5547a22bc623c36354b426ad840ca79"
+    },
+    {
+      "path": "pubspec.yaml",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "a19f7a6dd4087adb3288a4467e2ae04f9817077262f250c461f1f4c21a1ff03e"
+    },
+    {
+      "path": "test/agent_query_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "c8ce9f3b8cf2977c149a8856ee1fc78fb229b34144b38889b77e7e06f6758d78"
+    },
+    {
+      "path": "test/assets/fonts/CupertinoIcons.ttf",
+      "origin": "third-party-test-fixture",
+      "license_status": "MIT",
+      "evidence": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "sha256": "67c44fe9183b002e79dde7f6977e2988661c9a3e4a3c5fce968787efdbed823c"
+    },
+    {
+      "path": "test/assets/fonts/LICENSE-CUPERTINO-ICONS.txt",
+      "origin": "third-party-license-text",
+      "license_status": "verbatim-license-copy",
+      "evidence": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "sha256": "310d6ab6483280280c9db122bded0a63c09558bc5743720f61dbcbb494db370a"
+    },
+    {
+      "path": "test/assets/fonts/LICENSE-MATERIAL-ICONS.txt",
+      "origin": "third-party-license-text",
+      "license_status": "verbatim-license-copy",
+      "evidence": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "sha256": "be698262aecd042c0de6f886cc0af622f8def446462026992cc530275d8a9e74"
+    },
+    {
+      "path": "test/assets/fonts/LICENSE-NOTO-SANS-ARABIC.txt",
+      "origin": "third-party-license-text",
+      "license_status": "verbatim-license-copy",
+      "evidence": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "sha256": "07fc70bfeb985cc1a87a8587d0a0c80bab11c86c9dc3fd95b6f0cb332f983e96"
+    },
+    {
+      "path": "test/assets/fonts/LICENSE-NOTO-SANS-KR.txt",
+      "origin": "third-party-license-text",
+      "license_status": "verbatim-license-copy",
+      "evidence": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+    },
+    {
+      "path": "test/assets/fonts/MaterialIcons-Regular.otf",
+      "origin": "third-party-test-fixture",
+      "license_status": "CC-BY-4.0",
+      "evidence": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "sha256": "d9865b671a09d683d13a863089d8825e0f61a37696ce5d7d448bc8023aa62453"
+    },
+    {
+      "path": "test/assets/fonts/NotoSansArabic[wdth,wght].ttf",
+      "origin": "third-party-test-fixture",
+      "license_status": "OFL-1.1",
+      "evidence": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "sha256": "63111b5b2e074dd48cc67692e0a2726d86ee94c1c37fe8598257b7b4e87e869e"
+    },
+    {
+      "path": "test/assets/fonts/NotoSansKR[wght].ttf",
+      "origin": "third-party-test-fixture",
+      "license_status": "OFL-1.1",
+      "evidence": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252"
+    },
+    {
+      "path": "test/assets/fonts/THIRD_PARTY_NOTICES.md",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "8c0b4ad7555d429e5a9da23c612089dfdee652139bd2c866fd81196b2bcdb144"
+    },
+    {
+      "path": "test/blab_bottom_bar_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "610225dd57f808388b2e84b735795a5827beea304d9f08124704402334379ae9"
+    },
+    {
+      "path": "test/blab_button_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "41e0edb9a8a7420a8b1125312042839bd3d036e3e5974a042853669b22d2ac1e"
+    },
+    {
+      "path": "test/blab_design_system_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "b445878a491eaef907b57b70de16a29857da01176845b334d49cd8a041a3775f"
+    },
+    {
+      "path": "test/blab_keyboard_accessory_bar_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d109192dda660e7b8f458d32f2f61867776eee22e7e42fa2f446d86aac5d2d6d"
+    },
+    {
+      "path": "test/blab_pressable_card_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "415f86c74f5e5b0f650adf977199679a86de41ddfd2dfa2a42aeb4cd2158c0d5"
+    },
+    {
+      "path": "test/blab_segmented_control_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "8044cf3015d906a49028defd5bf735664e35968077baa1725a13e23d0b252ff7"
+    },
+    {
+      "path": "test/blab_snackbar_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e01d654a16bc36a1f265fd3e1a6b441e08c15e960e2df40574d39c20efbd1e39"
+    },
+    {
+      "path": "test/blab_tab_bar_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "768caf4d9f367809ca8b0ebb40c71d8b3ef01879e25074b72aabab26d2542a93"
+    },
+    {
+      "path": "test/blab_text_field_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "22c938cf9f32401fc7aaf05eb0f22ab28598966191faab68457ae2e932e65ab4"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-ar-rtl.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "4c29bab888348e9f6f6e472be72c76e15c781f2efb6a6b6dd4cacb9731d3a31c"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-dark.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "8d00c1ba78a0fa4cdf25a2622b0126685a06630b62ee08f1d5f2fcfb22fb2333"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-expansion-40.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "aabdc7f64c9ce0e0cfcb66a5713c5a97617dc62a265f46007688c5e3b811ea9a"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-high-contrast-dark.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "2fe76e4b4bf7f7627fec63030298128a78143236faba34a5bc44eb620f6a0735"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-high-contrast-light.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "ff9d5ba52b372b2a08b5137444e7b584d8a2689ca4f7b233ca3956312c09218c"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-ko-kr.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "97056006505cd2e5b0f83ee5f9f1c9d7186bd05002c7096cc0ad096f2e509fa6"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-light.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "07369ba292a3d540e204ab825abfa7d60839cb7a36adce49146111a15be38e8a"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-narrow.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "0624b9a312d119a6899df9ae0b40eef9a898c08f438081c3b7af1a3fe492a065"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-reduced-motion.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "07369ba292a3d540e204ab825abfa7d60839cb7a36adce49146111a15be38e8a"
+    },
+    {
+      "path": "test/goldens/candidates/phase4-text-scale-2.png",
+      "origin": "repository-generated-candidate-baseline",
+      "license_status": "project-license-observed-origin-attestation-unresolved",
+      "evidence": "contracts/visual-baselines.yaml",
+      "sha256": "73c93244f71155738165cf10958d5165310cd73c30f39cadf7990c3a0df5eefa"
+    },
+    {
+      "path": "test/phase1a_contract_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "5552c149590708730ac13a5b08b35e0a6fe661a526863b170afdac277ccc8bf4"
+    },
+    {
+      "path": "test/phase1b_pipeline_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "bc4441c19e68fbfa5ffa008e72739180d0acbf47348ffd33c33b75bbc5176dee"
+    },
+    {
+      "path": "test/phase2_foundation_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "226de6c3d60309b016ffe072f6cd57f1a3794cd761f1aa5ca41106815cbf6894"
+    },
+    {
+      "path": "test/phase4_candidate_golden_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "68d5337f71881822f0ccb873d752f63942844a69429977f40da0715cbd505306"
+    },
+    {
+      "path": "test/phase4_candidate_rtl_golden_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "9f5e90b45005e87a9c38a7e01d1b69546925ed002d6f7fa82071c2c4dc246e57"
+    },
+    {
+      "path": "test/phase4_evidence_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "09499b8b974a2c906bf3622c31654db2b5a8528d388d65dd7b904b5421d07de1"
+    },
+    {
+      "path": "test/phase5_readiness_test.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "637e60492ed5fc3e14ad4a9f31f277e6c6af3bda132acb0d312cdbb690820a9b"
+    },
+    {
+      "path": "test/support/phase4_candidate_harness.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "4e0abaac06248bcb3efb01d8080c328a981bae658319aaf72b77d0c82672020c"
+    },
+    {
+      "path": "tool/agent_docs_mcp.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "46a7afa8cd5578c13078d109d3dc819269c34593e59567913cf24cf4c3109f0b"
+    },
+    {
+      "path": "tool/blab_doctor.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "16437725ae7c7a3e661765ed90c7743c6ff7288530b3b4fd03fa25be20fb6779"
+    },
+    {
+      "path": "tool/capture_package_dry_run.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "0d56c8234fcd40829dabb63515a3024ef03858a29f7adeb6ed44994731b38c2f"
+    },
+    {
+      "path": "tool/classify_compatibility.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "31cc9fbe78c80072f7eb1a95c17369782527c07ae0c42c99c7807747ecb34c66"
+    },
+    {
+      "path": "tool/evaluate_agent_fixtures.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "58d67350281c26b8bf14932656b7bbe4a932b25a421dd474e7aeddd14e8f75c9"
+    },
+    {
+      "path": "tool/evaluate_agent_pilot.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "6892a9f915cf21794324b22aa605f0c12c83b1434416a9e590282c7d62162fc8"
+    },
+    {
+      "path": "tool/generate_agent_docs.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3b5a549c875982a48853d2eec53f4008b6295119712bc3132234047dc7e8c233"
+    },
+    {
+      "path": "tool/generate_phase5_inventories.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "8f248fb0174de3592437fdc37c60a633447090270cbc4a1d21929b7160f8546f"
+    },
+    {
+      "path": "tool/generate_tokens.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "1fcd955c611497c707a8bc22495fa7e5a243ad533d11ac163fcdf06a6884a3dc"
+    },
+    {
+      "path": "tool/public_api_snapshot.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "95b0172a882ae90bff343bed417905310054f8aae7141e095c633d4b57fdb5f8"
+    },
+    {
+      "path": "tool/query_agent.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "0f54109a5a2d0977f2ff8834155c556477c2627df23e27916edd30d2d09dba6e"
+    },
+    {
+      "path": "tool/rehearse_phase5_migration.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "4ab73ac93f3436db9ac98a894dbfccff79126d31832abab7901bff616e240d5b"
+    },
+    {
+      "path": "tool/run_consumer_smoke.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "8ad58990c35a751a4f6e692ca717796b53edd9f91dc9da5fe6bf15f305406235"
+    },
+    {
+      "path": "tool/src/agent_consumption.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "04f4024686c08daf082eb3d63303f7eb2f5471f1317726ea92963ced966820bf"
+    },
+    {
+      "path": "tool/src/agent_docs_mcp.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "0b3a24df7f75c1c86f40ea34e6fe1f891106c5a73ded429878231c6ea4c0ac18"
+    },
+    {
+      "path": "tool/src/agent_query.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "3bc4523d7ccd9bbbd00635abfed2c11a290728bb2ee0df7b992e2a3efd61cba2"
+    },
+    {
+      "path": "tool/src/contract_validation.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "eb584b206f59043524f425079d7ba204c825fbde108b1982700320ed48d0ec78"
+    },
+    {
+      "path": "tool/src/doctor.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "8ce092da66578343f3e168c0e76990e56fed86f04093c365796add61b53cf652"
+    },
+    {
+      "path": "tool/src/json_schema_validation.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "78105f4beea1d47cdf49cf879d3a08f9506ee487913a429c0c6e798954de6a70"
+    },
+    {
+      "path": "tool/src/phase4_evidence_validation.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "123e1902aef7f21b4a00908e7bc5882ca35d6f40e9f6f85d5c1a944dd90023d7"
+    },
+    {
+      "path": "tool/src/phase5_baseline_validation.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "539d23143df25ff7d24d72cc0b1678c5b07ad635b843d6aa1912df61ee14f62e"
+    },
+    {
+      "path": "tool/src/phase5_compatibility.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "0c40a0de4b6523180a1c0c96eec030c8dab9c281ce1a4206d7cd9947020e151d"
+    },
+    {
+      "path": "tool/src/phase5_inventory_scope.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "33c49f5bb9755852f2771cb7cb0b04ab1f969e2a7e4bdadc0ff68205d09d3e5b"
+    },
+    {
+      "path": "tool/src/phase5_readiness_validation.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "6c1db4bfa3c8925a5574256101e7912313050f63aad0a1b2ee4286f1cc47b8f9"
+    },
+    {
+      "path": "tool/src/platform_executable.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "a624a4fca84392005351729cdf35f50fde1f4948661cd6ffd818b54044a43289"
+    },
+    {
+      "path": "tool/src/public_api_compatibility.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "651345cb17b4f3bae002dc773f9e90732e22fd69d24994539fff1fec585c2fab"
+    },
+    {
+      "path": "tool/src/public_api_snapshot.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "f4002b9b0473cc3409d98e19ba6cf737a31c4439833b873b02da73a4299a56e5"
+    },
+    {
+      "path": "tool/src/token_generation.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "899d4c31712d354977bf9ead7fe1a549e8211d7041f15d394b4240e11cc3c1be"
+    },
+    {
+      "path": "tool/test_agent_docs_mcp.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "fad8174ecde6acbcf4af164c1dd0d779a8e3b9a80c69367737edc7574ec1b735"
+    },
+    {
+      "path": "tool/validate_agent_registry.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "a557bd1b67bb10435b9bc5447291e61b80a4f88302b05c59c902b0abb78b20f1"
+    },
+    {
+      "path": "tool/validate_contract.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "57e47698b89e902ab7e0125cc0d4d00e61d9e05796a0502ad80fc5415742a4c9"
+    },
+    {
+      "path": "tool/validate_diff_hygiene.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "2bb4a82e126de78e0c67c3c1fc890a396cd0b37ededbe93a93039124926e023d"
+    },
+    {
+      "path": "tool/validate_doctor_json.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "ffc502c8436ccd2877ade74b0083c4e2e93216a600baefed1a56d62f1da30d10"
+    },
+    {
+      "path": "tool/validate_figma_agent_mapping.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "5eafa7d9940e42649775cadecdef548820547eaa6944ad021dbbb5db8c34f8d3"
+    },
+    {
+      "path": "tool/validate_package_dry_run.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "cb4df893cd3102b40967a76b54e0f9f49899734d1e5a67daa1b04059e0f73d5e"
+    },
+    {
+      "path": "tool/validate_phase4_evidence.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "e387f82bbea10fa5248fcf42387f93f5f01a2d6cde30923bdd9e922f5d0a4101"
+    },
+    {
+      "path": "tool/validate_phase5_baselines.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "826aab93bdf9fbe2c7a24e5276455257f5eb9822feb63a09a73521438b43cdf2"
+    },
+    {
+      "path": "tool/validate_phase5_readiness.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "7111febb5960798500342efda6e3d5cc3050b7398fd101c50d9dbfadd9c42cdc"
+    },
+    {
+      "path": "tool/validate_verify_cleanup.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "d2c257701eb00c5fa50c54b05537de3f870a8a1262830e30ade81e3b3c2edaf3"
+    },
+    {
+      "path": "tool/validate_workflow.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "438d6cd931061a878976a18993bc8fdb9a89505d5401882ca7e2c4e5768b9a2f"
+    },
+    {
+      "path": "tool/verify.dart",
+      "origin": "repository-worktree-origin",
+      "license_status": "project-license-observed-human-rights-unverified",
+      "evidence": "contracts/legal/attestations/origin-attestation.template.yaml",
+      "sha256": "be5d467ef658fa230e6a01a5cee2335f81bc67f73630194139c24b19ce421fba"
+    }
+  ]
+}

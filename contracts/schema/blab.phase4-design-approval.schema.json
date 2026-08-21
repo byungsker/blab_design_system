@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://byungskerlab.local/blab/phase4-design-approval.schema.json",
+  "title": "Blab Phase 4 hash-bound local Design approval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "metadata", "baselines"],
+  "properties": {
+    "schema": {"const": "blab.phase4-design-approval/v1"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "status",
+        "generated",
+        "reviewed_on",
+        "reviewer_role",
+        "evidence_ref",
+        "approval_scope",
+        "claim_boundary"
+      ],
+      "properties": {
+        "version": {"const": "0.1.0"},
+        "status": {"const": "design-approved-local"},
+        "generated": {"const": false},
+        "reviewed_on": {"const": "2026-07-28"},
+        "reviewer_role": {"const": "byungskerlab-design-team"},
+        "evidence_ref": {
+          "const": "design-final-gate-handoff:button_contrast_standard_goldens:2026-07-28"
+        },
+        "approval_scope": {
+          "const": "local-reproducibility-and-fixture-review-only"
+        },
+        "claim_boundary": {"type": "string", "minLength": 1}
+      }
+    },
+    "baselines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^test/goldens/candidates/phase4-.*\\.png$"
+          },
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    }
+  }
+}

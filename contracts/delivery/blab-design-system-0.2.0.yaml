@@ -1,0 +1,70 @@
+schema: "blab.active-target-delivery-contract/v1"
+
+metadata:
+  contract_id: "BLDS-TDC-BLAB-DESIGN-SYSTEM-0.2.0"
+  status: "owner-approved-active"
+  accepted_on: "2026-07-28"
+  owner: "byungsker"
+  authoritative_source: "docs/BLDS_TARGET_DELIVERY_PROPOSAL.md"
+
+delivery:
+  delivery_unit: "blab-design-system"
+  delivery_profile: "package-or-local"
+  target_version: "0.2.0"
+  target_version_source: "docs/BLDS_TARGET_DELIVERY_PROPOSAL.md#owner-acceptance-record"
+  expected_base_branch: "main"
+  expected_base_sha: "aa5e857b0c97c6ca9cd86f27b5591c28b5c143ac"
+  expected_head_branch: "codex/feature/blab-design-system/0.2.0/astryx-capability-adoption"
+  promotion_path: "repository-only draft pull request to main; no GitHub approval, merge, tag, release, publication, deployment, or consumer mutation"
+  rollback_before_merge: "Delete or abandon the isolated worktree and branch after preserving review evidence; never alter the source dev worktree."
+  rollback_after_merge: "Requires separately authorized revert pull request; never move or reuse v0.1.0."
+  protected_design_restoration_sha256: "3efc7ad9cb1872e53f857b1e44422fad5040d6302fdfba9c6a94f2a96ca53bd4"
+  protected_design_restoration_source: "byungsker follow-up approval in the active Codex thread on 2026-07-28"
+
+pull_request:
+  base: "main"
+  head: "codex/feature/blab-design-system/0.2.0/astryx-capability-adoption"
+  draft: true
+  required_metadata:
+    Target-Delivery-Unit: "blab-design-system"
+    Target-Version: "0.2.0"
+    Delivery-Profile: "package-or-local"
+
+authority:
+  source: "byungsker acceptance in the active Codex thread on 2026-07-28"
+  branch: true
+  isolated_worktree: true
+  commit: true
+  push: true
+  draft_pull_request: true
+  protected_design_restoration: true
+  github_approval: false
+  merge: false
+  tag: false
+  release: false
+  publication: false
+  deployment: false
+  consumer_mutation: false
+
+gates:
+  creation:
+    tdc_complete: true
+    exact_version_approved: true
+    identity_must_match_byungsker: true
+    source_worktree_commit_forbidden: true
+    isolated_allowlist_required: true
+    full_local_verify_required: true
+  promotion:
+    status: "blocked"
+    blockers:
+      - "Trusted target-version check is not installed on canonical main."
+      - "Main branch protection/ruleset is not configured."
+      - "Rights, provenance, remote CI, and two-consumer gates remain open."
+
+legacy_tag:
+  tag: "v0.1.0"
+  observed_commit: "54499482a15ebb40ffdfd531c9416b07f7282bac"
+  observed_manifest_version: "0.0.1"
+  disposition: "immutable inconsistent historical tag; never move, reuse, or treat as target-version authority"
+
+claim_boundary: "This active TDC authorizes only branch, isolated worktree, the exact protected DESIGN.md restoration, commit, push, and draft-PR creation for the exact contract. It does not authorize promotion or rights/publication claims."

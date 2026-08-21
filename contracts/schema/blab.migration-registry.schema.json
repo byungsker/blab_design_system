@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.migration-registry/v1",
+  "type": "object",
+  "required": ["schema", "metadata", "baseline", "codemod", "migrations", "rehearsal", "rollback"],
+  "properties": {
+    "schema": {"const": "blab.migration-registry/v1"},
+    "metadata": {"type": "object", "required": ["version", "status", "package_version", "package_state"]},
+    "baseline": {"type": "object", "required": ["provenance", "current_api_snapshot", "current_token_contract"]},
+    "codemod": {"type": "object", "required": ["status", "reason", "evidence"]},
+    "migrations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/migration"}
+    },
+    "rehearsal": {
+      "type": "object",
+      "required": ["mode", "repository_source_access", "consumer_source_access", "consumer_source_mutation", "source_checkout_execution", "disposable_destination_containment", "cleanup", "inputs", "expected_result"],
+      "properties": {
+        "inputs": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/repositoryArtifact"}
+        }
+      }
+    },
+    "rollback": {
+      "type": "object",
+      "required": ["strategy", "repository_source_access", "disposable_destination_containment", "artifacts", "consumer_rollback", "release_rollback"],
+      "properties": {
+        "artifacts": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/repositoryArtifact"}
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "migration": {
+      "type": "object",
+      "required": [
+        "id",
+        "surface",
+        "kind",
+        "classification",
+        "decision_ref",
+        "decision_document",
+        "status",
+        "authority_status",
+        "codemod_required",
+        "consumer_action"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "typed:semantic.action.primary-foreground",
+            "typed:semantic.action.destructive-foreground"
+          ]
+        },
+        "surface": {"const": "token"},
+        "kind": {"const": "value"},
+        "classification": {"const": "breaking-compatibility-correction"},
+        "decision_ref": {"const": "BLDS-BUTTON-CONTRAST-2026-07-28"},
+        "decision_document": {"const": "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md"},
+        "status": {"const": "approved"},
+        "authority_status": {"const": "approved"},
+        "codemod_required": {"const": false},
+        "consumer_action": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "repositoryArtifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*(?:^|/)\\.(?:/|$))(?!.*//)(?!.*\\/$).+$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^(?:[a-f0-9]{64}|computed-by-validator)$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

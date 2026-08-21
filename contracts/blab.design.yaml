@@ -1,0 +1,1668 @@
+schema: "blab.design/v1"
+
+metadata:
+  contract_version: "0.2.0"
+  status: "approved"
+  authoritative: true
+  title: "Blab Design Contract"
+  semantic_owner: "byungskerlab-design-team"
+  implementation_owner: "engineering-design-system-frontend"
+  effective_on: "2026-07-25"
+  approval:
+    approved_by: "byungsker"
+    approved_on: "2026-07-25"
+    decision_ref: "BLDS-ALL-PHASES-2026-07-25"
+    scope:
+      - "repository-owned-machine-readable-ssot"
+      - "phase0-accessibility-and-localization-policy"
+      - "mit-license-selection"
+      - "analyzer-backed-public-api-baseline"
+      - "phase1-through-phase5-local-implementation"
+      - "additive-high-contrast-and-interaction-foundation"
+
+authority:
+  visual_and_semantic_authority: "Blab"
+  blab_semantics_owner: "byungskerlab-design-team"
+  engineering_ownership: "implementation-generation-tests-compatibility-and-rollback"
+  authority_order:
+    - "contracts/blab.design.yaml"
+    - "generated-or-manually-preserved-platform-outputs"
+    - "flutter-components-examples-tests-and-diagnostics"
+    - "figma-and-agent-skill-distribution-mirrors"
+  astryx_role: "capability-evidence-only"
+  astryx_exclusions:
+    - "visual-values"
+    - "vocabulary"
+    - "component-appearance"
+    - "page-composition"
+    - "product-copy"
+    - "cross-platform-policy"
+  release_publication_and_external_mutation_require_separate_authority: true
+
+shared_system_policy:
+  name: "rule-of-two"
+  minimum_real_product_needs: 2
+  applies_to:
+    - "shared-primitives"
+    - "shared-components"
+    - "shared-capabilities"
+    - "cross-framework-packages"
+  exception_authority: "byungsker"
+  exception_must_be_explicit_and_documented: true
+  approved_exceptions:
+    - id: "BLDS-ALL-PHASES-2026-07-25"
+      approved_by: "byungsker"
+      approved_on: "2026-07-25"
+      rationale: "Complete the approved BLDS Astryx capability-adoption plan while preserving Blab visual authority."
+      scope:
+        - "flutter-theme-extensions"
+        - "shared-accessibility-interaction-foundation"
+        - "component-state-contracts"
+        - "diagnostics-documentation-and-migration-tooling"
+      excluded:
+        - "shared-web-package"
+        - "new-product-domain-components"
+        - "publication-or-release"
+        - "public-conformance-claim"
+
+values:
+  strategy: "typed-deterministic-phase1a"
+  policy: "The typed model is the deterministic Phase 1A generation input. The reference manifest retains immutable Phase 0 historical digests; a migrated source adds separate current implementation evidence and validation targets only the current digest. Unmigrated standard light and dark sources remain hand-maintained and byte-preserved."
+  typed_token_model_ref: "contracts/tokens/blab.tokens.yaml"
+  reference_manifest_policy:
+    phase0_historical_digests_immutable: true
+    migrated_sources_require_separate_current_evidence: true
+    validation_target: "current-digest-when-present-otherwise-historical"
+  token_layers:
+    primitive:
+      status: "reference-preserved-taxonomy-not-yet-normalized"
+      current_value_refs:
+        - "docs/design/tokens.css"
+        - "lib/src/theme/app_colors.dart"
+        - "lib/src/theme/app_typography.dart"
+        - "lib/src/theme/app_spacing.dart"
+        - "lib/src/theme/app_radius.dart"
+        - "lib/src/theme/app_shadow.dart"
+        - "lib/src/theme/app_motion.dart"
+        - "lib/src/theme/app_glass.dart"
+    semantic:
+      status: "reference-preserved-taxonomy-not-yet-normalized"
+      current_value_refs:
+        - "docs/design/tokens.css"
+        - "lib/src/theme/app_colors.dart"
+        - "lib/src/theme/app_theme.dart"
+    component:
+      status: "reference-preserved-taxonomy-incomplete"
+      current_value_refs:
+        - "lib/src/widgets/blab_segmented_control.dart"
+        - "lib/src/widgets/blab_snackbar.dart"
+        - "lib/src/widgets/keyboard_accessory_bar.dart"
+        - "lib/src/widgets/liquid_glass_bottom_bar.dart"
+        - "lib/src/widgets/liquid_glass_button.dart"
+        - "lib/src/widgets/liquid_glass_card.dart"
+        - "lib/src/widgets/liquid_glass_tab_bar.dart"
+        - "lib/src/widgets/liquid_glass_text_field.dart"
+        - "lib/src/widgets/pressable_wrapper.dart"
+  reference_manifest:
+    - path: "docs/design/tokens.css"
+      kind: "css-token-and-style-baseline"
+      sha256: "e774b7e7ba7faedbd8d2dc18dc4faf9fbd179d89ebaa2a0a46dbc89949fd1e75"
+    - path: "lib/src/theme/app_colors.dart"
+      kind: "flutter-token-migrated-baseline"
+      historical_sha256: "bb1b2626e1d6c10baf9fb3769c2128abed7544a51fa8aabfe2ad3663c90b9e38"
+      current:
+        phase: 5
+        sha256: "df609cf2dcf7b37cfd1bcccc01ce1b06d91591c76d150c57f3013b2b960458c7"
+        evidence:
+          - "docs/ASTRYX_CAPABILITY_ADOPTION_PLAN.md"
+          - "docs/BLDS_PHASE_5_STATUS.md"
+    - path: "lib/src/theme/app_glass.dart"
+      kind: "flutter-token-migrated-baseline"
+      historical_sha256: "be2bdb7c8b24bc967d5e36ce295757f4e8f2a95d5b6463869c2f27648616c334"
+      current:
+        phase: 5
+        sha256: "41bc7c6a7d725604a5f2ca43569e960994fef14662c21ce735f5d26e97b67b7a"
+        evidence:
+          - "docs/BLDS_PHASE_5_STATUS.md"
+    - path: "lib/src/theme/app_motion.dart"
+      kind: "flutter-token-baseline"
+      sha256: "65a1b13831b7d556646d5e1685d59e3148f0b3e73a58a39790cd4cfd600087b0"
+    - path: "lib/src/theme/app_radius.dart"
+      kind: "flutter-token-baseline"
+      sha256: "7bf70bb9fd41d9a5f18bcea24ccab6a786d9ee7ccba476f0eb148868b6f6b26e"
+    - path: "lib/src/theme/app_shadow.dart"
+      kind: "flutter-token-baseline"
+      sha256: "4070145042024e3e8d964f82efbe691492027813eb71e3ddfbd87749737c04b5"
+    - path: "lib/src/theme/app_spacing.dart"
+      kind: "flutter-token-baseline"
+      sha256: "d75f7651ab42b377ebf187de5fb9b027037d55ecca13c19254159c962e2534ee"
+    - path: "lib/src/theme/app_theme.dart"
+      kind: "flutter-theme-migrated-baseline"
+      historical_sha256: "afc951e8a49c2229c4bfeafe7f94fb947e8dabd30981c843eb64efa6ee3d31a7"
+      current:
+        phase: 5
+        sha256: "3235183c9b3aa3c5a271417806cdc04babe39a1e0f65aa716960ec6561630c0c"
+        evidence:
+          - "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md"
+          - "docs/BLDS_PHASE_5_STATUS.md"
+    - path: "lib/src/theme/app_typography.dart"
+      kind: "flutter-token-migrated-baseline"
+      historical_sha256: "88cc38edec716860efc67c8a5267803af53eeab4ca53bca007e405ce1bcb49d5"
+      current:
+        phase: 5
+        sha256: "b4b1ec9bb74298442758a09ff6104d8d837bb694bcb168153aee28b373a1fb7d"
+        evidence:
+          - "docs/design/FIGMA.md"
+          - "docs/BLDS_PHASE_5_STATUS.md"
+          - "contracts/legal/rights-provenance.yaml"
+    - path: "lib/src/widgets/blab_segmented_control.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "d3fa831d6cf4764130cd4f1430f134f7db840b0dbd1816a067ca7a776cf97628"
+      current:
+        phase: 3
+        sha256: "c1911b55046c1bf5633adda645070a2de8d5a4b3ac19437b9dc1a93b9e699cf6"
+        evidence:
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          - "test/blab_segmented_control_test.dart"
+    - path: "lib/src/widgets/blab_snackbar.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "ec4ab071ef6163debf9a9aacefe31efc4ce5fd9670e4704ff47bfd4c4354300f"
+      current:
+        phase: 3
+        sha256: "efa9f7d8eccdcae01b913cd4c25a05a14e19e7a1138f12e9e089f4f0a0f33bf8"
+        evidence:
+          - "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          - "test/blab_snackbar_test.dart"
+    - path: "lib/src/widgets/keyboard_accessory_bar.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "1c567a5430b52d41ee40afa927179712bb8fea0fe58aa833bbdfe0f4bbc6dd29"
+      current:
+        phase: 3
+        sha256: "02cde4f9e75e01f13cff753db1555141e9219ad5848a221b6e83e26aaa0c1ec9"
+        evidence:
+          - "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+          - "test/blab_keyboard_accessory_bar_test.dart"
+    - path: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "ed6440ff2e40014b501eeaa8548c7f40a9713dad8ef318dd79446e78c0e9f618"
+      current:
+        phase: 3
+        sha256: "93bdad82e4148d36a4dabde98935a742c998aff618a36e73abbe6b3abd50fc9c"
+        evidence:
+          - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          - "test/blab_bottom_bar_test.dart"
+    - path: "lib/src/widgets/liquid_glass_button.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "27400bff8776551ca6803dd799bf12d83020320b33979d30649fc61fad88bf4f"
+      current:
+        phase: 3
+        sha256: "fca58bb9c9f4ce8056f980f9c843321d04cf3b054062597120abe1f36914b1cb"
+        evidence:
+          - "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md"
+          - "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+          - "test/blab_button_test.dart"
+    - path: "lib/src/widgets/liquid_glass_card.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "422e4e1e8441b7abd13691094c20326e5a17475c28a573fe85977d952368baea"
+      current:
+        phase: 3
+        sha256: "90b4ffdbdd3f8e3d644137ee62bcbd852c679b22a2b4a8205e21ea7b7bee6dfa"
+        evidence:
+          - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          - "test/blab_pressable_card_test.dart"
+    - path: "lib/src/widgets/liquid_glass_tab_bar.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "6120a861479ca1db44eb1fd14680a48ab046652e4f63bfc262c157a0176d8bc3"
+      current:
+        phase: 3
+        sha256: "a5ac68dfeec6ca866be28e09cbc997966a791930cf104e418ce0dd5d113a4248"
+        evidence:
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          - "test/blab_tab_bar_test.dart"
+    - path: "lib/src/widgets/liquid_glass_text_field.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "6f7775e19887d9e227d21a01278d2fae3feea662cc8cbb94c2a822b8dcc6948f"
+      current:
+        phase: 3
+        sha256: "2780bc171dc30de47f7f13c38ea565b4fa2a6343c047e7a74921daa2a55e7ac8"
+        evidence:
+          - "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          - "test/blab_text_field_test.dart"
+    - path: "lib/src/widgets/pressable_wrapper.dart"
+      kind: "flutter-component-migrated-baseline"
+      historical_sha256: "50d56b2d7b2753ff0f9fcc51b344d5d1c02d43eba9072b11c7a630eccc67e8c7"
+      current:
+        phase: 5
+        sha256: "4af7dded05b182081c73a93d8a8d30aae5547a22bc623c36354b426ad840ca79"
+        evidence:
+          - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          - "docs/BLDS_PHASE_5_STATUS.md"
+          - "test/blab_pressable_card_test.dart"
+
+accessibility:
+  policy_status: "approved"
+  policy_version: "0.2.0"
+  supported_visual_modes:
+    - "light"
+    - "dark"
+    - "high-contrast-light"
+    - "high-contrast-dark"
+  standard_mode_compatibility:
+    preserve_existing_values_exactly: true
+    existing_nonconforming_pairs_are_legacy_evidence: true
+    silent_visual_normalization_forbidden: true
+  high_contrast:
+    activation:
+      - "platform-preference"
+      - "explicit-product-adapter"
+    light:
+      surface: "#FFFFFF"
+      foreground: "#000000"
+      border: "#000000"
+      focus: "#000000"
+    dark:
+      surface: "#121212"
+      foreground: "#FFFFFF"
+      border: "#FFFFFF"
+      focus: "#FFFFFF"
+    semantic_role_resolution:
+      surface_roles:
+        light:
+          base: "#FFFFFF"
+          raised: "#FFFFFF"
+          overlay: "#FFFFFF"
+          glass: "#FFFFFF"
+        dark:
+          base: "#121212"
+          raised: "#121212"
+          overlay: "#121212"
+          glass: "#121212"
+      text_roles:
+        light:
+          primary: "#000000"
+          secondary: "#000000"
+          tertiary: "#000000"
+          inverse: "#FFFFFF"
+        dark:
+          primary: "#FFFFFF"
+          secondary: "#FFFFFF"
+          tertiary: "#FFFFFF"
+          inverse: "#000000"
+      border_roles:
+        light:
+          subtle: "#000000"
+          default: "#000000"
+          strong: "#000000"
+        dark:
+          subtle: "#FFFFFF"
+          default: "#FFFFFF"
+          strong: "#FFFFFF"
+      action_and_status_backgrounds:
+        primary: "primitive.color.primary"
+        destructive: "primitive.color.error"
+        success: "primitive.color.success"
+        error: "primitive.color.error"
+        warning: "primitive.color.warning"
+        info: "primitive.color.info"
+      focus_by_surface:
+        light: "#000000"
+        dark: "#FFFFFF"
+        accent: "#000000"
+    action_foregrounds:
+      primary: "#000000"
+      destructive: "#000000"
+      status: "#000000"
+    disabled_foregrounds:
+      light: "#6B7280"
+      dark: "#9CA3AF"
+    glass:
+      blur: 0
+      saturation_percent: 100
+      highlight: "none"
+      shadow: "none"
+      surface_opacity: 1
+    color_alone_for_state_forbidden: true
+    unlisted_failed_pairing_requires_design_decision: true
+  contrast:
+    normal_text_minimum_ratio: 4.5
+    large_text_minimum_ratio: 3.0
+    key_reading_surface_preferred_ratio: 7.0
+  pointer_target:
+    minimum_width: 44
+    minimum_height: 44
+    unit: "logical-or-css-pixels-as-platform-appropriate"
+    exceptions_require_documented_design_review: true
+  focus:
+    visible_required: true
+    modality_aware: true
+    minimum_outline_width: 2
+    distinct_focus_ring_width: 3
+    generated_geometry_tokens:
+      outline: "semantic.focus.outline-width"
+      distinct_ring: "semantic.focus.ring-width"
+    surface_color_tokens:
+      canvas: "semantic.focus.canvas"
+      surface: "semantic.focus.surface"
+      accent: "semantic.focus.accent"
+    adjacent_contrast_minimum_ratio: 3.0
+    logical_reading_order_required: true
+    enter_and_space_activation_for_button_like_controls_required: true
+    arrow_navigation_for_tabs_and_segments_required: true
+    escape_or_platform_back_dismissal_where_applicable: true
+    modal_or_focus_owning_overlay_containment_and_return_required: true
+    keyboard_activation_traversal_containment_dismissal_and_return_require_evidence: true
+  semantics:
+    names_roles_values_relationships_and_live_announcements_require_evidence: true
+    disabled_state_required_where_applicable: true
+    busy_state_prevents_repeated_activation: true
+    selected_current_invalid_and_expanded_only_where_applicable: true
+  text_scaling:
+    verification_minimum_linear_equivalent: 1.0
+    verification_maximum_linear_equivalent: 2.0
+    range_inclusive: true
+    platform_text_scaler_must_not_be_clamped: true
+    nonlinear_platform_scaling_must_be_honored: true
+    above_verified_range: "best-effort-without-blocking-or-overriding-platform"
+    fixed_heights_are_minimums_not_clipping_maxima: true
+    reflow_and_overflow_evidence_required: true
+  reduced_motion:
+    preference_must_be_respected: true
+    nonessential_motion_must_have_reduced_alternative: true
+    positional_scale_droplet_and_sliding_motion: "immediate"
+    nonmoving_opacity_maximum_duration_ms: 150
+    loading_requires_static_busy_alternative: true
+  haptics:
+    purpose_and_disablement_must_be_explicit: true
+    platform_overrides_must_remain_within_platform_boundary: true
+    touch_platform_only: true
+    system_and_component_configuration_required: true
+    forbidden_triggers:
+      - "keyboard"
+      - "focus"
+      - "hover"
+      - "programmatic-change"
+      - "disabled-control"
+      - "no-op-selection"
+    maximum_pulses_per_committed_action: 1
+    rapid_repeated_action_pulses_forbidden: true
+  component_state_manifest_ref: "contracts/components/state-applicability.yaml"
+  visual_baseline_manifest_ref: "contracts/visual-baselines.yaml"
+  implementation_evidence: "implemented-local-parent-gates-required"
+  conformance_claim_authorized: false
+
+component_decisions:
+  button:
+    decision_ref: "BLDS-PHASE3-BUTTON-DESIGN-GATE-REPAIR-2026-07-25"
+    contrast_amendment:
+      decision_ref: "BLDS-BUTTON-CONTRAST-2026-07-28"
+      decision_document: "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md"
+      approved_by: "byungsker"
+      approved_on: "2026-07-28"
+      standard_mode_compatibility_lock_superseded_for:
+        - "semantic.action.primary-foreground"
+        - "semantic.action.destructive-foreground"
+      replacement: "primitive.color.black"
+      preserved:
+        - "primary-and-destructive-surfaces"
+        - "hover-and-pressed-overlays"
+        - "focus-treatment"
+        - "geometry"
+        - "motion"
+        - "high-contrast-mappings"
+      custom_child_inheritance:
+        - "DefaultTextStyle"
+        - "IconTheme"
+      explicit_custom_child_colors: "consumer-owned"
+      disabled_contrast: "inactive-exempt-unverified"
+      loading_busy: "not-claimed"
+    scope: "button-family-only"
+    hover:
+      token_refs:
+        - "component.button.primary.hover-overlay"
+        - "component.button.secondary.hover-overlay"
+        - "component.button.destructive.hover-overlay"
+      applies_to: "enabled-hover-capable-pointer-only"
+      clear_on: ["pointer-exit", "disable", "app-lifecycle-change"]
+      pressed_replaces_hover: true
+    focus:
+      primary_outline: "semantic.focus.accent"
+      destructive_outline: "semantic.focus.accent"
+      secondary_outline:
+        light: "primitive.color.black"
+        dark: "primitive.color.white"
+        high-contrast-light: "primitive.color.black"
+        high-contrast-dark: "primitive.color.white"
+      outer_ring: "semantic.focus.canvas"
+      outline_width: "semantic.focus.outline-width"
+      outer_ring_width: "semantic.focus.ring-width"
+      surface_radius: "BLabRadius.md"
+      outer_radius: "BLabRadius.md + semantic.focus.ring-width"
+      one_color_fallback_forbidden: true
+    compatibility_corrections:
+      activation: "immediate-exactly-once-on-committed-activation"
+      curve: "BLabMotion.ease"
+      radius: "BLabRadius.md"
+      classification: "compatibility-correction-not-legacy-retained"
+  text-field:
+    decision_ref: "BLDS-PHASE3-TEXTFIELD-DESIGN-DEPENDENCY-2026-07-26"
+    scope: "text-field-family-only"
+    token_mapping:
+      surface: "component.glass.surface"
+      default_border: "component.glass.border"
+      hover_border: "component.text-field.hover-border"
+      focus_outline: "component.text-field.focus-outline"
+      focus_outer_ring: "component.text-field.focus-outer-ring"
+      error_border: "component.text-field.error-border"
+      label: "component.text-field.label"
+      hint: "component.text-field.hint"
+      error_copy: "semantic.text.primary"
+      clear_background: "component.text-field.clear-background"
+      clear_foreground: "component.text-field.clear-foreground"
+    interaction:
+      hover: "enabled-hover-capable-pointer-only"
+      focus_outline: "any-enabled-focus"
+      focus_outer_ring: "keyboard-visible-focus-only"
+      precedence:
+        - "disabled"
+        - "enabled-focus"
+        - "unfocused-invalid"
+        - "unfocused-pointer-hover"
+        - "default"
+      disabled_suppresses:
+        - "hover"
+        - "focus"
+        - "focus-outer-ring"
+        - "editing"
+        - "automatic-clear"
+      disabled_invalid_retains:
+        - "validation-copy"
+        - "invalid-semantics"
+      focused_invalid_border: "component.text-field.focus-outline"
+      unfocused_invalid_border: "component.text-field.error-border"
+      clear_action_minimum_target: "44x44"
+      reduced_motion: "immediate-border-feedback"
+    contrast:
+      focus_outline_over_field_minimum: 3.0
+      focus_outer_ring_over_canvas_minimum: 3.0
+      hint_over_field_minimum: 4.5
+      error_copy_over_canvas_minimum: 4.5
+      clear_background_over_field_minimum: 3.0
+      clear_foreground_over_background_minimum: 3.0
+      standard_light_field_composite: "#E6E6E6"
+      standard_dark_field_composite: "#2F2F2F"
+      high_contrast_fields_opaque: true
+    compatibility_corrections:
+      classification: "compatibility-correction-not-legacy-retained"
+      standard_hint_alpha: "60-percent"
+      standard_clear_background_alpha: "60-percent"
+      focused_outline: "monochrome"
+      error_copy: "semantic-text-primary"
+      clear_foreground: "semantic-text-inverse"
+    semantics:
+      label_hint_value_and_support_relationship: "single-field-semantic-container"
+      invalid_when: "errorText-is-non-null"
+      required_when: "isRequired-is-true"
+      error_supersedes_helper: true
+      clear_label: "platform-localized-material-clear-tooltip"
+    unsupported_not_simulated:
+      - "loading"
+      - "current"
+      - "selected"
+      - "autofill"
+      - "prefix"
+  pressable-card:
+    decision_ref: "BLDS-PHASE3-PRESSABLE-CARD-DESIGN-DECISION-2026-07-26"
+    decision_document: "docs/BLDS_PHASE_3_PRESSABLE_CARD_DESIGN_DECISION.md"
+    scope: "pressable-wrapper-and-card-family-only"
+    public_api:
+      pressable_inheritance: "StatefulWidget"
+      card_inheritance: "StatelessWidget"
+      legacy_constructor_source_compatible: true
+      required_nullable_on_tap: true
+      constructor_on_tap_input: "required-nullable-controls-effective-actionability"
+      effective_on_tap: "private-nullable-constructor-input"
+      exported_on_tap_field: "non-null-legacy-source-compatibility"
+      null_input_exported_on_tap_behavior: "stable-no-op-must-not-signal-actionability"
+      semantic_additions: ["semanticLabel", "semanticHint"]
+      arbitrary_role_input: false
+    actions:
+      tap_only: "tap-enter-space-onTap-exactly-once"
+      long_press_only: "touch-long-press-enter-space-onLongPress-exactly-once"
+      both: "tap-and-keyboard-onTap-touch-long-press-onLongPress-no-double"
+      callbacks: "immediate-on-confirmed-activation"
+      cancellation:
+        - "focus-loss"
+        - "app-lifecycle-change"
+        - "pointer-cancel"
+        - "gesture-cancel"
+        - "dispose"
+    semantics:
+      static_card_action_role: "none"
+      tap_action_role: "button"
+      long_press_only_button_role: false
+      role_derived_from_actual_action: true
+      conformant_actionable_label: "caller-owned-localized-nonblank"
+      unlabeled_legacy_conformance_claim: false
+    geometry:
+      minimum_interactive_target: "44x44"
+      card_default_radius: "BLabRadius.lgRect"
+      card_default_padding: "EdgeInsets.all(BLabSpacing.lg)"
+      custom_radius_and_padding_retained: true
+    interaction:
+      hover: "hover-capable-pointer-only"
+      pressed_replaces_hover: true
+      focus: "keyboard-visible-only"
+      focus_outline_width: "semantic.focus.outline-width"
+      focus_outer_ring_width: "semantic.focus.ring-width"
+    motion:
+      curve: "BLabMotion.ease"
+      duration: "public-animationDuration-default-BLabMotion.durPress"
+      reduced_motion: "immediate"
+      text_scaling: "ambient-linear-and-nonlinear-unclamped"
+    haptic:
+      policy: "BLabHapticPolicy-default-deny"
+      legacy_enableHaptic_classification: "compatibility-gate-cannot-grant"
+      default_configuration: "BLabHapticConfiguration.disabled"
+      maximum_pulses_per_committed_touch_action: 1
+      non_touch_haptics: false
+    high_contrast:
+      surface: "opaque"
+      backdrop_filter: false
+      blur: false
+      highlight: false
+      shadow: false
+    compatibility_corrections:
+      classification: "compatibility-correction-not-legacy-retained"
+      legacy_scale_end: 0.96
+      legacy_brightness_end: 0.1
+      card_border_width: 0.5
+    conformance:
+      family_partial: true
+      repository_wide_claim: false
+      device_conformance_claim: false
+  segmented-control:
+    decision_ref: "BLDS-PHASE3-NAVIGATION-SEGMENTED-DESIGN-DECISION-2026-07-26"
+    decision_document: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_DESIGN_DECISION.md"
+    addendum_ref: "BLDS-PHASE3-NAVIGATION-SEGMENTED-SCROLLABLE-OVERFLOW-ADDENDUM-2026-07-26"
+    addendum_document: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_SCROLLABLE_OVERFLOW_ADDENDUM.md"
+    scope: "segmented-control-family-only"
+    token_mapping:
+      container_surface: "component.segmented.container-surface"
+      container_border: "component.segmented.container-border"
+      selected_surface: "component.segmented.selected-surface"
+      selected_indicator: "component.segmented.selected-indicator"
+      selected_foreground: "component.segmented.selected-foreground"
+      unselected_foreground: "component.segmented.unselected-foreground"
+      disabled_foreground: "component.segmented.disabled-foreground"
+      hover_overlay: "component.segmented.hover-overlay"
+      pressed_overlay: "component.segmented.pressed-overlay"
+      focus_outline: "component.segmented.focus-outline"
+      focus_outer_ring: "component.segmented.focus-outer-ring"
+      selected_shadow: "component.segmented.selected-shadow"
+    precedence:
+      - "disabled"
+      - "keyboard-visible-focus"
+      - "pressed"
+      - "hover"
+      - "selected"
+      - "unselected"
+    disabled:
+      suppresses: ["hover", "pressed", "focus", "activation", "traversal"]
+      selected_retains: ["selected-surface", "selected-weight"]
+      selected_indicator: "component.segmented.disabled-foreground"
+    focus:
+      keyboard_visible_only: true
+      composes_with_selection: true
+      outline_width: "semantic.focus.outline-width"
+      outer_ring_width: "semantic.focus.ring-width"
+      pointer_touch_decoration: "none"
+      animated: false
+    selection:
+      controlled: true
+      selected_weight: 600
+      unselected_weight: 400
+      indicator_width: "full-segment"
+      indicator_height: 2
+      indicator_placement: "inset-bottom"
+      indicator_node: "stable-per-item-opacity-color"
+      external_updates_callback: false
+      reactivation_callback_count: 1
+    geometry:
+      visible_height: 40
+      padding: 3
+      font_size: 13
+      minimum_interactive_target: "44x44"
+      narrow_width_behavior: "conditional-owned-horizontal-scroll-no-target-shrink"
+      selected_radius: "max(0,borderRadius-padding)"
+      text_scaling: "ambient-linear-and-nonlinear-unclamped"
+    overflow:
+      condition: "finite-viewport-and-itemCount-times-44-plus-two-times-padding-exceeds-width"
+      controller: "owned-non-primary-horizontal"
+      physics: "clamping"
+      initial_origin: "logical-start-ltr-left-rtl-right"
+      initial_selected_reveal: "immediate-including-disabled-selection"
+      focus_reveal: "arrow-home-end-enabled-focus-wins"
+      external_enabled_selection: "inside-sync-focus-and-reveal-outside-reveal-only"
+      external_disabled_selection: "inside-enabled-focus-wins-outside-disabled-selection-reveals"
+      focus_ring_inline_allowance: 3
+      programmatic_duration: "BLabMotion.durPress"
+      programmatic_curve: "BLabMotion.ease"
+      reduced_motion: "immediate"
+      retargeting: "latest-request-wins"
+      already_visible: "no-animation-restart"
+      manual_scroll: "neutral-preserved-until-next-reveal"
+      native_semantics: "horizontal-physical-direction-only-when-overflow"
+      scrollbar_gradient_affordance: "none"
+      vertical_gesture_ownership: "ancestor"
+    motion:
+      selection_duration: "BLabMotion.durSegment"
+      interaction_duration: "BLabMotion.durPress"
+      curve: "BLabMotion.ease"
+      reduced_motion: "immediate"
+      movement_scale_haptic: false
+    keyboard:
+      focus_model: "one-roving-tab-stop"
+      entry: "selected-enabled-else-first-enabled"
+      tab: "exits"
+      traversal: "enabled-only-wrap"
+      selection_follows_focus: true
+      horizontal_ltr: "right-next-left-previous"
+      horizontal_rtl: "right-previous-left-next"
+      vertical: "up-previous-down-next"
+      boundaries: "home-first-end-last"
+      activation: "enter-or-space-exactly-once"
+      external_selection_sync_trigger: "selectedValue-change-only"
+      navigation_focus_request_count: 1
+    semantics:
+      caller_label_only: true
+      selected_not_current: true
+      native_selected_enabled_mutually_exclusive: true
+      generic_value_stringification: false
+      positional_copy: false
+    contrast:
+      normal_text_minimum: 4.5
+      non_text_and_focus_minimum: 3.0
+      four_mode_composited_test: "test/blab_segmented_control_test.dart"
+      text_pairs:
+        - "selected-foreground/selected-surface"
+        - "unselected-foreground-composited/container-surface"
+        - "disabled-foreground/container-surface"
+        - "disabled-foreground/selected-surface"
+        - "unselected-foreground-composited/hover-over-container"
+        - "unselected-foreground-composited/pressed-over-container"
+        - "selected-foreground/hover-over-selected"
+        - "selected-foreground/pressed-over-selected"
+      outer_ring_adjacencies:
+        - "surface-base"
+        - "component.segmented.container-surface"
+        - "component.segmented.selected-surface"
+    high_contrast:
+      opaque_surfaces: true
+      container_border_width: 1
+      shadow_blur_gradient_highlight: "none"
+      indicator_height: 2
+      selected_weight: 600
+    additive_api:
+      item_enabled_default: true
+      control_enabled_default: true
+      public_widget_base: "StatelessWidget"
+    compatibility_corrections:
+      classification: "compatibility-correction-not-legacy-retained"
+      public_api_source_compatible: true
+    unsupported_not_simulated:
+      - "loading"
+      - "busy"
+      - "invalid"
+      - "error"
+      - "overlay"
+      - "expanded"
+      - "current"
+      - "disclosure"
+      - "drag"
+      - "haptic"
+  tab-bar:
+    decision_ref: "BLDS-PHASE3-NAVIGATION-TABBAR-DESIGN-DECISION-2026-07-26"
+    decision_document: "docs/BLDS_PHASE_3_TAB_BAR_DESIGN_DECISION.md"
+    scope: "tab-bar-family-only"
+    public_api:
+      inheritance: "StatelessWidget"
+      preferred_size_widget: true
+      constructor_unchanged: true
+      caller_owned_controller: true
+      additive_api_allowed: false
+      retained_defaults:
+        indicator_weight: 3
+        indicator_weight_constraint: "greater-than-zero"
+        is_scrollable: false
+        divider: "transparent"
+        preferred_size_minimum: 56
+    token_mapping:
+      container_surface: "component.tab.container-surface"
+      selected_indicator: "component.tab.selected-indicator"
+      selected_foreground: "component.tab.selected-foreground"
+      unselected_foreground: "component.tab.unselected-foreground"
+      hover_overlay: "component.tab.hover-overlay"
+      pressed_overlay: "component.tab.pressed-overlay"
+      focus_outline: "component.tab.focus-outline"
+      focus_outer_ring: "component.tab.focus-outer-ring"
+      divider_default: "component.tab.divider"
+    precedence:
+      - "keyboard-visible-focus"
+      - "pressed"
+      - "hover"
+      - "selected-current"
+      - "unselected"
+      - "default"
+    disabled:
+      applicability: "conditional-unmet"
+      public_condition: false
+      simulated: false
+    pointer:
+      down: "modality-and-pending-pressed-only"
+      confirmed_tap: "roving-focus-pointer-focus-one-activation"
+      horizontal_drag: "focus-selection-callback-roving-neutral"
+    selection:
+      authority: "TabController.index"
+      parent_semantics_role: "SemanticsRole.tabBar"
+      child_semantics_role: "SemanticsRole.tab"
+      generic_button_semantics: false
+      localized_label: "caller-label-merged-with-MaterialLocalizations.tabLabel"
+      selected_semantics: true
+      tap_semantics: true
+      current_copy: false
+      reactivation_callback_count: 1
+      reactivation_restarts_selection_animation: false
+      external_controller_callback: false
+      navigation_callback: false
+    geometry:
+      minimum_bar_height: 56
+      minimum_interactive_target: "44x44"
+      selected_weight: 600
+      unselected_weight: 400
+      indicator_width: "label"
+      indicator_default_height: 3
+      indicator_placement: "bottom"
+      divider_height_when_overridden: 1
+      text_scaling: "ambient-linear-and-nonlinear-unclamped"
+      label_measurement: "wrap-aware-at-actual-item-width"
+      app_bar_bottom: "preferred-height-unclipped-for-valid-two-times-labels"
+      non_scrollable_validity: "availableWidth-greater-than-or-equal-tabs-times-44"
+    focus:
+      keyboard_visible_only: true
+      composes_with_selection: true
+      outline_width: "semantic.focus.outline-width"
+      outer_ring_width: "semantic.focus.ring-width"
+      decoration_placement: "inside-target"
+      pointer_touch_decoration: "none"
+    keyboard:
+      focus_model: "one-roving-tab-stop"
+      entry: "controller-index"
+      tab: "exits"
+      traversal: "wrap"
+      horizontal_ltr: "right-next-left-previous"
+      horizontal_rtl: "right-previous-left-next"
+      boundaries: "home-first-end-last"
+      vertical: "up-down-not-consumed"
+      navigation_selection: true
+      navigation_callback: false
+      activation: "enter-or-space-exactly-once"
+      external_controller_sync: "inside-focus-moves-outside-no-focus-theft"
+    overflow:
+      condition: "isScrollable-true-only"
+      controller: "owned-non-primary-horizontal"
+      minimum_tab_width: 44
+      physics: "clamping"
+      initial_reveal: "current-immediate"
+      programmatic_reveal: "current-or-focused-center-clamped"
+      external_selection: "reveal-without-outside-focus-theft"
+      rtl_reveal: "arrow-home-end-and-external-physical-direction"
+      layout_change_tracking: "viewport-width-content-width-directionality-isScrollable"
+      layout_change_content_width: "every-change-including-selection-induced"
+      layout_change_selection: "every-selected-index-change"
+      layout_change_target: "internally-focused-else-current"
+      layout_change_reveal: "immediate-post-layout"
+      layout_change_side_effects: "no-focus-theft-callback-selection"
+      manual_scroll: "neutral"
+      native_semantics: "horizontal-physical-direction-only"
+      scrollbar_gradient_affordance: "none"
+      vertical_gesture_ownership: "ancestor"
+      focus_ring_allowance: 0
+    motion:
+      selection_duration: "BLabMotion.durSurface"
+      label_style_inheritance: "AnimatedDefaultTextStyle-child-inherits"
+      midpoint_evidence_ms: 150
+      interaction_duration: "BLabMotion.durPress"
+      reveal_duration: "BLabMotion.durPress"
+      curve: "BLabMotion.ease"
+      initial_reveal: "immediate"
+      reduced_motion: "immediate"
+      caller_controller_animation: "caller-owned-outside-conformance"
+    override_precedence:
+      color:
+        - "dedicated-color-argument"
+        - "text-style-color"
+        - "component-token"
+      non_color_style: "merge-over-default"
+      custom_conformance: "caller-owned"
+    contrast:
+      default_surface_scope:
+        - "semantic.surface.base"
+        - "semantic.surface.raised"
+        - "semantic.surface.overlay"
+      normal_text_minimum: 4.5
+      non_text_and_focus_minimum: 3.0
+      transparent_arbitrary_background_claim: false
+      custom_override_claim: false
+      four_mode_composited_test: "test/blab_tab_bar_test.dart"
+    compatibility:
+      retained:
+        - "selected-indicator"
+        - "selected-foreground"
+        - "indicator-weight-3"
+        - "minimum-height-56"
+        - "transparent-divider"
+      corrected:
+        - "unselected-foreground-to-semantic-text-secondary"
+      additions:
+        - "hover"
+        - "pressed"
+        - "modality-aware-focus"
+      classification: "mixed-compatibility-retained-corrected-and-capability-addition"
+    unsupported_not_simulated:
+      - "disabled"
+      - "loading"
+      - "busy"
+      - "invalid"
+      - "error"
+      - "expanded"
+      - "disclosure"
+      - "drag-selection"
+      - "haptic"
+      - "bottom-bar"
+  bottom-bar:
+    decision_ref: "BLDS-PHASE3-NAVIGATION-BOTTOMBAR-DESIGN-DECISION-2026-07-26"
+    decision_document: "docs/BLDS_PHASE_3_BOTTOM_BAR_DESIGN_DECISION.md"
+    scope: "bottom-bar-family-only"
+    public_api:
+      inheritance: "StatefulWidget"
+      legacy_constructor_source_compatible: true
+      controlled_selected_index: true
+      additive_api:
+        action_semantic_label: "optional-null-default"
+        first_tab_chevron_semantic_label: "optional-null-default"
+        first_tab_chevron_expanded: "optional-null-default"
+    token_mapping:
+      container_surface: "component.bottom-bar.container-surface"
+      container_border: "component.bottom-bar.container-border"
+      selected_surface: "component.bottom-bar.selected-surface"
+      selected_highlight: "component.bottom-bar.selected-highlight"
+      selected_foreground: "component.bottom-bar.selected-foreground"
+      unselected_foreground: "component.bottom-bar.unselected-foreground"
+      hover_overlay: "component.bottom-bar.hover-overlay"
+      pressed_overlay: "component.bottom-bar.pressed-overlay"
+      drag_overlay: "component.bottom-bar.drag-overlay"
+      focus_outline: "component.bottom-bar.focus-outline"
+      focus_outer_ring: "component.bottom-bar.focus-outer-ring"
+      action_surface: "component.bottom-bar.action-surface"
+      action_foreground: "component.bottom-bar.action-foreground"
+      selected_shadow: "component.bottom-bar.selected-shadow"
+    precedence:
+      environment_modifiers: "first"
+      selection: "persistent"
+      interaction:
+        - "drag"
+        - "pressed"
+        - "hover"
+        - "rest"
+      focus: "additive-does-not-erase-selection"
+    applicability:
+      required:
+        - "unselected"
+        - "selected-current"
+        - "hover-pointer"
+        - "pressed"
+        - "keyboard-visible-focus"
+        - "touch-only-long-press-drag"
+      conditional:
+        - "optional-action-with-callback-and-localized-label"
+        - "expanded-with-callback-localized-label-and-controlled-state"
+      not_applicable:
+        - "disabled"
+        - "loading"
+        - "invalid"
+    selection:
+      authority: "selectedIndex"
+      reactivation_callback_count: 1
+      external_update_callback: false
+      parent_semantics_role: "SemanticsRole.tabBar"
+      child_semantics_role: "SemanticsRole.tab"
+      selected_current_adapter: "selected-semantics"
+      generic_button_semantics: false
+      labels: "caller-product-labels-only"
+    geometry:
+      baseline_height: 62
+      allocation: "equal"
+      minimum_interactive_target: "44x44"
+      no_margin: "removes-component-owned-outer-spacing-only"
+      safe_area: "outside-baseline-no-double-count"
+      text_scaling: "ambient-linear-and-nonlinear-unclamped"
+      growth: "without-clipping"
+    pointer:
+      down: "modality-and-pending-pressed-only"
+      confirmed_tap: "roving-focus-pointer-focus-one-activation"
+      selected_reactivation: true
+    keyboard:
+      focus_model: "one-roving-tab-stop"
+      entry: "selected-index"
+      tab: "exits"
+      selection_follows_focus: false
+      horizontal_ltr: "right-next-left-previous"
+      horizontal_rtl: "right-previous-left-next"
+      boundaries: "home-first-end-last"
+      vertical: "up-down-not-consumed"
+      activation: "enter-or-space-exactly-once"
+    drag:
+      trigger: "touch-long-press-only"
+      supplemental: true
+      rtl: "logical-index-correct"
+      callback: "committed-target-exactly-once"
+    focus:
+      keyboard_visible_only: true
+      outline_width: "semantic.focus.outline-width"
+      outer_ring_width: "semantic.focus.ring-width"
+      composes_with_selection: true
+      pointer_touch_decoration: "none"
+    optional_action:
+      visual_legacy_condition: "onSearchTap"
+      conformant_condition: "onSearchTap-and-localized-actionSemanticLabel"
+      separate_button: true
+      minimum_target: "44x44"
+      legacy_without_label: "source-compatible-explicitly-nonconformant"
+    first_tab_chevron:
+      visual_legacy_condition: "showFirstTabChevron"
+      conformant_condition: "callback-and-localized-label-and-expanded-state"
+      separate_disclosure_button: true
+      minimum_target: "44x44"
+      legacy_incomplete: "source-compatible-explicitly-nonconformant"
+    motion:
+      selection_duration: "BLabMotion.durSurface"
+      interaction_duration: "BLabMotion.durPress"
+      curve: "BLabMotion.ease"
+      callbacks_and_semantics: "immediate"
+      reduced_motion: "immediate"
+    haptic:
+      policy: "BLabHapticPolicy-default-deny"
+      trigger: "touch-committed-only"
+      unconditional_platform_calls: false
+    high_contrast:
+      surface: "opaque"
+      blur: false
+      gradient: false
+      shadow: false
+    compatibility:
+      retained:
+        - "full-existing-BLabBottomBarItem-api"
+        - "controlled-selectedIndex"
+        - "selected-reactivation-callback"
+        - "noMargin"
+        - "62px-baseline"
+        - "equal-allocation"
+      corrected:
+        - "raw-visuals-to-component-bottom-bar-token-graph"
+        - "unconditional-haptics-removed"
+        - "native-tab-semantics"
+        - "keyboard-and-focus"
+        - "reduced-motion"
+      classification: "compatibility-correction-not-legacy-retained"
+    conformance:
+      family_partial: true
+      repository_wide_claim: false
+      device_conformance_claim: false
+  snackbar:
+    decision_ref: "BLDS-PHASE3-SNACKBAR-DESIGN-DECISION-2026-07-28"
+    decision_document: "docs/BLDS_PHASE_3_SNACKBAR_DESIGN_DECISION.md"
+    scope: "snackbar-family-only"
+    method_provenance: "Astryx-capability-method-only-no-source-values-vocabulary-assets-or-appearance"
+    public_api:
+      legacy_show_signature_unchanged: true
+      legacy_show_defaults_unchanged: true
+      type_enum_order: ["success", "error", "info", "warning"]
+      additive_api:
+        action: "BLabSnackbarAction"
+        announcement_priority: "BLabSnackbarAnnouncementPriority"
+        queue_policy: "BLabSnackbarQueuePolicy"
+        closed_reason: "BLabSnackbarClosedReason"
+        controller: "BLabSnackbarController"
+        managed_entrypoint: "BLabSnackbar.showManaged"
+    token_mapping:
+      surface: "component.snackbar.surface"
+      foreground: "component.snackbar.foreground"
+      border: "component.snackbar.border"
+      badge_success: "component.snackbar.badge-success"
+      badge_error: "component.snackbar.badge-error"
+      badge_warning: "component.snackbar.badge-warning"
+      badge_info: "component.snackbar.badge-info"
+      badge_glyph: "component.snackbar.badge-glyph"
+      badge_outline: "component.snackbar.badge-outline"
+    queue:
+      visible_per_overlay: 1
+      enqueue: "fifo"
+      replace_current: "current-exits-before-replacement"
+      drop_duplicate_key: "type-message-action-label"
+    lifecycle:
+      closed_future: "exactly-once"
+      dismiss: "idempotent-programmatic"
+      controller_callback_retention: "cleared-on-completion"
+      reasons: ["timeout", "action", "dismiss", "programmatic", "replaced", "routeDisposed"]
+      timer_pause: ["pointer-hover", "owned-focus", "inactive-app-lifecycle"]
+      timer_elapsed_clock: "continuously-advancing-monotonic-stopwatch"
+      caller_route_ownership: "modal-route-popped-current-and-pending"
+      persist_disables_timeout: true
+      accessible_navigation_with_controls_disables_timeout: true
+      interactive_minimum_timeout_seconds: 4
+    semantics:
+      live_region: "message-only-created-when-visible"
+      delivery: "explicit-when-supported-otherwise-implicit-live-region"
+      delivery_lifecycle: "best-effort-nonblocking-failure-isolated"
+      announcement_count: 1
+      default_priority: "polite"
+      assertive: "caller-opt-in-only"
+      modal: false
+      focus_theft: false
+      controls_separate: true
+      caller_labels: "nonblank"
+    keyboard:
+      action_and_dismiss_activation: "enter-space-exactly-once"
+      escape: "only-while-snackbar-owns-focus"
+      restoration: "conditional-to-live-requestable-prior-focus"
+      previous_focus_capture: "when-record-becomes-current"
+      restoration_recheck: "snackbar-still-owns-focus-after-exit"
+      focus_trap: false
+    geometry:
+      horizontal_outer_padding: 20
+      vertical_padding: 16
+      content_gap: 12
+      radius: "BLabRadius.lg"
+      badge_size: 32
+      icon_size: 20
+      dismiss_minimum_target: "44x44"
+      placement: "live-media-query-safe-directional"
+      keyboard_gap: 8
+      text_scaling: "ambient-linear-and-nonlinear-unclamped"
+      controls: "responsive-wrap-and-stack"
+    visuals:
+      surface: "opaque-semantic-surface-overlay"
+      text: "semantic-text-primary"
+      border: "default-standard-strong-high-contrast"
+      badge_glyph: "black"
+      badge_glyphs: "distinct-by-type"
+      blur: false
+      gradient: false
+      highlight: false
+      shadow: "standard-mode-only"
+    motion:
+      duration: "BLabMotion.durSurface"
+      curve: "BLabMotion.ease"
+      reduced_translation: false
+      reduced_opacity_maximum: "BLabMotion.durPress"
+    applicability:
+      required: ["entering", "visible", "exiting", "success", "error", "warning", "info", "live-announcement"]
+      conditional:
+        - "action-rest-hover-pressed-keyboard-focus"
+        - "dismiss-rest-hover-pressed-keyboard-focus"
+        - "timer-paused"
+        - "programmatic-close"
+      not_applicable: ["disabled", "loading", "selected", "invalid", "current", "expanded"]
+    haptic:
+      enabled: false
+    conformance:
+      family_partial: true
+      repository_wide_claim: false
+      device_conformance_claim: false
+  keyboard-accessory:
+    decision_ref: "BLDS-PHASE3-KEYBOARD-ACCESSORY-DESIGN-DECISION-2026-07-28"
+    decision_document: "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_DESIGN_DECISION.md"
+    scope: "keyboard-accessory-bar-family-only"
+    method_provenance: "Astryx-capability-method-only-no-source-values-vocabulary-assets-or-appearance"
+    public_api:
+      inheritance: "StatefulWidget"
+      const_constructor_retained: true
+      legacy_constructor_source_compatible: true
+      legacy_defaults_unchanged: true
+      additive_optional_labels:
+        - "upSemanticLabel"
+        - "downSemanticLabel"
+        - "copySemanticLabel"
+        - "clearAllSemanticLabel"
+        - "undoSemanticLabel"
+        - "redoSemanticLabel"
+        - "doneSemanticLabel"
+      haptic_api: false
+    rendering:
+      done: "always-rendered-enabled"
+      navigation: "render-when-showNavigation-enable-callback-and-can-flag"
+      editing_actions: "render-when-callback-enable-can-flag"
+    semantics:
+      role: "native-button"
+      names_per_action: 1
+      supplied_labels: "reject-blank-after-trim"
+      icon_semantics: "excluded"
+      disabled_actions_named: true
+      legacy_fallback: "platform-localization-then-nonblank-key-label"
+      localization_conformance_from_fallback: false
+    geometry:
+      natural_target: "48x48"
+      minimum_target: "44x44"
+      focus_outline_width: "semantic.focus.outline-width"
+      focus_outer_ring_width: "semantic.focus.ring-width"
+      text_scaling: "ambient-linear-and-nonlinear-unclamped"
+    narrow_width:
+      addendum_ref: "BLDS-PHASE3-KEYBOARD-ACCESSORY-NARROW-WIDTH-ADDENDUM-2026-07-28"
+      required_width_formula: "32+48*(L+H+1)+max(0,L-1)+H"
+      maximum_composition_required_width: 373
+      minimum_valid_host_width_formula: "32+48+(L+H>0?48:0)+(H>0?1:0)"
+      minimum_valid_host_width:
+        done_only: 80
+        with_leading_without_history: 128
+        with_history: 129
+      minimum_scrolling_viewport_width: 48
+      invalid_host_behavior: "debug-diagnostic-no-conformance-claim"
+      overflow_trigger: "finite-maxWidth-less-than-requiredWidth"
+      sufficient_or_unbounded: "fixed-row-with-Spacer"
+      scrolling_actions: "all-rendered-actions-except-Done"
+      pinned_action: "Done-logical-trailing"
+      pinned_divider: "one-when-Undo-or-Redo-rendered"
+      maximum_scrolling_content_width: 292
+      maximum_pinned_block_width: 49
+      viewport_320: 239
+      viewport_360: 279
+      controller: "owned-non-primary-horizontal-clamping-no-scrollbar"
+      initial_position: "logical-start"
+      focus_reveal: "complete-48px-target"
+      normal_reveal_duration: "BLabMotion.durPress"
+      reveal_curve: "BLabMotion.ease"
+      immediate_reveal:
+        - "initial"
+        - "directionality-reset"
+        - "accessibility-focus"
+        - "reduced-motion"
+      accessibility_focus: "reveal-without-keyboard-focus"
+      native_scroll_semantics: "physical-direction-only-while-real-overflow"
+      manual_scroll: "neutral-and-cancels-pressed-repeat"
+      edge_affordance: false
+      public_api_added: false
+      tokens_added: false
+    keyboard:
+      focus_model: "individual-logical-tab-stops"
+      tab: "enters-each-enabled-action-and-exits"
+      focus_trap: false
+      activation: "enter-space-exactly-once"
+    pointer:
+      activation: "exactly-once"
+      focus_ownership: true
+      keyboard_focus_decoration: false
+    repeat:
+      actions: ["undo", "redo"]
+      trigger: "pointer-long-press-only"
+      initial_callback: "once-at-recognized-long-press"
+      initial_delay_ms: 500
+      interval_ms: 100
+      first_repeat: "at-initial-delay"
+      tap_after_long_press: false
+      semantic_repeat: false
+      keyboard_repeat: false
+      cancellation:
+        - "pointer-up"
+        - "pointer-cancel"
+        - "callback-change"
+        - "enabled-change"
+        - "app-lifecycle-change"
+        - "another-repeat-pointer-down"
+        - "dispose"
+        - "callback-exception"
+    direction:
+      rtl_group_placement: "mirrored"
+      rtl_history_glyphs: "undo-redo-logical-directions-swapped"
+    host_ownership:
+      safe_area: "host"
+      view_insets: "host"
+      overlay: "host"
+      component_overlay: false
+    token_mapping:
+      surface_start: "component.keyboard-accessory.surface-start"
+      surface_end: "component.keyboard-accessory.surface-end"
+      border: "component.keyboard-accessory.border"
+      foreground: "component.keyboard-accessory.foreground"
+      disabled_foreground: "component.keyboard-accessory.disabled-foreground"
+      divider: "component.keyboard-accessory.divider"
+      hover: "component.keyboard-accessory.hover-overlay"
+      pressed: "component.keyboard-accessory.pressed-overlay"
+      focus_outline: "component.keyboard-accessory.focus-outline"
+      focus_outer_ring: "component.keyboard-accessory.focus-outer-ring"
+      shadow: "component.keyboard-accessory.shadow"
+      blur: "component.keyboard-accessory.blur"
+    visual_modes:
+      standard: "legacy-gradient-blur-shadow-preserved"
+      high_contrast_surface: "opaque"
+      high_contrast_gradient: false
+      high_contrast_blur: false
+      high_contrast_shadow: false
+    motion:
+      interaction_duration: "BLabMotion.durPress"
+      curve: "BLabMotion.ease"
+      reduced_motion: "immediate"
+      repeat_cadence_affected: false
+    applicability:
+      required:
+        - "default"
+        - "hover-pointer"
+        - "pressed"
+        - "focus"
+        - "disabled-per-action"
+      conditional:
+        - "repeated-action-active-for-undo-redo"
+        - "scrollable-overflow"
+      not_applicable: ["loading", "selected", "invalid"]
+    haptic:
+      enabled: false
+    conformance:
+      family_partial: true
+      repository_wide_claim: false
+      device_conformance_claim: false
+
+localization:
+  policy_status: "approved-boundary-reconciliation-required"
+  policy_version: "0.2.0"
+  intended_source_locale: "ko-KR"
+  current_artifact_source_language: "en"
+  intended_supported_documentation_locales:
+    - "ko-KR"
+  currently_verified_documentation_locales: []
+  reconciliation_status: "required-before-localization-or-conformance-claim"
+  canonical_narrative_policy:
+    locale: "ko-KR"
+    current_english_artifacts: "unsupported-unverified-translation-until-reconciled"
+    protected_design_md: "excluded-until-pre-existing-change-is-separately-reconciled"
+  package_owned_customer_target_locales: []
+  product_target_locale_owner: "product-adapter"
+  audience_and_tone: "calm-polished-trustworthy-clear"
+  glossary_ref: "contracts/glossary/blab.terms.yaml"
+  do_not_translate:
+    - "Blab"
+    - "BLDS"
+    - "Astryx"
+    - "package-names"
+    - "code-symbols"
+    - "urls"
+    - "slugs"
+  locale_formatting_owner: "product-adapter"
+  review_categories:
+    - "terminology"
+    - "accuracy"
+    - "tone"
+    - "layout"
+    - "accessibility"
+    - "cultural-risk"
+  layout_test_fixtures:
+    - id: "synthetic-40-percent-expansion"
+      supported_customer_locale: false
+    - id: "rtl-stress-sample"
+      supported_customer_locale: false
+  product_overrides:
+    product_specific_nouns_and_tone_remain_product_owned: true
+    shared_blab_semantics_require_design_approval: true
+
+platform_overrides:
+  policy_status: "approved"
+  allowed_purpose: "preserve-native-platform-conventions-without-changing-blab-meaning"
+  allowed_locations:
+    - "flutter-adapter"
+    - "web-adapter"
+    - "product-adapter"
+  must_be_explicit_versioned_and_traceable: true
+  change_visual_semantics_without_design_approval: false
+  shared_web_package_status: "deferred-until-rule-of-two-or-explicit-exception"
+
+capabilities:
+  schema: "blab.capability-source/v1"
+  version: "0.1.0"
+  ordering: "lexicographic-by-capability-id"
+  phase_status:
+    phase-1: "implemented-local-verification-required"
+    phase-2: "implemented-local-parent-gates-required"
+    phase-3: "all-nine-existing-component-families-implemented-local-parent-gates-required"
+    phase-4: "implemented-local-candidate-evidence-parent-gates-required"
+    phase-5: "local-preparation-implemented-exit-blocked"
+  claims:
+    accessibility_conformance: false
+    component_state_implementation: false
+    locale_conformance: false
+    release_authorized: false
+    visual_conformance: false
+  entries:
+    - id: "accessibility-implementation-evidence"
+      phase: 2
+      status: "implemented-local"
+      evidence:
+        - "docs/BLDS_PHASE_2_STATUS.md"
+        - "lib/src/foundation/focus_owned_overlay.dart"
+        - "lib/src/foundation/focus_visibility.dart"
+        - "lib/src/foundation/focus_visual.dart"
+        - "lib/src/foundation/haptic_policy.dart"
+        - "lib/src/foundation/interactive_target.dart"
+        - "lib/src/foundation/keyboard_activation.dart"
+        - "lib/src/foundation/reduced_motion.dart"
+        - "lib/src/foundation/semantic_interaction.dart"
+        - "lib/src/foundation/text_scaling.dart"
+        - "lib/src/foundation/visual_mode_resolver.dart"
+        - "test/phase2_foundation_test.dart"
+    - id: "aggregate-local-verification"
+      phase: 1
+      status: "implemented-local"
+      evidence: ["tool/verify.dart"]
+    - id: "button-component-state-implementation"
+      phase: 3
+      status: "implemented-local-family-partial"
+      scope:
+        component_family: "button"
+        public_type: "BLabButton"
+        global_capability_complete: false
+        loading_busy_claimed: false
+      evidence:
+        - "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+        - "example/lib/stories/button_story.dart"
+        - "generated/component-state-coverage.yaml"
+        - "lib/src/widgets/liquid_glass_button.dart"
+        - "test/blab_button_test.dart"
+    - id: "component-state-contract-coverage"
+      phase: 1
+      status: "implemented-contract-only"
+      evidence:
+        - "contracts/components/state-applicability.yaml"
+        - "generated/component-state-coverage.yaml"
+    - id: "deterministic-contract-generation"
+      phase: 1
+      status: "implemented-local"
+      evidence:
+        - "tool/generate_tokens.dart"
+        - "tool/src/token_generation.dart"
+    - id: "distribution-mirrors"
+      phase: 5
+      status: "not-started"
+      evidence: []
+    - id: "figma-local-mapping"
+      phase: 1
+      status: "implemented-local-no-remote-mutation"
+      evidence: ["generated/figma-token-mapping.json"]
+    - id: "github-actions-verification"
+      phase: 1
+      status: "implemented-local"
+      evidence: [".github/workflows/verify.yml"]
+    - id: "keyboard-accessory-component-state-implementation"
+      phase: 3
+      status: "implemented-local-family-partial"
+      scope:
+        component_family: "keyboard-accessory-bar"
+        public_type: "BLabKeyboardAccessoryBar"
+        global_capability_complete: false
+        required_claimed: true
+        unsupported_claimed: false
+      evidence:
+        - "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_DESIGN_DECISION.md"
+        - "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+        - "example/lib/stories/keyboard_accessory_story.dart"
+        - "generated/component-state-coverage.yaml"
+        - "lib/src/widgets/keyboard_accessory_bar.dart"
+        - "test/blab_keyboard_accessory_bar_test.dart"
+    - id: "migration-and-release"
+      phase: 5
+      status: "local-preparation-implemented-exit-blocked"
+      scope:
+        compatibility_classifier_implemented: true
+        migration_rehearsal_implemented: true
+        rights_preparation_implemented: true
+        phase5_exit_complete: false
+        conformance_claimed: false
+        release_authorized: false
+        publication_authorized: false
+      evidence:
+        - "docs/BLDS_PHASE_5_STATUS.md"
+        - "contracts/release/phase5-readiness.yaml"
+        - "tool/classify_compatibility.dart"
+        - "tool/rehearse_phase5_migration.dart"
+        - "contracts/legal/rights-provenance.yaml"
+    - id: "offline-doctor"
+      phase: 1
+      status: "implemented-local"
+      evidence:
+        - "tool/blab_doctor.dart"
+        - "contracts/schema/blab.doctor.schema.json"
+    - id: "pressable-card-component-state-implementation"
+      phase: 3
+      status: "implemented-local-family-partial"
+      scope:
+        component_family: "pressable-wrapper-and-card"
+        public_types: ["BLabPressableWrapper", "BLabCard"]
+        global_capability_complete: false
+        required_claimed: true
+        unsupported_claimed: false
+      evidence:
+        - "docs/BLDS_PHASE_3_PRESSABLE_CARD_DESIGN_DECISION.md"
+        - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+        - "example/lib/stories/card_story.dart"
+        - "generated/component-state-coverage.yaml"
+        - "lib/src/widgets/liquid_glass_card.dart"
+        - "lib/src/widgets/pressable_wrapper.dart"
+        - "test/blab_pressable_card_test.dart"
+    - id: "public-api-snapshot"
+      phase: 1
+      status: "implemented-local"
+      evidence:
+        - "api/blab_design_system.api.txt"
+        - "tool/public_api_snapshot.dart"
+    - id: "segmented-control-component-state-implementation"
+      phase: 3
+      status: "implemented-local-family-partial"
+      scope:
+        component_family: "segmented-control"
+        public_type: "BLabSegmentedControl"
+        global_capability_complete: false
+        required_claimed: true
+        unsupported_claimed: false
+      evidence:
+        - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_DESIGN_DECISION.md"
+        - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+        - "example/lib/stories/segmented_story.dart"
+        - "generated/component-state-coverage.yaml"
+        - "lib/src/widgets/blab_segmented_control.dart"
+        - "test/blab_segmented_control_test.dart"
+    - id: "snackbar-component-state-implementation"
+      phase: 3
+      status: "implemented-local-family-partial"
+      scope:
+        component_family: "snackbar"
+        public_type: "BLabSnackbar"
+        global_capability_complete: false
+        required_claimed: true
+        unsupported_claimed: false
+      evidence:
+        - "docs/BLDS_PHASE_3_SNACKBAR_DESIGN_DECISION.md"
+        - "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+        - "example/lib/stories/snackbar_story.dart"
+        - "generated/component-state-coverage.yaml"
+        - "lib/src/widgets/blab_snackbar.dart"
+        - "test/blab_snackbar_test.dart"
+    - id: "tab-bar-component-state-implementation"
+      phase: 3
+      status: "implemented-local-family-partial"
+      scope:
+        component_family: "tab-bar"
+        public_type: "BLabTabBar"
+        global_capability_complete: false
+        required_claimed: true
+        disabled_claimed: false
+        unsupported_claimed: false
+      evidence:
+        - "docs/BLDS_PHASE_3_TAB_BAR_DESIGN_DECISION.md"
+        - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+        - "example/lib/stories/tab_bar_story.dart"
+        - "generated/component-state-coverage.yaml"
+        - "lib/src/widgets/liquid_glass_tab_bar.dart"
+        - "test/blab_tab_bar_test.dart"
+    - id: "text-field-component-state-implementation"
+      phase: 3
+      status: "implemented-local-family-partial"
+      scope:
+        component_family: "text-field"
+        public_type: "BLabTextField"
+        global_capability_complete: false
+        required_claimed: true
+        loading_claimed: false
+      evidence:
+        - "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+        - "example/lib/stories/text_field_story.dart"
+        - "generated/component-state-coverage.yaml"
+        - "lib/src/widgets/liquid_glass_text_field.dart"
+        - "test/blab_text_field_test.dart"
+    - id: "visual-baseline-images"
+      phase: 4
+      status: "implemented-local"
+      scope:
+        candidate_only: true
+        design_approved_identity_count: 10
+        accessibility_conformance: false
+        locale_conformance: false
+        visual_conformance: false
+      evidence:
+        - "contracts/approvals/phase4-local-baselines.design-approval.yaml"
+        - "contracts/visual-baselines.yaml"
+        - "docs/BLDS_PHASE_4_STATUS.md"
+    - id: "web-adapter"
+      phase: 3
+      status: "not-started"
+      evidence: []
+
+outputs:
+  - id: "flutter-tokens"
+    path: "lib/src/theme"
+    phase0_status: "manually-preserved-not-generated"
+  - id: "css-custom-properties"
+    path: "docs/design/tokens.css"
+    phase0_status: "manually-preserved-not-generated"
+  - id: "flutter-components"
+    path: "lib/src/widgets"
+    phase0_status: "manually-preserved-not-generated"
+  - id: "flutter-theme-extensions"
+    path: "lib/src/theme/blab_token_theme.dart"
+    phase0_status: "generated-owned-additive"
+  - id: "dart-generated-token-data"
+    path: "lib/src/generated/blab_token_data.g.dart"
+    phase0_status: "generated-owned-additive"
+  - id: "generated-css-custom-properties"
+    path: "generated/blab.tokens.css"
+    phase0_status: "generated-owned-additive"
+  - id: "component-state-manifest"
+    path: "generated/component-state-coverage.yaml"
+    phase0_status: "generated-owned-additive"
+  - id: "component-state-applicability-source"
+    path: "contracts/components/state-applicability.yaml"
+    phase0_status: "design-owned-source"
+  - id: "documentation-token-tables"
+    path: "generated/token-reference.ko-KR.md"
+    phase0_status: "generated-owned-additive"
+  - id: "figma-mapping"
+    path: "generated/figma-token-mapping.json"
+    phase0_status: "generated-owned-additive"
+  - id: "traceability-matrix"
+    path: "generated/token-traceability.md"
+    phase0_status: "generated-owned-additive"
+  - id: "versioned-capability-manifest"
+    path: "generated/blab-capabilities.v1.json"
+    phase0_status: "generated-owned-additive"
+  - id: "agent-skill-bundle"
+    path: "external-custody-unresolved"
+    phase0_status: "downstream-distribution-mirror-not-mutated"
+
+license:
+  spdx_id: "MIT"
+  license_file: "LICENSE"
+  copyright_notice: "Copyright (c) 2026 byungsker and byungskerlab"
+  selected_by: "byungsker"
+  selected_on: "2026-07-25"
+  release_or_publication_authorized: false
+  legal_scope: "license-selection-implemented-publication-not-authorized"
+  third_party_notices_must_be_preserved_when_applicable: true
+
+assets_and_fonts:
+  ledger_status: "unresolved"
+  unresolved_items:
+    - "Pretendard"
+    - "JetBrains-Mono"
+    - "icons"
+    - "Figma-assets"
+    - "remote-images"
+  bundled_assets_added_by_phase0: false
+  redistribution_authorized_by_this_contract: false
+  flutter_package:
+    bundles_font_files: false
+    fetches_font_files: false
+    family_names_are_references_only: true
+    unavailable_family_behavior: "flutter-runtime-platform-fallback"
+    production_self_host_fallback_or_remote_strategy: "unresolved-design-legal-product-decision"
+  css_remote_import_role: "optional-browser-reference-only-not-flutter-or-figma-font-delivery"
+  remote_font_imports:
+    - id: "pretendard-variable"
+      css_ref: "docs/design/tokens.css"
+      source_version: "v1.3.9"
+      upstream: "https://github.com/orioncactus/pretendard"
+      license_observed: "OFL-1.1"
+      delivery_provider: "jsDelivr"
+      delivery_mechanism: "remote-css-import-from-github-release-content"
+      recipient: "end-user-browser-when-css-is-loaded"
+      request_data_disclosure: "provider-receives-standard-network-request-metadata"
+      activation_review_status: "unresolved"
+      notice_and_provider_terms_status: "unresolved"
+    - id: "jetbrains-mono"
+      css_ref: "docs/design/tokens.css"
+      source_version: "google-fonts-provider-managed-unpinned"
+      upstream: "https://github.com/JetBrains/JetBrainsMono"
+      license_observed: "OFL-1.1"
+      delivery_provider: "Google-Fonts"
+      delivery_mechanism: "remote-css-import-weights-400-500-600"
+      recipient: "end-user-browser-when-css-is-loaded"
+      request_data_disclosure: "provider-receives-standard-network-request-metadata"
+      activation_review_status: "unresolved"
+      notice_and_provider_terms_status: "unresolved"
+  remote_font_publication_or_activation_authorized_by_phase0: false
+
+provenance:
+  contract_basis:
+    - "docs/BLDS_PHASE_0_BASELINE.md"
+    - "docs/ASTRYX_CAPABILITY_ADOPTION_PLAN.md"
+    - "docs/design/A11Y.md"
+    - "docs/design/BRAND.md"
+    - "docs/design/TOKENS.md"
+    - "docs/design/MOTION.md"
+    - "contracts/glossary/blab.terms.yaml"
+    - "contracts/components/state-applicability.yaml"
+    - "contracts/visual-baselines.yaml"
+  astryx:
+    role: "capability-evidence-only"
+    evaluated_version: "0.1.3"
+    upstream_revision: "6d57c8d9126b768ee6fdb90e74e060a8e3494e8e"
+    upstream_license: "MIT"
+    derivation_status: "owner-stated-unsigned-methods-only-requires-signed-attestation"
+    repository_scan_status: "no-astryx-dependency-or-implementation-identifier-observed"
+    evidence_limit: "attestation-and-scan-do-not-prove-non-derivation"
+    values_or_identity_adoption_status: "unknown-requires-signed-attestation"
+  copyright_and_contribution_rights:
+    declared_holder_identity_status: "unresolved-legal-name-or-trade-name"
+    baro_app_transfer_rights_chain: "unresolved"
+    publication_blocked_until_resolved: true
+  consumer_remote_custody:
+    status: "canonical-repository-fact-resolved"
+    canonical_repository_remote: "https://github.com/byungsker/blab_design_system.git"
+    legacy_redirect_alias: "https://github.com/lbo728/blab_design_system.git"
+    observed_on: "2026-07-28"
+    evidence_boundary: "repository identity only; no rights, delivery, release, publication, or consumer-mutation authority"
+    mutation_authorized_by_phase0: false

@@ -1,0 +1,218 @@
+schema: "blab.visual-baselines/v1"
+
+metadata:
+  version: "0.3.0"
+  status: "design-approved-local-baselines"
+  visual_intent_owner: "byungskerlab-design-team"
+  capture_owner: "engineering-design-system-frontend"
+  reproducibility_reviewer: "engineering-quality-reviewer"
+  approved_by: "byungsker"
+  approved_on: "2026-07-25"
+  decision_ref: "BLDS-ALL-PHASES-2026-07-25"
+  approval_scope: "capture-workflow-only-not-baseline-images"
+  baseline_design_approval: "design-approved-local"
+  baseline_reviewed_on: "2026-07-28"
+  baseline_reviewer_role: "byungskerlab-design-team"
+  baseline_review_evidence_ref: "design-final-gate-handoff:button_contrast_standard_goldens:2026-07-28"
+  baseline_approval_scope: "local-reproducibility-and-fixture-review-only"
+  baseline_approval_artifact: "contracts/approvals/phase4-local-baselines.design-approval.yaml"
+
+claim_boundary:
+  establishes:
+    - "deterministic local candidate-image reproducibility"
+    - "fixture presence and in-frame geometry for all nine public component families"
+    - "Design-approved local baseline identity for reproducibility and fixture review only"
+  excludes:
+    - "Design-approved visual conformance"
+    - "accessibility conformance"
+    - "runtime Pretendard or production font-policy evidence"
+    - "locale translation approval"
+    - "platform, device, consumer, release, or publication conformance"
+
+policy:
+  golden_update_requires_design_decision_ref: true
+  automatic_golden_acceptance_forbidden: true
+  figma_is_downstream_mirror: true
+  golden_equality_is_not_accessibility_evidence: true
+  deterministic_environment_required: true
+
+required_component_families:
+  - "button"
+  - "text-field"
+  - "segmented-control"
+  - "tab-bar"
+  - "bottom-bar"
+  - "pressable-wrapper"
+  - "card"
+  - "snackbar"
+  - "keyboard-accessory-bar"
+
+known_residuals: []
+
+capture_matrix:
+  brightness:
+    - "light"
+    - "dark"
+    - "high-contrast-light"
+    - "high-contrast-dark"
+  text_scalers:
+    - "1.0"
+    - "2.0"
+  locales:
+    - "en-US"
+    - "ko-KR"
+    - "synthetic-40-percent-expansion"
+    - "ar-RTL-bidi"
+  locale_fixtures:
+    - id: "en-US"
+      locale: "en-US"
+      text: "real Latin fixture copy"
+    - id: "ko-KR"
+      locale: "ko-KR"
+      text: "real Korean fixture copy"
+    - id: "synthetic-40-percent-expansion"
+      locale: "en-XA"
+      text: "deterministic rune-count expansion of exactly 40 percent within rounding tolerance"
+    - id: "ar-RTL-bidi"
+      locale: "ar"
+      text: "real Arabic RTL copy with Latin BLDS/email and Arabic-Indic numerals"
+  reduced_motion:
+    - false
+    - true
+  narrow_viewport: "360x1400"
+  expansion_claim: "rune-count-only synthetic stress; no 40 percent rendered-width claim"
+
+capture_environment:
+  framework: "Flutter 3.38.5"
+  dart: "3.10.4"
+  renderer: "flutter-test"
+  host: "macos-arm64"
+  device_pixel_ratio: 1
+  network_during_capture: "forbidden"
+  clock: "not-used"
+  font_policy: "Pinned fonts are test-only fixtures. Noto files are registered under a process-local Pretendard alias solely because current widgets explicitly request that family; they are not Pretendard and are not runtime assets."
+  test_suites:
+    - "test/phase4_candidate_golden_test.dart"
+    - "test/phase4_candidate_rtl_golden_test.dart"
+  shared_harness: "test/support/phase4_candidate_harness.dart"
+  overlay_context: "MaterialApp.builder wraps Navigator and Overlay with the scenario MediaQuery and Directionality; MaterialApp owns the declared root locale."
+  update_commands:
+    - "flutter test test/phase4_candidate_golden_test.dart --update-goldens --concurrency=1"
+    - "flutter test test/phase4_candidate_rtl_golden_test.dart --update-goldens --concurrency=1"
+  check_commands:
+    - "flutter test test/phase4_candidate_golden_test.dart --concurrency=1"
+    - "flutter test test/phase4_candidate_rtl_golden_test.dart --concurrency=1"
+
+font_fixtures:
+  - id: "noto-sans-kr-variable"
+    purpose: "test-only deterministic Latin and Korean text"
+    source_repository: "https://github.com/google/fonts"
+    pinned_commit: "7ff85c87f93ea6cca5f41c69f2e4edcb90240f26"
+    source_url: "https://raw.githubusercontent.com/google/fonts/7ff85c87f93ea6cca5f41c69f2e4edcb90240f26/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf"
+    path: "test/assets/fonts/NotoSansKR[wght].ttf"
+    sha256: "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252"
+    license: "OFL-1.1"
+    license_path: "test/assets/fonts/LICENSE-NOTO-SANS-KR.txt"
+    runtime_asset: false
+  - id: "noto-sans-arabic-variable"
+    purpose: "test-only deterministic Arabic RTL and bidi text"
+    source_repository: "https://github.com/google/fonts"
+    pinned_commit: "7ff85c87f93ea6cca5f41c69f2e4edcb90240f26"
+    source_url: "https://raw.githubusercontent.com/google/fonts/7ff85c87f93ea6cca5f41c69f2e4edcb90240f26/ofl/notosansarabic/NotoSansArabic%5Bwdth,wght%5D.ttf"
+    path: "test/assets/fonts/NotoSansArabic[wdth,wght].ttf"
+    sha256: "63111b5b2e074dd48cc67692e0a2726d86ee94c1c37fe8598257b7b4e87e869e"
+    license: "OFL-1.1"
+    license_path: "test/assets/fonts/LICENSE-NOTO-SANS-ARABIC.txt"
+    runtime_asset: false
+  - id: "material-icons-test-fixture"
+    purpose: "test-only deterministic Material icon glyphs"
+    source_repository: "Flutter toolchain material-font artifact"
+    pinned_commit: "3012db47f3130e62f7cc0beabff968a33cbec8d8"
+    source_url: "https://storage.googleapis.com/flutter_infra_release/flutter/fonts/3012db47f3130e62f7cc0beabff968a33cbec8d8/fonts.zip"
+    path: "test/assets/fonts/MaterialIcons-Regular.otf"
+    sha256: "d9865b671a09d683d13a863089d8825e0f61a37696ce5d7d448bc8023aa62453"
+    license: "CC-BY-4.0"
+    license_path: "test/assets/fonts/LICENSE-MATERIAL-ICONS.txt"
+    runtime_asset: false
+  - id: "cupertino-icons-test-fixture"
+    purpose: "test-only deterministic Cupertino icon glyphs"
+    source_repository: "https://github.com/flutter/packages"
+    pinned_commit: "701d60a08941da4c6c5633af5263881963ed07b3"
+    source_url: "https://raw.githubusercontent.com/flutter/packages/701d60a08941da4c6c5633af5263881963ed07b3/third_party/packages/cupertino_icons/assets/CupertinoIcons.ttf"
+    path: "test/assets/fonts/CupertinoIcons.ttf"
+    sha256: "67c44fe9183b002e79dde7f6977e2988661c9a3e4a3c5fce968787efdbed823c"
+    license: "MIT"
+    license_path: "test/assets/fonts/LICENSE-CUPERTINO-ICONS.txt"
+    runtime_asset: false
+
+baselines:
+  - id: "phase4-light"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-light.png"
+    sha256: "07369ba292a3d540e204ab825abfa7d60839cb7a36adce49146111a15be38e8a"
+    width: 800
+    height: 1200
+    capture: {brightness: "light", high_contrast: false, text_scaler: "1.0", locale: "en-US", direction: "ltr", reduced_motion: false, viewport: "800x1200", fixture_font: "noto-sans-kr-variable"}
+  - id: "phase4-dark"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-dark.png"
+    sha256: "8d00c1ba78a0fa4cdf25a2622b0126685a06630b62ee08f1d5f2fcfb22fb2333"
+    width: 800
+    height: 1200
+    capture: {brightness: "dark", high_contrast: false, text_scaler: "1.0", locale: "en-US", direction: "ltr", reduced_motion: false, viewport: "800x1200", fixture_font: "noto-sans-kr-variable"}
+  - id: "phase4-high-contrast-light"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-high-contrast-light.png"
+    sha256: "ff9d5ba52b372b2a08b5137444e7b584d8a2689ca4f7b233ca3956312c09218c"
+    width: 800
+    height: 1200
+    capture: {brightness: "light", high_contrast: true, text_scaler: "1.0", locale: "en-US", direction: "ltr", reduced_motion: false, viewport: "800x1200", fixture_font: "noto-sans-kr-variable"}
+  - id: "phase4-high-contrast-dark"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-high-contrast-dark.png"
+    sha256: "2fe76e4b4bf7f7627fec63030298128a78143236faba34a5bc44eb620f6a0735"
+    width: 800
+    height: 1200
+    capture: {brightness: "dark", high_contrast: true, text_scaler: "1.0", locale: "en-US", direction: "ltr", reduced_motion: false, viewport: "800x1200", fixture_font: "noto-sans-kr-variable"}
+  - id: "phase4-text-scale-2"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-text-scale-2.png"
+    sha256: "73c93244f71155738165cf10958d5165310cd73c30f39cadf7990c3a0df5eefa"
+    width: 800
+    height: 1600
+    capture: {brightness: "light", high_contrast: false, text_scaler: "2.0", locale: "en-US", direction: "ltr", reduced_motion: false, viewport: "800x1600", fixture_font: "noto-sans-kr-variable"}
+  - id: "phase4-ko-kr"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-ko-kr.png"
+    sha256: "97056006505cd2e5b0f83ee5f9f1c9d7186bd05002c7096cc0ad096f2e509fa6"
+    width: 800
+    height: 1200
+    capture: {brightness: "light", high_contrast: false, text_scaler: "1.0", locale: "ko-KR", direction: "ltr", reduced_motion: false, viewport: "800x1200", fixture_font: "noto-sans-kr-variable"}
+  - id: "phase4-expansion-40"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-expansion-40.png"
+    sha256: "aabdc7f64c9ce0e0cfcb66a5713c5a97617dc62a265f46007688c5e3b811ea9a"
+    width: 800
+    height: 1400
+    capture: {brightness: "light", high_contrast: false, text_scaler: "1.0", locale: "en-XA", direction: "ltr", reduced_motion: false, viewport: "800x1400", fixture_font: "noto-sans-kr-variable"}
+  - id: "phase4-ar-rtl"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-ar-rtl.png"
+    sha256: "4c29bab888348e9f6f6e472be72c76e15c781f2efb6a6b6dd4cacb9731d3a31c"
+    width: 800
+    height: 1200
+    capture: {brightness: "light", high_contrast: false, text_scaler: "1.0", locale: "ar", direction: "rtl", reduced_motion: false, viewport: "800x1200", fixture_font: "noto-sans-arabic-variable"}
+  - id: "phase4-reduced-motion"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-reduced-motion.png"
+    sha256: "07369ba292a3d540e204ab825abfa7d60839cb7a36adce49146111a15be38e8a"
+    width: 800
+    height: 1200
+    capture: {brightness: "light", high_contrast: false, text_scaler: "1.0", locale: "en-US", direction: "ltr", reduced_motion: true, viewport: "800x1200", fixture_font: "noto-sans-kr-variable"}
+  - id: "phase4-narrow"
+    approval_status: "design-approved-local"
+    path: "test/goldens/candidates/phase4-narrow.png"
+    sha256: "0624b9a312d119a6899df9ae0b40eef9a898c08f438081c3b7af1a3fe492a065"
+    width: 360
+    height: 1400
+    capture: {brightness: "light", high_contrast: false, text_scaler: "1.0", locale: "en-US", direction: "ltr", reduced_motion: false, viewport: "360x1400", fixture_font: "noto-sans-kr-variable"}

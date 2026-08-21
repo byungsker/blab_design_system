@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.compatibility-policy/v1",
+  "type": "object",
+  "required": ["schema", "metadata", "scope", "vocabulary", "classifications", "zero_x_policy", "gates"],
+  "properties": {
+    "schema": {"const": "blab.compatibility-policy/v1"},
+    "metadata": {
+      "type": "object",
+      "required": ["version", "status", "package_version", "package_state"]
+    },
+    "scope": {
+      "type": "object",
+      "required": ["surfaces", "baseline", "migrations"]
+    },
+    "vocabulary": {
+      "type": "object",
+      "required": ["stable", "experimental"]
+    },
+    "classifications": {
+      "type": "object",
+      "required": ["additive", "deprecated", "breaking"],
+      "properties": {
+        "deprecated": {
+          "type": "object",
+          "required": ["support_status", "result_status", "limitation", "examples", "release_effect"],
+          "properties": {
+            "support_status": {"const": "not-supported-in-phase5-classifier"},
+            "result_status": {"const": "unknown-not-detected"}
+          }
+        }
+      }
+    },
+    "zero_x_policy": {
+      "type": "object",
+      "required": ["deprecation_minimum", "removal_requirements", "generated_checksum_only_drift"]
+    },
+    "gates": {
+      "type": "object",
+      "required": ["breaking_or_removal", "stale_migration", "publication"]
+    }
+  },
+  "additionalProperties": false
+}

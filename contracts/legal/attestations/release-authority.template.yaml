@@ -1,0 +1,29 @@
+schema: "blab.human-attestation-template/v1"
+
+attestation:
+  id: "BLDS-PHASE5-RELEASE-AUTHORITY-TEMPLATE"
+  status: "unsigned"
+  signer_legal_name: null
+  signer_authority_basis: null
+  signed_on: null
+  exact_scope:
+    package_name: "blab_design_system"
+    target_version: null
+    source_commit_or_archive_sha256: null
+    repository_owner_and_remote: null
+    markets: []
+    channels: []
+    jurisdictions: []
+    package_composition_manifest: null
+    target_delivery_contract: null
+    promotion_path: null
+    rollback_target: null
+  statement: null
+  evidence_refs: []
+  limitations: []
+
+rules:
+  human_signature_required: true
+  template_is_not_approval: true
+  reuse_for_other_scope_forbidden: true
+  publication_authority_granted: false

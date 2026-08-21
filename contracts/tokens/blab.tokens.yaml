@@ -1,0 +1,1504 @@
+schema: "blab.tokens/v1"
+
+metadata:
+  contract_version: "0.2.0"
+  status: "approved-normalization"
+  semantic_source: "contracts/blab.design.yaml"
+  implementation_owner: "engineering-design-system-frontend"
+  standard_modes: ["light", "dark"]
+  additive_modes: ["high-contrast-light", "high-contrast-dark"]
+  ordering: "lexicographic-by-token-id"
+  approved_standard_mode_compatibility_exceptions:
+    - decision_ref: "BLDS-BUTTON-CONTRAST-2026-07-28"
+      decision_document: "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md"
+      token_ids:
+        - "semantic.action.primary-foreground"
+        - "semantic.action.destructive-foreground"
+      affected_modes: ["light", "dark"]
+      previous: "{primitive.color.white}"
+      replacement: "{primitive.color.black}"
+      classification: "breaking-compatibility-correction"
+
+tokens:
+  primitives:
+    - {id: "primitive.color.black", type: "color", value: "#000000"}
+    - {id: "primitive.color.white", type: "color", value: "#FFFFFF"}
+    - {id: "primitive.color.primary", type: "color", value: "#5B7FFF"}
+    - {id: "primitive.color.primary-light", type: "color", value: "#6B8AFF"}
+    - {id: "primitive.color.success", type: "color", value: "#10B981"}
+    - {id: "primitive.color.success-alt", type: "color", value: "#34C759"}
+    - {id: "primitive.color.success-background", type: "color", value: "#D1FAE5"}
+    - {id: "primitive.color.error", type: "color", value: "#FF3B30"}
+    - {id: "primitive.color.error-alt", type: "color", value: "#EF4444"}
+    - {id: "primitive.color.error-background", type: "color", value: "#FEE2E2"}
+    - {id: "primitive.color.warning", type: "color", value: "#FF9500"}
+    - {id: "primitive.color.warning-alt", type: "color", value: "#FFBE0B"}
+    - {id: "primitive.color.info", type: "color", value: "#4ECDC4"}
+    - {id: "primitive.color.info-alt", type: "color", value: "#3498DB"}
+    - {id: "primitive.color.destructive", type: "color", value: "#FF6B6B"}
+    - {id: "primitive.color.scaffold-light", type: "color", value: "#FAFAFA"}
+    - {id: "primitive.color.surface-light", type: "color", value: "#FFFFFF"}
+    - {id: "primitive.color.elevated-light", type: "color", value: "#F8F9FA"}
+    - {id: "primitive.color.subtle-blue-light", type: "color", value: "#F5F7FF"}
+    - {id: "primitive.color.scaffold-dark", type: "color", value: "#121212"}
+    - {id: "primitive.color.surface-dark", type: "color", value: "#1E1E1E"}
+    - {id: "primitive.color.elevated-dark", type: "color", value: "#2C2C2E"}
+    - {id: "primitive.color.subtle-dark", type: "color", value: "#2A2A2A"}
+    - {id: "primitive.color.disabled-light", type: "color", value: "#6B7280"}
+    - {id: "primitive.color.disabled-dark", type: "color", value: "#9CA3AF"}
+    - {id: "primitive.dimension.glass-blur-standard", type: "dimension", value: "25px"}
+    - {id: "primitive.dimension.glass-blur-high-contrast", type: "dimension", value: "0px"}
+    - {id: "primitive.dimension.focus-outline-width", type: "dimension", value: "2px"}
+    - {id: "primitive.dimension.focus-ring-width", type: "dimension", value: "3px"}
+    - {id: "primitive.number.glass-saturation-standard", type: "percentage", value: "180%"}
+    - {id: "primitive.number.glass-saturation-high-contrast", type: "percentage", value: "100%"}
+  semantics:
+    - id: "semantic.surface.base"
+      type: "color"
+      modes:
+        light: "{primitive.color.scaffold-light}"
+        dark: "{primitive.color.scaffold-dark}"
+        high-contrast-light: "{primitive.color.white}"
+        high-contrast-dark: "{primitive.color.scaffold-dark}"
+    - id: "semantic.surface.raised"
+      type: "color"
+      modes:
+        light: "{primitive.color.surface-light}"
+        dark: "{primitive.color.surface-dark}"
+        high-contrast-light: "{primitive.color.white}"
+        high-contrast-dark: "{primitive.color.scaffold-dark}"
+    - id: "semantic.surface.overlay"
+      type: "color"
+      modes:
+        light: "{primitive.color.surface-light}"
+        dark: "{primitive.color.surface-dark}"
+        high-contrast-light: "{primitive.color.white}"
+        high-contrast-dark: "{primitive.color.scaffold-dark}"
+    - id: "semantic.surface.glass"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#1FFFFFFF"
+        high-contrast-light: "{primitive.color.white}"
+        high-contrast-dark: "{primitive.color.scaffold-dark}"
+    - id: "semantic.text.primary"
+      type: "color"
+      modes:
+        light: "{primitive.color.black}"
+        dark: "{primitive.color.white}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.text.secondary"
+      type: "color"
+      modes:
+        light: "#DD000000"
+        dark: "#DDFFFFFF"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.text.tertiary"
+      type: "color"
+      modes:
+        light: "#99000000"
+        dark: "#99FFFFFF"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.text.inverse"
+      type: "color"
+      modes:
+        light: "{primitive.color.white}"
+        dark: "{primitive.color.black}"
+        high-contrast-light: "{primitive.color.white}"
+        high-contrast-dark: "{primitive.color.black}"
+    - id: "semantic.border.subtle"
+      type: "color"
+      modes:
+        light: "#0D000000"
+        dark: "#14FFFFFF"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.border.default"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#26FFFFFF"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.border.strong"
+      type: "color"
+      modes:
+        light: "#26000000"
+        dark: "#38FFFFFF"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.focus.ring"
+      type: "color"
+      modes:
+        light: "{primitive.color.primary}"
+        dark: "{primitive.color.primary}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.focus.canvas"
+      type: "color"
+      modes:
+        light: "{primitive.color.primary}"
+        dark: "{primitive.color.primary}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.focus.surface"
+      type: "color"
+      modes:
+        light: "{primitive.color.primary}"
+        dark: "{primitive.color.primary}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "semantic.focus.accent"
+      type: "color"
+      modes:
+        light: "{primitive.color.white}"
+        dark: "{primitive.color.white}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.black}"
+    - id: "semantic.focus.outline-width"
+      type: "dimension"
+      value: "{primitive.dimension.focus-outline-width}"
+    - id: "semantic.focus.ring-width"
+      type: "dimension"
+      value: "{primitive.dimension.focus-ring-width}"
+    - id: "semantic.action.primary"
+      type: "color"
+      modes:
+        light: "{primitive.color.primary}"
+        dark: "{primitive.color.primary}"
+        high-contrast-light: "{primitive.color.primary}"
+        high-contrast-dark: "{primitive.color.primary}"
+    - id: "semantic.action.primary-foreground"
+      type: "color"
+      modes:
+        light: "{primitive.color.black}"
+        dark: "{primitive.color.black}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.black}"
+    - id: "semantic.action.destructive"
+      type: "color"
+      modes:
+        light: "{primitive.color.error}"
+        dark: "{primitive.color.error}"
+        high-contrast-light: "{primitive.color.error}"
+        high-contrast-dark: "{primitive.color.error}"
+    - id: "semantic.action.destructive-foreground"
+      type: "color"
+      modes:
+        light: "{primitive.color.black}"
+        dark: "{primitive.color.black}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.black}"
+    - id: "semantic.status.success"
+      type: "color"
+      modes:
+        light: "{primitive.color.success}"
+        dark: "{primitive.color.success}"
+        high-contrast-light: "{primitive.color.success}"
+        high-contrast-dark: "{primitive.color.success}"
+    - id: "semantic.status.error"
+      type: "color"
+      modes:
+        light: "{primitive.color.error}"
+        dark: "{primitive.color.error}"
+        high-contrast-light: "{primitive.color.error}"
+        high-contrast-dark: "{primitive.color.error}"
+    - id: "semantic.status.warning"
+      type: "color"
+      modes:
+        light: "{primitive.color.warning}"
+        dark: "{primitive.color.warning}"
+        high-contrast-light: "{primitive.color.warning}"
+        high-contrast-dark: "{primitive.color.warning}"
+    - id: "semantic.status.info"
+      type: "color"
+      modes:
+        light: "{primitive.color.info}"
+        dark: "{primitive.color.info}"
+        high-contrast-light: "{primitive.color.info}"
+        high-contrast-dark: "{primitive.color.info}"
+    - id: "semantic.status.foreground"
+      type: "color"
+      modes:
+        light: "{primitive.color.white}"
+        dark: "{primitive.color.white}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.black}"
+    - id: "semantic.state.disabled-foreground"
+      type: "color"
+      modes:
+        light: "{primitive.color.disabled-light}"
+        dark: "{primitive.color.disabled-dark}"
+        high-contrast-light: "{primitive.color.disabled-light}"
+        high-contrast-dark: "{primitive.color.disabled-dark}"
+    - id: "semantic.glass.blur"
+      type: "dimension"
+      modes:
+        light: "{primitive.dimension.glass-blur-standard}"
+        dark: "{primitive.dimension.glass-blur-standard}"
+        high-contrast-light: "{primitive.dimension.glass-blur-high-contrast}"
+        high-contrast-dark: "{primitive.dimension.glass-blur-high-contrast}"
+    - id: "semantic.glass.saturation"
+      type: "percentage"
+      modes:
+        light: "{primitive.number.glass-saturation-standard}"
+        dark: "{primitive.number.glass-saturation-standard}"
+        high-contrast-light: "{primitive.number.glass-saturation-high-contrast}"
+        high-contrast-dark: "{primitive.number.glass-saturation-high-contrast}"
+    - id: "semantic.glass.highlight"
+      type: "color-or-none"
+      modes:
+        light: "#99FFFFFF"
+        dark: "#26FFFFFF"
+        high-contrast-light: "none"
+        high-contrast-dark: "none"
+    - id: "semantic.glass.shadow"
+      type: "shadow-or-none"
+      modes:
+        light: "0 8px 32px rgba(0,0,0,0.15)"
+        dark: "0 8px 32px rgba(0,0,0,0.55)"
+        high-contrast-light: "none"
+        high-contrast-dark: "none"
+  components:
+    - id: "component.button.primary.background"
+      type: "color"
+      modes:
+        light: "{semantic.action.primary}"
+        dark: "{semantic.action.primary}"
+        high-contrast-light: "{semantic.action.primary}"
+        high-contrast-dark: "{semantic.action.primary}"
+    - id: "component.button.primary.foreground"
+      type: "color"
+      modes:
+        light: "{semantic.action.primary-foreground}"
+        dark: "{semantic.action.primary-foreground}"
+        high-contrast-light: "{semantic.action.primary-foreground}"
+        high-contrast-dark: "{semantic.action.primary-foreground}"
+    - id: "component.button.primary.hover-overlay"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14000000"
+        high-contrast-light: "#1FFFFFFF"
+        high-contrast-dark: "#1FFFFFFF"
+    - id: "component.button.secondary.hover-overlay"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14FFFFFF"
+        high-contrast-light: "#1F000000"
+        high-contrast-dark: "#1FFFFFFF"
+    - id: "component.button.destructive.hover-overlay"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14000000"
+        high-contrast-light: "#1FFFFFFF"
+        high-contrast-dark: "#1FFFFFFF"
+    - id: "component.button.primary.focus-outline"
+      type: "color"
+      modes:
+        light: "{semantic.focus.accent}"
+        dark: "{semantic.focus.accent}"
+        high-contrast-light: "{semantic.focus.accent}"
+        high-contrast-dark: "{semantic.focus.accent}"
+    - id: "component.button.secondary.focus-outline"
+      type: "color"
+      modes:
+        light: "{primitive.color.black}"
+        dark: "{primitive.color.white}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "component.button.destructive.focus-outline"
+      type: "color"
+      modes:
+        light: "{semantic.focus.accent}"
+        dark: "{semantic.focus.accent}"
+        high-contrast-light: "{semantic.focus.accent}"
+        high-contrast-dark: "{semantic.focus.accent}"
+    - id: "component.button.focus-outer-ring"
+      type: "color"
+      modes:
+        light: "{semantic.focus.canvas}"
+        dark: "{semantic.focus.canvas}"
+        high-contrast-light: "{semantic.focus.canvas}"
+        high-contrast-dark: "{semantic.focus.canvas}"
+    - id: "component.button.destructive.background"
+      type: "color"
+      modes:
+        light: "{semantic.action.destructive}"
+        dark: "{semantic.action.destructive}"
+        high-contrast-light: "{semantic.action.destructive}"
+        high-contrast-dark: "{semantic.action.destructive}"
+    - id: "component.button.destructive.foreground"
+      type: "color"
+      modes:
+        light: "{semantic.action.destructive-foreground}"
+        dark: "{semantic.action.destructive-foreground}"
+        high-contrast-light: "{semantic.action.destructive-foreground}"
+        high-contrast-dark: "{semantic.action.destructive-foreground}"
+    - id: "component.text-field.label"
+      type: "color"
+      modes:
+        light: "#B3000000"
+        dark: "#B3FFFFFF"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "component.text-field.hint"
+      type: "color"
+      modes:
+        light: "{semantic.text.tertiary}"
+        dark: "{semantic.text.tertiary}"
+        high-contrast-light: "{semantic.text.tertiary}"
+        high-contrast-dark: "{semantic.text.tertiary}"
+    - id: "component.text-field.hover-border"
+      type: "color"
+      modes:
+        light: "{semantic.border.strong}"
+        dark: "{semantic.border.strong}"
+        high-contrast-light: "{semantic.border.strong}"
+        high-contrast-dark: "{semantic.border.strong}"
+    - id: "component.text-field.focus-outline"
+      type: "color"
+      modes:
+        light: "{primitive.color.black}"
+        dark: "{primitive.color.white}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "component.text-field.focus-outer-ring"
+      type: "color"
+      modes:
+        light: "{semantic.focus.canvas}"
+        dark: "{semantic.focus.canvas}"
+        high-contrast-light: "{semantic.focus.canvas}"
+        high-contrast-dark: "{semantic.focus.canvas}"
+    - id: "component.text-field.error-border"
+      type: "color"
+      modes:
+        light: "{semantic.status.error}"
+        dark: "{semantic.status.error}"
+        high-contrast-light: "{semantic.status.error}"
+        high-contrast-dark: "{semantic.status.error}"
+    - id: "component.text-field.clear-background"
+      type: "color"
+      modes:
+        light: "#99000000"
+        dark: "#99FFFFFF"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "component.text-field.clear-foreground"
+      type: "color"
+      modes:
+        light: "{semantic.text.inverse}"
+        dark: "{semantic.text.inverse}"
+        high-contrast-light: "{semantic.text.inverse}"
+        high-contrast-dark: "{semantic.text.inverse}"
+    - id: "component.segmented.container-surface"
+      type: "color"
+      modes:
+        light: "#FFF5F5F5"
+        dark: "#FF232323"
+        high-contrast-light: "#FFFFFFFF"
+        high-contrast-dark: "#FF121212"
+    - id: "component.segmented.container-border"
+      type: "color"
+      modes:
+        light: "#00000000"
+        dark: "#00000000"
+        high-contrast-light: "#FF000000"
+        high-contrast-dark: "#FFFFFFFF"
+    - id: "component.segmented.selected-surface"
+      type: "color"
+      modes:
+        light: "#FFFFFFFF"
+        dark: "#FF2C2C2E"
+        high-contrast-light: "#FFFFFFFF"
+        high-contrast-dark: "#FF121212"
+    - id: "component.segmented.selected-indicator"
+      type: "color"
+      modes:
+        light: "#FF5B7FFF"
+        dark: "#FF5B7FFF"
+        high-contrast-light: "#FF000000"
+        high-contrast-dark: "#FFFFFFFF"
+    - id: "component.segmented.selected-foreground"
+      type: "color"
+      modes:
+        light: "#FF000000"
+        dark: "#FFFFFFFF"
+        high-contrast-light: "#FF000000"
+        high-contrast-dark: "#FFFFFFFF"
+    - id: "component.segmented.unselected-foreground"
+      type: "color"
+      modes:
+        light: "#DD000000"
+        dark: "#DDFFFFFF"
+        high-contrast-light: "#FF000000"
+        high-contrast-dark: "#FFFFFFFF"
+    - id: "component.segmented.disabled-foreground"
+      type: "color"
+      modes:
+        light: "#FF68707D"
+        dark: "#FF9CA3AF"
+        high-contrast-light: "#FF6B7280"
+        high-contrast-dark: "#FF9CA3AF"
+    - id: "component.segmented.hover-overlay"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14FFFFFF"
+        high-contrast-light: "#1F000000"
+        high-contrast-dark: "#1FFFFFFF"
+    - id: "component.segmented.pressed-overlay"
+      type: "color"
+      modes:
+        light: "#1F000000"
+        dark: "#1FFFFFFF"
+        high-contrast-light: "#33000000"
+        high-contrast-dark: "#33FFFFFF"
+    - id: "component.segmented.focus-outline"
+      type: "color"
+      modes:
+        light: "#FF000000"
+        dark: "#FFFFFFFF"
+        high-contrast-light: "#FF000000"
+        high-contrast-dark: "#FFFFFFFF"
+    - id: "component.segmented.focus-outer-ring"
+      type: "color"
+      modes:
+        light: "#FF5B7FFF"
+        dark: "#FF5B7FFF"
+        high-contrast-light: "#FF000000"
+        high-contrast-dark: "#FFFFFFFF"
+    - id: "component.segmented.selected-shadow"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14000000"
+        high-contrast-light: "#00000000"
+        high-contrast-dark: "#00000000"
+    - id: "component.tab.container-surface"
+      type: "color"
+      modes:
+        light: "#00000000"
+        dark: "#00000000"
+        high-contrast-light: "#00000000"
+        high-contrast-dark: "#00000000"
+    - id: "component.tab.selected-indicator"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.tab.selected-foreground"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.tab.unselected-foreground"
+      type: "color"
+      modes:
+        light: "{semantic.text.secondary}"
+        dark: "{semantic.text.secondary}"
+        high-contrast-light: "{semantic.text.secondary}"
+        high-contrast-dark: "{semantic.text.secondary}"
+    - id: "component.tab.hover-overlay"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14FFFFFF"
+        high-contrast-light: "#1F000000"
+        high-contrast-dark: "#1FFFFFFF"
+    - id: "component.tab.pressed-overlay"
+      type: "color"
+      modes:
+        light: "#1F000000"
+        dark: "#1FFFFFFF"
+        high-contrast-light: "#33000000"
+        high-contrast-dark: "#33FFFFFF"
+    - id: "component.tab.focus-outline"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.tab.focus-outer-ring"
+      type: "color"
+      modes:
+        light: "{semantic.focus.canvas}"
+        dark: "{semantic.focus.canvas}"
+        high-contrast-light: "{semantic.focus.canvas}"
+        high-contrast-dark: "{semantic.focus.canvas}"
+    - id: "component.tab.divider"
+      type: "color"
+      modes:
+        light: "#00000000"
+        dark: "#00000000"
+        high-contrast-light: "#00000000"
+        high-contrast-dark: "#00000000"
+    - id: "component.bottom-bar.container-surface"
+      type: "color"
+      modes:
+        light: "{semantic.surface.glass}"
+        dark: "{semantic.surface.glass}"
+        high-contrast-light: "{semantic.surface.glass}"
+        high-contrast-dark: "{semantic.surface.glass}"
+    - id: "component.bottom-bar.container-border"
+      type: "color"
+      modes:
+        light: "{semantic.border.default}"
+        dark: "{semantic.border.default}"
+        high-contrast-light: "{semantic.border.default}"
+        high-contrast-dark: "{semantic.border.default}"
+    - id: "component.bottom-bar.selected-surface"
+      type: "color"
+      modes:
+        light: "#1F000000"
+        dark: "#38FFFFFF"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.white}"
+    - id: "component.bottom-bar.selected-highlight"
+      type: "color"
+      modes:
+        light: "#66FFFFFF"
+        dark: "#26FFFFFF"
+        high-contrast-light: "#00000000"
+        high-contrast-dark: "#00000000"
+    - id: "component.bottom-bar.selected-foreground"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.inverse}"
+        high-contrast-dark: "{semantic.text.inverse}"
+    - id: "component.bottom-bar.unselected-foreground"
+      type: "color"
+      modes:
+        light: "{semantic.text.secondary}"
+        dark: "{semantic.text.secondary}"
+        high-contrast-light: "{semantic.text.secondary}"
+        high-contrast-dark: "{semantic.text.secondary}"
+    - id: "component.bottom-bar.hover-overlay"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14FFFFFF"
+        high-contrast-light: "#1F000000"
+        high-contrast-dark: "#1FFFFFFF"
+    - id: "component.bottom-bar.pressed-overlay"
+      type: "color"
+      modes:
+        light: "#1F000000"
+        dark: "#1FFFFFFF"
+        high-contrast-light: "#33000000"
+        high-contrast-dark: "#33FFFFFF"
+    - id: "component.bottom-bar.drag-overlay"
+      type: "color"
+      modes:
+        light: "#26000000"
+        dark: "#26FFFFFF"
+        high-contrast-light: "#33000000"
+        high-contrast-dark: "#33FFFFFF"
+    - id: "component.bottom-bar.focus-outline"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.bottom-bar.focus-outer-ring"
+      type: "color"
+      modes:
+        light: "{semantic.focus.canvas}"
+        dark: "{semantic.focus.canvas}"
+        high-contrast-light: "{semantic.focus.canvas}"
+        high-contrast-dark: "{semantic.focus.canvas}"
+    - id: "component.bottom-bar.action-surface"
+      type: "color"
+      modes:
+        light: "{semantic.surface.glass}"
+        dark: "{semantic.surface.glass}"
+        high-contrast-light: "{semantic.surface.glass}"
+        high-contrast-dark: "{semantic.surface.glass}"
+    - id: "component.bottom-bar.action-foreground"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.bottom-bar.selected-shadow"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14000000"
+        high-contrast-light: "#00000000"
+        high-contrast-dark: "#00000000"
+    - id: "component.snackbar.surface"
+      type: "color"
+      modes:
+        light: "{semantic.surface.overlay}"
+        dark: "{semantic.surface.overlay}"
+        high-contrast-light: "{semantic.surface.overlay}"
+        high-contrast-dark: "{semantic.surface.overlay}"
+    - id: "component.snackbar.foreground"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.snackbar.border"
+      type: "color"
+      modes:
+        light: "{semantic.border.default}"
+        dark: "{semantic.border.default}"
+        high-contrast-light: "{semantic.border.strong}"
+        high-contrast-dark: "{semantic.border.strong}"
+    - id: "component.snackbar.badge-success"
+      type: "color"
+      modes:
+        light: "{semantic.status.success}"
+        dark: "{semantic.status.success}"
+        high-contrast-light: "{semantic.status.success}"
+        high-contrast-dark: "{semantic.status.success}"
+    - id: "component.snackbar.badge-error"
+      type: "color"
+      modes:
+        light: "{semantic.status.error}"
+        dark: "{semantic.status.error}"
+        high-contrast-light: "{semantic.status.error}"
+        high-contrast-dark: "{semantic.status.error}"
+    - id: "component.snackbar.badge-warning"
+      type: "color"
+      modes:
+        light: "{semantic.status.warning}"
+        dark: "{semantic.status.warning}"
+        high-contrast-light: "{semantic.status.warning}"
+        high-contrast-dark: "{semantic.status.warning}"
+    - id: "component.snackbar.badge-info"
+      type: "color"
+      modes:
+        light: "{semantic.status.info}"
+        dark: "{semantic.status.info}"
+        high-contrast-light: "{semantic.status.info}"
+        high-contrast-dark: "{semantic.status.info}"
+    - id: "component.snackbar.badge-glyph"
+      type: "color"
+      modes:
+        light: "{primitive.color.black}"
+        dark: "{primitive.color.black}"
+        high-contrast-light: "{primitive.color.black}"
+        high-contrast-dark: "{primitive.color.black}"
+    - id: "component.snackbar.badge-outline"
+      type: "color"
+      modes:
+        light: "#00000000"
+        dark: "#00000000"
+        high-contrast-light: "{semantic.border.strong}"
+        high-contrast-dark: "{semantic.border.strong}"
+    - id: "component.keyboard-accessory.surface-start"
+      type: "color"
+      modes:
+        light: "#99FFFFFF"
+        dark: "#26FFFFFF"
+        high-contrast-light: "{semantic.surface.overlay}"
+        high-contrast-dark: "{semantic.surface.overlay}"
+    - id: "component.keyboard-accessory.surface-end"
+      type: "color"
+      modes:
+        light: "#4DFFFFFF"
+        dark: "#14FFFFFF"
+        high-contrast-light: "{semantic.surface.overlay}"
+        high-contrast-dark: "{semantic.surface.overlay}"
+    - id: "component.keyboard-accessory.border"
+      type: "color"
+      modes:
+        light: "#66FFFFFF"
+        dark: "#33FFFFFF"
+        high-contrast-light: "{semantic.border.strong}"
+        high-contrast-dark: "{semantic.border.strong}"
+    - id: "component.keyboard-accessory.foreground"
+      type: "color"
+      modes:
+        light: "#B3000000"
+        dark: "#E6FFFFFF"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.keyboard-accessory.disabled-foreground"
+      type: "color"
+      modes:
+        light: "#36000000"
+        dark: "#45FFFFFF"
+        high-contrast-light: "{semantic.state.disabled-foreground}"
+        high-contrast-dark: "{semantic.state.disabled-foreground}"
+    - id: "component.keyboard-accessory.divider"
+      type: "color"
+      modes:
+        light: "#1A000000"
+        dark: "#33FFFFFF"
+        high-contrast-light: "{semantic.border.strong}"
+        high-contrast-dark: "{semantic.border.strong}"
+    - id: "component.keyboard-accessory.hover-overlay"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14FFFFFF"
+        high-contrast-light: "#1F000000"
+        high-contrast-dark: "#1FFFFFFF"
+    - id: "component.keyboard-accessory.pressed-overlay"
+      type: "color"
+      modes:
+        light: "#1F000000"
+        dark: "#1FFFFFFF"
+        high-contrast-light: "#33000000"
+        high-contrast-dark: "#33FFFFFF"
+    - id: "component.keyboard-accessory.focus-outline"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.keyboard-accessory.focus-outer-ring"
+      type: "color"
+      modes:
+        light: "{semantic.focus.canvas}"
+        dark: "{semantic.focus.canvas}"
+        high-contrast-light: "{semantic.focus.canvas}"
+        high-contrast-dark: "{semantic.focus.canvas}"
+    - id: "component.keyboard-accessory.shadow"
+      type: "color"
+      modes:
+        light: "#26000000"
+        dark: "#26000000"
+        high-contrast-light: "#00000000"
+        high-contrast-dark: "#00000000"
+    - id: "component.keyboard-accessory.blur"
+      type: "dimension"
+      modes:
+        light: "20px"
+        dark: "20px"
+        high-contrast-light: "0px"
+        high-contrast-dark: "0px"
+    - id: "component.card.surface"
+      type: "color"
+      modes:
+        light: "{semantic.surface.glass}"
+        dark: "{semantic.surface.glass}"
+        high-contrast-light: "{semantic.surface.glass}"
+        high-contrast-dark: "{semantic.surface.glass}"
+    - id: "component.card.border"
+      type: "color"
+      modes:
+        light: "{semantic.border.default}"
+        dark: "{semantic.border.default}"
+        high-contrast-light: "{semantic.border.default}"
+        high-contrast-dark: "{semantic.border.default}"
+    - id: "component.pressable.hover-overlay"
+      type: "color"
+      modes:
+        light: "#14000000"
+        dark: "#14FFFFFF"
+        high-contrast-light: "#1F000000"
+        high-contrast-dark: "#1FFFFFFF"
+    - id: "component.pressable.pressed-overlay"
+      type: "color"
+      modes:
+        light: "#1F000000"
+        dark: "#1FFFFFFF"
+        high-contrast-light: "#33000000"
+        high-contrast-dark: "#33FFFFFF"
+    - id: "component.pressable.focus-outline"
+      type: "color"
+      modes:
+        light: "{semantic.text.primary}"
+        dark: "{semantic.text.primary}"
+        high-contrast-light: "{semantic.text.primary}"
+        high-contrast-dark: "{semantic.text.primary}"
+    - id: "component.pressable.focus-outer-ring"
+      type: "color"
+      modes:
+        light: "{semantic.focus.canvas}"
+        dark: "{semantic.focus.canvas}"
+        high-contrast-light: "{semantic.focus.canvas}"
+        high-contrast-dark: "{semantic.focus.canvas}"
+    - id: "component.focus-ring.color"
+      type: "color"
+      modes:
+        light: "{semantic.focus.ring}"
+        dark: "{semantic.focus.ring}"
+        high-contrast-light: "{semantic.focus.ring}"
+        high-contrast-dark: "{semantic.focus.ring}"
+    - id: "component.glass.surface"
+      type: "color"
+      modes:
+        light: "{semantic.surface.glass}"
+        dark: "{semantic.surface.glass}"
+        high-contrast-light: "{semantic.surface.glass}"
+        high-contrast-dark: "{semantic.surface.glass}"
+    - id: "component.glass.border"
+      type: "color"
+      modes:
+        light: "{semantic.border.default}"
+        dark: "{semantic.border.default}"
+        high-contrast-light: "{semantic.border.default}"
+        high-contrast-dark: "{semantic.border.default}"
+
+legacy_mappings:
+  policy:
+    standard_light_and_dark_are_compatibility_locked: true
+    unmapped_values_must_be_classified: true
+    deprecation_values: ["none", "legacy-retained", "deprecated"]
+    classification_values:
+      - "mapped"
+      - "legacy-compatible"
+      - "legacy-retained"
+      - "component-local-raw"
+      - "compatibility-correction"
+  css:
+    source: "docs/design/tokens.css"
+    entries:
+      - {name: "--blab-action-destructive", type: "color-reference", light: "var(--blab-error)", classification: "mapped", token: "semantic.action.destructive", deprecation: "none"}
+      - {name: "--blab-action-primary", type: "color-reference", light: "var(--blab-primary)", classification: "mapped", token: "semantic.action.primary", deprecation: "none"}
+      - {name: "--blab-action-secondary", type: "color", light: "rgba(0,0,0,0.08)", dark: "rgba(255,255,255,0.12)", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-body-lh", type: "number", light: "1.5", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-body-ls", type: "number", light: "0", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-body-size", type: "dimension", light: "16px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-body-strong-weight", type: "font-weight", light: "600", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-body-weight", type: "font-weight", light: "400", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-border-default", type: "color", light: "rgba(0,0,0,0.08)", dark: "rgba(255,255,255,0.15)", classification: "mapped", token: "semantic.border.default", deprecation: "none"}
+      - {name: "--blab-border-strong", type: "color", light: "rgba(0,0,0,0.15)", dark: "rgba(255,255,255,0.22)", classification: "mapped", token: "semantic.border.strong", deprecation: "none"}
+      - {name: "--blab-border-subtle", type: "color", light: "rgba(0,0,0,0.05)", dark: "rgba(255,255,255,0.08)", classification: "mapped", token: "semantic.border.subtle", deprecation: "none"}
+      - {name: "--blab-button-lh", type: "number", light: "1.2", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-button-ls", type: "letter-spacing", light: "-0.005em", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-button-size", type: "dimension", light: "16px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-button-weight", type: "font-weight", light: "600", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-caption-lh", type: "number", light: "1.45", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-caption-ls", type: "number", light: "0", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-caption-size", type: "dimension", light: "13px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-caption-weight", type: "font-weight", light: "500", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-card", type: "color", light: "#FFFFFF", dark: "#1E1E1E", classification: "mapped", token: "semantic.surface.overlay", deprecation: "none"}
+      - {name: "--blab-chart-1", type: "color", light: "#5B7FFF", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-10", type: "color", light: "#8E44AD", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-2", type: "color", light: "#FF6B6B", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-3", type: "color", light: "#4ECDC4", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-4", type: "color", light: "#FFBE0B", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-5", type: "color", light: "#9B59B6", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-6", type: "color", light: "#3498DB", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-7", type: "color", light: "#E74C3C", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-8", type: "color", light: "#1ABC9C", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-chart-9", type: "color", light: "#F39C12", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-code-lh", type: "number", light: "1.5", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-code-size", type: "dimension", light: "14px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-destructive", type: "color", light: "#FF6B6B", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-display-lh", type: "number", light: "1.1", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-display-ls", type: "letter-spacing", light: "-0.022em", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-display-size", type: "dimension", light: "44px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-display-weight", type: "font-weight", light: "700", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-dur-press", type: "duration", light: "150ms", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-dur-segment", type: "duration", light: "180ms", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-dur-surface", type: "duration", light: "300ms", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-ease", type: "cubic", light: "cubic-bezier(0.4, 0, 0.2, 1)", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-ease-in-out", type: "cubic", light: "cubic-bezier(0.4, 0, 0.2, 1)", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-elevated", type: "color", light: "#F8F9FA", dark: "#2C2C2E", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-error", type: "color", light: "#FF3B30", classification: "mapped", token: "primitive.color.error", deprecation: "none"}
+      - {name: "--blab-error-alt", type: "color", light: "#EF4444", classification: "mapped", token: "primitive.color.error-alt", deprecation: "none"}
+      - {name: "--blab-error-bg", type: "color", light: "#FEE2E2", classification: "mapped", token: "primitive.color.error-background", deprecation: "none"}
+      - {name: "--blab-fg-inverse", type: "color", light: "#FFFFFF", dark: "#000000", classification: "mapped", token: "semantic.text.inverse", deprecation: "none"}
+      - {name: "--blab-fg-primary", type: "color", light: "#000000", dark: "#FFFFFF", classification: "mapped", token: "semantic.text.primary", deprecation: "none"}
+      - {name: "--blab-fg-quaternary", type: "color", light: "rgba(0,0,0,0.38)", dark: "rgba(255,255,255,0.38)", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-fg-secondary", type: "color", light: "rgba(0,0,0,0.87)", dark: "rgba(255,255,255,0.87)", classification: "mapped", token: "semantic.text.secondary", deprecation: "none"}
+      - {name: "--blab-fg-tertiary", type: "color", light: "rgba(0,0,0,0.60)", dark: "rgba(255,255,255,0.60)", classification: "mapped", token: "semantic.text.tertiary", deprecation: "none"}
+      - {name: "--blab-font-body", type: "font-family", light: "'Pretendard Variable', Pretendard, -apple-system, 'SF Pro Text', 'Apple SD Gothic Neo', system-ui, sans-serif", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-font-heading", type: "font-family", light: "'Pretendard Variable', Pretendard, -apple-system, 'SF Pro Display', 'Apple SD Gothic Neo', system-ui, sans-serif", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-font-mono", type: "font-family", light: "'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-glass-blur", type: "dimension", light: "25px", classification: "mapped", token: "semantic.glass.blur", deprecation: "none"}
+      - {name: "--blab-glass-border", type: "color", light: "rgba(0,0,0,0.08)", dark: "rgba(255,255,255,0.15)", classification: "mapped", token: "semantic.border.default", deprecation: "none"}
+      - {name: "--blab-glass-fill", type: "color", light: "rgba(0,0,0,0.08)", dark: "rgba(255,255,255,0.12)", classification: "mapped", token: "semantic.surface.glass", deprecation: "none"}
+      - {name: "--blab-glass-highlight", type: "color", light: "rgba(255,255,255,0.60)", dark: "rgba(255,255,255,0.15)", classification: "mapped", token: "semantic.glass.highlight", deprecation: "none"}
+      - {name: "--blab-glass-sat", type: "percentage", light: "180%", classification: "mapped", token: "semantic.glass.saturation", deprecation: "none"}
+      - {name: "--blab-grey-100", type: "color", light: "#F3F4F6", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-200", type: "color", light: "#E5E7EB", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-300", type: "color", light: "#D1D5DB", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-400", type: "color", light: "#9CA3AF", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-50", type: "color", light: "#F5F5F5", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-500", type: "color", light: "#6B7280", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-600", type: "color", light: "#4B5563", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-700", type: "color", light: "#374151", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-800", type: "color", light: "#1F2937", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-grey-900", type: "color", light: "#111827", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-h1-lh", type: "number", light: "1.2", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-h1-ls", type: "letter-spacing", light: "-0.02em", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-h1-size", type: "dimension", light: "32px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-h1-weight", type: "font-weight", light: "700", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-h2-lh", type: "number", light: "1.3", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-h2-ls", type: "letter-spacing", light: "-0.015em", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-h2-size", type: "dimension", light: "24px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-h2-weight", type: "font-weight", light: "700", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-info", type: "color", light: "#4ECDC4", classification: "mapped", token: "primitive.color.info", deprecation: "none"}
+      - {name: "--blab-info-alt", type: "color", light: "#3498DB", classification: "mapped", token: "primitive.color.info-alt", deprecation: "none"}
+      - {name: "--blab-label-lh", type: "number", light: "1.4", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-label-ls", type: "number", light: "0", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-label-size", type: "dimension", light: "14px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-label-weight", type: "font-weight", light: "500", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-primary", type: "color", light: "#5B7FFF", classification: "mapped", token: "primitive.color.primary", deprecation: "none"}
+      - {name: "--blab-primary-light", type: "color", light: "#6B8AFF", classification: "mapped", token: "primitive.color.primary-light", deprecation: "none"}
+      - {name: "--blab-radius-lg", type: "dimension", light: "16px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-radius-md", type: "dimension", light: "12px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-radius-pill", type: "dimension", light: "100px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-radius-sm", type: "dimension", light: "10px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-radius-xl", type: "dimension", light: "20px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-radius-xs", type: "dimension", light: "6px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-scaffold", type: "color", light: "#FAFAFA", dark: "#121212", classification: "mapped", token: "semantic.surface.base", deprecation: "none"}
+      - {name: "--blab-shadow-1", type: "shadow", light: "0 1px 4px rgba(0,0,0,0.08)", dark: "0 1px 4px rgba(0,0,0,0.35)", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-shadow-2", type: "shadow", light: "0 4px 12px rgba(0,0,0,0.10)", dark: "0 4px 12px rgba(0,0,0,0.4)", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-shadow-3", type: "shadow", light: "0 8px 24px rgba(0,0,0,0.12)", dark: "0 8px 24px rgba(0,0,0,0.5)", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-shadow-float", type: "shadow", light: "0 8px 32px rgba(0,0,0,0.15)", dark: "0 8px 32px rgba(0,0,0,0.55)", classification: "mapped", token: "semantic.glass.shadow", deprecation: "none"}
+      - {name: "--blab-space-0", type: "dimension", light: "0px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-1", type: "dimension", light: "2px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-10", type: "dimension", light: "48px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-11", type: "dimension", light: "64px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-2", type: "dimension", light: "4px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-3", type: "dimension", light: "8px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-4", type: "dimension", light: "12px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-5", type: "dimension", light: "16px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-6", type: "dimension", light: "20px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-7", type: "dimension", light: "24px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-8", type: "dimension", light: "32px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-space-9", type: "dimension", light: "40px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-subtitle-lh", type: "number", light: "1.4", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-subtitle-ls", type: "letter-spacing", light: "-0.005em", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-subtitle-size", type: "dimension", light: "17px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-subtitle-weight", type: "font-weight", light: "600", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-subtle-blue", type: "color", light: "#F5F7FF", dark: "#2A2A2A", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-success", type: "color", light: "#10B981", classification: "mapped", token: "primitive.color.success", deprecation: "none"}
+      - {name: "--blab-success-alt", type: "color", light: "#34C759", classification: "mapped", token: "primitive.color.success-alt", deprecation: "none"}
+      - {name: "--blab-success-bg", type: "color", light: "#D1FAE5", classification: "mapped", token: "primitive.color.success-background", deprecation: "none"}
+      - {name: "--blab-surface", type: "color", light: "#FFFFFF", dark: "#1E1E1E", classification: "mapped", token: "semantic.surface.raised", deprecation: "none"}
+      - {name: "--blab-surface-base", type: "color-reference", light: "var(--blab-scaffold)", classification: "mapped", token: "semantic.surface.base", deprecation: "none"}
+      - {name: "--blab-surface-overlay", type: "color-reference", light: "var(--blab-card)", classification: "mapped", token: "semantic.surface.overlay", deprecation: "none"}
+      - {name: "--blab-surface-raised", type: "color-reference", light: "var(--blab-surface)", classification: "mapped", token: "semantic.surface.raised", deprecation: "none"}
+      - {name: "--blab-tab-lh", type: "number", light: "1.2", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-tab-ls", type: "number", light: "0", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-tab-size", type: "dimension", light: "10px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-tab-weight", type: "font-weight", light: "600", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-text-inverse", type: "color-reference", light: "var(--blab-fg-inverse)", classification: "mapped", token: "semantic.text.inverse", deprecation: "none"}
+      - {name: "--blab-text-primary", type: "color-reference", light: "var(--blab-fg-primary)", classification: "mapped", token: "semantic.text.primary", deprecation: "none"}
+      - {name: "--blab-text-secondary", type: "color-reference", light: "var(--blab-fg-secondary)", classification: "mapped", token: "semantic.text.secondary", deprecation: "none"}
+      - {name: "--blab-text-tertiary", type: "color-reference", light: "var(--blab-fg-tertiary)", classification: "mapped", token: "semantic.text.tertiary", deprecation: "none"}
+      - {name: "--blab-title-lh", type: "number", light: "1.35", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-title-ls", type: "letter-spacing", light: "-0.01em", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-title-size", type: "dimension", light: "20px", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-title-weight", type: "font-weight", light: "600", classification: "legacy-compatible", deprecation: "none"}
+      - {name: "--blab-warning", type: "color", light: "#FF9500", classification: "mapped", token: "primitive.color.warning", deprecation: "none"}
+      - {name: "--blab-warning-alt", type: "color", light: "#FFBE0B", classification: "mapped", token: "primitive.color.warning-alt", deprecation: "none"}
+
+  dart:
+    sources:
+      - path: "lib/src/theme/app_colors.dart"
+        symbols:
+          - {symbol: "BLabColors.primary", token: "primitive.color.primary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.primaryLight", token: "primitive.color.primary-light", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.success", token: "primitive.color.success", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.successAlt", token: "primitive.color.success-alt", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.successBg", token: "primitive.color.success-background", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.error", token: "primitive.color.error", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.errorAlt", token: "primitive.color.error-alt", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.errorBg", token: "primitive.color.error-background", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.errorLight", classification: "legacy-retained", deprecation: "legacy-retained"}
+          - {symbol: "BLabColors.warning", token: "primitive.color.warning", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.warningAlt", token: "primitive.color.warning-alt", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.info", token: "primitive.color.info", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.infoAlt", token: "primitive.color.info-alt", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.destructive", token: "primitive.color.destructive", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.purple", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.chartColors", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.gold", classification: "legacy-retained", deprecation: "legacy-retained"}
+          - {symbol: "BLabColors.amber", classification: "legacy-retained", deprecation: "legacy-retained"}
+          - {symbol: "BLabColors.danger", classification: "legacy-retained", deprecation: "legacy-retained"}
+          - {symbol: "BLabColors.dangerAlt", classification: "legacy-retained", deprecation: "legacy-retained"}
+          - {symbol: "BLabColors.grey50", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey100", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey200", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey300", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey400", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey500", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey600", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey700", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey800", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey900", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey50Light", classification: "legacy-retained", deprecation: "legacy-retained"}
+          - {symbol: "BLabColors.grey100Light", classification: "legacy-retained", deprecation: "legacy-retained"}
+          - {symbol: "BLabColors.grey200Light", classification: "legacy-retained", deprecation: "legacy-retained"}
+          - {symbol: "BLabColors.scaffoldLight", token: "semantic.surface.base", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.surfaceLight", token: "semantic.surface.raised", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.cardLight", token: "semantic.surface.overlay", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.elevatedLight", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.subtleBlueLight", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.scaffoldDark", token: "semantic.surface.base", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.surfaceDark", token: "semantic.surface.raised", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.cardDark", token: "semantic.surface.overlay", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.elevatedDark", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.subtleDark", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.textPrimaryLight", token: "semantic.text.primary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textSecondaryLight", token: "semantic.text.secondary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textTertiaryLight", token: "semantic.text.tertiary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textQuaternaryLight", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.textInverseLight", token: "semantic.text.inverse", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textPrimaryDark", token: "semantic.text.primary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textSecondaryDark", token: "semantic.text.secondary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textTertiaryDark", token: "semantic.text.tertiary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textQuaternaryDark", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.textInverseDark", token: "semantic.text.inverse", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderSubtleLight", token: "semantic.border.subtle", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderDefaultLight", token: "semantic.border.default", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderStrongLight", token: "semantic.border.strong", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderSubtleDark", token: "semantic.border.subtle", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderDefaultDark", token: "semantic.border.default", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderStrongDark", token: "semantic.border.strong", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.actionPrimary", token: "semantic.action.primary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.actionDestructive", token: "semantic.action.destructive", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.actionSecondaryLight", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.actionSecondaryDark", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.scaffold", token: "semantic.surface.base", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.surface", token: "semantic.surface.raised", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.card", token: "semantic.surface.overlay", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.elevated", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.subtleBlue", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.textPrimary", token: "semantic.text.primary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textSecondary", token: "semantic.text.secondary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textTertiary", token: "semantic.text.tertiary", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.textQuaternary", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.textInverse", token: "semantic.text.inverse", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderSubtle", token: "semantic.border.subtle", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderDefault", token: "semantic.border.default", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.borderStrong", token: "semantic.border.strong", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabColors.actionSecondary", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabColors.grey", classification: "legacy-retained", deprecation: "legacy-retained"}
+      - path: "lib/src/theme/app_spacing.dart"
+        symbols:
+          - {symbol: "BLabSpacing.s0", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s1", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s2", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s3", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s4", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s5", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s6", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s7", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s8", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s9", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s10", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.s11", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.xs", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.sm", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.md", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.lg", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.xl", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabSpacing.xxl", classification: "legacy-compatible", deprecation: "none"}
+      - path: "lib/src/theme/app_radius.dart"
+        symbols:
+          - {symbol: "BLabRadius.xs", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.sm", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.md", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.lg", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.xl", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.pill", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.xsRect", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.smRect", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.mdRect", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.lgRect", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.xlRect", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabRadius.pillRect", classification: "legacy-compatible", deprecation: "none"}
+      - path: "lib/src/theme/app_motion.dart"
+        symbols:
+          - {symbol: "BLabMotion.ease", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabMotion.easeInOut", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabMotion.durPress", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabMotion.durSegment", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabMotion.durSurface", classification: "legacy-compatible", deprecation: "none"}
+      - path: "lib/src/theme/app_glass.dart"
+        symbols:
+          - {symbol: "BLabGlass.blur", token: "semantic.glass.blur", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabGlass.saturation", token: "semantic.glass.saturation", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabGlass.fill", token: "semantic.surface.glass", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabGlass.border", token: "semantic.border.default", classification: "mapped", deprecation: "none"}
+          - {symbol: "BLabGlass.highlight", token: "semantic.glass.highlight", classification: "mapped", deprecation: "none"}
+      - path: "lib/src/theme/app_shadow.dart"
+        symbols:
+          - {symbol: "BLabShadow.one", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabShadow.two", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabShadow.three", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabShadow.float", token: "semantic.glass.shadow", classification: "mapped", deprecation: "none"}
+      - path: "lib/src/theme/app_typography.dart"
+        symbols:
+          - {symbol: "BLabTypography.fontHeading", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.fontBody", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.fontMono", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.display", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.h1", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.h2", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.title", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.subtitle", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.body", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.bodyStrong", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.caption", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.label", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.button", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.tab", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTypography.code", classification: "legacy-compatible", deprecation: "none"}
+      - path: "lib/src/theme/app_theme.dart"
+        symbols:
+          - {symbol: "BLabTheme.light", classification: "legacy-compatible", deprecation: "none"}
+          - {symbol: "BLabTheme.dark", classification: "legacy-compatible", deprecation: "none"}
+
+  component_raw_values:
+    - path: "lib/src/widgets/blab_segmented_control.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "42:19:40"
+        - "44:20:3"
+        - "115:35:0"
+        - "116:34:0"
+        - "117:31:0"
+        - "120:36:0"
+        - "223:35:1"
+        - "246:22:0"
+        - "246:62:1"
+        - "270:22:0"
+        - "270:62:1"
+        - "277:22:0"
+        - "277:63:1"
+        - "289:22:0"
+        - "289:63:1"
+        - "296:44:1"
+        - "296:56:0"
+        - "296:68:1"
+        - "305:29:1"
+        - "305:70:1"
+        - "308:29:1"
+        - "308:41:0"
+        - "308:53:1"
+        - "316:25:1"
+        - "316:73:1"
+        - "370:46:1"
+        - "370:50:-1"
+        - "374:46:-1"
+        - "374:51:1"
+        - "376:64:-1"
+        - "377:66:1"
+        - "427:11:0.0"
+        - "428:44:2"
+        - "445:37:1"
+        - "458:34:0"
+        - "469:17:0"
+        - "474:65:0"
+        - "476:32:3.0"
+        - "480:35:1"
+        - "489:37:0.01"
+        - "518:35:44.0"
+        - "518:57:4"
+        - "519:34:0.0"
+        - "520:55:44.0"
+        - "520:79:2"
+        - "588:51:2"
+        - "589:54:2"
+        - "596:41:1"
+        - "596:45:0"
+        - "607:34:0"
+        - "607:75:1"
+        - "655:11:Colors.transparent"
+        - "659:39:44.0"
+        - "659:61:4"
+        - "664:49:2"
+        - "679:25:Colors.transparent"
+        - "685:41:4"
+        - "686:50:0"
+        - "686:53:1"
+        - "707:21:0"
+        - "708:22:0"
+        - "709:23:0"
+        - "710:23:2"
+        - "715:37:1"
+        - "715:41:0"
+        - "731:27:13"
+    - path: "lib/src/widgets/blab_snackbar.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "77:49:2"
+        - "79:27:100"
+        - "99:49:2"
+        - "101:27:100"
+        - "438:63:0"
+        - "438:66:1"
+        - "460:74:4"
+        - "461:38:4"
+        - "646:19:15"
+        - "648:24:-0.2"
+        - "666:16:32"
+        - "667:17:32"
+        - "672:71:2"
+        - "676:70:20"
+        - "719:67:15"
+        - "722:37:360"
+        - "722:57:20"
+        - "728:35:12"
+        - "738:38:12"
+        - "749:35:12"
+        - "773:71:0"
+        - "774:42:8"
+        - "775:72:8"
+        - "777:43:8"
+        - "780:27:20"
+        - "781:23:20"
+        - "812:43:2"
+        - "812:47:1"
+        - "815:28:0"
+        - "826:35:20"
+        - "827:33:16"
+    - path: "lib/src/widgets/keyboard_accessory_bar.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "83:70:500"
+        - "84:66:100"
+        - "85:44:32"
+        - "86:39:48"
+        - "87:40:1"
+        - "89:11:0"
+        - "90:13:1"
+        - "91:13:2"
+        - "92:17:3"
+        - "93:13:4"
+        - "94:13:5"
+        - "95:13:6"
+        - "140:36:0"
+        - "181:35:1"
+        - "334:37:1"
+        - "361:49:0.01"
+        - "384:28:0"
+        - "390:32:0.01"
+        - "397:51:0.01"
+        - "418:24:0"
+        - "418:60:1"
+        - "419:21:0"
+        - "424:20:1"
+        - "425:21:20"
+        - "491:31:2"
+        - "491:35:1"
+        - "498:29:12"
+        - "499:38:0"
+        - "499:41:4"
+        - "643:67:0"
+        - "644:52:0"
+        - "644:71:1"
+        - "644:75:0"
+        - "647:60:1"
+        - "653:52:0"
+        - "654:29:0"
+        - "654:50:0"
+        - "749:24:1"
+        - "750:25:20"
+        - "943:11:Colors.transparent"
+        - "948:11:Colors.transparent"
+        - "995:61:44"
+        - "995:76:44"
+        - "998:26:48"
+        - "999:27:48"
+        - "1004:28:48"
+        - "1005:29:48"
+        - "1061:35:20"
+    - path: "lib/src/widgets/liquid_glass_bottom_bar.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "57:30:2"
+        - "58:32:0"
+        - "121:26:0"
+        - "122:22:0"
+        - "136:16:1"
+        - "171:22:0"
+        - "171:62:1"
+        - "188:40:1"
+        - "194:36:1"
+        - "196:42:0"
+        - "256:46:1"
+        - "256:50:-1"
+        - "258:46:-1"
+        - "258:51:1"
+        - "259:16:0"
+        - "262:38:0"
+        - "263:49:1"
+        - "297:38:0"
+        - "299:68:2"
+        - "301:20:0.0"
+        - "301:38:1"
+        - "305:24:1"
+        - "311:48:0"
+        - "311:63:1"
+        - "319:34:1"
+        - "402:23:0"
+        - "402:55:0"
+        - "403:38:0"
+        - "406:11:0.0"
+        - "407:11:22.0"
+        - "430:66:1"
+        - "448:38:0"
+        - "448:69:1"
+        - "489:58:62"
+        - "517:28:1"
+        - "521:16:0"
+        - "522:19:0"
+        - "536:39:8"
+        - "537:48:0"
+        - "537:51:2"
+        - "551:29:Colors.transparent"
+        - "581:11:Colors.transparent"
+        - "632:35:44"
+        - "633:36:54"
+        - "659:44:3"
+        - "667:37:3"
+        - "668:36:3"
+        - "669:38:3"
+        - "670:39:3"
+        - "678:44:2"
+        - "687:44:0"
+        - "688:37:20"
+        - "689:37:2"
+        - "690:41:2"
+        - "693:44:1"
+        - "694:45:1"
+        - "703:43:24"
+        - "763:20:44"
+        - "764:21:44"
+        - "775:32:3"
+        - "784:51:3"
+        - "789:34:2"
+        - "797:50:0"
+        - "800:25:12"
+        - "821:41:0"
+        - "821:49:5"
+        - "830:18:62.0"
+        - "854:72:1"
+        - "862:73:3"
+        - "870:45:3"
+        - "873:73:2"
+        - "881:19:22"
+        - "998:40:1"
+        - "999:38:6"
+        - "1000:39:16"
+    - path: "lib/src/widgets/liquid_glass_button.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "217:11:Colors.transparent"
+        - "224:11:const Color(0x1AFFFFFF)"
+        - "227:11:Colors.transparent"
+        - "243:61:0.5"
+        - "250:33:24"
+        - "251:31:14"
+        - "261:73:20"
+        - "352:27:0.96"
+        - "352:34:1"
+        - "356:57:0.5"
+    - path: "lib/src/widgets/liquid_glass_card.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "13:38:0.5"
+    - path: "lib/src/widgets/liquid_glass_tab_bar.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "62:28:3"
+        - "68:29:0"
+        - "70:33:0"
+        - "136:36:0"
+        - "186:35:1"
+        - "212:22:0"
+        - "212:62:1"
+        - "218:22:0"
+        - "218:62:1"
+        - "299:46:1"
+        - "299:50:-1"
+        - "301:46:-1"
+        - "301:51:1"
+        - "302:16:0"
+        - "305:38:0"
+        - "306:58:1"
+        - "334:41:0"
+        - "366:29:-0.01"
+        - "367:55:0.01"
+        - "371:70:2"
+        - "372:50:2"
+        - "377:49:0.0"
+        - "383:50:0.01"
+        - "439:24:0"
+        - "439:64:1"
+        - "445:21:1"
+        - "453:36:44.0"
+        - "457:28:44"
+        - "457:40:32"
+        - "464:28:0"
+        - "464:68:1"
+        - "477:68:16"
+        - "480:11:0"
+        - "521:68:2"
+        - "535:38:0"
+        - "535:78:1"
+        - "553:25:0"
+        - "554:26:0"
+        - "555:27:0"
+        - "556:27:1"
+        - "570:27:0"
+        - "637:11:Colors.transparent"
+        - "641:34:1"
+        - "680:33:44"
+        - "681:34:44"
+        - "703:42:3"
+        - "710:35:3"
+        - "711:34:3"
+        - "712:36:3"
+        - "713:37:3"
+        - "721:42:2"
+        - "773:50:0"
+        - "826:40:1"
+        - "827:38:6"
+        - "828:39:16"
+    - path: "lib/src/widgets/liquid_glass_text_field.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "46:21:1"
+        - "171:11:0.5"
+        - "206:66:1"
+        - "219:46:1"
+        - "233:29:14"
+        - "355:23:11"
+    - path: "lib/src/widgets/pressable_wrapper.dart"
+      classification: "compatibility-correction"
+      deprecation: "none"
+      extraction: "dart-numeric-and-color-literals/v1"
+      raw_values:
+        - "47:21:0.96"
+        - "48:26:0.1"
+        - "69:50:0.1"
+        - "236:11:Colors.transparent"
+        - "302:45:1"

@@ -1,0 +1,57 @@
+{
+  "schema": "blab.agent-pilot-result/v1",
+  "pilot_source": "contracts/agent/pilot.yaml",
+  "workflow": {
+    "id": "baroguni-bottom-bar-accessibility-remediation",
+    "product": "Baroguni",
+    "issue": "BLA-7 / BAR-86",
+    "description": "Use BLDS agent-readable contracts to inspect BottomBar semantics before an accessibility-large remediation.",
+    "baseline": {
+      "observed": "The current consumer uses a fixed 62px BottomBar and needs an app-local adapter for the action semantic label API.",
+      "evidence": [
+        "project/baroguni/issues/BAR-86.md",
+        "project/blab-design-system/issues/BLA-7.md"
+      ],
+      "limit": "This pilot measures contract retrieval and unsupported-state safety; it does not claim consumer runtime performance or a completed accessibility remediation."
+    }
+  },
+  "decision_contract": {
+    "fixture_source": "contracts/agent/evaluation-fixtures.yaml",
+    "denominator": 10,
+    "minimum_pass": 9,
+    "maximum_critical_failures": 0
+  },
+  "evaluation": {
+    "schema": "blab.agent-evaluation-result/v1",
+    "fixture_source": "contracts/agent/evaluation-fixtures.yaml",
+    "denominator": 10,
+    "passed": 10,
+    "failed": 0,
+    "critical_failures": 0,
+    "evidence_checked": 19,
+    "unresolved_evidence": [],
+    "go": true,
+    "failures": []
+  },
+  "maintenance": {
+    "owner": "BLDS Engineering Team / Design System Engineer",
+    "verification_command": "dart run tool/verify.dart",
+    "manual_lookup_comparison": "A repository-wide manual lookup baseline was not measured in this cycle; no productivity claim is made.",
+    "triggers": [
+      "Any semantic contract, token, state applicability, public API, example, test, or design evidence change.",
+      "Any consumer reports a mismatch between agent guidance and implemented behavior.",
+      "Before enabling a new remote adapter or adding a component to the reviewed Figma set."
+    ],
+    "current_cycle": {
+      "cycle_duration_seconds": 0.71,
+      "manual_repairs": 0,
+      "unresolved_drift": 0,
+      "critical_defects": 0
+    }
+  },
+  "source_checksums": {
+    "contracts/agent/pilot.yaml": "b4f2f23ae45bba277efd1cc4f0163b6be32bf5c67806732e71d94667adfcf886",
+    "contracts/agent/evaluation-fixtures.yaml": "442c3fd1a69522752fdf735b15da9528e11a8151cec0ec34a7396234db593c40"
+  },
+  "decision": "GO"
+}

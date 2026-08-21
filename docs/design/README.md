@@ -2,7 +2,9 @@
 
 ## Purpose
 This directory contains the design documentation for BLab Design System.
-Use these files as the source of truth for visual rules, component behavior, interaction quality, and accessibility expectations.
+The authoritative machine-readable source is `../../contracts/blab.design.yaml`.
+Use these documents as Design-owned explanatory guidance; where a legacy
+statement conflicts with the approved contract, the contract wins.
 
 ## Documents
 - `BRAND.md` — BLab visual identity, atmosphere, and design philosophy
@@ -23,6 +25,7 @@ Use these files as the source of truth for visual rules, component behavior, int
 7. `DO_DONT.md`
 
 ## How to use these docs
-- Read `DESIGN.md` at the repository root first.
+- Treat the repository-root `DESIGN.md` as an unreconciled legacy draft until
+  Design reviews its protected pre-existing changes against the contract.
 - Use these documents to guide UI decisions before introducing new component styles.
 - Prefer updating the system documentation over creating one-off visual exceptions.

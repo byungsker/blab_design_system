@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.doctor-envelope/v1",
+  "title": "BLDS doctor result envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "tool_version",
+    "ok",
+    "result",
+    "error"
+  ],
+  "properties": {
+    "schema": {
+      "const": "blab.doctor-envelope/v1"
+    },
+    "tool_version": {
+      "const": "0.1.0"
+    },
+    "ok": {
+      "type": "boolean"
+    },
+    "result": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/report"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "error": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/error"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "status",
+        "exit_code",
+        "summary",
+        "checks"
+      ],
+      "properties": {
+        "schema": {
+          "const": "blab.doctor/v1"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "warning",
+            "failure"
+          ]
+        },
+        "exit_code": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "pass",
+            "warning",
+            "failure",
+            "information"
+          ],
+          "properties": {
+            "pass": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "warning": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "failure": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "information": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/check"
+          }
+        }
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "severity",
+        "message"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "severity": {
+          "enum": [
+            "pass",
+            "warning",
+            "failure",
+            "information"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

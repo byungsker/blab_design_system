@@ -1,0 +1,89 @@
+schema: "blab.platform-support/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "local-evidence-and-ci-configuration-only"
+  as_of: "2026-07-28"
+  claim_boundary: "Local execution is limited to the macOS arm64 package evidence and one BLabButton-only Chrome widget suite. The browser result is not full-package web, browser-matrix, device, assistive-technology, haptic, rendering-conformance, shared-web-package, or public-support evidence. CI entries are syntax-validated configuration and are not remote-run evidence."
+
+toolchain:
+  dart_constraint: "^3.10.4"
+  flutter_constraint: ">=3.38.5"
+  locally_executed:
+    dart: "3.10.4"
+    flutter: "3.38.5"
+    host_os: "macos"
+    host_arch: "arm64"
+
+platforms:
+  - id: "macos-arm64"
+    package_support: "declared-platform-neutral"
+    local_evidence: "executed"
+    ci_configuration: "syntax-validated-only"
+    limitations: "Local package analyzer, widget tests, goldens, and platform-neutral example bundle were executed. A macOS GitHub Actions entry is configured but no remote run, physical-device, or assistive-technology claim is made."
+  - id: "linux-x64"
+    package_support: "declared-platform-neutral"
+    local_evidence: "not-executed"
+    ci_configuration: "syntax-validated-only"
+    limitations: "GitHub Actions configuration exists but no remote run is claimed in this packet."
+  - id: "windows-x64"
+    package_support: "unverified"
+    local_evidence: "not-executed"
+    ci_configuration: "syntax-validated-only"
+    limitations: "All seven aggregate checks are configured: contract, generation-drift, API, analyze, package-tests, golden-check, and example-build. No remote Windows run is claimed; rendering and platform integration remain unverified."
+  - id: "ios"
+    package_support: "unverified"
+    local_evidence: "not-executed"
+    ci_configuration: "not-configured"
+    limitations: "No simulator, device, VoiceOver, haptic, or application build evidence."
+  - id: "android"
+    package_support: "unverified"
+    local_evidence: "not-executed"
+    ci_configuration: "not-configured"
+    limitations: "No emulator, device, TalkBack, haptic, or application build evidence."
+  - id: "web"
+    package_support: "unverified"
+    local_evidence: "component-scoped-executed"
+    ci_configuration: "not-configured"
+    limitations: "Only the BLabButton browser widget suite was executed in local Chrome. No full-package web test, web build, deployment, browser matrix, physical device, assistive technology, haptic, golden/rendering conformance, shared web-package authority, or public web support is claimed; OpenCS remains a separate adapter boundary."
+    browser_widget_evidence:
+      component: "BLabButton"
+      scope: "single-component-browser-widget-suite-only"
+      command: "flutter test --platform chrome test/blab_button_test.dart"
+      exit_code: 0
+      tests_passed: 61
+      tests_failed: 0
+      browser: "Chrome"
+      browser_version: "150.0.7871.187"
+      flutter: "3.38.5"
+      dart: "3.10.4"
+      host_os: "macos"
+      host_arch: "arm64"
+      executed_on: "2026-07-28"
+      limitations:
+        - "not-full-package-web-test"
+        - "not-web-build-or-deployment"
+        - "not-browser-matrix"
+        - "not-physical-device"
+        - "not-assistive-technology"
+        - "not-haptic"
+        - "not-golden-or-rendering-conformance"
+        - "not-shared-web-package-authority"
+        - "not-public-web-support"
+
+ci:
+  workflow: ".github/workflows/verify.yml"
+  remote_execution: "not-claimed"
+  matrix:
+    - os: "ubuntu-latest"
+      flutter: "3.38.5"
+      checks: ["contract", "generation-drift", "api", "analyze", "package-tests", "golden-check", "example-build"]
+      status: "syntactically-configured-not-executed-remotely"
+    - os: "macos-latest"
+      flutter: "3.38.5"
+      checks: ["contract", "generation-drift", "api", "analyze", "package-tests", "golden-check", "example-build"]
+      status: "syntactically-configured-not-executed-remotely"
+    - os: "windows-latest"
+      flutter: "3.38.5"
+      checks: ["contract", "generation-drift", "api", "analyze", "package-tests", "golden-check", "example-build"]
+      status: "syntactically-configured-not-executed-remotely"

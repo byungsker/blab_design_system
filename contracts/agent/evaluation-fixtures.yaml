@@ -1,0 +1,76 @@
+schema: "blab.agent-evaluation/v1"
+version: "0.1.0"
+purpose: "Read-only agent-consumption pilot for BLA-7/BAR-86 BottomBar remediation."
+scoring:
+  denominator: 10
+  pass_rule: "At least 9 fixtures pass and zero critical unsupported-state claims occur."
+  critical_failure: "A fixture claims an unsupported or not-applicable state is implemented, or a read-only boundary is violated."
+fixtures:
+  - id: "component-button"
+    severity: "normal"
+    query: {kind: "component", id: "button"}
+    assertions:
+      - {path: "result.component.public_type", equals: "BLabButton"}
+      - {path: "result.component.states.required", contains: "default"}
+
+  - id: "component-bottom-bar"
+    severity: "critical"
+    query: {kind: "component", id: "bottom-bar"}
+    assertions:
+      - {path: "result.component.public_type", equals: "BLabBottomBar"}
+      - {path: "result.component.states.conditional", contains: "optional-action-with-callback-and-localized-label"}
+
+  - id: "state-bottom-bar"
+    severity: "critical"
+    query: {kind: "state", id: "bottom-bar"}
+    assertions:
+      - {path: "result.states.required", contains: "selected-current"}
+      - {path: "result.states.not_applicable", contains: "disabled"}
+
+  - id: "state-button-unclaimed-loading"
+    severity: "critical"
+    query: {kind: "state", id: "button"}
+    assertions:
+      - {path: "result.states.absence_evidence.loading-busy.status", equals: "typed-code-inspection-only"}
+
+  - id: "token-bottom-bar-surface"
+    severity: "normal"
+    query: {kind: "token", id: "component.bottom-bar.container-surface"}
+    assertions:
+      - {path: "result.token.id", equals: "component.bottom-bar.container-surface"}
+      - {path: "result.token.type", equals: "color"}
+
+  - id: "token-focus-ring"
+    severity: "normal"
+    query: {kind: "token", id: "semantic.focus.ring"}
+    assertions:
+      - {path: "result.token.id", equals: "semantic.focus.ring"}
+      - {path: "result.token.modes.light", not_empty: true}
+
+  - id: "accessibility-target"
+    severity: "critical"
+    query: {kind: "accessibility", id: "all"}
+    assertions:
+      - {path: "result.rules.pointer_target.minimum_width", equals: 44}
+      - {path: "result.rules.focus.visible_required", equals: true}
+
+  - id: "example-bottom-bar"
+    severity: "normal"
+    query: {kind: "example", id: "bottom-bar"}
+    assertions:
+      - {path: "result.path", equals: "example/lib/stories/bottom_bar_story.dart"}
+      - {path: "result.content", not_empty: true}
+
+  - id: "platform-bottom-bar"
+    severity: "normal"
+    query: {kind: "platform", id: "bottom-bar"}
+    assertions:
+      - {path: "result.component_id", equals: "bottom-bar"}
+      - {path: "result.constraints", contains: "44x44 minimum interactive target"}
+
+  - id: "component-keyboard-accessory"
+    severity: "normal"
+    query: {kind: "component", id: "keyboard-accessory-bar"}
+    assertions:
+      - {path: "result.component.public_type", equals: "BLabKeyboardAccessoryBar"}
+      - {path: "result.component.states.conditional", contains: "scrollable-overflow"}

@@ -28,5 +28,8 @@ migrate_working_dir/
 .dart_tool/
 .flutter-plugins-dependencies
 /build/
+/example/build/
 /coverage/
+.codex/
 AGENTS.local.md
+.claude/settings.local.json

@@ -1,0 +1,1769 @@
+{
+  "schema": "blab.figma-token-mapping/v1",
+  "_generated": {
+    "notice": "GENERATED CODE - DO NOT EDIT.",
+    "sources": [
+      "contracts/blab.design.yaml",
+      "contracts/tokens/blab.tokens.yaml"
+    ],
+    "source_checksum_sha256": "2187c652f2b82e22c038bcf3a7dbc58d81b0537db5b6c663981e0fa45c873863",
+    "content_checksum_sha256": "ee08aa7a716c25fc95b15497439dac2fb8395660399aad92bfc85fbb8f06612e",
+    "remote_mutation": false,
+    "custody": "repository-local"
+  },
+  "version": "0.2.0",
+  "mappings": [
+    {
+      "token_id": "component.bottom-bar.action-foreground",
+      "figma_path": "component/bottom-bar/action-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.action-surface",
+      "figma_path": "component/bottom-bar/action-surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.container-border",
+      "figma_path": "component/bottom-bar/container-border",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.container-surface",
+      "figma_path": "component/bottom-bar/container-surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.drag-overlay",
+      "figma_path": "component/bottom-bar/drag-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#26000000",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "#33000000",
+        "high-contrast-dark": "#33FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.focus-outer-ring",
+      "figma_path": "component/bottom-bar/focus-outer-ring",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.focus-outline",
+      "figma_path": "component/bottom-bar/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.hover-overlay",
+      "figma_path": "component/bottom-bar/hover-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14FFFFFF",
+        "high-contrast-light": "#1F000000",
+        "high-contrast-dark": "#1FFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.pressed-overlay",
+      "figma_path": "component/bottom-bar/pressed-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#1F000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#33000000",
+        "high-contrast-dark": "#33FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.selected-foreground",
+      "figma_path": "component/bottom-bar/selected-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.selected-highlight",
+      "figma_path": "component/bottom-bar/selected-highlight",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#66FFFFFF",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "#00000000",
+        "high-contrast-dark": "#00000000"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.selected-shadow",
+      "figma_path": "component/bottom-bar/selected-shadow",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14000000",
+        "high-contrast-light": "#00000000",
+        "high-contrast-dark": "#00000000"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.selected-surface",
+      "figma_path": "component/bottom-bar/selected-surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#1F000000",
+        "dark": "#38FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.bottom-bar.unselected-foreground",
+      "figma_path": "component/bottom-bar/unselected-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#DD000000",
+        "dark": "#DDFFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.button.destructive.background",
+      "figma_path": "component/button/destructive/background",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF3B30",
+        "dark": "#FF3B30",
+        "high-contrast-light": "#FF3B30",
+        "high-contrast-dark": "#FF3B30"
+      }
+    },
+    {
+      "token_id": "component.button.destructive.focus-outline",
+      "figma_path": "component/button/destructive/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "component.button.destructive.foreground",
+      "figma_path": "component/button/destructive/foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#000000",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "component.button.destructive.hover-overlay",
+      "figma_path": "component/button/destructive/hover-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14000000",
+        "high-contrast-light": "#1FFFFFFF",
+        "high-contrast-dark": "#1FFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.button.focus-outer-ring",
+      "figma_path": "component/button/focus-outer-ring",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.button.primary.background",
+      "figma_path": "component/button/primary/background",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#5B7FFF",
+        "high-contrast-dark": "#5B7FFF"
+      }
+    },
+    {
+      "token_id": "component.button.primary.focus-outline",
+      "figma_path": "component/button/primary/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "component.button.primary.foreground",
+      "figma_path": "component/button/primary/foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#000000",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "component.button.primary.hover-overlay",
+      "figma_path": "component/button/primary/hover-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14000000",
+        "high-contrast-light": "#1FFFFFFF",
+        "high-contrast-dark": "#1FFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.button.secondary.focus-outline",
+      "figma_path": "component/button/secondary/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.button.secondary.hover-overlay",
+      "figma_path": "component/button/secondary/hover-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14FFFFFF",
+        "high-contrast-light": "#1F000000",
+        "high-contrast-dark": "#1FFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.card.border",
+      "figma_path": "component/card/border",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.card.surface",
+      "figma_path": "component/card/surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "component.focus-ring.color",
+      "figma_path": "component/focus-ring/color",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.glass.border",
+      "figma_path": "component/glass/border",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.glass.surface",
+      "figma_path": "component/glass/surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.blur",
+      "figma_path": "component/keyboard-accessory/blur",
+      "collection": "components",
+      "type": "dimension",
+      "resolved_modes": {
+        "light": "20px",
+        "dark": "20px",
+        "high-contrast-light": "0px",
+        "high-contrast-dark": "0px"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.border",
+      "figma_path": "component/keyboard-accessory/border",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#66FFFFFF",
+        "dark": "#33FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.disabled-foreground",
+      "figma_path": "component/keyboard-accessory/disabled-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#36000000",
+        "dark": "#45FFFFFF",
+        "high-contrast-light": "#6B7280",
+        "high-contrast-dark": "#9CA3AF"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.divider",
+      "figma_path": "component/keyboard-accessory/divider",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#1A000000",
+        "dark": "#33FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.focus-outer-ring",
+      "figma_path": "component/keyboard-accessory/focus-outer-ring",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.focus-outline",
+      "figma_path": "component/keyboard-accessory/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.foreground",
+      "figma_path": "component/keyboard-accessory/foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#B3000000",
+        "dark": "#E6FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.hover-overlay",
+      "figma_path": "component/keyboard-accessory/hover-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14FFFFFF",
+        "high-contrast-light": "#1F000000",
+        "high-contrast-dark": "#1FFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.pressed-overlay",
+      "figma_path": "component/keyboard-accessory/pressed-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#1F000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#33000000",
+        "high-contrast-dark": "#33FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.shadow",
+      "figma_path": "component/keyboard-accessory/shadow",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#26000000",
+        "dark": "#26000000",
+        "high-contrast-light": "#00000000",
+        "high-contrast-dark": "#00000000"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.surface-end",
+      "figma_path": "component/keyboard-accessory/surface-end",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#4DFFFFFF",
+        "dark": "#14FFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "component.keyboard-accessory.surface-start",
+      "figma_path": "component/keyboard-accessory/surface-start",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#99FFFFFF",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "component.pressable.focus-outer-ring",
+      "figma_path": "component/pressable/focus-outer-ring",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.pressable.focus-outline",
+      "figma_path": "component/pressable/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.pressable.hover-overlay",
+      "figma_path": "component/pressable/hover-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14FFFFFF",
+        "high-contrast-light": "#1F000000",
+        "high-contrast-dark": "#1FFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.pressable.pressed-overlay",
+      "figma_path": "component/pressable/pressed-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#1F000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#33000000",
+        "high-contrast-dark": "#33FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.segmented.container-border",
+      "figma_path": "component/segmented/container-border",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#00000000",
+        "dark": "#00000000",
+        "high-contrast-light": "#FF000000",
+        "high-contrast-dark": "#FFFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.segmented.container-surface",
+      "figma_path": "component/segmented/container-surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFF5F5F5",
+        "dark": "#FF232323",
+        "high-contrast-light": "#FFFFFFFF",
+        "high-contrast-dark": "#FF121212"
+      }
+    },
+    {
+      "token_id": "component.segmented.disabled-foreground",
+      "figma_path": "component/segmented/disabled-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF68707D",
+        "dark": "#FF9CA3AF",
+        "high-contrast-light": "#FF6B7280",
+        "high-contrast-dark": "#FF9CA3AF"
+      }
+    },
+    {
+      "token_id": "component.segmented.focus-outer-ring",
+      "figma_path": "component/segmented/focus-outer-ring",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF5B7FFF",
+        "dark": "#FF5B7FFF",
+        "high-contrast-light": "#FF000000",
+        "high-contrast-dark": "#FFFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.segmented.focus-outline",
+      "figma_path": "component/segmented/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF000000",
+        "dark": "#FFFFFFFF",
+        "high-contrast-light": "#FF000000",
+        "high-contrast-dark": "#FFFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.segmented.hover-overlay",
+      "figma_path": "component/segmented/hover-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14FFFFFF",
+        "high-contrast-light": "#1F000000",
+        "high-contrast-dark": "#1FFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.segmented.pressed-overlay",
+      "figma_path": "component/segmented/pressed-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#1F000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#33000000",
+        "high-contrast-dark": "#33FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.segmented.selected-foreground",
+      "figma_path": "component/segmented/selected-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF000000",
+        "dark": "#FFFFFFFF",
+        "high-contrast-light": "#FF000000",
+        "high-contrast-dark": "#FFFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.segmented.selected-indicator",
+      "figma_path": "component/segmented/selected-indicator",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF5B7FFF",
+        "dark": "#FF5B7FFF",
+        "high-contrast-light": "#FF000000",
+        "high-contrast-dark": "#FFFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.segmented.selected-shadow",
+      "figma_path": "component/segmented/selected-shadow",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14000000",
+        "high-contrast-light": "#00000000",
+        "high-contrast-dark": "#00000000"
+      }
+    },
+    {
+      "token_id": "component.segmented.selected-surface",
+      "figma_path": "component/segmented/selected-surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFFFF",
+        "dark": "#FF2C2C2E",
+        "high-contrast-light": "#FFFFFFFF",
+        "high-contrast-dark": "#FF121212"
+      }
+    },
+    {
+      "token_id": "component.segmented.unselected-foreground",
+      "figma_path": "component/segmented/unselected-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#DD000000",
+        "dark": "#DDFFFFFF",
+        "high-contrast-light": "#FF000000",
+        "high-contrast-dark": "#FFFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.snackbar.badge-error",
+      "figma_path": "component/snackbar/badge-error",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF3B30",
+        "dark": "#FF3B30",
+        "high-contrast-light": "#FF3B30",
+        "high-contrast-dark": "#FF3B30"
+      }
+    },
+    {
+      "token_id": "component.snackbar.badge-glyph",
+      "figma_path": "component/snackbar/badge-glyph",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#000000",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "component.snackbar.badge-info",
+      "figma_path": "component/snackbar/badge-info",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#4ECDC4",
+        "dark": "#4ECDC4",
+        "high-contrast-light": "#4ECDC4",
+        "high-contrast-dark": "#4ECDC4"
+      }
+    },
+    {
+      "token_id": "component.snackbar.badge-outline",
+      "figma_path": "component/snackbar/badge-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#00000000",
+        "dark": "#00000000",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.snackbar.badge-success",
+      "figma_path": "component/snackbar/badge-success",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#10B981",
+        "dark": "#10B981",
+        "high-contrast-light": "#10B981",
+        "high-contrast-dark": "#10B981"
+      }
+    },
+    {
+      "token_id": "component.snackbar.badge-warning",
+      "figma_path": "component/snackbar/badge-warning",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF9500",
+        "dark": "#FF9500",
+        "high-contrast-light": "#FF9500",
+        "high-contrast-dark": "#FF9500"
+      }
+    },
+    {
+      "token_id": "component.snackbar.border",
+      "figma_path": "component/snackbar/border",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.snackbar.foreground",
+      "figma_path": "component/snackbar/foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.snackbar.surface",
+      "figma_path": "component/snackbar/surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#1E1E1E",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "component.tab.container-surface",
+      "figma_path": "component/tab/container-surface",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#00000000",
+        "dark": "#00000000",
+        "high-contrast-light": "#00000000",
+        "high-contrast-dark": "#00000000"
+      }
+    },
+    {
+      "token_id": "component.tab.divider",
+      "figma_path": "component/tab/divider",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#00000000",
+        "dark": "#00000000",
+        "high-contrast-light": "#00000000",
+        "high-contrast-dark": "#00000000"
+      }
+    },
+    {
+      "token_id": "component.tab.focus-outer-ring",
+      "figma_path": "component/tab/focus-outer-ring",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.tab.focus-outline",
+      "figma_path": "component/tab/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.tab.hover-overlay",
+      "figma_path": "component/tab/hover-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#14FFFFFF",
+        "high-contrast-light": "#1F000000",
+        "high-contrast-dark": "#1FFFFFFF"
+      }
+    },
+    {
+      "token_id": "component.tab.pressed-overlay",
+      "figma_path": "component/tab/pressed-overlay",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#1F000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#33000000",
+        "high-contrast-dark": "#33FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.tab.selected-foreground",
+      "figma_path": "component/tab/selected-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.tab.selected-indicator",
+      "figma_path": "component/tab/selected-indicator",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.tab.unselected-foreground",
+      "figma_path": "component/tab/unselected-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#DD000000",
+        "dark": "#DDFFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.text-field.clear-background",
+      "figma_path": "component/text-field/clear-background",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#99000000",
+        "dark": "#99FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.text-field.clear-foreground",
+      "figma_path": "component/text-field/clear-foreground",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#000000",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "component.text-field.error-border",
+      "figma_path": "component/text-field/error-border",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF3B30",
+        "dark": "#FF3B30",
+        "high-contrast-light": "#FF3B30",
+        "high-contrast-dark": "#FF3B30"
+      }
+    },
+    {
+      "token_id": "component.text-field.focus-outer-ring",
+      "figma_path": "component/text-field/focus-outer-ring",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.text-field.focus-outline",
+      "figma_path": "component/text-field/focus-outline",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.text-field.hint",
+      "figma_path": "component/text-field/hint",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#99000000",
+        "dark": "#99FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.text-field.hover-border",
+      "figma_path": "component/text-field/hover-border",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#26000000",
+        "dark": "#38FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "component.text-field.label",
+      "figma_path": "component/text-field/label",
+      "collection": "components",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#B3000000",
+        "dark": "#B3FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "primitive.color.black",
+      "figma_path": "primitive/color/black",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#000000",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "primitive.color.destructive",
+      "figma_path": "primitive/color/destructive",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF6B6B",
+        "dark": "#FF6B6B",
+        "high-contrast-light": "#FF6B6B",
+        "high-contrast-dark": "#FF6B6B"
+      }
+    },
+    {
+      "token_id": "primitive.color.disabled-dark",
+      "figma_path": "primitive/color/disabled-dark",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#9CA3AF",
+        "dark": "#9CA3AF",
+        "high-contrast-light": "#9CA3AF",
+        "high-contrast-dark": "#9CA3AF"
+      }
+    },
+    {
+      "token_id": "primitive.color.disabled-light",
+      "figma_path": "primitive/color/disabled-light",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#6B7280",
+        "dark": "#6B7280",
+        "high-contrast-light": "#6B7280",
+        "high-contrast-dark": "#6B7280"
+      }
+    },
+    {
+      "token_id": "primitive.color.elevated-dark",
+      "figma_path": "primitive/color/elevated-dark",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#2C2C2E",
+        "dark": "#2C2C2E",
+        "high-contrast-light": "#2C2C2E",
+        "high-contrast-dark": "#2C2C2E"
+      }
+    },
+    {
+      "token_id": "primitive.color.elevated-light",
+      "figma_path": "primitive/color/elevated-light",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#F8F9FA",
+        "dark": "#F8F9FA",
+        "high-contrast-light": "#F8F9FA",
+        "high-contrast-dark": "#F8F9FA"
+      }
+    },
+    {
+      "token_id": "primitive.color.error",
+      "figma_path": "primitive/color/error",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF3B30",
+        "dark": "#FF3B30",
+        "high-contrast-light": "#FF3B30",
+        "high-contrast-dark": "#FF3B30"
+      }
+    },
+    {
+      "token_id": "primitive.color.error-alt",
+      "figma_path": "primitive/color/error-alt",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#EF4444",
+        "dark": "#EF4444",
+        "high-contrast-light": "#EF4444",
+        "high-contrast-dark": "#EF4444"
+      }
+    },
+    {
+      "token_id": "primitive.color.error-background",
+      "figma_path": "primitive/color/error-background",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FEE2E2",
+        "dark": "#FEE2E2",
+        "high-contrast-light": "#FEE2E2",
+        "high-contrast-dark": "#FEE2E2"
+      }
+    },
+    {
+      "token_id": "primitive.color.info",
+      "figma_path": "primitive/color/info",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#4ECDC4",
+        "dark": "#4ECDC4",
+        "high-contrast-light": "#4ECDC4",
+        "high-contrast-dark": "#4ECDC4"
+      }
+    },
+    {
+      "token_id": "primitive.color.info-alt",
+      "figma_path": "primitive/color/info-alt",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#3498DB",
+        "dark": "#3498DB",
+        "high-contrast-light": "#3498DB",
+        "high-contrast-dark": "#3498DB"
+      }
+    },
+    {
+      "token_id": "primitive.color.primary",
+      "figma_path": "primitive/color/primary",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#5B7FFF",
+        "high-contrast-dark": "#5B7FFF"
+      }
+    },
+    {
+      "token_id": "primitive.color.primary-light",
+      "figma_path": "primitive/color/primary-light",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#6B8AFF",
+        "dark": "#6B8AFF",
+        "high-contrast-light": "#6B8AFF",
+        "high-contrast-dark": "#6B8AFF"
+      }
+    },
+    {
+      "token_id": "primitive.color.scaffold-dark",
+      "figma_path": "primitive/color/scaffold-dark",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#121212",
+        "dark": "#121212",
+        "high-contrast-light": "#121212",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "primitive.color.scaffold-light",
+      "figma_path": "primitive/color/scaffold-light",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FAFAFA",
+        "dark": "#FAFAFA",
+        "high-contrast-light": "#FAFAFA",
+        "high-contrast-dark": "#FAFAFA"
+      }
+    },
+    {
+      "token_id": "primitive.color.subtle-blue-light",
+      "figma_path": "primitive/color/subtle-blue-light",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#F5F7FF",
+        "dark": "#F5F7FF",
+        "high-contrast-light": "#F5F7FF",
+        "high-contrast-dark": "#F5F7FF"
+      }
+    },
+    {
+      "token_id": "primitive.color.subtle-dark",
+      "figma_path": "primitive/color/subtle-dark",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#2A2A2A",
+        "dark": "#2A2A2A",
+        "high-contrast-light": "#2A2A2A",
+        "high-contrast-dark": "#2A2A2A"
+      }
+    },
+    {
+      "token_id": "primitive.color.success",
+      "figma_path": "primitive/color/success",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#10B981",
+        "dark": "#10B981",
+        "high-contrast-light": "#10B981",
+        "high-contrast-dark": "#10B981"
+      }
+    },
+    {
+      "token_id": "primitive.color.success-alt",
+      "figma_path": "primitive/color/success-alt",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#34C759",
+        "dark": "#34C759",
+        "high-contrast-light": "#34C759",
+        "high-contrast-dark": "#34C759"
+      }
+    },
+    {
+      "token_id": "primitive.color.success-background",
+      "figma_path": "primitive/color/success-background",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#D1FAE5",
+        "dark": "#D1FAE5",
+        "high-contrast-light": "#D1FAE5",
+        "high-contrast-dark": "#D1FAE5"
+      }
+    },
+    {
+      "token_id": "primitive.color.surface-dark",
+      "figma_path": "primitive/color/surface-dark",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#1E1E1E",
+        "dark": "#1E1E1E",
+        "high-contrast-light": "#1E1E1E",
+        "high-contrast-dark": "#1E1E1E"
+      }
+    },
+    {
+      "token_id": "primitive.color.surface-light",
+      "figma_path": "primitive/color/surface-light",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "primitive.color.warning",
+      "figma_path": "primitive/color/warning",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF9500",
+        "dark": "#FF9500",
+        "high-contrast-light": "#FF9500",
+        "high-contrast-dark": "#FF9500"
+      }
+    },
+    {
+      "token_id": "primitive.color.warning-alt",
+      "figma_path": "primitive/color/warning-alt",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFBE0B",
+        "dark": "#FFBE0B",
+        "high-contrast-light": "#FFBE0B",
+        "high-contrast-dark": "#FFBE0B"
+      }
+    },
+    {
+      "token_id": "primitive.color.white",
+      "figma_path": "primitive/color/white",
+      "collection": "primitives",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "primitive.dimension.focus-outline-width",
+      "figma_path": "primitive/dimension/focus-outline-width",
+      "collection": "primitives",
+      "type": "dimension",
+      "resolved_modes": {
+        "light": "2px",
+        "dark": "2px",
+        "high-contrast-light": "2px",
+        "high-contrast-dark": "2px"
+      }
+    },
+    {
+      "token_id": "primitive.dimension.focus-ring-width",
+      "figma_path": "primitive/dimension/focus-ring-width",
+      "collection": "primitives",
+      "type": "dimension",
+      "resolved_modes": {
+        "light": "3px",
+        "dark": "3px",
+        "high-contrast-light": "3px",
+        "high-contrast-dark": "3px"
+      }
+    },
+    {
+      "token_id": "primitive.dimension.glass-blur-high-contrast",
+      "figma_path": "primitive/dimension/glass-blur-high-contrast",
+      "collection": "primitives",
+      "type": "dimension",
+      "resolved_modes": {
+        "light": "0px",
+        "dark": "0px",
+        "high-contrast-light": "0px",
+        "high-contrast-dark": "0px"
+      }
+    },
+    {
+      "token_id": "primitive.dimension.glass-blur-standard",
+      "figma_path": "primitive/dimension/glass-blur-standard",
+      "collection": "primitives",
+      "type": "dimension",
+      "resolved_modes": {
+        "light": "25px",
+        "dark": "25px",
+        "high-contrast-light": "25px",
+        "high-contrast-dark": "25px"
+      }
+    },
+    {
+      "token_id": "primitive.number.glass-saturation-high-contrast",
+      "figma_path": "primitive/number/glass-saturation-high-contrast",
+      "collection": "primitives",
+      "type": "percentage",
+      "resolved_modes": {
+        "light": "100%",
+        "dark": "100%",
+        "high-contrast-light": "100%",
+        "high-contrast-dark": "100%"
+      }
+    },
+    {
+      "token_id": "primitive.number.glass-saturation-standard",
+      "figma_path": "primitive/number/glass-saturation-standard",
+      "collection": "primitives",
+      "type": "percentage",
+      "resolved_modes": {
+        "light": "180%",
+        "dark": "180%",
+        "high-contrast-light": "180%",
+        "high-contrast-dark": "180%"
+      }
+    },
+    {
+      "token_id": "semantic.action.destructive",
+      "figma_path": "semantic/action/destructive",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF3B30",
+        "dark": "#FF3B30",
+        "high-contrast-light": "#FF3B30",
+        "high-contrast-dark": "#FF3B30"
+      }
+    },
+    {
+      "token_id": "semantic.action.destructive-foreground",
+      "figma_path": "semantic/action/destructive-foreground",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#000000",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "semantic.action.primary",
+      "figma_path": "semantic/action/primary",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#5B7FFF",
+        "high-contrast-dark": "#5B7FFF"
+      }
+    },
+    {
+      "token_id": "semantic.action.primary-foreground",
+      "figma_path": "semantic/action/primary-foreground",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#000000",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "semantic.border.default",
+      "figma_path": "semantic/border/default",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "semantic.border.strong",
+      "figma_path": "semantic/border/strong",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#26000000",
+        "dark": "#38FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "semantic.border.subtle",
+      "figma_path": "semantic/border/subtle",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#0D000000",
+        "dark": "#14FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "semantic.focus.accent",
+      "figma_path": "semantic/focus/accent",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "semantic.focus.canvas",
+      "figma_path": "semantic/focus/canvas",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "semantic.focus.outline-width",
+      "figma_path": "semantic/focus/outline-width",
+      "collection": "semantics",
+      "type": "dimension",
+      "resolved_modes": {
+        "light": "2px",
+        "dark": "2px",
+        "high-contrast-light": "2px",
+        "high-contrast-dark": "2px"
+      }
+    },
+    {
+      "token_id": "semantic.focus.ring",
+      "figma_path": "semantic/focus/ring",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "semantic.focus.ring-width",
+      "figma_path": "semantic/focus/ring-width",
+      "collection": "semantics",
+      "type": "dimension",
+      "resolved_modes": {
+        "light": "3px",
+        "dark": "3px",
+        "high-contrast-light": "3px",
+        "high-contrast-dark": "3px"
+      }
+    },
+    {
+      "token_id": "semantic.focus.surface",
+      "figma_path": "semantic/focus/surface",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#5B7FFF",
+        "dark": "#5B7FFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "semantic.glass.blur",
+      "figma_path": "semantic/glass/blur",
+      "collection": "semantics",
+      "type": "dimension",
+      "resolved_modes": {
+        "light": "25px",
+        "dark": "25px",
+        "high-contrast-light": "0px",
+        "high-contrast-dark": "0px"
+      }
+    },
+    {
+      "token_id": "semantic.glass.highlight",
+      "figma_path": "semantic/glass/highlight",
+      "collection": "semantics",
+      "type": "color-or-none",
+      "resolved_modes": {
+        "light": "#99FFFFFF",
+        "dark": "#26FFFFFF",
+        "high-contrast-light": "none",
+        "high-contrast-dark": "none"
+      }
+    },
+    {
+      "token_id": "semantic.glass.saturation",
+      "figma_path": "semantic/glass/saturation",
+      "collection": "semantics",
+      "type": "percentage",
+      "resolved_modes": {
+        "light": "180%",
+        "dark": "180%",
+        "high-contrast-light": "100%",
+        "high-contrast-dark": "100%"
+      }
+    },
+    {
+      "token_id": "semantic.glass.shadow",
+      "figma_path": "semantic/glass/shadow",
+      "collection": "semantics",
+      "type": "shadow-or-none",
+      "resolved_modes": {
+        "light": "0 8px 32px rgba(0,0,0,0.15)",
+        "dark": "0 8px 32px rgba(0,0,0,0.55)",
+        "high-contrast-light": "none",
+        "high-contrast-dark": "none"
+      }
+    },
+    {
+      "token_id": "semantic.state.disabled-foreground",
+      "figma_path": "semantic/state/disabled-foreground",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#6B7280",
+        "dark": "#9CA3AF",
+        "high-contrast-light": "#6B7280",
+        "high-contrast-dark": "#9CA3AF"
+      }
+    },
+    {
+      "token_id": "semantic.status.error",
+      "figma_path": "semantic/status/error",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF3B30",
+        "dark": "#FF3B30",
+        "high-contrast-light": "#FF3B30",
+        "high-contrast-dark": "#FF3B30"
+      }
+    },
+    {
+      "token_id": "semantic.status.foreground",
+      "figma_path": "semantic/status/foreground",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "semantic.status.info",
+      "figma_path": "semantic/status/info",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#4ECDC4",
+        "dark": "#4ECDC4",
+        "high-contrast-light": "#4ECDC4",
+        "high-contrast-dark": "#4ECDC4"
+      }
+    },
+    {
+      "token_id": "semantic.status.success",
+      "figma_path": "semantic/status/success",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#10B981",
+        "dark": "#10B981",
+        "high-contrast-light": "#10B981",
+        "high-contrast-dark": "#10B981"
+      }
+    },
+    {
+      "token_id": "semantic.status.warning",
+      "figma_path": "semantic/status/warning",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FF9500",
+        "dark": "#FF9500",
+        "high-contrast-light": "#FF9500",
+        "high-contrast-dark": "#FF9500"
+      }
+    },
+    {
+      "token_id": "semantic.surface.base",
+      "figma_path": "semantic/surface/base",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FAFAFA",
+        "dark": "#121212",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "semantic.surface.glass",
+      "figma_path": "semantic/surface/glass",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#14000000",
+        "dark": "#1FFFFFFF",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "semantic.surface.overlay",
+      "figma_path": "semantic/surface/overlay",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#1E1E1E",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "semantic.surface.raised",
+      "figma_path": "semantic/surface/raised",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#1E1E1E",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#121212"
+      }
+    },
+    {
+      "token_id": "semantic.text.inverse",
+      "figma_path": "semantic/text/inverse",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#FFFFFF",
+        "dark": "#000000",
+        "high-contrast-light": "#FFFFFF",
+        "high-contrast-dark": "#000000"
+      }
+    },
+    {
+      "token_id": "semantic.text.primary",
+      "figma_path": "semantic/text/primary",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#000000",
+        "dark": "#FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "semantic.text.secondary",
+      "figma_path": "semantic/text/secondary",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#DD000000",
+        "dark": "#DDFFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    },
+    {
+      "token_id": "semantic.text.tertiary",
+      "figma_path": "semantic/text/tertiary",
+      "collection": "semantics",
+      "type": "color",
+      "resolved_modes": {
+        "light": "#99000000",
+        "dark": "#99FFFFFF",
+        "high-contrast-light": "#000000",
+        "high-contrast-dark": "#FFFFFF"
+      }
+    }
+  ]
+}

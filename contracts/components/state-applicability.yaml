@@ -1,0 +1,627 @@
+schema: "blab.component-states/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "approved"
+  owner: "byungskerlab-design-team"
+  implementation_evidence_owner: "engineering-design-system-frontend"
+  implementation_evidence_as_of: "2026-07-26"
+  approved_by: "byungsker"
+  approved_on: "2026-07-25"
+  decision_ref: "BLDS-ALL-PHASES-2026-07-25"
+
+rules:
+  applicable_states_require_behavior_semantics_and_evidence: true
+  conditional_states_require_additive_api_callback_runtime_or_content_condition: true
+  not_applicable_states_must_not_be_simulated: true
+  standard_mode_values_remain_compatibility_locked: true
+  approved_standard_mode_compatibility_exceptions:
+    - decision_ref: "BLDS-BUTTON-CONTRAST-2026-07-28"
+      decision_document: "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md"
+      component_id: "button"
+      modes: ["light", "dark"]
+      token_ids:
+        - "semantic.action.primary-foreground"
+        - "semantic.action.destructive-foreground"
+      replacement: "primitive.color.black"
+
+components:
+  - id: "button"
+    public_type: "BLabButton"
+    required: ["default", "hover-pointer", "pressed", "focus", "disabled", "destructive-variant"]
+    conditional: ["loading-busy"]
+    not_applicable: ["selected", "current", "invalid", "expanded"]
+    implementation_evidence:
+      default:
+        status: "implemented-local"
+        test: "test/blab_button_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      destructive-variant:
+        status: "implemented-local"
+        test: "test/blab_button_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      disabled:
+        status: "implemented-local"
+        test: "test/blab_button_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      focus:
+        status: "implemented-local"
+        test: "test/blab_button_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      hover-pointer:
+        status: "implemented-local"
+        test: "test/blab_button_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      pressed:
+        status: "implemented-local"
+        test: "test/blab_button_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+    absence_evidence:
+      loading-busy:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_button.dart"
+          - "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      invalid:
+        status: "observable-runtime-validation-absence"
+        evidence:
+          - "test/blab_button_test.dart"
+          - "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      selected:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_button_test.dart"
+          - "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      expanded:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_button_test.dart"
+          - "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+      current:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_button.dart"
+          - "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+  - id: "text-field"
+    public_type: "BLabTextField"
+    required: ["empty", "populated", "hover-pointer", "focus", "read-only", "obscured", "multiline"]
+    conditional: ["disabled", "required", "invalid", "error-help", "clear-action"]
+    not_applicable: ["selected", "loading", "current"]
+    implementation_evidence:
+      empty:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      populated:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      hover-pointer:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      focus:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      read-only:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      obscured:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      multiline:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      disabled:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      required:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      invalid:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      error-help:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      clear-action:
+        status: "implemented-local"
+        test: "test/blab_text_field_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+    absence_evidence:
+      selected:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_text_field_test.dart"
+          - "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      loading:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_text_field.dart"
+          - "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+      current:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_text_field.dart"
+          - "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+  - id: "segmented-control"
+    public_type: "BLabSegmentedControl"
+    required: ["unselected", "selected", "hover-pointer", "pressed", "keyboard-visible-focus", "controlled-selection"]
+    conditional: ["disabled-item-or-control", "scrollable-overflow"]
+    required_when:
+      keyboard-roving-focus: "one-or-more-enabled-items"
+    not_applicable: ["loading", "busy", "invalid", "error", "overlay", "expanded", "current", "disclosure", "drag", "haptic"]
+    implementation_evidence:
+      unselected:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      selected:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      hover-pointer:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      pressed:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      keyboard-visible-focus:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      controlled-selection:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      disabled-item-or-control:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      keyboard-roving-focus:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      scrollable-overflow:
+        status: "implemented-local"
+        test: "test/blab_segmented_control_test.dart"
+        documentation: "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_SCROLLABLE_OVERFLOW_ADDENDUM.md"
+    absence_evidence:
+      loading:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      busy:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      invalid:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      error:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      overlay:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      expanded:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      current:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_segmented_control_test.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      disclosure:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      drag:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+      haptic:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/blab_segmented_control.dart"
+          - "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+  - id: "tab-bar"
+    public_type: "BLabTabBar"
+    required: ["unselected", "selected-current", "hover-pointer", "pressed", "keyboard-visible-focus", "controller-controlled-selection", "keyboard-roving-focus"]
+    conditional: ["scrollable-overflow-when-isScrollable"]
+    not_applicable: ["disabled", "loading", "busy", "invalid", "error", "expanded", "disclosure", "drag-selection", "haptic", "bottom-bar"]
+    implementation_evidence:
+      unselected:
+        status: "implemented-local"
+        test: "test/blab_tab_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      selected-current:
+        status: "implemented-local"
+        test: "test/blab_tab_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      hover-pointer:
+        status: "implemented-local"
+        test: "test/blab_tab_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      pressed:
+        status: "implemented-local"
+        test: "test/blab_tab_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      keyboard-visible-focus:
+        status: "implemented-local"
+        test: "test/blab_tab_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      controller-controlled-selection:
+        status: "implemented-local"
+        test: "test/blab_tab_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      keyboard-roving-focus:
+        status: "implemented-local"
+        test: "test/blab_tab_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      scrollable-overflow-when-isScrollable:
+        status: "implemented-local"
+        test: "test/blab_tab_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+    absence_evidence:
+      disabled:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "api/blab_design_system.api.txt"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      loading:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_tab_bar.dart"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      busy:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_tab_bar.dart"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      invalid:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_tab_bar.dart"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      error:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_tab_bar.dart"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      expanded:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_tab_bar.dart"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      disclosure:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_tab_bar.dart"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      drag-selection:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_tab_bar_test.dart"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      haptic:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_tab_bar.dart"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+      bottom-bar:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "docs/BLDS_PHASE_3_TAB_BAR_DESIGN_DECISION.md"
+          - "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+  - id: "bottom-bar"
+    public_type: "BLabBottomBar"
+    required: ["unselected", "selected-current", "hover-pointer", "pressed", "focus", "long-press-drag"]
+    conditional: ["optional-action-with-callback-and-localized-label", "expanded-with-callback-localized-label-and-controlled-state"]
+    not_applicable: ["disabled", "loading", "invalid"]
+    implementation_evidence:
+      unselected:
+        status: "implemented-local"
+        test: "test/blab_bottom_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      selected-current:
+        status: "implemented-local"
+        test: "test/blab_bottom_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      hover-pointer:
+        status: "implemented-local"
+        test: "test/blab_bottom_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      pressed:
+        status: "implemented-local"
+        test: "test/blab_bottom_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      focus:
+        status: "implemented-local"
+        test: "test/blab_bottom_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      long-press-drag:
+        status: "implemented-local"
+        test: "test/blab_bottom_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      optional-action-with-callback-and-localized-label:
+        status: "implemented-local"
+        test: "test/blab_bottom_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      expanded-with-callback-localized-label-and-controlled-state:
+        status: "implemented-local"
+        test: "test/blab_bottom_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+    absence_evidence:
+      disabled:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "api/blab_design_system.api.txt"
+          - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      loading:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_bottom_bar.dart"
+          - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+      invalid:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_bottom_bar_test.dart"
+          - "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+  - id: "pressable-wrapper"
+    public_type: "BLabPressableWrapper"
+    required: ["default", "pressed", "focus", "long-press-when-supplied"]
+    conditional: ["hover-pointer"]
+    not_applicable: ["selected", "busy", "invalid"]
+    implementation_evidence:
+      default:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      pressed:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      focus:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      long-press-when-supplied:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      hover-pointer:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+    absence_evidence:
+      selected:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_pressable_card_test.dart"
+          - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      busy:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/pressable_wrapper.dart"
+          - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      invalid:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_pressable_card_test.dart"
+          - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+  - id: "card"
+    public_type: "BLabCard"
+    required: ["static-default"]
+    conditional: ["interactive-hover-when-actionable", "interactive-pressed-when-actionable", "interactive-focus-when-actionable", "long-press", "role-determined-by-action"]
+    not_applicable: ["loading", "selected", "disabled"]
+    implementation_evidence:
+      static-default:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      interactive-hover-when-actionable:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      interactive-pressed-when-actionable:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      interactive-focus-when-actionable:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      long-press:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      role-determined-by-action:
+        status: "implemented-local"
+        test: "test/blab_pressable_card_test.dart"
+        documentation: "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+    absence_evidence:
+      loading:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "lib/src/widgets/liquid_glass_card.dart"
+          - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      selected:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_pressable_card_test.dart"
+          - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+      disabled:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "api/blab_design_system.api.txt"
+          - "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+  - id: "snackbar"
+    public_type: "BLabSnackbar"
+    required: ["entering", "visible", "exiting", "success", "error", "warning", "info", "live-announcement"]
+    conditional: ["action", "dismiss", "hover-pointer", "pressed", "keyboard-visible-focus", "timer-paused", "programmatic-close"]
+    not_applicable: ["disabled", "loading", "selected", "invalid", "current", "expanded"]
+    implementation_evidence:
+      entering:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      visible:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      exiting:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      success:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      error:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      warning:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      info:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      live-announcement:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      action:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      dismiss:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      hover-pointer:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      pressed:
+          status: "implemented-local"
+          test: "test/blab_button_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      keyboard-visible-focus:
+          status: "implemented-local"
+          test: "test/blab_button_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      timer-paused:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      programmatic-close:
+          status: "implemented-local"
+          test: "test/blab_snackbar_test.dart"
+          documentation: "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+    absence_evidence:
+      disabled:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "api/blab_design_system.api.txt"
+          - "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      loading:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "api/blab_design_system.api.txt"
+          - "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      selected:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_snackbar_test.dart"
+          - "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      invalid:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_snackbar_test.dart"
+          - "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      current:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "api/blab_design_system.api.txt"
+          - "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+      expanded:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_snackbar_test.dart"
+          - "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+  - id: "keyboard-accessory-bar"
+    public_type: "BLabKeyboardAccessoryBar"
+    required: ["default", "hover-pointer", "pressed", "focus", "disabled-per-action"]
+    conditional: ["repeated-action-active-for-undo-redo", "scrollable-overflow"]
+    not_applicable: ["loading", "selected", "invalid"]
+    implementation_evidence:
+      default:
+        status: "implemented-local"
+        test: "test/blab_keyboard_accessory_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+      hover-pointer:
+        status: "implemented-local"
+        test: "test/blab_keyboard_accessory_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+      pressed:
+        status: "implemented-local"
+        test: "test/blab_keyboard_accessory_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+      focus:
+        status: "implemented-local"
+        test: "test/blab_keyboard_accessory_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+      disabled-per-action:
+        status: "implemented-local"
+        test: "test/blab_keyboard_accessory_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+      repeated-action-active-for-undo-redo:
+        status: "implemented-local"
+        test: "test/blab_keyboard_accessory_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+      scrollable-overflow:
+        status: "implemented-local"
+        test: "test/blab_keyboard_accessory_bar_test.dart"
+        documentation: "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+    absence_evidence:
+      loading:
+        status: "typed-code-inspection-only"
+        evidence:
+          - "api/blab_design_system.api.txt"
+          - "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+      selected:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_keyboard_accessory_bar_test.dart"
+          - "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+      invalid:
+        status: "observable-runtime-semantics-absence"
+        evidence:
+          - "test/blab_keyboard_accessory_bar_test.dart"
+          - "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"

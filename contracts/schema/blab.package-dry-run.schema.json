@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.package-dry-run/v1",
+  "type": "object",
+  "required": ["schema", "metadata", "archive", "warnings", "boundary"],
+  "properties": {
+    "schema": {"const": "blab.package-dry-run/v1"},
+    "metadata": {"type": "object", "required": ["as_of", "command", "package", "version", "publication_performed", "exit_code", "result"]},
+    "archive": {"type": "object", "required": ["inventory", "archive_name", "file_count", "compressed_size_reported", "compressed_size_scope", "name_manifest_sha256", "content_manifest_sha256", "exact_release_composition_approved", "notable_inclusions", "verified_exclusions", "decision_required"]},
+    "warnings": {"type": "array", "minItems": 0},
+    "boundary": {"type": "object", "required": ["registry_mutation", "release_target", "release_ready", "publication_ready"]}
+  },
+  "additionalProperties": false
+}

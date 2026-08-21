@@ -1,0 +1,1120 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "blab_design_system-0.2.0-local-resolution",
+  "documentNamespace": "https://byungskerlab.invalid/spdx/blab-design-system/0.2.0-local-4567a14a001edfd259cdac4fbc811030f942dd549922350efeed0c57cbf06970",
+  "creationInfo": {
+    "created": "2026-07-28T00:00:00Z",
+    "creators": [
+      "Tool: BLDS Phase5 inventory generator 0.1.0"
+    ],
+    "comment": "Local unreleased dependency resolution; not release composition or a dependency-license conclusion."
+  },
+  "packages": [
+    {
+      "name": "_fe_analyzer_shared",
+      "SPDXID": "SPDXRef-Package--fe-analyzer-shared",
+      "versionInfo": "93.0.0",
+      "downloadLocation": "https://pub.dev/packages/_fe_analyzer_shared",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/_fe_analyzer_shared@93.0.0"
+        }
+      ]
+    },
+    {
+      "name": "analyzer",
+      "SPDXID": "SPDXRef-Package-analyzer",
+      "versionInfo": "10.0.1",
+      "downloadLocation": "https://pub.dev/packages/analyzer",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/analyzer@10.0.1"
+        }
+      ]
+    },
+    {
+      "name": "async",
+      "SPDXID": "SPDXRef-Package-async",
+      "versionInfo": "2.13.1",
+      "downloadLocation": "https://pub.dev/packages/async",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/async@2.13.1"
+        }
+      ]
+    },
+    {
+      "name": "blab_design_system",
+      "SPDXID": "SPDXRef-Package-blab-design-system",
+      "versionInfo": "0.2.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": []
+    },
+    {
+      "name": "boolean_selector",
+      "SPDXID": "SPDXRef-Package-boolean-selector",
+      "versionInfo": "2.1.2",
+      "downloadLocation": "https://pub.dev/packages/boolean_selector",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/boolean_selector@2.1.2"
+        }
+      ]
+    },
+    {
+      "name": "characters",
+      "SPDXID": "SPDXRef-Package-characters",
+      "versionInfo": "1.4.0",
+      "downloadLocation": "https://pub.dev/packages/characters",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/characters@1.4.0"
+        }
+      ]
+    },
+    {
+      "name": "clock",
+      "SPDXID": "SPDXRef-Package-clock",
+      "versionInfo": "1.1.2",
+      "downloadLocation": "https://pub.dev/packages/clock",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/clock@1.1.2"
+        }
+      ]
+    },
+    {
+      "name": "collection",
+      "SPDXID": "SPDXRef-Package-collection",
+      "versionInfo": "1.19.1",
+      "downloadLocation": "https://pub.dev/packages/collection",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/collection@1.19.1"
+        }
+      ]
+    },
+    {
+      "name": "convert",
+      "SPDXID": "SPDXRef-Package-convert",
+      "versionInfo": "3.1.2",
+      "downloadLocation": "https://pub.dev/packages/convert",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/convert@3.1.2"
+        }
+      ]
+    },
+    {
+      "name": "crypto",
+      "SPDXID": "SPDXRef-Package-crypto",
+      "versionInfo": "3.0.7",
+      "downloadLocation": "https://pub.dev/packages/crypto",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/crypto@3.0.7"
+        }
+      ]
+    },
+    {
+      "name": "fake_async",
+      "SPDXID": "SPDXRef-Package-fake-async",
+      "versionInfo": "1.3.3",
+      "downloadLocation": "https://pub.dev/packages/fake_async",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/fake_async@1.3.3"
+        }
+      ]
+    },
+    {
+      "name": "file",
+      "SPDXID": "SPDXRef-Package-file",
+      "versionInfo": "7.0.1",
+      "downloadLocation": "https://pub.dev/packages/file",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/file@7.0.1"
+        }
+      ]
+    },
+    {
+      "name": "flutter",
+      "SPDXID": "SPDXRef-Package-flutter",
+      "versionInfo": "0.0.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": []
+    },
+    {
+      "name": "flutter_lints",
+      "SPDXID": "SPDXRef-Package-flutter-lints",
+      "versionInfo": "6.0.0",
+      "downloadLocation": "https://pub.dev/packages/flutter_lints",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/flutter_lints@6.0.0"
+        }
+      ]
+    },
+    {
+      "name": "flutter_test",
+      "SPDXID": "SPDXRef-Package-flutter-test",
+      "versionInfo": "0.0.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": []
+    },
+    {
+      "name": "glob",
+      "SPDXID": "SPDXRef-Package-glob",
+      "versionInfo": "2.1.3",
+      "downloadLocation": "https://pub.dev/packages/glob",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/glob@2.1.3"
+        }
+      ]
+    },
+    {
+      "name": "leak_tracker",
+      "SPDXID": "SPDXRef-Package-leak-tracker",
+      "versionInfo": "11.0.2",
+      "downloadLocation": "https://pub.dev/packages/leak_tracker",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/leak_tracker@11.0.2"
+        }
+      ]
+    },
+    {
+      "name": "leak_tracker_flutter_testing",
+      "SPDXID": "SPDXRef-Package-leak-tracker-flutter-testing",
+      "versionInfo": "3.0.10",
+      "downloadLocation": "https://pub.dev/packages/leak_tracker_flutter_testing",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/leak_tracker_flutter_testing@3.0.10"
+        }
+      ]
+    },
+    {
+      "name": "leak_tracker_testing",
+      "SPDXID": "SPDXRef-Package-leak-tracker-testing",
+      "versionInfo": "3.0.2",
+      "downloadLocation": "https://pub.dev/packages/leak_tracker_testing",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/leak_tracker_testing@3.0.2"
+        }
+      ]
+    },
+    {
+      "name": "lints",
+      "SPDXID": "SPDXRef-Package-lints",
+      "versionInfo": "6.1.0",
+      "downloadLocation": "https://pub.dev/packages/lints",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/lints@6.1.0"
+        }
+      ]
+    },
+    {
+      "name": "matcher",
+      "SPDXID": "SPDXRef-Package-matcher",
+      "versionInfo": "0.12.17",
+      "downloadLocation": "https://pub.dev/packages/matcher",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/matcher@0.12.17"
+        }
+      ]
+    },
+    {
+      "name": "material_color_utilities",
+      "SPDXID": "SPDXRef-Package-material-color-utilities",
+      "versionInfo": "0.11.1",
+      "downloadLocation": "https://pub.dev/packages/material_color_utilities",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/material_color_utilities@0.11.1"
+        }
+      ]
+    },
+    {
+      "name": "meta",
+      "SPDXID": "SPDXRef-Package-meta",
+      "versionInfo": "1.17.0",
+      "downloadLocation": "https://pub.dev/packages/meta",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/meta@1.17.0"
+        }
+      ]
+    },
+    {
+      "name": "package_config",
+      "SPDXID": "SPDXRef-Package-package-config",
+      "versionInfo": "2.2.0",
+      "downloadLocation": "https://pub.dev/packages/package_config",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/package_config@2.2.0"
+        }
+      ]
+    },
+    {
+      "name": "path",
+      "SPDXID": "SPDXRef-Package-path",
+      "versionInfo": "1.9.1",
+      "downloadLocation": "https://pub.dev/packages/path",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/path@1.9.1"
+        }
+      ]
+    },
+    {
+      "name": "pub_semver",
+      "SPDXID": "SPDXRef-Package-pub-semver",
+      "versionInfo": "2.2.0",
+      "downloadLocation": "https://pub.dev/packages/pub_semver",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/pub_semver@2.2.0"
+        }
+      ]
+    },
+    {
+      "name": "sky_engine",
+      "SPDXID": "SPDXRef-Package-sky-engine",
+      "versionInfo": "0.0.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": []
+    },
+    {
+      "name": "source_span",
+      "SPDXID": "SPDXRef-Package-source-span",
+      "versionInfo": "1.10.2",
+      "downloadLocation": "https://pub.dev/packages/source_span",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/source_span@1.10.2"
+        }
+      ]
+    },
+    {
+      "name": "stack_trace",
+      "SPDXID": "SPDXRef-Package-stack-trace",
+      "versionInfo": "1.12.1",
+      "downloadLocation": "https://pub.dev/packages/stack_trace",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/stack_trace@1.12.1"
+        }
+      ]
+    },
+    {
+      "name": "stream_channel",
+      "SPDXID": "SPDXRef-Package-stream-channel",
+      "versionInfo": "2.1.4",
+      "downloadLocation": "https://pub.dev/packages/stream_channel",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/stream_channel@2.1.4"
+        }
+      ]
+    },
+    {
+      "name": "string_scanner",
+      "SPDXID": "SPDXRef-Package-string-scanner",
+      "versionInfo": "1.4.1",
+      "downloadLocation": "https://pub.dev/packages/string_scanner",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/string_scanner@1.4.1"
+        }
+      ]
+    },
+    {
+      "name": "term_glyph",
+      "SPDXID": "SPDXRef-Package-term-glyph",
+      "versionInfo": "1.2.2",
+      "downloadLocation": "https://pub.dev/packages/term_glyph",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/term_glyph@1.2.2"
+        }
+      ]
+    },
+    {
+      "name": "test_api",
+      "SPDXID": "SPDXRef-Package-test-api",
+      "versionInfo": "0.7.7",
+      "downloadLocation": "https://pub.dev/packages/test_api",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/test_api@0.7.7"
+        }
+      ]
+    },
+    {
+      "name": "typed_data",
+      "SPDXID": "SPDXRef-Package-typed-data",
+      "versionInfo": "1.4.0",
+      "downloadLocation": "https://pub.dev/packages/typed_data",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/typed_data@1.4.0"
+        }
+      ]
+    },
+    {
+      "name": "vector_math",
+      "SPDXID": "SPDXRef-Package-vector-math",
+      "versionInfo": "2.2.0",
+      "downloadLocation": "https://pub.dev/packages/vector_math",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/vector_math@2.2.0"
+        }
+      ]
+    },
+    {
+      "name": "vm_service",
+      "SPDXID": "SPDXRef-Package-vm-service",
+      "versionInfo": "15.3.0",
+      "downloadLocation": "https://pub.dev/packages/vm_service",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/vm_service@15.3.0"
+        }
+      ]
+    },
+    {
+      "name": "watcher",
+      "SPDXID": "SPDXRef-Package-watcher",
+      "versionInfo": "1.2.1",
+      "downloadLocation": "https://pub.dev/packages/watcher",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/watcher@1.2.1"
+        }
+      ]
+    },
+    {
+      "name": "yaml",
+      "SPDXID": "SPDXRef-Package-yaml",
+      "versionInfo": "3.1.3",
+      "downloadLocation": "https://pub.dev/packages/yaml",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pub/yaml@3.1.3"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-Package--fe-analyzer-shared",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--fe-analyzer-shared",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-source-span"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package--fe-analyzer-shared"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-convert"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-crypto"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-glob"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-package-config"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-pub-semver"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-source-span"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-watcher"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-analyzer",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-yaml"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-async",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-async",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-blab-design-system",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-analyzer"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-blab-design-system",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-crypto"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-blab-design-system",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-flutter"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-blab-design-system",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-flutter-lints"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-blab-design-system",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-flutter-test"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-blab-design-system",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-yaml"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-boolean-selector",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-source-span"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-boolean-selector",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-string-scanner"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-convert",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-typed-data"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-crypto",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-typed-data"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-fake-async",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-clock"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-fake-async",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-file",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-file",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-characters"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-material-color-utilities"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-sky-engine"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-vector-math"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-lints",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-lints"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-clock"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-fake-async"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-flutter"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-leak-tracker-flutter-testing"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-matcher"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-stack-trace"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-stream-channel"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-test-api"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-flutter-test",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-vector-math"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-glob",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-async"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-glob",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-glob",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-file"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-glob",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-glob",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-string-scanner"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-clock"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-vm-service"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker-flutter-testing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-flutter"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker-flutter-testing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-leak-tracker"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker-flutter-testing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-leak-tracker-testing"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker-flutter-testing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-matcher"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker-flutter-testing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker-testing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-leak-tracker"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker-testing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-matcher"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-leak-tracker-testing",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-matcher",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-async"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-matcher",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-matcher",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-stack-trace"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-matcher",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-term-glyph"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-matcher",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-test-api"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-material-color-utilities",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-package-config",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-pub-semver",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-source-span",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-source-span",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-source-span",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-term-glyph"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-stack-trace",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-stream-channel",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-async"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-string-scanner",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-source-span"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-async"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-boolean-selector"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-meta"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-source-span"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-stack-trace"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-stream-channel"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-string-scanner"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-test-api",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-term-glyph"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-typed-data",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-watcher",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-async"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-watcher",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-path"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-yaml",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-collection"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-yaml",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-source-span"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-yaml",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-string-scanner"
+    }
+  ]
+}

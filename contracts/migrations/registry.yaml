@@ -1,0 +1,79 @@
+schema: "blab.migration-registry/v1"
+
+metadata:
+  version: "0.1.0"
+  status: "implemented-local-no-consumer-migration"
+  as_of: "2026-07-28"
+  package_version: "0.2.0"
+  package_state: "local-unreleased"
+
+baseline:
+  provenance: "contracts/compatibility/baseline-provenance.yaml"
+  current_api_snapshot: "api/blab_design_system.api.txt"
+  current_token_contract: "contracts/tokens/blab.tokens.yaml"
+
+codemod:
+  status: "not-applicable"
+  reason: "The two approved breaking token value corrections do not rename source vocabulary and require no deterministic consumer rewrite."
+  evidence:
+    repeated_deterministic_renames: 0
+    rename_entries: []
+    classifier_report: "generated at verification time"
+  reconsider_when:
+    minimum_repeated_rename_count: 2
+    requirements:
+      - "unambiguous source and destination"
+      - "syntax-aware transformation"
+      - "idempotency test"
+      - "consumer rehearsal and rollback evidence"
+
+migrations:
+  - id: "typed:semantic.action.primary-foreground"
+    surface: "token"
+    kind: "value"
+    classification: "breaking-compatibility-correction"
+    decision_ref: "BLDS-BUTTON-CONTRAST-2026-07-28"
+    decision_document: "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md"
+    status: "approved"
+    authority_status: "approved"
+    codemod_required: false
+    consumer_action: "No source rewrite; verify intentional black standard-mode foreground rendering."
+  - id: "typed:semantic.action.destructive-foreground"
+    surface: "token"
+    kind: "value"
+    classification: "breaking-compatibility-correction"
+    decision_ref: "BLDS-BUTTON-CONTRAST-2026-07-28"
+    decision_document: "docs/BLDS_PHASE_3_BUTTON_CONTRAST_DECISION.md"
+    status: "approved"
+    authority_status: "approved"
+    codemod_required: false
+    consumer_action: "No source rewrite; verify intentional black standard-mode foreground rendering."
+
+rehearsal:
+  mode: "disposable-repository-artifact-copy"
+  repository_source_access: "read-only-normalized-contained-real-files"
+  consumer_source_access: "forbidden"
+  consumer_source_mutation: "forbidden"
+  source_checkout_execution: "forbidden"
+  disposable_destination_containment: "canonical-system-temp-subdirectory"
+  cleanup: "required-and-verified"
+  inputs:
+    - path: "api/blab_design_system.api.txt"
+      sha256: "469f79a1c46da12bb4ac76a55565bcbe118e82a7fe3cc694b63a6ea71794ac5c"
+    - path: "contracts/tokens/blab.tokens.yaml"
+      sha256: "a94701b1191e3daa8dee88177d3523ce9c8ae8b5f56f5efdf0016f053d634dbe"
+    - path: "contracts/compatibility/baseline-provenance.yaml"
+      sha256: "computed-by-validator"
+  expected_result: "approved-compatibility-correction-no-source-rewrite"
+
+rollback:
+  strategy: "restore-baseline-pair-in-disposable-copy-and-verify-identities"
+  repository_source_access: "read-only-normalized-contained-real-files"
+  disposable_destination_containment: "canonical-system-temp-subdirectory"
+  artifacts:
+    - path: "contracts/compatibility/baselines/head-ee78fbe.api.txt"
+      sha256: "69d604922ef6f4109dcf03afc23fcc5b9c5cf0342afa0fd422dcdd556fc16089"
+    - path: "contracts/compatibility/baselines/head-ee78fbe.tokens.css"
+      sha256: "e774b7e7ba7faedbd8d2dc18dc4faf9fbd179d89ebaa2a0a46dbc89949fd1e75"
+  consumer_rollback: "not-run-no-authority"
+  release_rollback: "not-applicable-no-release"

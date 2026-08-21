@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blab.compatibility-baseline-admission/v1",
+  "type": "object",
+  "required": ["schema", "metadata", "authority", "boundary", "request"],
+  "properties": {
+    "schema": {"const": "blab.compatibility-baseline-admission/v1"},
+    "metadata": {
+      "type": "object",
+      "required": ["version", "status", "as_of"],
+      "properties": {
+        "status": {"const": "template-only-no-admission"}
+      }
+    },
+    "authority": {
+      "type": "object",
+      "required": ["status", "approved", "approver", "approval_id", "target_delivery_contract"],
+      "properties": {
+        "status": {"const": "human-approval-required"},
+        "approved": {"const": false}
+      }
+    },
+    "boundary": {
+      "type": "object",
+      "required": ["mutate_existing_baseline", "new_immutable_baseline_required", "independently_verified_git_commit_required", "reproducible_api_and_token_evidence_required", "admission_performed"],
+      "properties": {
+        "mutate_existing_baseline": {"const": false},
+        "new_immutable_baseline_required": {"const": true},
+        "independently_verified_git_commit_required": {"const": true},
+        "reproducible_api_and_token_evidence_required": {"const": true},
+        "admission_performed": {"const": false}
+      }
+    },
+    "request": {"type": "object"}
+  },
+  "additionalProperties": false
+}

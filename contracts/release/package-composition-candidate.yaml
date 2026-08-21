@@ -1,0 +1,68 @@
+schema: "blab.package-composition-candidate/v1"
+
+metadata:
+  version: "0.1.0"
+  as_of: "2026-07-28"
+  status: "candidate-human-unapproved"
+  human_approved: false
+  exact_release_composition_approved: false
+  release_authorized: false
+  publication_authorized: false
+
+included_classes:
+  - id: "runtime-library"
+    paths: ["lib/**"]
+    rationale: "Flutter runtime source, including generated Dart under lib."
+  - id: "package-metadata-and-root-notices"
+    paths: ["pubspec.yaml", "LICENSE", "README.md", "CHANGELOG.md", "THIRD_PARTY_NOTICES.md"]
+    rationale: "Candidate package metadata, license text, public overview, changelog, and notices."
+  - id: "conventional-package-documentation"
+    paths: ["doc/**"]
+    rationale: "Conventional pub package documentation index."
+  - id: "example"
+    paths: ["example/**"]
+    rationale: "Retained because the current package already intends to ship its runnable example; human approval remains pending."
+  - id: "candidate-governance-contracts"
+    paths: ["contracts/**"]
+    exclusions:
+      - "contracts/approvals/**"
+      - "contracts/delivery/**"
+      - "contracts/legal/attestations/**"
+      - "contracts/legal/file-origin-map.yaml"
+      - "contracts/sbom/**"
+      - "contracts/release/package-dry-run.yaml"
+      - "contracts/release/package-dry-run-inventory.json"
+      - "contracts/compatibility/baselines/**"
+      - "contracts/compatibility/baseline-provenance.yaml"
+      - "contracts/compatibility/baseline-admission.template.yaml"
+    rationale: "Candidate machine-readable policy and design evidence, subject to human package-composition review."
+
+excluded_classes:
+  - id: "local-agent-and-ide-state"
+    paths: [".codex/**", ".claude/**", ".idea/**", ".metadata", "*.iml", "AGENTS.md"]
+  - id: "build-recovery-and-analysis-process"
+    paths: [".dart_tool/**", "build/**", "coverage/**", "recovery/**", "*.log", "*.bak", "*.orig", "*.rej", "analysis_options.yaml", "dart_test.yaml"]
+  - id: "repository-engineering-process"
+    paths: [".github/**", "tool/**", "test/**"]
+  - id: "repository-generated-and-api-evidence"
+    paths: ["generated/**", "api/**"]
+  - id: "living-and-protected-design-sources"
+    paths: ["docs/**", "DESIGN.md"]
+  - id: "internal-authority-and-custody"
+    paths: ["contracts/approvals/**", "contracts/delivery/**", "contracts/legal/attestations/**", "contracts/legal/file-origin-map.yaml", "contracts/compatibility/baseline-admission.template.yaml"]
+  - id: "dependency-and-package-capture-evidence"
+    paths: ["contracts/sbom/**", "contracts/release/package-dry-run.yaml", "contracts/release/package-dry-run-inventory.json"]
+  - id: "immutable-compatibility-and-golden-evidence"
+    paths: ["contracts/compatibility/baselines/**", "contracts/compatibility/baseline-provenance.yaml", "test/goldens/**"]
+
+dependency_license_boundary:
+  resolved_dependency_count: 37
+  dependency_license_status: "NOASSERTION"
+  clearance_claimed: false
+
+decision_boundary:
+  candidate_only: true
+  composition_changes_require_human_approval: true
+  target_delivery_contract_required: true
+  clean_authoritative_source_required: true
+  publication_performed: false

@@ -1,0 +1,1157 @@
+{
+  "schema": "blab.agent-component-registry/v1",
+  "version": "0.1.0",
+  "_generated": {
+    "notice": "GENERATED CODE - DO NOT EDIT.",
+    "sources": {
+      "contracts/components/agent-registry.yaml": "1939e15dba6875a4a7aa2ed2b31c07dcfe4d9b155450b24455f10319281c6cfc",
+      "contracts/components/state-applicability.yaml": "1aabd860a7422f9cac6e825088e796cf329d92f34114dec308f8a8c12ac0648f",
+      "generated/component-state-coverage.yaml": "0fda4cb18f97d88158c83e82e78033a8b8851e0454104eb5307b6e3cef2a6466",
+      "contracts/tokens/blab.tokens.yaml": "a94701b1191e3daa8dee88177d3523ce9c8ae8b5f56f5efdf0016f053d634dbe",
+      "contracts/components/figma-agent-mapping.yaml": "99b584442387369163a3ddb346cd407f6023ae0a0ad61d52a1d10d743536a7d8"
+    },
+    "source_of_truth": "contracts/blab.design.yaml",
+    "remote_mutation": false
+  },
+  "components": [
+    {
+      "id": "button",
+      "public_type": "BLabButton",
+      "purpose": "Primary, secondary, and destructive action control.",
+      "usage_boundary": "Use for an explicit user action; do not use as a selected or loading control until those states are claimed.",
+      "source": "lib/src/widgets/liquid_glass_button.dart",
+      "example": "example/lib/stories/button_story.dart",
+      "test": "test/blab_button_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_BUTTON_STATUS.md",
+      "token_references": [
+        "component.button.primary.background",
+        "component.button.primary.foreground",
+        "component.button.focus-outer-ring",
+        "semantic.focus.ring"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "44x44 minimum interactive target"
+      ],
+      "state_contract_id": "button",
+      "states": {
+        "required": [
+          "default",
+          "hover-pointer",
+          "pressed",
+          "focus",
+          "disabled",
+          "destructive-variant"
+        ],
+        "conditional": [
+          "loading-busy"
+        ],
+        "not_applicable": [
+          "selected",
+          "current",
+          "invalid",
+          "expanded"
+        ],
+        "required_when": {},
+        "implementation_evidence": {
+          "default": {
+            "status": "implemented-local",
+            "test": "test/blab_button_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+          },
+          "destructive-variant": {
+            "status": "implemented-local",
+            "test": "test/blab_button_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+          },
+          "disabled": {
+            "status": "implemented-local",
+            "test": "test/blab_button_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+          },
+          "focus": {
+            "status": "implemented-local",
+            "test": "test/blab_button_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+          },
+          "hover-pointer": {
+            "status": "implemented-local",
+            "test": "test/blab_button_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+          },
+          "pressed": {
+            "status": "implemented-local",
+            "test": "test/blab_button_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+          }
+        },
+        "absence_evidence": {
+          "loading-busy": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_button.dart",
+              "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+            ]
+          },
+          "invalid": {
+            "status": "observable-runtime-validation-absence",
+            "evidence": [
+              "test/blab_button_test.dart",
+              "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+            ]
+          },
+          "selected": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_button_test.dart",
+              "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+            ]
+          },
+          "expanded": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_button_test.dart",
+              "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+            ]
+          },
+          "current": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_button.dart",
+              "docs/BLDS_PHASE_3_BUTTON_STATUS.md"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "text-field",
+      "public_type": "BLabTextField",
+      "purpose": "Single-line and multiline text input with helper, error, read-only, and clear-action semantics.",
+      "usage_boundary": "Use for user text entry; validation and loading behavior remain conditional or unclaimed where the state contract says so.",
+      "source": "lib/src/widgets/liquid_glass_text_field.dart",
+      "example": "example/lib/stories/text_field_story.dart",
+      "test": "test/blab_text_field_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md",
+      "token_references": [
+        "component.text-field.label",
+        "component.text-field.hint",
+        "component.text-field.focus-outline",
+        "component.text-field.error-border",
+        "semantic.focus.ring"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "Text scaling must remain ambient"
+      ],
+      "state_contract_id": "text-field",
+      "states": {
+        "required": [
+          "empty",
+          "populated",
+          "hover-pointer",
+          "focus",
+          "read-only",
+          "obscured",
+          "multiline"
+        ],
+        "conditional": [
+          "disabled",
+          "required",
+          "invalid",
+          "error-help",
+          "clear-action"
+        ],
+        "not_applicable": [
+          "selected",
+          "loading",
+          "current"
+        ],
+        "required_when": {},
+        "implementation_evidence": {
+          "empty": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "populated": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "hover-pointer": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "focus": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "read-only": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "obscured": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "multiline": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "disabled": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "required": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "invalid": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "error-help": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          },
+          "clear-action": {
+            "status": "implemented-local",
+            "test": "test/blab_text_field_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+          }
+        },
+        "absence_evidence": {
+          "selected": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_text_field_test.dart",
+              "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+            ]
+          },
+          "loading": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_text_field.dart",
+              "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+            ]
+          },
+          "current": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_text_field.dart",
+              "docs/BLDS_PHASE_3_TEXT_FIELD_STATUS.md"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "segmented-control",
+      "public_type": "BLabSegmentedControl",
+      "purpose": "Controlled selection among a small set of mutually exclusive options.",
+      "usage_boundary": "Use for controlled selection; use owned horizontal overflow only under the documented conditional contract.",
+      "source": "lib/src/widgets/blab_segmented_control.dart",
+      "example": "example/lib/stories/segmented_story.dart",
+      "test": "test/blab_segmented_control_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md",
+      "token_references": [
+        "component.segmented.container-surface",
+        "component.segmented.selected-surface",
+        "component.segmented.selected-foreground",
+        "component.segmented.focus-outline",
+        "semantic.focus.ring"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "Controlled selection and roving keyboard focus"
+      ],
+      "state_contract_id": "segmented-control",
+      "states": {
+        "required": [
+          "unselected",
+          "selected",
+          "hover-pointer",
+          "pressed",
+          "keyboard-visible-focus",
+          "controlled-selection"
+        ],
+        "conditional": [
+          "disabled-item-or-control",
+          "scrollable-overflow"
+        ],
+        "not_applicable": [
+          "loading",
+          "busy",
+          "invalid",
+          "error",
+          "overlay",
+          "expanded",
+          "current",
+          "disclosure",
+          "drag",
+          "haptic"
+        ],
+        "required_when": {
+          "keyboard-roving-focus": "one-or-more-enabled-items"
+        },
+        "implementation_evidence": {
+          "unselected": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          },
+          "selected": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          },
+          "hover-pointer": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          },
+          "pressed": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          },
+          "keyboard-visible-focus": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          },
+          "controlled-selection": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          },
+          "disabled-item-or-control": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          },
+          "keyboard-roving-focus": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+          },
+          "scrollable-overflow": {
+            "status": "implemented-local",
+            "test": "test/blab_segmented_control_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_SCROLLABLE_OVERFLOW_ADDENDUM.md"
+          }
+        },
+        "absence_evidence": {
+          "loading": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "busy": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "invalid": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "error": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "overlay": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "expanded": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "current": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_segmented_control_test.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "disclosure": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "drag": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          },
+          "haptic": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/blab_segmented_control.dart",
+              "docs/BLDS_PHASE_3_SEGMENTED_CONTROL_STATUS.md"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "tab-bar",
+      "public_type": "BLabTabBar",
+      "purpose": "Controlled in-screen navigation across a small set of tabs.",
+      "usage_boundary": "Use for in-screen tab switching; do not substitute for bottom navigation or uncontrolled selection.",
+      "source": "lib/src/widgets/liquid_glass_tab_bar.dart",
+      "example": "example/lib/stories/tab_bar_story.dart",
+      "test": "test/blab_tab_bar_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md",
+      "token_references": [
+        "component.tab.container-surface",
+        "component.tab.selected-indicator",
+        "component.tab.selected-foreground",
+        "component.tab.focus-outline",
+        "semantic.focus.ring"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "Controlled selection"
+      ],
+      "state_contract_id": "tab-bar",
+      "states": {
+        "required": [
+          "unselected",
+          "selected-current",
+          "hover-pointer",
+          "pressed",
+          "keyboard-visible-focus",
+          "controller-controlled-selection",
+          "keyboard-roving-focus"
+        ],
+        "conditional": [
+          "scrollable-overflow-when-isScrollable"
+        ],
+        "not_applicable": [
+          "disabled",
+          "loading",
+          "busy",
+          "invalid",
+          "error",
+          "expanded",
+          "disclosure",
+          "drag-selection",
+          "haptic",
+          "bottom-bar"
+        ],
+        "required_when": {},
+        "implementation_evidence": {
+          "unselected": {
+            "status": "implemented-local",
+            "test": "test/blab_tab_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          },
+          "selected-current": {
+            "status": "implemented-local",
+            "test": "test/blab_tab_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          },
+          "hover-pointer": {
+            "status": "implemented-local",
+            "test": "test/blab_tab_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          },
+          "pressed": {
+            "status": "implemented-local",
+            "test": "test/blab_tab_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          },
+          "keyboard-visible-focus": {
+            "status": "implemented-local",
+            "test": "test/blab_tab_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          },
+          "controller-controlled-selection": {
+            "status": "implemented-local",
+            "test": "test/blab_tab_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          },
+          "keyboard-roving-focus": {
+            "status": "implemented-local",
+            "test": "test/blab_tab_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          },
+          "scrollable-overflow-when-isScrollable": {
+            "status": "implemented-local",
+            "test": "test/blab_tab_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+          }
+        },
+        "absence_evidence": {
+          "disabled": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "api/blab_design_system.api.txt",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "loading": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_tab_bar.dart",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "busy": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_tab_bar.dart",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "invalid": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_tab_bar.dart",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "error": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_tab_bar.dart",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "expanded": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_tab_bar.dart",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "disclosure": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_tab_bar.dart",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "drag-selection": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_tab_bar_test.dart",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "haptic": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_tab_bar.dart",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          },
+          "bottom-bar": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "docs/BLDS_PHASE_3_TAB_BAR_DESIGN_DECISION.md",
+              "docs/BLDS_PHASE_3_TAB_BAR_STATUS.md"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "bottom-bar",
+      "public_type": "BLabBottomBar",
+      "purpose": "Bottom navigation with selected, focus, drag, optional action, and localized label behavior.",
+      "usage_boundary": "Use for top-level product navigation; accessibility-large reflow and action semantics remain bounded by the consumer and state contract.",
+      "source": "lib/src/widgets/liquid_glass_bottom_bar.dart",
+      "example": "example/lib/stories/bottom_bar_story.dart",
+      "test": "test/blab_bottom_bar_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md",
+      "token_references": [
+        "component.bottom-bar.container-surface",
+        "component.bottom-bar.selected-surface",
+        "component.bottom-bar.selected-foreground",
+        "component.bottom-bar.action-surface",
+        "component.bottom-bar.focus-outline",
+        "semantic.focus.ring"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "44x44 minimum interactive target",
+        "Accessibility-large reflow must not shrink text to hide overflow"
+      ],
+      "state_contract_id": "bottom-bar",
+      "states": {
+        "required": [
+          "unselected",
+          "selected-current",
+          "hover-pointer",
+          "pressed",
+          "focus",
+          "long-press-drag"
+        ],
+        "conditional": [
+          "optional-action-with-callback-and-localized-label",
+          "expanded-with-callback-localized-label-and-controlled-state"
+        ],
+        "not_applicable": [
+          "disabled",
+          "loading",
+          "invalid"
+        ],
+        "required_when": {},
+        "implementation_evidence": {
+          "unselected": {
+            "status": "implemented-local",
+            "test": "test/blab_bottom_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          },
+          "selected-current": {
+            "status": "implemented-local",
+            "test": "test/blab_bottom_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          },
+          "hover-pointer": {
+            "status": "implemented-local",
+            "test": "test/blab_bottom_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          },
+          "pressed": {
+            "status": "implemented-local",
+            "test": "test/blab_bottom_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          },
+          "focus": {
+            "status": "implemented-local",
+            "test": "test/blab_bottom_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          },
+          "long-press-drag": {
+            "status": "implemented-local",
+            "test": "test/blab_bottom_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          },
+          "optional-action-with-callback-and-localized-label": {
+            "status": "implemented-local",
+            "test": "test/blab_bottom_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          },
+          "expanded-with-callback-localized-label-and-controlled-state": {
+            "status": "implemented-local",
+            "test": "test/blab_bottom_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+          }
+        },
+        "absence_evidence": {
+          "disabled": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "api/blab_design_system.api.txt",
+              "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+            ]
+          },
+          "loading": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_bottom_bar.dart",
+              "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+            ]
+          },
+          "invalid": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_bottom_bar_test.dart",
+              "docs/BLDS_PHASE_3_BOTTOM_BAR_STATUS.md"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "pressable-wrapper",
+      "public_type": "BLabPressableWrapper",
+      "purpose": "Interaction primitive for press, hover, focus, and action-derived semantics.",
+      "usage_boundary": "Use only when the wrapped content has a real action; static content must not receive interactive semantics.",
+      "source": "lib/src/widgets/pressable_wrapper.dart",
+      "example": "example/lib/stories/pressable_story.dart",
+      "test": "test/blab_pressable_card_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md",
+      "token_references": [
+        "component.pressable.hover-overlay",
+        "component.pressable.pressed-overlay",
+        "component.pressable.focus-outline",
+        "semantic.focus.ring"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "Haptic policy is default-deny"
+      ],
+      "state_contract_id": "pressable-wrapper",
+      "states": {
+        "required": [
+          "default",
+          "pressed",
+          "focus",
+          "long-press-when-supplied"
+        ],
+        "conditional": [
+          "hover-pointer"
+        ],
+        "not_applicable": [
+          "selected",
+          "busy",
+          "invalid"
+        ],
+        "required_when": {},
+        "implementation_evidence": {
+          "default": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "pressed": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "focus": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "long-press-when-supplied": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "hover-pointer": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          }
+        },
+        "absence_evidence": {
+          "selected": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_pressable_card_test.dart",
+              "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+            ]
+          },
+          "busy": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/pressable_wrapper.dart",
+              "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+            ]
+          },
+          "invalid": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_pressable_card_test.dart",
+              "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "card",
+      "public_type": "BLabCard",
+      "purpose": "Glass surface container that may become actionable when an explicit action is supplied.",
+      "usage_boundary": "Use as a visual grouping surface; derive interactive semantics only from an actual action callback.",
+      "source": "lib/src/widgets/liquid_glass_card.dart",
+      "example": "example/lib/stories/card_story.dart",
+      "test": "test/blab_pressable_card_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md",
+      "token_references": [
+        "component.card.surface",
+        "component.card.border",
+        "component.pressable.focus-outline",
+        "semantic.surface.glass"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "Static cards must remain non-interactive"
+      ],
+      "state_contract_id": "card",
+      "states": {
+        "required": [
+          "static-default"
+        ],
+        "conditional": [
+          "interactive-hover-when-actionable",
+          "interactive-pressed-when-actionable",
+          "interactive-focus-when-actionable",
+          "long-press",
+          "role-determined-by-action"
+        ],
+        "not_applicable": [
+          "loading",
+          "selected",
+          "disabled"
+        ],
+        "required_when": {},
+        "implementation_evidence": {
+          "static-default": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "interactive-hover-when-actionable": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "interactive-pressed-when-actionable": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "interactive-focus-when-actionable": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "long-press": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          },
+          "role-determined-by-action": {
+            "status": "implemented-local",
+            "test": "test/blab_pressable_card_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+          }
+        },
+        "absence_evidence": {
+          "loading": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "lib/src/widgets/liquid_glass_card.dart",
+              "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+            ]
+          },
+          "selected": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_pressable_card_test.dart",
+              "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+            ]
+          },
+          "disabled": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "api/blab_design_system.api.txt",
+              "docs/BLDS_PHASE_3_PRESSABLE_CARD_STATUS.md"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "snackbar",
+      "public_type": "BLabSnackbar",
+      "purpose": "Transient feedback surface for success, error, warning, and info messages.",
+      "usage_boundary": "Use for short-lived feedback with readable timing and optional action; do not use as persistent content or modal error handling.",
+      "source": "lib/src/widgets/blab_snackbar.dart",
+      "example": "example/lib/stories/snackbar_story.dart",
+      "test": "test/blab_snackbar_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md",
+      "token_references": [
+        "component.snackbar.surface",
+        "component.snackbar.foreground",
+        "component.snackbar.border",
+        "semantic.status.success",
+        "semantic.status.error"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "Do not steal focus from the current task"
+      ],
+      "state_contract_id": "snackbar",
+      "states": {
+        "required": [
+          "entering",
+          "visible",
+          "exiting",
+          "success",
+          "error",
+          "warning",
+          "info",
+          "live-announcement"
+        ],
+        "conditional": [
+          "action",
+          "dismiss",
+          "hover-pointer",
+          "pressed",
+          "keyboard-visible-focus",
+          "timer-paused",
+          "programmatic-close"
+        ],
+        "not_applicable": [
+          "disabled",
+          "loading",
+          "selected",
+          "invalid",
+          "current",
+          "expanded"
+        ],
+        "required_when": {},
+        "implementation_evidence": {
+          "entering": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "visible": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "exiting": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "success": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "error": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "warning": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "info": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "live-announcement": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "action": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "dismiss": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "hover-pointer": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "pressed": {
+            "status": "implemented-local",
+            "test": "test/blab_button_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "keyboard-visible-focus": {
+            "status": "implemented-local",
+            "test": "test/blab_button_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "timer-paused": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          },
+          "programmatic-close": {
+            "status": "implemented-local",
+            "test": "test/blab_snackbar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+          }
+        },
+        "absence_evidence": {
+          "disabled": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "api/blab_design_system.api.txt",
+              "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+            ]
+          },
+          "loading": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "api/blab_design_system.api.txt",
+              "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+            ]
+          },
+          "selected": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_snackbar_test.dart",
+              "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+            ]
+          },
+          "invalid": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_snackbar_test.dart",
+              "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+            ]
+          },
+          "current": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "api/blab_design_system.api.txt",
+              "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+            ]
+          },
+          "expanded": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_snackbar_test.dart",
+              "docs/BLDS_PHASE_3_SNACKBAR_STATUS.md"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "keyboard-accessory-bar",
+      "public_type": "BLabKeyboardAccessoryBar",
+      "purpose": "Keyboard accessory actions for navigation, editing, and completion.",
+      "usage_boundary": "Use alongside an active text-input flow; action availability and overflow remain explicit per item.",
+      "source": "lib/src/widgets/keyboard_accessory_bar.dart",
+      "example": "example/lib/stories/keyboard_accessory_story.dart",
+      "test": "test/blab_keyboard_accessory_bar_test.dart",
+      "documentation": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md",
+      "token_references": [
+        "component.keyboard-accessory.surface-start",
+        "component.keyboard-accessory.border",
+        "component.keyboard-accessory.foreground",
+        "component.keyboard-accessory.focus-outline",
+        "semantic.focus.ring"
+      ],
+      "platform_constraints": [
+        "Flutter package API",
+        "Horizontal overflow is owned and scrollable when conditional"
+      ],
+      "state_contract_id": "keyboard-accessory-bar",
+      "states": {
+        "required": [
+          "default",
+          "hover-pointer",
+          "pressed",
+          "focus",
+          "disabled-per-action"
+        ],
+        "conditional": [
+          "repeated-action-active-for-undo-redo",
+          "scrollable-overflow"
+        ],
+        "not_applicable": [
+          "loading",
+          "selected",
+          "invalid"
+        ],
+        "required_when": {},
+        "implementation_evidence": {
+          "default": {
+            "status": "implemented-local",
+            "test": "test/blab_keyboard_accessory_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+          },
+          "hover-pointer": {
+            "status": "implemented-local",
+            "test": "test/blab_keyboard_accessory_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+          },
+          "pressed": {
+            "status": "implemented-local",
+            "test": "test/blab_keyboard_accessory_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+          },
+          "focus": {
+            "status": "implemented-local",
+            "test": "test/blab_keyboard_accessory_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+          },
+          "disabled-per-action": {
+            "status": "implemented-local",
+            "test": "test/blab_keyboard_accessory_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+          },
+          "repeated-action-active-for-undo-redo": {
+            "status": "implemented-local",
+            "test": "test/blab_keyboard_accessory_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+          },
+          "scrollable-overflow": {
+            "status": "implemented-local",
+            "test": "test/blab_keyboard_accessory_bar_test.dart",
+            "documentation": "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+          }
+        },
+        "absence_evidence": {
+          "loading": {
+            "status": "typed-code-inspection-only",
+            "evidence": [
+              "api/blab_design_system.api.txt",
+              "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+            ]
+          },
+          "selected": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_keyboard_accessory_bar_test.dart",
+              "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+            ]
+          },
+          "invalid": {
+            "status": "observable-runtime-semantics-absence",
+            "evidence": [
+              "test/blab_keyboard_accessory_bar_test.dart",
+              "docs/BLDS_PHASE_3_KEYBOARD_ACCESSORY_STATUS.md"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
