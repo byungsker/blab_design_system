@@ -21,7 +21,28 @@ void main() {
     'method': 'tools/list',
   });
   final toolList = (tools?['result'] as Map?)?['tools'];
-  _check(toolList is List && toolList.length == 2, 'tools/list is bounded');
+  _check(toolList is List && toolList.length == 3, 'tools/list is bounded');
+
+  final tokenList = server.handle(<String, Object?>{
+    'jsonrpc': '2.0',
+    'id': 2,
+    'method': 'tools/call',
+    'params': <String, Object?>{
+      'name': 'list_tokens',
+      'arguments': <String, Object?>{},
+    },
+  });
+  final tokenListResult = (tokenList?['result'] as Map?)?['structuredContent'];
+  _check(
+    tokenListResult is Map &&
+        tokenListResult['kind'] == 'tokens' &&
+        tokenListResult['tokens'] is List &&
+        (tokenListResult['tokens'] as List).any(
+          (token) =>
+              token is Map && token['status'] == 'compatibility-preserved',
+        ),
+    'token list exposes compatibility boundary',
+  );
 
   final query = server.handle(<String, Object?>{
     'jsonrpc': '2.0',

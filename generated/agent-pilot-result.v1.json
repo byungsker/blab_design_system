@@ -28,7 +28,7 @@
     "passed": 10,
     "failed": 0,
     "critical_failures": 0,
-    "evidence_checked": 18,
+    "evidence_checked": 19,
     "unresolved_evidence": [],
     "go": true,
     "failures": []

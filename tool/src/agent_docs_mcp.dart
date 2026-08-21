@@ -40,9 +40,19 @@ class AgentDocsMcpServer {
               },
             },
             <String, Object?>{
+              'name': 'list_tokens',
+              'description':
+                  'List normalized tokens and compatibility-preserved CSS/Dart token mappings. Read-only.',
+              'inputSchema': <String, Object?>{
+                'type': 'object',
+                'properties': <String, Object?>{},
+                'additionalProperties': false,
+              },
+            },
+            <String, Object?>{
               'name': 'query_design_system',
               'description':
-                  'Query a BLDS component, token, state, accessibility rule, example, or platform contract. Read-only.',
+                  'Query a BLDS component, normalized token, compatibility-preserved token mapping, state, accessibility rule, example, or platform contract. Read-only.',
               'inputSchema': <String, Object?>{
                 'type': 'object',
                 'properties': <String, Object?>{
@@ -86,6 +96,13 @@ class AgentDocsMcpServer {
             'kind': 'components',
             'components': engine.registry['components'],
             'source': 'generated/agent-registry.v1.json',
+          };
+        case 'list_tokens':
+          result = <String, Object?>{
+            'kind': 'tokens',
+            'tokens': engine.listTokens(),
+            'source': 'contracts/tokens/blab.tokens.yaml',
+            'read_only': true,
           };
         case 'query_design_system':
           final kind = arguments['kind'];

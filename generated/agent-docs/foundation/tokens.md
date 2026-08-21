@@ -13,151 +13,162 @@ Authoritative token source: `contracts/tokens/blab.tokens.yaml`.
 
 ## Tokens
 
-| ID | Type |
-|---|---|
-| `primitive.color.black` | `color` |
-| `primitive.color.white` | `color` |
-| `primitive.color.primary` | `color` |
-| `primitive.color.primary-light` | `color` |
-| `primitive.color.success` | `color` |
-| `primitive.color.success-alt` | `color` |
-| `primitive.color.success-background` | `color` |
-| `primitive.color.error` | `color` |
-| `primitive.color.error-alt` | `color` |
-| `primitive.color.error-background` | `color` |
-| `primitive.color.warning` | `color` |
-| `primitive.color.warning-alt` | `color` |
-| `primitive.color.info` | `color` |
-| `primitive.color.info-alt` | `color` |
-| `primitive.color.destructive` | `color` |
-| `primitive.color.scaffold-light` | `color` |
-| `primitive.color.surface-light` | `color` |
-| `primitive.color.elevated-light` | `color` |
-| `primitive.color.subtle-blue-light` | `color` |
-| `primitive.color.scaffold-dark` | `color` |
-| `primitive.color.surface-dark` | `color` |
-| `primitive.color.elevated-dark` | `color` |
-| `primitive.color.subtle-dark` | `color` |
-| `primitive.color.disabled-light` | `color` |
-| `primitive.color.disabled-dark` | `color` |
-| `primitive.dimension.glass-blur-standard` | `dimension` |
-| `primitive.dimension.glass-blur-high-contrast` | `dimension` |
-| `primitive.dimension.focus-outline-width` | `dimension` |
-| `primitive.dimension.focus-ring-width` | `dimension` |
-| `primitive.number.glass-saturation-standard` | `percentage` |
-| `primitive.number.glass-saturation-high-contrast` | `percentage` |
-| `semantic.surface.base` | `color` |
-| `semantic.surface.raised` | `color` |
-| `semantic.surface.overlay` | `color` |
-| `semantic.surface.glass` | `color` |
-| `semantic.text.primary` | `color` |
-| `semantic.text.secondary` | `color` |
-| `semantic.text.tertiary` | `color` |
-| `semantic.text.inverse` | `color` |
-| `semantic.border.subtle` | `color` |
-| `semantic.border.default` | `color` |
-| `semantic.border.strong` | `color` |
-| `semantic.focus.ring` | `color` |
-| `semantic.focus.canvas` | `color` |
-| `semantic.focus.surface` | `color` |
-| `semantic.focus.accent` | `color` |
-| `semantic.focus.outline-width` | `dimension` |
-| `semantic.focus.ring-width` | `dimension` |
-| `semantic.action.primary` | `color` |
-| `semantic.action.primary-foreground` | `color` |
-| `semantic.action.destructive` | `color` |
-| `semantic.action.destructive-foreground` | `color` |
-| `semantic.status.success` | `color` |
-| `semantic.status.error` | `color` |
-| `semantic.status.warning` | `color` |
-| `semantic.status.info` | `color` |
-| `semantic.status.foreground` | `color` |
-| `semantic.state.disabled-foreground` | `color` |
-| `semantic.glass.blur` | `dimension` |
-| `semantic.glass.saturation` | `percentage` |
-| `semantic.glass.highlight` | `color-or-none` |
-| `semantic.glass.shadow` | `shadow-or-none` |
-| `component.button.primary.background` | `color` |
-| `component.button.primary.foreground` | `color` |
-| `component.button.primary.hover-overlay` | `color` |
-| `component.button.secondary.hover-overlay` | `color` |
-| `component.button.destructive.hover-overlay` | `color` |
-| `component.button.primary.focus-outline` | `color` |
-| `component.button.secondary.focus-outline` | `color` |
-| `component.button.destructive.focus-outline` | `color` |
-| `component.button.focus-outer-ring` | `color` |
-| `component.button.destructive.background` | `color` |
-| `component.button.destructive.foreground` | `color` |
-| `component.text-field.label` | `color` |
-| `component.text-field.hint` | `color` |
-| `component.text-field.hover-border` | `color` |
-| `component.text-field.focus-outline` | `color` |
-| `component.text-field.focus-outer-ring` | `color` |
-| `component.text-field.error-border` | `color` |
-| `component.text-field.clear-background` | `color` |
-| `component.text-field.clear-foreground` | `color` |
-| `component.segmented.container-surface` | `color` |
-| `component.segmented.container-border` | `color` |
-| `component.segmented.selected-surface` | `color` |
-| `component.segmented.selected-indicator` | `color` |
-| `component.segmented.selected-foreground` | `color` |
-| `component.segmented.unselected-foreground` | `color` |
-| `component.segmented.disabled-foreground` | `color` |
-| `component.segmented.hover-overlay` | `color` |
-| `component.segmented.pressed-overlay` | `color` |
-| `component.segmented.focus-outline` | `color` |
-| `component.segmented.focus-outer-ring` | `color` |
-| `component.segmented.selected-shadow` | `color` |
-| `component.tab.container-surface` | `color` |
-| `component.tab.selected-indicator` | `color` |
-| `component.tab.selected-foreground` | `color` |
-| `component.tab.unselected-foreground` | `color` |
-| `component.tab.hover-overlay` | `color` |
-| `component.tab.pressed-overlay` | `color` |
-| `component.tab.focus-outline` | `color` |
-| `component.tab.focus-outer-ring` | `color` |
-| `component.tab.divider` | `color` |
-| `component.bottom-bar.container-surface` | `color` |
-| `component.bottom-bar.container-border` | `color` |
-| `component.bottom-bar.selected-surface` | `color` |
-| `component.bottom-bar.selected-highlight` | `color` |
-| `component.bottom-bar.selected-foreground` | `color` |
-| `component.bottom-bar.unselected-foreground` | `color` |
-| `component.bottom-bar.hover-overlay` | `color` |
-| `component.bottom-bar.pressed-overlay` | `color` |
-| `component.bottom-bar.drag-overlay` | `color` |
-| `component.bottom-bar.focus-outline` | `color` |
-| `component.bottom-bar.focus-outer-ring` | `color` |
-| `component.bottom-bar.action-surface` | `color` |
-| `component.bottom-bar.action-foreground` | `color` |
-| `component.bottom-bar.selected-shadow` | `color` |
-| `component.snackbar.surface` | `color` |
-| `component.snackbar.foreground` | `color` |
-| `component.snackbar.border` | `color` |
-| `component.snackbar.badge-success` | `color` |
-| `component.snackbar.badge-error` | `color` |
-| `component.snackbar.badge-warning` | `color` |
-| `component.snackbar.badge-info` | `color` |
-| `component.snackbar.badge-glyph` | `color` |
-| `component.snackbar.badge-outline` | `color` |
-| `component.keyboard-accessory.surface-start` | `color` |
-| `component.keyboard-accessory.surface-end` | `color` |
-| `component.keyboard-accessory.border` | `color` |
-| `component.keyboard-accessory.foreground` | `color` |
-| `component.keyboard-accessory.disabled-foreground` | `color` |
-| `component.keyboard-accessory.divider` | `color` |
-| `component.keyboard-accessory.hover-overlay` | `color` |
-| `component.keyboard-accessory.pressed-overlay` | `color` |
-| `component.keyboard-accessory.focus-outline` | `color` |
-| `component.keyboard-accessory.focus-outer-ring` | `color` |
-| `component.keyboard-accessory.shadow` | `color` |
-| `component.keyboard-accessory.blur` | `dimension` |
-| `component.card.surface` | `color` |
-| `component.card.border` | `color` |
-| `component.pressable.hover-overlay` | `color` |
-| `component.pressable.pressed-overlay` | `color` |
-| `component.pressable.focus-outline` | `color` |
-| `component.pressable.focus-outer-ring` | `color` |
-| `component.focus-ring.color` | `color` |
-| `component.glass.surface` | `color` |
-| `component.glass.border` | `color` |
+| Layer | ID | Type |
+|---|---|---|
+| `primitive` | `primitive.color.black` | `color` |
+| `primitive` | `primitive.color.white` | `color` |
+| `primitive` | `primitive.color.primary` | `color` |
+| `primitive` | `primitive.color.primary-light` | `color` |
+| `primitive` | `primitive.color.success` | `color` |
+| `primitive` | `primitive.color.success-alt` | `color` |
+| `primitive` | `primitive.color.success-background` | `color` |
+| `primitive` | `primitive.color.error` | `color` |
+| `primitive` | `primitive.color.error-alt` | `color` |
+| `primitive` | `primitive.color.error-background` | `color` |
+| `primitive` | `primitive.color.warning` | `color` |
+| `primitive` | `primitive.color.warning-alt` | `color` |
+| `primitive` | `primitive.color.info` | `color` |
+| `primitive` | `primitive.color.info-alt` | `color` |
+| `primitive` | `primitive.color.destructive` | `color` |
+| `primitive` | `primitive.color.scaffold-light` | `color` |
+| `primitive` | `primitive.color.surface-light` | `color` |
+| `primitive` | `primitive.color.elevated-light` | `color` |
+| `primitive` | `primitive.color.subtle-blue-light` | `color` |
+| `primitive` | `primitive.color.scaffold-dark` | `color` |
+| `primitive` | `primitive.color.surface-dark` | `color` |
+| `primitive` | `primitive.color.elevated-dark` | `color` |
+| `primitive` | `primitive.color.subtle-dark` | `color` |
+| `primitive` | `primitive.color.disabled-light` | `color` |
+| `primitive` | `primitive.color.disabled-dark` | `color` |
+| `primitive` | `primitive.dimension.glass-blur-standard` | `dimension` |
+| `primitive` | `primitive.dimension.glass-blur-high-contrast` | `dimension` |
+| `primitive` | `primitive.dimension.focus-outline-width` | `dimension` |
+| `primitive` | `primitive.dimension.focus-ring-width` | `dimension` |
+| `primitive` | `primitive.number.glass-saturation-standard` | `percentage` |
+| `primitive` | `primitive.number.glass-saturation-high-contrast` | `percentage` |
+| `semantic` | `semantic.surface.base` | `color` |
+| `semantic` | `semantic.surface.raised` | `color` |
+| `semantic` | `semantic.surface.overlay` | `color` |
+| `semantic` | `semantic.surface.glass` | `color` |
+| `semantic` | `semantic.text.primary` | `color` |
+| `semantic` | `semantic.text.secondary` | `color` |
+| `semantic` | `semantic.text.tertiary` | `color` |
+| `semantic` | `semantic.text.inverse` | `color` |
+| `semantic` | `semantic.border.subtle` | `color` |
+| `semantic` | `semantic.border.default` | `color` |
+| `semantic` | `semantic.border.strong` | `color` |
+| `semantic` | `semantic.focus.ring` | `color` |
+| `semantic` | `semantic.focus.canvas` | `color` |
+| `semantic` | `semantic.focus.surface` | `color` |
+| `semantic` | `semantic.focus.accent` | `color` |
+| `semantic` | `semantic.focus.outline-width` | `dimension` |
+| `semantic` | `semantic.focus.ring-width` | `dimension` |
+| `semantic` | `semantic.action.primary` | `color` |
+| `semantic` | `semantic.action.primary-foreground` | `color` |
+| `semantic` | `semantic.action.destructive` | `color` |
+| `semantic` | `semantic.action.destructive-foreground` | `color` |
+| `semantic` | `semantic.status.success` | `color` |
+| `semantic` | `semantic.status.error` | `color` |
+| `semantic` | `semantic.status.warning` | `color` |
+| `semantic` | `semantic.status.info` | `color` |
+| `semantic` | `semantic.status.foreground` | `color` |
+| `semantic` | `semantic.state.disabled-foreground` | `color` |
+| `semantic` | `semantic.glass.blur` | `dimension` |
+| `semantic` | `semantic.glass.saturation` | `percentage` |
+| `semantic` | `semantic.glass.highlight` | `color-or-none` |
+| `semantic` | `semantic.glass.shadow` | `shadow-or-none` |
+| `component` | `component.button.primary.background` | `color` |
+| `component` | `component.button.primary.foreground` | `color` |
+| `component` | `component.button.primary.hover-overlay` | `color` |
+| `component` | `component.button.secondary.hover-overlay` | `color` |
+| `component` | `component.button.destructive.hover-overlay` | `color` |
+| `component` | `component.button.primary.focus-outline` | `color` |
+| `component` | `component.button.secondary.focus-outline` | `color` |
+| `component` | `component.button.destructive.focus-outline` | `color` |
+| `component` | `component.button.focus-outer-ring` | `color` |
+| `component` | `component.button.destructive.background` | `color` |
+| `component` | `component.button.destructive.foreground` | `color` |
+| `component` | `component.text-field.label` | `color` |
+| `component` | `component.text-field.hint` | `color` |
+| `component` | `component.text-field.hover-border` | `color` |
+| `component` | `component.text-field.focus-outline` | `color` |
+| `component` | `component.text-field.focus-outer-ring` | `color` |
+| `component` | `component.text-field.error-border` | `color` |
+| `component` | `component.text-field.clear-background` | `color` |
+| `component` | `component.text-field.clear-foreground` | `color` |
+| `component` | `component.segmented.container-surface` | `color` |
+| `component` | `component.segmented.container-border` | `color` |
+| `component` | `component.segmented.selected-surface` | `color` |
+| `component` | `component.segmented.selected-indicator` | `color` |
+| `component` | `component.segmented.selected-foreground` | `color` |
+| `component` | `component.segmented.unselected-foreground` | `color` |
+| `component` | `component.segmented.disabled-foreground` | `color` |
+| `component` | `component.segmented.hover-overlay` | `color` |
+| `component` | `component.segmented.pressed-overlay` | `color` |
+| `component` | `component.segmented.focus-outline` | `color` |
+| `component` | `component.segmented.focus-outer-ring` | `color` |
+| `component` | `component.segmented.selected-shadow` | `color` |
+| `component` | `component.tab.container-surface` | `color` |
+| `component` | `component.tab.selected-indicator` | `color` |
+| `component` | `component.tab.selected-foreground` | `color` |
+| `component` | `component.tab.unselected-foreground` | `color` |
+| `component` | `component.tab.hover-overlay` | `color` |
+| `component` | `component.tab.pressed-overlay` | `color` |
+| `component` | `component.tab.focus-outline` | `color` |
+| `component` | `component.tab.focus-outer-ring` | `color` |
+| `component` | `component.tab.divider` | `color` |
+| `component` | `component.bottom-bar.container-surface` | `color` |
+| `component` | `component.bottom-bar.container-border` | `color` |
+| `component` | `component.bottom-bar.selected-surface` | `color` |
+| `component` | `component.bottom-bar.selected-highlight` | `color` |
+| `component` | `component.bottom-bar.selected-foreground` | `color` |
+| `component` | `component.bottom-bar.unselected-foreground` | `color` |
+| `component` | `component.bottom-bar.hover-overlay` | `color` |
+| `component` | `component.bottom-bar.pressed-overlay` | `color` |
+| `component` | `component.bottom-bar.drag-overlay` | `color` |
+| `component` | `component.bottom-bar.focus-outline` | `color` |
+| `component` | `component.bottom-bar.focus-outer-ring` | `color` |
+| `component` | `component.bottom-bar.action-surface` | `color` |
+| `component` | `component.bottom-bar.action-foreground` | `color` |
+| `component` | `component.bottom-bar.selected-shadow` | `color` |
+| `component` | `component.snackbar.surface` | `color` |
+| `component` | `component.snackbar.foreground` | `color` |
+| `component` | `component.snackbar.border` | `color` |
+| `component` | `component.snackbar.badge-success` | `color` |
+| `component` | `component.snackbar.badge-error` | `color` |
+| `component` | `component.snackbar.badge-warning` | `color` |
+| `component` | `component.snackbar.badge-info` | `color` |
+| `component` | `component.snackbar.badge-glyph` | `color` |
+| `component` | `component.snackbar.badge-outline` | `color` |
+| `component` | `component.keyboard-accessory.surface-start` | `color` |
+| `component` | `component.keyboard-accessory.surface-end` | `color` |
+| `component` | `component.keyboard-accessory.border` | `color` |
+| `component` | `component.keyboard-accessory.foreground` | `color` |
+| `component` | `component.keyboard-accessory.disabled-foreground` | `color` |
+| `component` | `component.keyboard-accessory.divider` | `color` |
+| `component` | `component.keyboard-accessory.hover-overlay` | `color` |
+| `component` | `component.keyboard-accessory.pressed-overlay` | `color` |
+| `component` | `component.keyboard-accessory.focus-outline` | `color` |
+| `component` | `component.keyboard-accessory.focus-outer-ring` | `color` |
+| `component` | `component.keyboard-accessory.shadow` | `color` |
+| `component` | `component.keyboard-accessory.blur` | `dimension` |
+| `component` | `component.card.surface` | `color` |
+| `component` | `component.card.border` | `color` |
+| `component` | `component.pressable.hover-overlay` | `color` |
+| `component` | `component.pressable.pressed-overlay` | `color` |
+| `component` | `component.pressable.focus-outline` | `color` |
+| `component` | `component.pressable.focus-outer-ring` | `color` |
+| `component` | `component.focus-ring.color` | `color` |
+| `component` | `component.glass.surface` | `color` |
+| `component` | `component.glass.border` | `color` |
+
+## Compatibility boundary
+
+The typed graph above is the normalized query surface. Existing standard light/dark sources remain compatibility-locked until a separate Design-approved normalization decision.
+
+| Legacy surface | Entries | Mapped to typed graph | Preserved-only |
+|---|---:|---:|---:|
+| CSS custom properties | 134 | 37 | 97 |
+| Dart theme symbols | 139 | 51 | 88 |
+
+Legacy mappings are queryable by their exact CSS name or Dart symbol. A preserved-only result is compatibility evidence, not a new semantic token claim.

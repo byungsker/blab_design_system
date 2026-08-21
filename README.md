@@ -212,15 +212,15 @@ established the typed token foundation, and Phase 1B completes the local
 generated-document, manifest, diagnostic, and verification surfaces:
 
 - approved contract `0.2.0` with typed primitive, semantic, and component
-  structures, including 105 typed tokens;
+  structures, including 146 typed tokens;
 - exact standard light/dark compatibility inventory for 134 CSS names and 139
   Dart symbols, plus source-extracted classification of 300 component-local
   numeric and color literal occurrences;
 - additive `BLabTokenTheme` support for light, dark, high-contrast light, and
   high-contrast dark;
 - deterministic Dart, CSS, and Markdown generation with write/check modes;
-- canonical `ko-KR` token documentation for 105 typed tokens;
-- a local-only Figma mapping for the same 105 token IDs, with no remote call;
+- canonical `ko-KR` token documentation for 146 typed tokens;
+- a local-only Figma mapping for the same 146 token IDs, with no remote call;
 - Design applicability coverage for 9 components, 70 applicable state
   contracts, and 28 qualified absence-evidence entries; it began contract-only
   and now carries only six proven Button, twelve proven TextField, and nine

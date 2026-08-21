@@ -258,13 +258,16 @@ The first adapter is a repository-local JSON-RPC stdio process:
 dart run tool/agent_docs_mcp.dart
 ```
 
-It exposes `initialize`, `tools/list`, and `tools/call` for two bounded tools:
-`list_components` and `query_design_system`. The latter delegates to the same
-`AgentQueryEngine` used by `tool/query_agent.dart`, so the local CLI and MCP
-results share the same generated registry, source contracts, errors, and
-evidence. The process has no network client, write API, Figma credential, or
-consumer-repository path. Host installation/configuration beyond this local
-stdio contract is intentionally unsupported until separately evidenced.
+It exposes `initialize`, `tools/list`, and `tools/call` for three bounded tools:
+`list_components`, `list_tokens`, and `query_design_system`. The latter two
+delegate to the same `AgentQueryEngine` used by `tool/query_agent.dart`, so the
+local CLI and MCP results share the same generated registry, source contracts,
+errors, and evidence. Token queries return resolved values for all four
+repository-approved modes and label compatibility-preserved CSS/Dart mappings
+without promoting them to normalized semantics. The process has no network
+client, write API, Figma credential, or consumer-repository path. Host
+installation/configuration beyond this local stdio contract is intentionally
+unsupported until separately evidenced.
 
 ## 9. Sequencing and roadmap
 
@@ -377,6 +380,8 @@ The first local execution cycle is complete:
 - BLA-9 generated `llms.txt`, `llms-full.txt`, and component/foundation docs:
   implemented;
 - BLA-10 read-only query CLI and ten-fixture evaluator: implemented;
+- Token discovery and lookup now expose 146 normalized tokens plus 273
+  compatibility mappings with explicit status and evidence boundaries;
 - BLA-11 BottomBar-first Figma mapping and validator: implemented;
 - BLA-13 pilot: `GO` with 10/10 fixtures, 0 critical failures, and 18 evidence
   paths resolved; multi-platform expansion deferred without Rule-of-Two evidence;

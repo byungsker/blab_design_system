@@ -268,6 +268,34 @@ String _tokenDoc(YamlMap document, Map<String, String> sources) {
       if (values is YamlList) tokens.addAll(values.whereType<YamlMap>());
     }
   }
+  final legacy = document['legacy_mappings'];
+  final cssEntries = legacy is YamlMap && legacy['css'] is YamlMap
+      ? (legacy['css'] as YamlMap)['entries']
+      : null;
+  final dartSources = legacy is YamlMap && legacy['dart'] is YamlMap
+      ? (legacy['dart'] as YamlMap)['sources']
+      : null;
+  final cssCount = cssEntries is YamlList ? cssEntries.length : 0;
+  final cssMapped = cssEntries is YamlList
+      ? cssEntries
+            .whereType<YamlMap>()
+            .where((entry) => entry['token'] != null)
+            .length
+      : 0;
+  final dartSymbols = dartSources is YamlList
+      ? dartSources
+            .whereType<YamlMap>()
+            .expand<Object?>(
+              (source) => source['symbols'] is YamlList
+                  ? source['symbols'] as YamlList
+                  : const <Object?>[],
+            )
+            .whereType<YamlMap>()
+            .toList(growable: false)
+      : <YamlMap>[];
+  final dartMapped = dartSymbols
+      .where((entry) => entry['token'] != null)
+      .length;
   final lines = <String>[
     '<!-- GENERATED CODE - DO NOT EDIT. -->',
     '# BLDS token foundation',
@@ -280,9 +308,32 @@ String _tokenDoc(YamlMap document, Map<String, String> sources) {
     '',
     '## Tokens',
     '',
-    '| ID | Type |',
-    '|---|---|',
-    ...tokens.map((token) => '| `${token['id']}` | `${token['type']}` |'),
+    '| Layer | ID | Type |',
+    '|---|---|---|',
+    ...tokens.map((token) {
+      final id = token['id'] as String;
+      final layer = id.startsWith('primitive.')
+          ? 'primitive'
+          : id.startsWith('semantic.')
+          ? 'semantic'
+          : 'component';
+      return '| `$layer` | `$id` | `${token['type']}` |';
+    }),
+    '',
+    '## Compatibility boundary',
+    '',
+    'The typed graph above is the normalized query surface. Existing standard '
+        'light/dark sources remain compatibility-locked until a separate '
+        'Design-approved normalization decision.',
+    '',
+    '| Legacy surface | Entries | Mapped to typed graph | Preserved-only |',
+    '|---|---:|---:|---:|',
+    '| CSS custom properties | $cssCount | $cssMapped | ${cssCount - cssMapped} |',
+    '| Dart theme symbols | ${dartSymbols.length} | $dartMapped | ${dartSymbols.length - dartMapped} |',
+    '',
+    'Legacy mappings are queryable by their exact CSS name or Dart symbol. '
+        'A preserved-only result is compatibility evidence, not a new semantic '
+        'token claim.',
     '',
   ];
   return lines.join('\n');

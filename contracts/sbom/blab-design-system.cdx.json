@@ -1,7 +1,7 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:00000000-0000-5000-8000-a9427f04b805",
+  "serialNumber": "urn:uuid:00000000-0000-5000-8000-4567a14a001e",
   "version": 1,
   "metadata": {
     "timestamp": "2026-07-28T00:00:00Z",
@@ -762,9 +762,9 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:pub/vm_service@15.2.0",
+      "bom-ref": "pkg:pub/vm_service@15.3.0",
       "name": "vm_service",
-      "version": "15.2.0",
+      "version": "15.3.0",
       "properties": [
         {
           "name": "blab:dependency-kind",
@@ -779,7 +779,7 @@
           "value": "not-reviewed-noassertion"
         }
       ],
-      "purl": "pkg:pub/vm_service@15.2.0"
+      "purl": "pkg:pub/vm_service@15.3.0"
     },
     {
       "type": "library",
@@ -963,7 +963,7 @@
         "pkg:pub/collection@1.19.1",
         "pkg:pub/meta@1.17.0",
         "pkg:pub/path@1.9.1",
-        "pkg:pub/vm_service@15.2.0"
+        "pkg:pub/vm_service@15.3.0"
       ]
     },
     {
@@ -1083,7 +1083,7 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:pub/vm_service@15.2.0",
+      "ref": "pkg:pub/vm_service@15.3.0",
       "dependsOn": []
     },
     {

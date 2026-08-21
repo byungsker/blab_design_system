@@ -3,7 +3,7 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "blab_design_system-0.2.0-local-resolution",
-  "documentNamespace": "https://byungskerlab.invalid/spdx/blab-design-system/0.2.0-local-a9427f04b805366084d2f918739debbc7c3f775f3cf109e026145db48556d31b",
+  "documentNamespace": "https://byungskerlab.invalid/spdx/blab-design-system/0.2.0-local-4567a14a001edfd259cdac4fbc811030f942dd549922350efeed0c57cbf06970",
   "creationInfo": {
     "created": "2026-07-28T00:00:00Z",
     "creators": [
@@ -586,7 +586,7 @@
     {
       "name": "vm_service",
       "SPDXID": "SPDXRef-Package-vm-service",
-      "versionInfo": "15.2.0",
+      "versionInfo": "15.3.0",
       "downloadLocation": "https://pub.dev/packages/vm_service",
       "filesAnalyzed": false,
       "licenseConcluded": "NOASSERTION",
@@ -596,7 +596,7 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:pub/vm_service@15.2.0"
+          "referenceLocator": "pkg:pub/vm_service@15.3.0"
         }
       ]
     },

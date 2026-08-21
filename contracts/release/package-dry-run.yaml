@@ -16,7 +16,7 @@ archive:
   compressed_size_reported: "127 KB"
   compressed_size_scope: "informational-platform-dependent-local-observation"
   name_manifest_sha256: "c5aafe17d76d92ed89eaa53f912f0b7907fb78120691ac220e0745bb96018c57"
-  content_manifest_sha256: "b9607451df6a39fed29d24c5a77c6bc7e432dd7737773e1eff2d0d6b5e1cf3b1"
+  content_manifest_sha256: "fae8f35416cb9b8263503a8c5ecaa49cef737342056fc855680b86b015fa1cbb"
   exact_release_composition_approved: false
   notable_inclusions:
     - "runtime lib and pubspec"

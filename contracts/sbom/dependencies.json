@@ -405,7 +405,7 @@
     },
     {
       "name": "vm_service",
-      "version": "15.2.0",
+      "version": "15.3.0",
       "kind": "transitive",
       "source": "hosted",
       "dependencies": [],
