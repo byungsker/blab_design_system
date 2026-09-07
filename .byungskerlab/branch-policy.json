@@ -43,6 +43,7 @@
         "example/**",
         "generated/**",
         "lib/**",
+        "packages/**",
         "pubspec.lock",
         "pubspec.yaml",
         "test/**",
