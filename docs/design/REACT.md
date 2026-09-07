@@ -8,6 +8,8 @@ public BLab package. Flutter remains the semantic reference implementation.
 | Concern | Flutter | React/Next.js |
 | --- | --- | --- |
 | Primary color | `BLabColors.primary` | `BLabColors.primary` and `--blab-color-primary` |
+| Theme | `BLabTheme.light/dark` | `BLabTheme.light/dark` serializable Web theme contract |
+| Grey helpers | `BLabColors.grey(shade, context)` | `BLabColors.grey(shade, mode)` plus `grey50Light`/`grey100Light`/`grey200Light` |
 | Type scale | `BLabTypography.*` | `BLabTypography.*` |
 | Primary action | `BLabButton(variant: primary)` | `BLabButton variant="primary"` with contrast-safe `BLabColors.primaryAction` fill |
 | Glass surface | `BLabCard` | `BLabCard` with `backdrop-filter` fallback |

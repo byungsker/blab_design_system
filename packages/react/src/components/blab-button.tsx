@@ -8,12 +8,16 @@ export const BLabButtonVariant = {
 
 export type BLabButtonVariant = (typeof BLabButtonVariant)[keyof typeof BLabButtonVariant];
 
-export type BLabButtonProps = Omit<
+type BLabButtonContent = Exclude<ReactNode, null | undefined | boolean>;
+
+type BLabButtonLabelProps =
+  | { readonly text: string; readonly children?: never }
+  | { readonly text?: never; readonly children: BLabButtonContent };
+
+export type BLabButtonProps = BLabButtonLabelProps & Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   "children" | "onClick" | "type"
 > & {
-  readonly text?: string;
-  readonly children?: ReactNode;
   readonly onClick?: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
   readonly icon?: ReactNode;
   readonly variant?: BLabButtonVariant;

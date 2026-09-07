@@ -36,6 +36,7 @@ routes or application state.
 | Flutter export | React export | Web contract |
 | --- | --- | --- |
 | `BLabColors` | `BLabColors` | Light/dark semantic color values |
+| `BLabTheme` | `BLabTheme` | Light/dark theme metadata and component defaults |
 | Spacing tokens | `BLabSpacing` | Spacing values and CSS variables |
 | Radius tokens | `BLabRadii` | Radius values and CSS variables |
 | Elevation tokens | `BLabElevation` | Shadow values and CSS variables |

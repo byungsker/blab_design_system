@@ -1,5 +1,14 @@
-export { BLabColors, BLabElevation, BLabGlass, BLabMotion, BLabRadii, BLabSpacing, BLabTypography } from "./tokens.js";
-export type { BLabColorMode } from "./tokens.js";
+export {
+  BLabColors,
+  BLabElevation,
+  BLabGlass,
+  BLabMotion,
+  BLabRadii,
+  BLabSpacing,
+  BLabTheme,
+  BLabTypography,
+} from "./tokens.js";
+export type { BLabColorMode, BLabGreyShade } from "./tokens.js";
 
 export { BLabButton, BLabButtonVariant } from "./components/blab-button.js";
 export type { BLabButtonProps } from "./components/blab-button.js";

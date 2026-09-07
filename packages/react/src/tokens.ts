@@ -1,4 +1,33 @@
 export type BLabColorMode = "light" | "dark";
+export type BLabGreyShade = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 850 | 900;
+
+const lightGreyValues: Record<BLabGreyShade, string> = {
+  50: "#FAFAFA",
+  100: "#F5F5F5",
+  200: "#EEEEEE",
+  300: "#E0E0E0",
+  400: "#BDBDBD",
+  500: "#9E9E9E",
+  600: "#757575",
+  700: "#616161",
+  800: "#424242",
+  850: "#424242",
+  900: "#212121",
+};
+
+const darkGreyValues: Record<BLabGreyShade, string> = {
+  50: "#303030",
+  100: "#424242",
+  200: "#616161",
+  300: "#757575",
+  400: "#9E9E9E",
+  500: "#BDBDBD",
+  600: "#E0E0E0",
+  700: "#EEEEEE",
+  800: "#F5F5F5",
+  850: "#FAFAFA",
+  900: "#FFFFFF",
+};
 
 export const BLabColors = {
   primary: "#5B7FFF",
@@ -34,12 +63,18 @@ export const BLabColors = {
   amber: "#FEF3C7",
   danger: "#DC2626",
   dangerAlt: "#D97706",
+  grey50Light: "#F5F5F5",
+  grey100Light: "#F3F4F6",
+  grey200Light: "#E5E7EB",
   light: {
     scaffold: "#FAFAFA",
     surface: "#FFFFFF",
     card: "#FFFFFF",
     elevated: "#F8F9FA",
     subtle: "#F5F7FF",
+    grey50: "#F5F5F5",
+    grey100: "#F3F4F6",
+    grey200: "#E5E7EB",
     textPrimary: "#000000",
     textSecondary: "rgba(0, 0, 0, 0.87)",
     textTertiary: "rgba(0, 0, 0, 0.60)",
@@ -50,10 +85,27 @@ export const BLabColors = {
     card: "#1E1E1E",
     elevated: "#2C2C2E",
     subtle: "#2A2A2A",
+    grey50: "#303030",
+    grey100: "#424242",
+    grey200: "#616161",
     textPrimary: "#FFFFFF",
     textSecondary: "rgba(255, 255, 255, 0.87)",
     textTertiary: "rgba(255, 255, 255, 0.60)",
   },
+  grey: (shade: BLabGreyShade, mode: BLabColorMode): string =>
+    mode === "dark" ? darkGreyValues[shade] : lightGreyValues[shade],
+  scaffold: (mode: BLabColorMode): string =>
+    mode === "dark" ? "#121212" : "#FAFAFA",
+  surface: (mode: BLabColorMode): string =>
+    mode === "dark" ? "#1E1E1E" : "#FFFFFF",
+  card: (mode: BLabColorMode): string =>
+    mode === "dark" ? "#1E1E1E" : "#FFFFFF",
+  textPrimary: (mode: BLabColorMode): string =>
+    mode === "dark" ? "#FFFFFF" : "#000000",
+  textSecondary: (mode: BLabColorMode): string =>
+    mode === "dark" ? "rgba(255, 255, 255, 0.87)" : "rgba(0, 0, 0, 0.87)",
+  textTertiary: (mode: BLabColorMode): string =>
+    mode === "dark" ? "rgba(255, 255, 255, 0.60)" : "rgba(0, 0, 0, 0.60)",
 } as const;
 
 export const BLabTypography = {
@@ -88,6 +140,57 @@ export const BLabRadii = {
   card: 16,
   pill: 100,
   icon: 8,
+} as const;
+
+export const BLabTheme = {
+  light: {
+    colorScheme: { seedColor: BLabColors.primary, brightness: "light" as const },
+    scaffoldBackgroundColor: BLabColors.light.scaffold,
+    inputDecoration: {
+      filled: true,
+      fillColor: BLabColors.grey100Light,
+      borderRadius: BLabRadii.control,
+      focusedBorder: { color: BLabColors.primary, width: 2 },
+      errorBorder: { color: BLabColors.error, width: 1 },
+      contentPadding: { horizontal: 16, vertical: 16 },
+    },
+    elevatedButton: {
+      backgroundColor: BLabColors.primary,
+      foregroundColor: "#FFFFFF",
+      minHeight: 52,
+      borderRadius: BLabRadii.control,
+      elevation: 0,
+      textStyle: { fontSize: 16, fontWeight: 600 },
+    },
+    textButton: {
+      foregroundColor: BLabColors.primary,
+      textStyle: { fontSize: 14, fontWeight: 500 },
+    },
+  },
+  dark: {
+    colorScheme: { seedColor: BLabColors.primary, brightness: "dark" as const },
+    scaffoldBackgroundColor: BLabColors.dark.scaffold,
+    inputDecoration: {
+      filled: true,
+      fillColor: BLabColors.dark.elevated,
+      borderRadius: BLabRadii.control,
+      focusedBorder: { color: BLabColors.primary, width: 2 },
+      errorBorder: { color: BLabColors.error, width: 1 },
+      contentPadding: { horizontal: 16, vertical: 16 },
+    },
+    elevatedButton: {
+      backgroundColor: BLabColors.primary,
+      foregroundColor: "#FFFFFF",
+      minHeight: 52,
+      borderRadius: BLabRadii.control,
+      elevation: 0,
+      textStyle: { fontSize: 16, fontWeight: 600 },
+    },
+    textButton: {
+      foregroundColor: BLabColors.primary,
+      textStyle: { fontSize: 14, fontWeight: 500 },
+    },
+  },
 } as const;
 
 export const BLabElevation = {

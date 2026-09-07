@@ -7,6 +7,7 @@ import {
   BLabMotion,
   BLabRadii,
   BLabSpacing,
+  BLabTheme,
   BLabTypography,
 } from "../src/index";
 
@@ -114,5 +115,17 @@ describe("BLab token snapshots", () => {
         },
       }
     `);
+  });
+
+  it("keeps Flutter public grey helpers and theme mappings available", () => {
+    expect(BLabColors.grey50Light).toBe("#F5F5F5");
+    expect(BLabColors.grey100Light).toBe("#F3F4F6");
+    expect(BLabColors.grey200Light).toBe("#E5E7EB");
+    expect(BLabColors.grey(50, "light")).toBe("#FAFAFA");
+    expect(BLabColors.grey(100, "dark")).toBe("#424242");
+    expect(BLabColors.grey(850, "dark")).toBe("#FAFAFA");
+    expect(BLabColors.scaffold("dark")).toBe(BLabTheme.dark.scaffoldBackgroundColor);
+    expect(BLabTheme.light.inputDecoration.focusedBorder).toEqual({ color: BLabColors.primary, width: 2 });
+    expect(BLabTheme.dark.elevatedButton.minHeight).toBe(52);
   });
 });
