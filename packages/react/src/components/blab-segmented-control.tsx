@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import type { CSSProperties, KeyboardEventHandler } from "react";
 
 export type BLabSegmentedItem<T> = {
@@ -12,7 +13,7 @@ export type BLabSegmentedControlProps<T> = {
   readonly height?: number;
   readonly borderRadius?: number;
   readonly padding?: number;
-  readonly ariaLabel?: string;
+  readonly ariaLabel: string;
   readonly className?: string;
 };
 
@@ -26,6 +27,8 @@ export function BLabSegmentedControl<T>({
   ariaLabel,
   className,
 }: BLabSegmentedControlProps<T>) {
+  const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
   const handleKeyDown: KeyboardEventHandler<HTMLButtonElement> = (event) => {
     const selectedIndex = items.findIndex((item) => item.value === selectedValue);
     if (selectedIndex < 0 || items.length === 0) {
@@ -47,6 +50,7 @@ export function BLabSegmentedControl<T>({
     const nextItem = items[nextIndex];
     if (nextItem) {
       onChanged(nextItem.value);
+      requestAnimationFrame(() => itemRefs.current[nextIndex]?.focus());
     }
   };
 
@@ -76,6 +80,9 @@ export function BLabSegmentedControl<T>({
             type="button"
             aria-pressed={selected}
             tabIndex={selected ? 0 : -1}
+            ref={(element) => {
+              itemRefs.current[index] = element;
+            }}
             onClick={() => onChanged(item.value)}
             onKeyDown={handleKeyDown}
           >

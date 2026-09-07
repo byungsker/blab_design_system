@@ -103,6 +103,7 @@ export function BLabCard({
       onPointerDown={handlePointerDown}
       onPointerUp={clearLongPress}
       onPointerCancel={clearLongPress}
+      onPointerLeave={clearLongPress}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
     >

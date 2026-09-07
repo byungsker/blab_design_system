@@ -38,13 +38,21 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
       <BLabErrorState title="Something went wrong" message="Try again to continue." retryLabel="Retry" onRetry={() => undefined} />
       <BLabKeyboardAccessoryBar
         onDone={() => undefined}
+        ariaLabel="Keyboard accessory"
+        doneLabel="Done"
         showNavigation
         onUp={() => undefined}
         onDown={() => undefined}
+        upLabel="Move up"
+        downLabel="Move down"
         onUndo={() => undefined}
         onRedo={() => undefined}
         onCopy={() => undefined}
         onClearAll={() => undefined}
+        undoLabel="Undo"
+        redoLabel="Redo"
+        copyLabel="Copy"
+        clearAllLabel="Clear all"
         canUndo
         canRedo
         canCopy

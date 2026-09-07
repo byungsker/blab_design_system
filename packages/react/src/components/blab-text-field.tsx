@@ -7,10 +7,13 @@ import type {
   ReactNode,
 } from "react";
 
-export type BLabTextFieldProps = {
+type BLabTextFieldA11yProps =
+  | { readonly label: string; readonly ariaLabel?: string }
+  | { readonly label?: undefined; readonly ariaLabel: string };
+
+export type BLabTextFieldProps = BLabTextFieldA11yProps & {
   readonly value: string;
   readonly onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  readonly label?: string;
   readonly hintText?: string;
   readonly readOnly?: boolean;
   readonly obscureText?: boolean;
@@ -28,7 +31,6 @@ export type BLabTextFieldProps = {
   readonly autoComplete?: string;
   readonly inputMode?: InputHTMLAttributes<HTMLInputElement>["inputMode"];
   readonly inputType?: InputHTMLAttributes<HTMLInputElement>["type"];
-  readonly ariaLabel?: string;
   readonly describedBy?: string;
   readonly onFocus?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   readonly onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;

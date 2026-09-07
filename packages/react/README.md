@@ -7,9 +7,14 @@ consuming applications.
 
 ## Installation
 
+After the 0.2.0 package is published, install it with:
+
 ```bash
 npm install @byungsker/blab-design-system
 ```
+
+Until publication, install the package from this repository with
+`npm install ./packages/react`.
 
 Import the public package and its shared CSS entry point:
 
@@ -31,6 +36,11 @@ routes or application state.
 | Flutter export | React export | Web contract |
 | --- | --- | --- |
 | `BLabColors` | `BLabColors` | Light/dark semantic color values |
+| Spacing tokens | `BLabSpacing` | Spacing values and CSS variables |
+| Radius tokens | `BLabRadii` | Radius values and CSS variables |
+| Elevation tokens | `BLabElevation` | Shadow values and CSS variables |
+| Glass tokens | `BLabGlass` | Blur and fill contract |
+| Motion tokens | `BLabMotion` | Press, surface and repeat timings |
 | `BLabTypography` | `BLabTypography` | Shared type scale |
 | `BLabButton` | `BLabButton` | Primary, secondary, destructive and loading |
 | `BLabCard` | `BLabCard` | Static and keyboard-accessible pressable surface |
@@ -59,6 +69,7 @@ from the route or feature owner. Import the CSS entry from the root layout or a
 global stylesheet accepted by the Next.js build.
 
 ```tsx
+import { BLabButton } from "@byungsker/blab-design-system";
 import "@byungsker/blab-design-system/styles.css";
 
 export function ReadingAction() {
@@ -74,9 +85,11 @@ component uses compact controls. Error fields expose an alert message and
 described relationship. The CSS `prefers-reduced-motion` rule removes
 non-essential transitions and spinner motion without hiding state changes.
 
-Labels, errors, status messages, retry copy and navigation names are required
-consumer decisions. Pass localized Korean and English strings from the product;
-the package does not embed product vocabulary.
+Labels, errors, status messages and navigation names are required consumer
+decisions. Pass localized Korean and English strings from the product; the
+package does not embed product vocabulary or fallback action labels. The
+standalone fixture supplies English labels explicitly for test purposes and is
+not part of the public root export.
 
 ## Verification
 
@@ -85,9 +98,10 @@ npm run lint
 npm run typecheck
 npm test
 npm run build
+npm run test:browser
 ```
 
-The package-local parity fixture is exported for browser verification and does
+The package-local parity fixture is included for browser verification and does
 not contain Bookgolas routes, data or authentication behavior.
 
 Serve the package directory after `npm run build` and open

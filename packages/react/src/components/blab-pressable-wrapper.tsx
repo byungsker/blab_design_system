@@ -69,6 +69,12 @@ export function BLabPressableWrapper({
     longPressed.current = false;
   };
 
+  const handlePointerCancel = () => {
+    clearTimer();
+    setPressed(false);
+    longPressed.current = false;
+  };
+
   const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -93,11 +99,8 @@ export function BLabPressableWrapper({
       data-blab-pressed={pressed ? "true" : "false"}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      onPointerCancel={() => {
-        clearTimer();
-        setPressed(false);
-        longPressed.current = false;
-      }}
+      onPointerCancel={handlePointerCancel}
+      onPointerLeave={handlePointerCancel}
       onKeyDown={handleKeyDown}
     >
       {children}

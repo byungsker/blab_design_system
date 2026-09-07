@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import type { CSSProperties, KeyboardEventHandler } from "react";
 
 type BLabTabBarStyle = CSSProperties & {
@@ -16,7 +17,7 @@ export type BLabTabBarProps = {
   readonly unselectedLabelColor?: string;
   readonly indicatorWeight?: number;
   readonly isScrollable?: boolean;
-  readonly ariaLabel?: string;
+  readonly ariaLabel: string;
   readonly className?: string;
 };
 
@@ -32,6 +33,8 @@ export function BLabTabBar({
   ariaLabel,
   className,
 }: BLabTabBarProps) {
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
   const handleKeyDown: KeyboardEventHandler<HTMLButtonElement> = (event) => {
     if (tabs.length === 0) {
       return;
@@ -54,6 +57,7 @@ export function BLabTabBar({
 
     event.preventDefault();
     onTabSelected(nextIndex);
+    requestAnimationFrame(() => tabRefs.current[nextIndex]?.focus());
   };
 
   const style: BLabTabBarStyle = {
@@ -80,6 +84,9 @@ export function BLabTabBar({
           role="tab"
           aria-selected={index === selectedIndex}
           tabIndex={index === selectedIndex ? 0 : -1}
+          ref={(element) => {
+            tabRefs.current[index] = element;
+          }}
           onClick={() => onTabSelected(index)}
           onKeyDown={handleKeyDown}
         >

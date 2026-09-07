@@ -6,20 +6,32 @@ export type BLabBottomBarItem = {
   readonly label: string;
 };
 
-export type BLabBottomBarProps = {
+type BLabBottomBarBaseProps = {
   readonly tabs: readonly BLabBottomBarItem[];
   readonly selectedIndex: number;
   readonly onTabSelected: (index: number) => void;
-  readonly onSearchTap?: () => void;
-  readonly actionIcon?: ReactNode;
-  readonly actionLabel?: string;
-  readonly showFirstTabChevron?: boolean;
-  readonly onFirstTabChevronTap?: () => void;
-  readonly firstTabChevronLabel?: string;
   readonly noMargin?: boolean;
-  readonly ariaLabel?: string;
+  readonly ariaLabel: string;
   readonly className?: string;
 };
+
+type BLabBottomBarSearchProps =
+  | { readonly onSearchTap?: undefined; readonly actionIcon?: ReactNode; readonly actionLabel?: string }
+  | { readonly onSearchTap: () => void; readonly actionIcon?: ReactNode; readonly actionLabel: string };
+
+type BLabBottomBarChevronProps =
+  | {
+      readonly showFirstTabChevron?: false;
+      readonly onFirstTabChevronTap?: () => void;
+      readonly firstTabChevronLabel?: string;
+    }
+  | {
+      readonly showFirstTabChevron: true;
+      readonly onFirstTabChevronTap: () => void;
+      readonly firstTabChevronLabel: string;
+    };
+
+export type BLabBottomBarProps = BLabBottomBarBaseProps & BLabBottomBarSearchProps & BLabBottomBarChevronProps;
 
 export function BLabBottomBar({
   tabs,
@@ -27,12 +39,12 @@ export function BLabBottomBar({
   onTabSelected,
   onSearchTap,
   actionIcon,
-  actionLabel = "Action",
+  actionLabel,
   showFirstTabChevron = false,
   onFirstTabChevronTap,
-  firstTabChevronLabel = "More options",
+  firstTabChevronLabel,
   noMargin = false,
-  ariaLabel = "Primary navigation",
+  ariaLabel,
   className,
 }: BLabBottomBarProps) {
   const barClassName = [
@@ -62,7 +74,7 @@ export function BLabBottomBar({
                 <span aria-hidden="true">{selected ? tab.activeIcon : tab.icon}</span>
                 <span>{tab.label}</span>
               </button>
-              {showFirstTabChevron && index === 0 && onFirstTabChevronTap ? (
+              {showFirstTabChevron && index === 0 && onFirstTabChevronTap && firstTabChevronLabel ? (
                 <button
                   className="blab-bottom-bar__chevron"
                   type="button"
@@ -76,7 +88,7 @@ export function BLabBottomBar({
           );
         })}
       </div>
-      {onSearchTap ? (
+      {onSearchTap && actionLabel ? (
         <button className="blab-bottom-bar__action" type="button" aria-label={actionLabel} onClick={onSearchTap}>
           <span aria-hidden="true">{actionIcon ?? "⌕"}</span>
         </button>

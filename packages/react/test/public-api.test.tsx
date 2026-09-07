@@ -8,9 +8,9 @@ import {
   BLabErrorState,
   BLabKeyboardAccessoryBar,
   BLabLoadingState,
-  BLabParityFixture,
   BLabTextField,
 } from "../src/index";
+import { BLabParityFixture } from "../src/fixture";
 
 describe("BLab React public components", () => {
   it("renders the button with the Flutter-aligned variant and accessible state", () => {
@@ -62,9 +62,10 @@ describe("BLab React public components", () => {
     const html = renderToStaticMarkup(
       <BLabKeyboardAccessoryBar
         onDone={() => undefined}
+        ariaLabel="Keyboard accessory"
+        doneLabel="Done"
         onUndo={() => undefined}
         canUndo={false}
-        doneLabel="Done"
         undoLabel="Undo"
       />,
     );

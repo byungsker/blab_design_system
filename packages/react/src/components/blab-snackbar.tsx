@@ -9,21 +9,25 @@ export const BLabSnackbarType = {
 
 export type BLabSnackbarType = (typeof BLabSnackbarType)[keyof typeof BLabSnackbarType];
 
-export type BLabSnackbarProps = Omit<HTMLAttributes<HTMLDivElement>, "children" | "role"> & {
+type BLabSnackbarBaseProps = Omit<HTMLAttributes<HTMLDivElement>, "children" | "role"> & {
   readonly message: string;
   readonly type?: BLabSnackbarType;
   readonly icon?: ReactNode;
-  readonly onDismiss?: () => void;
-  readonly dismissLabel?: string;
   readonly role?: "status" | "alert";
 };
+
+export type BLabSnackbarProps = BLabSnackbarBaseProps &
+  (
+    | { readonly onDismiss?: undefined; readonly dismissLabel?: string }
+    | { readonly onDismiss: () => void; readonly dismissLabel: string }
+  );
 
 export function BLabSnackbar({
   message,
   type = BLabSnackbarType.success,
   icon,
   onDismiss,
-  dismissLabel = "Dismiss",
+  dismissLabel,
   role,
   className,
   ...rest
@@ -43,7 +47,7 @@ export function BLabSnackbar({
     >
       <span className="blab-snackbar__icon" aria-hidden="true">{icon ?? marker}</span>
       <span className="blab-snackbar__message">{message}</span>
-      {onDismiss ? (
+      {onDismiss && dismissLabel ? (
         <button className="blab-snackbar__dismiss" type="button" aria-label={dismissLabel} onClick={onDismiss}>
           ×
         </button>

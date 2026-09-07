@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 
+import { BLabMotion } from "../tokens.js";
+
 type BLabKeyboardAccessoryButtonProps = {
   readonly ariaLabel: string;
   readonly children: ReactNode;
@@ -66,33 +68,63 @@ function BLabKeyboardAccessoryButton({
   );
 }
 
-export type BLabKeyboardAccessoryBarProps = {
+type BLabKeyboardAccessoryBaseProps = {
   readonly onDone: () => void;
   readonly isDark?: boolean;
   readonly icon?: ReactNode;
-  readonly onUp?: () => void;
-  readonly onDown?: () => void;
-  readonly onUndo?: () => void;
-  readonly onRedo?: () => void;
-  readonly onCopy?: () => void;
-  readonly onClearAll?: () => void;
-  readonly showNavigation?: boolean;
-  readonly canGoUp?: boolean;
-  readonly canGoDown?: boolean;
+  readonly doneLabel: string;
+  readonly className?: string;
+  readonly ariaLabel: string;
+};
+
+type BLabKeyboardAccessoryNavigationProps =
+  | {
+      readonly showNavigation?: false;
+      readonly onUp?: () => void;
+      readonly onDown?: () => void;
+      readonly canGoUp?: boolean;
+      readonly canGoDown?: boolean;
+      readonly upLabel?: string;
+      readonly downLabel?: string;
+    }
+  | {
+      readonly showNavigation: true;
+      readonly onUp?: () => void;
+      readonly onDown?: () => void;
+      readonly canGoUp?: boolean;
+      readonly canGoDown?: boolean;
+      readonly upLabel: string;
+      readonly downLabel: string;
+    };
+
+type BLabKeyboardAccessoryActionCapabilities = {
   readonly canUndo?: boolean;
   readonly canRedo?: boolean;
   readonly canCopy?: boolean;
   readonly canClearAll?: boolean;
-  readonly doneLabel?: string;
-  readonly upLabel?: string;
-  readonly downLabel?: string;
-  readonly undoLabel?: string;
-  readonly redoLabel?: string;
-  readonly copyLabel?: string;
-  readonly clearAllLabel?: string;
-  readonly className?: string;
-  readonly ariaLabel?: string;
 };
+
+type BLabKeyboardAccessoryActionProps = BLabKeyboardAccessoryActionCapabilities &
+  (
+    | { readonly onUndo?: undefined; readonly undoLabel?: string }
+    | { readonly onUndo: () => void; readonly undoLabel: string }
+  ) &
+  (
+    | { readonly onRedo?: undefined; readonly redoLabel?: string }
+    | { readonly onRedo: () => void; readonly redoLabel: string }
+  ) &
+  (
+    | { readonly onCopy?: undefined; readonly copyLabel?: string }
+    | { readonly onCopy: () => void; readonly copyLabel: string }
+  ) &
+  (
+    | { readonly onClearAll?: undefined; readonly clearAllLabel?: string }
+    | { readonly onClearAll: () => void; readonly clearAllLabel: string }
+  );
+
+export type BLabKeyboardAccessoryBarProps = BLabKeyboardAccessoryBaseProps &
+  BLabKeyboardAccessoryNavigationProps &
+  BLabKeyboardAccessoryActionProps;
 
 export function BLabKeyboardAccessoryBar({
   onDone,
@@ -111,15 +143,15 @@ export function BLabKeyboardAccessoryBar({
   canRedo = false,
   canCopy = false,
   canClearAll = false,
-  doneLabel = "Done",
-  upLabel = "Move up",
-  downLabel = "Move down",
-  undoLabel = "Undo",
-  redoLabel = "Redo",
-  copyLabel = "Copy",
-  clearAllLabel = "Clear all",
   className,
-  ariaLabel = "Keyboard accessory",
+  upLabel,
+  downLabel,
+  undoLabel,
+  redoLabel,
+  copyLabel,
+  clearAllLabel,
+  doneLabel,
+  ariaLabel,
 }: BLabKeyboardAccessoryBarProps) {
   const repeatTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
@@ -143,8 +175,8 @@ export function BLabKeyboardAccessoryBar({
     stopRepeat();
     repeatTimer.current = setTimeout(() => {
       action();
-      repeatTimer.current = setInterval(action, 100);
-    }, 500);
+      repeatTimer.current = setInterval(action, BLabMotion.repeatInterval);
+    }, BLabMotion.longPressDelay);
   };
 
   const theme = isDark === undefined ? undefined : isDark ? "dark" : "light";
@@ -159,7 +191,7 @@ export function BLabKeyboardAccessoryBar({
     <nav className={barClassName} aria-label={ariaLabel} data-blab-theme={theme} data-blab-component="keyboard-accessory-bar">
       <div className="blab-keyboard-accessory-bar__surface">
         <div className="blab-keyboard-accessory-bar__leading">
-          {showNavigation ? (
+          {showNavigation && upLabel && downLabel ? (
             <>
               <BLabKeyboardAccessoryButton
                 ariaLabel={upLabel}
@@ -182,7 +214,7 @@ export function BLabKeyboardAccessoryBar({
               </BLabKeyboardAccessoryButton>
             </>
           ) : null}
-          {onCopy ? (
+          {onCopy && copyLabel ? (
             <>
               <BLabKeyboardAccessoryButton
                 ariaLabel={copyLabel}
@@ -196,7 +228,7 @@ export function BLabKeyboardAccessoryBar({
               <span className="blab-keyboard-accessory-bar__divider" aria-hidden="true" />
             </>
           ) : null}
-          {onClearAll ? (
+          {onClearAll && clearAllLabel ? (
             <BLabKeyboardAccessoryButton
               ariaLabel={clearAllLabel}
               enabled={canClearAll}
@@ -209,7 +241,7 @@ export function BLabKeyboardAccessoryBar({
           ) : null}
         </div>
         <div className="blab-keyboard-accessory-bar__trailing">
-          {onUndo ? (
+          {onUndo && undoLabel ? (
             <>
               <BLabKeyboardAccessoryButton
                 ariaLabel={undoLabel}
@@ -224,7 +256,7 @@ export function BLabKeyboardAccessoryBar({
               <span className="blab-keyboard-accessory-bar__divider" aria-hidden="true" />
             </>
           ) : null}
-          {onRedo ? (
+          {onRedo && redoLabel ? (
             <>
               <BLabKeyboardAccessoryButton
                 ariaLabel={redoLabel}

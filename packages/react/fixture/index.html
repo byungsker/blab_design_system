@@ -21,7 +21,7 @@
     <script type="module">
       import { createRoot } from "react-dom/client";
       import { jsx } from "react/jsx-runtime";
-      import { BLabParityFixture } from "../dist/index.js";
+      import { BLabParityFixture } from "../dist/fixture.js";
 
       const theme = new URLSearchParams(window.location.search).get("theme") === "light" ? "light" : "dark";
       document.body.dataset.blabTheme = theme;

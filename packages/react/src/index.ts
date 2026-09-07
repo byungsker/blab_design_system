@@ -1,4 +1,4 @@
-export { BLabColors, BLabTypography } from "./tokens.js";
+export { BLabColors, BLabElevation, BLabGlass, BLabMotion, BLabRadii, BLabSpacing, BLabTypography } from "./tokens.js";
 export type { BLabColorMode } from "./tokens.js";
 
 export { BLabButton, BLabButtonVariant } from "./components/blab-button.js";
@@ -35,6 +35,3 @@ export type { BLabSegmentedControlProps, BLabSegmentedItem } from "./components/
 
 export { BLabKeyboardAccessoryBar } from "./components/blab-keyboard-accessory-bar.js";
 export type { BLabKeyboardAccessoryBarProps } from "./components/blab-keyboard-accessory-bar.js";
-
-export { BLabParityFixture } from "./fixture.js";
-export type { BLabParityFixtureProps } from "./fixture.js";
