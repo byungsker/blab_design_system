@@ -1,0 +1,50 @@
+{
+  "name": "@byungsker/blab-design-system",
+  "version": "0.2.0",
+  "description": "Cross-platform BLab design primitives for React and Next.js.",
+  "type": "module",
+  "private": false,
+  "files": [
+    "dist",
+    "src/styles.css",
+    "README.md"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./src/styles.css"
+  },
+  "sideEffects": [
+    "./src/styles.css"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:browser": "playwright test --project=chromium",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build && npm run test:browser"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^16.0.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.2.6"
+  }
+}
