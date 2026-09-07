@@ -19,6 +19,8 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
   const [selectedTab, setSelectedTab] = useState(0);
   const [selectedBottomTab, setSelectedBottomTab] = useState(0);
   const [value, setValue] = useState("Fixture value");
+  const [undoCount, setUndoCount] = useState(0);
+  const [longPressCount, setLongPressCount] = useState(0);
 
   return (
     <main data-blab-theme={theme} data-blab-component="parity-fixture" style={{ minHeight: "100vh", padding: 24 }}>
@@ -27,6 +29,25 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
         <BLabTextField label="Field" value={value} onChange={(event) => setValue(event.target.value)} clearLabel="Clear field" onClear={() => setValue("")} />
         <BLabButton text="Primary action" isFullWidth style={{ marginTop: 16 }} onClick={() => undefined} />
       </BLabCard>
+      <section className="blab-fixture-state-gallery" aria-labelledby="blab-fixture-state-title">
+        <h2 id="blab-fixture-state-title">Component states</h2>
+        <div className="blab-fixture-state-gallery__grid">
+          <BLabButton text="Focused button" autoFocus data-state="focused" onClick={() => undefined} />
+          <BLabButton text="Disabled button" disabled data-state="disabled" onClick={() => undefined} />
+          <BLabButton text="Saving" loading loadingLabel="Saving" data-state="loading" onClick={() => undefined} />
+          <div className="blab-fixture-state-gallery__field" data-state="error">
+            <BLabTextField
+              label="Error field"
+              value="Invalid value"
+              error="Enter a valid value"
+              onChange={() => undefined}
+            />
+          </div>
+          <BLabCard className="blab-fixture-state-gallery__card" onLongPress={() => setLongPressCount((count) => count + 1)}>
+            Long-press card
+          </BLabCard>
+        </div>
+      </section>
       <BLabSegmentedControl
         ariaLabel="Fixture segments"
         items={[{ value: "first", label: "First" }, { value: "second", label: "Second" }]}
@@ -45,7 +66,7 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
         onDown={() => undefined}
         upLabel="Move up"
         downLabel="Move down"
-        onUndo={() => undefined}
+        onUndo={() => setUndoCount((count) => count + 1)}
         onRedo={() => undefined}
         onCopy={() => undefined}
         onClearAll={() => undefined}
@@ -58,6 +79,8 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
         canCopy
         canClearAll
       />
+      <span className="blab-visually-hidden" data-blab-test-output="undo-count">{undoCount}</span>
+      <span className="blab-visually-hidden" data-blab-test-output="long-press-count">{longPressCount}</span>
       <BLabSnackbar message="Saved" type="success" />
       <BLabBottomBar
         tabs={[

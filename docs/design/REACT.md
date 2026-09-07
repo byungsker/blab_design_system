@@ -24,6 +24,10 @@ public BLab package. Flutter remains the semantic reference implementation.
 | Glass | Flutter blur/fill/border | `BLabGlass` and `--blab-glass-*` CSS variables |
 | Motion | Flutter interaction durations | `BLabMotion` and scoped reduced-motion CSS |
 
+The Flutter source does not declare a custom font family. React therefore uses
+the platform sans-serif stack instead of naming an unloaded Web font; type
+scale, weight, line height and letter spacing remain token-mapped.
+
 ## State matrix
 
 | Component | Variants | Required states | Accessibility evidence |

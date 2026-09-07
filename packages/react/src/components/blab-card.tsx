@@ -75,7 +75,11 @@ export function BLabCard({
 
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      onClick?.();
+      if (onClick) {
+        onClick();
+      } else {
+        onLongPress?.();
+      }
     }
   };
 

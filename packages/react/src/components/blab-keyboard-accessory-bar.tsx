@@ -173,8 +173,8 @@ export function BLabKeyboardAccessoryBar({
 
   const startRepeat = (action: () => void) => {
     stopRepeat();
+    action();
     repeatTimer.current = setTimeout(() => {
-      action();
       repeatTimer.current = setInterval(action, BLabMotion.repeatInterval);
     }, BLabMotion.longPressDelay);
   };

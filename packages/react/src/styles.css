@@ -19,8 +19,8 @@
   --blab-glass-fill: rgba(0, 0, 0, 0.08);
   --blab-glass-border: rgba(0, 0, 0, 0.08);
   --blab-glass-highlight: rgba(255, 255, 255, 0.6);
-  --blab-font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --blab-font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --blab-font-display: ui-sans-serif, system-ui, sans-serif;
+  --blab-font-body: ui-sans-serif, system-ui, sans-serif;
   --blab-radius-control: 12px;
   --blab-radius-card: 16px;
   --blab-radius-pill: 100px;
@@ -59,6 +59,7 @@
   --blab-glass-fill: rgba(255, 255, 255, 0.12);
   --blab-glass-border: rgba(255, 255, 255, 0.15);
   --blab-glass-highlight: rgba(255, 255, 255, 0.35);
+  --blab-focus-ring: 0 0 0 2px #121212, 0 0 0 4px var(--blab-color-primary);
 }
 
 .blab-button,
@@ -149,6 +150,36 @@
 .blab-button--full-width {
   display: flex;
   width: 100%;
+}
+
+.blab-fixture-state-gallery {
+  color: var(--blab-text-primary);
+  margin-top: var(--blab-space-xxl);
+}
+
+.blab-fixture-state-gallery h2 {
+  font-size: 18px;
+  margin: 0 0 var(--blab-space-md);
+}
+
+.blab-fixture-state-gallery__grid {
+  align-items: start;
+  display: grid;
+  gap: var(--blab-space-md);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.blab-fixture-state-gallery__field {
+  grid-column: 1 / -1;
+}
+
+.blab-fixture-state-gallery__card {
+  align-items: center;
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: center;
+  min-height: 52px;
+  padding: var(--blab-space-md);
 }
 
 .blab-button__spinner,
