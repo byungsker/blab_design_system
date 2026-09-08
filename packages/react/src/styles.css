@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  src: url("../fonts/Inter-latin.woff2") format("woff2");
+  font-display: block;
+}
+
 :root {
   --blab-color-primary: #5b7fff;
   --blab-color-primary-action: #4a68d3;
@@ -19,8 +27,8 @@
   --blab-glass-fill: rgba(0, 0, 0, 0.08);
   --blab-glass-border: rgba(0, 0, 0, 0.08);
   --blab-glass-highlight: rgba(255, 255, 255, 0.6);
-  --blab-font-display: ui-sans-serif, system-ui, sans-serif;
-  --blab-font-body: ui-sans-serif, system-ui, sans-serif;
+  --blab-font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --blab-font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
   --blab-radius-control: 12px;
   --blab-radius-card: 16px;
   --blab-radius-pill: 100px;

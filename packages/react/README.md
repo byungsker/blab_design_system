@@ -16,7 +16,8 @@ npm install @byungsker/blab-design-system
 Until publication, install the package from this repository with
 `npm install ./packages/react`.
 
-Import the public package and its shared CSS entry point:
+Import the public package and its shared CSS entry point. The CSS entry also
+loads the package-bundled Inter Latin font used by the parity fixture:
 
 ```tsx
 import {
@@ -105,9 +106,20 @@ npm run test:browser
 The package-local parity fixture is included for browser verification and does
 not contain Bookgolas routes, data or authentication behavior.
 
-Serve the package directory after `npm run build` and open
+## Versioning
+
+Flutter remains the semantic authority. Additive parity APIs use a compatible
+minor release, fixes use a patch release, and breaking React public API or
+token changes use a major release. Flutter-only changes do not require a React
+release when the public contract and rendered behavior stay unchanged. Any
+cross-platform token or interaction change updates both surfaces or records an
+intentional divergence. Consumers pin an explicit version and use only the
+public package root or `styles.css` entry.
+
+Serve the package directory after `npm run build:fixture` and open
 `fixture/index.html` for a standalone Chromium surface:
 
 ```bash
+npm run build:fixture
 python3 -m http.server 4173
 ```

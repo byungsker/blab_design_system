@@ -6,6 +6,7 @@
   "private": false,
   "files": [
     "dist",
+    "fonts",
     "src/styles.css",
     "README.md"
   ],
@@ -24,10 +25,11 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "build:fixture": "esbuild fixture/main.tsx --bundle --format=esm --platform=browser --target=es2020 --outfile=fixture/main.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:browser": "playwright test --project=chromium",
+    "test:browser": "npm run build:fixture && playwright test --project=chromium",
     "check": "npm run lint && npm run typecheck && npm test && npm run build && npm run test:browser"
   },
   "peerDependencies": {
@@ -39,6 +41,7 @@
     "@playwright/test": "^1.63.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "esbuild": "^0.28.2",
     "eslint": "^9.0.0",
     "globals": "^16.0.0",
     "react": "19.2.3",

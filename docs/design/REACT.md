@@ -26,9 +26,9 @@ public BLab package. Flutter remains the semantic reference implementation.
 | Glass | Flutter blur/fill/border | `BLabGlass` and `--blab-glass-*` CSS variables |
 | Motion | Flutter interaction durations | `BLabMotion` and scoped reduced-motion CSS |
 
-The Flutter source does not declare a custom font family. React therefore uses
-the platform sans-serif stack instead of naming an unloaded Web font; type
-scale, weight, line height and letter spacing remain token-mapped.
+The Flutter source does not declare a custom font family. The Web adapter
+bundles the Inter Latin font for deterministic browser rendering and keeps the
+Flutter type scale, weight, line height and letter spacing token-mapped.
 
 ## State matrix
 
@@ -64,6 +64,21 @@ scale, weight, line height and letter spacing remain token-mapped.
 Every user-facing accessible name in the React package is supplied by the
 consumer. The standalone fixture passes English test labels explicitly; it is
 not a source of product copy.
+
+## Cross-platform versioning and release
+
+The Flutter package remains the semantic authority. A parity change that adds
+React support for an existing Flutter API is released as a compatible React
+minor or patch according to the public API change. A breaking React API or
+token removal requires a React major version and a documented Flutter mapping
+decision. Flutter-only implementation changes do not force a React release
+when the public contract and rendered behavior are unchanged. React-only
+adapter improvements use the React package version without changing Flutter.
+
+When a Flutter public contract, visual token or interaction changes, both
+surfaces must be updated or the intentional divergence must be recorded before
+release. Consumers pin an explicit package version and import only the public
+root or `styles.css` entry; they do not depend on `latest` or private paths.
 
 ## Platform differences
 

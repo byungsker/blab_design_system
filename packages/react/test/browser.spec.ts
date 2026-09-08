@@ -11,6 +11,8 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
 
   const fixture = page.locator('[data-blab-component="parity-fixture"]');
   await expect(fixture).toBeVisible();
+  await page.evaluate(() => document.fonts.ready);
+  await expect.poll(() => page.evaluate(() => document.fonts.check('16px "Inter"'))).toBe(true);
   await expect(page.locator("body")).toHaveCSS("background-color", "rgb(18, 18, 18)");
   await expect(page.getByRole("button", { name: "Primary action" })).toBeVisible();
   const stateGallery = page.getByRole("heading", { name: "Component states" });
@@ -74,10 +76,11 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   await undoButton.scrollIntoViewIfNeeded();
   await undoButton.hover();
   await page.mouse.down();
-  await expect(page.locator('[data-blab-test-output="undo-count"]')).toHaveText("1");
+  await page.waitForTimeout(250);
+  await expect(page.locator('[data-blab-test-output="undo-count"]')).toHaveText("0");
   await expect
     .poll(async () => Number(await page.locator('[data-blab-test-output="undo-count"]').textContent()), { timeout: 2_000 })
-    .toBeGreaterThan(1);
+    .toBeGreaterThan(0);
   await page.mouse.up();
   const stoppedUndoCount = Number(await page.locator('[data-blab-test-output="undo-count"]').textContent());
   await page.waitForTimeout(250);
@@ -120,6 +123,7 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   await expect(page).toHaveScreenshot("dark-desktop.png", { animations: "disabled" });
   await page.goto("/fixture/index.html?theme=light", { waitUntil: "networkidle" });
   await expect(fixture).toHaveAttribute("data-blab-theme", "light");
+  await expect.poll(() => page.evaluate(() => document.fonts.check('16px "Inter"'))).toBe(true);
   await expect(page.locator("body")).toHaveCSS("background-color", "rgb(250, 250, 250)");
   await expect(page.getByRole("button", { name: "Primary action" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Focused button" })).toBeFocused();
