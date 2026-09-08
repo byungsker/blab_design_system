@@ -71,6 +71,7 @@ export function BLabTextField({
   const errorId = `${controlId}-error`;
   const describedByValue = [describedBy, error ? errorId : ""].filter(Boolean).join(" ") || undefined;
   const fieldClassName = ["blab-field", className ?? ""].filter(Boolean).join(" ");
+  const singleLine = obscureText || maxLines <= 1;
   const controlProps = {
     id: controlId,
     name,
@@ -97,10 +98,10 @@ export function BLabTextField({
     <div className={fieldClassName} style={style} data-blab-component="text-field">
       {label ? <label className="blab-field__label" htmlFor={controlId}>{label}</label> : null}
       <div className="blab-field__shell">
-        {maxLines > 1 ? (
-          <textarea {...controlProps} rows={maxLines} />
-        ) : (
+        {singleLine ? (
           <input {...controlProps} type={obscureText ? "password" : inputType} />
+        ) : (
+          <textarea {...controlProps} rows={maxLines} />
         )}
         {suffixIcon ? <span className="blab-field__suffix">{suffixIcon}</span> : null}
         {value && onClear && clearLabel && !readOnly && !disabled ? (

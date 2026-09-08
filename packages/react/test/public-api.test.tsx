@@ -41,6 +41,22 @@ describe("BLab React public components", () => {
     expect(html).toContain("Email is required");
   });
 
+  it("keeps obscure fields single-line like Flutter", () => {
+    const html = renderToStaticMarkup(
+      <BLabTextField
+        ariaLabel="Password"
+        value="secret"
+        onChange={() => undefined}
+        obscureText
+        maxLines={4}
+      />,
+    );
+
+    expect(html).toContain('<input');
+    expect(html).toContain('type="password"');
+    expect(html).not.toContain("<textarea");
+  });
+
   it("renders the reusable state and fixture surfaces without product data dependencies", () => {
     const html = renderToStaticMarkup(
       <>

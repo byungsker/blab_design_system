@@ -25,6 +25,8 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   await expect(page.getByRole("button", { name: "Saving" })).toBeDisabled();
   await expect(page.getByRole("button", { name: "Saving" })).toHaveAttribute("aria-busy", "true");
   await expect(page.getByLabel("Error field")).toHaveAttribute("aria-invalid", "true");
+  await expect(page.getByRole("button", { name: "More" })).toHaveCSS("width", "44px");
+  await expect(page.getByRole("button", { name: "More" })).toHaveCSS("height", "44px");
   await expect(page.getByRole("alert").filter({ hasText: "Enter a valid value" })).toBeVisible();
   const darkTokens = await fixture.evaluate((element) => {
     const styles = getComputedStyle(element);
@@ -75,6 +77,11 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   const undoButton = page.getByRole("button", { name: "Undo" });
   await undoButton.scrollIntoViewIfNeeded();
   await undoButton.hover();
+  await undoButton.dispatchEvent("pointerdown", { button: 0, pointerId: 1, pointerType: "mouse", isPrimary: true });
+  await page.waitForTimeout(250);
+  await undoButton.dispatchEvent("pointercancel", { button: 0, pointerId: 1, pointerType: "mouse", isPrimary: true });
+  await page.waitForTimeout(350);
+  await expect(page.locator('[data-blab-test-output="undo-count"]')).toHaveText("0");
   const undoStart = await page.evaluate(() => performance.now());
   await page.mouse.down();
   await page.waitForTimeout(250);

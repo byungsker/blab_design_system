@@ -50,7 +50,7 @@ Flutter type scale, weight, line height and letter spacing token-mapped.
 | --- | --- | --- | --- |
 | `BLabButton` | `LiquidGlassButton` | `text`/`children`, `variant`, `isFullWidth`, `loading`, `loadingLabel`, `onClick` | 150ms press/filter; disabled and `aria-busy` preserve loading state |
 | `BLabCard` | `LiquidGlassCard` | `children`, `padding`, `borderRadius`, `onClick`, `onLongPress`, `disabled` | 150ms press; keyboard Enter/Space invokes action |
-| `BLabTextField` | `LiquidGlassTextField` | controlled `value`/`onChange`, `label` or `ariaLabel`, `hintText`, `obscureText`, `maxLines`, `error`, `onClear` | Native focus/error/disabled states; error is described and announced |
+| `BLabTextField` | `LiquidGlassTextField` | controlled `value`/`onChange`, `label` or `ariaLabel`, `hintText`, `obscureText`, `maxLines`, `error`, `onClear` | Native focus/error/disabled states; obscure text forces a single-line password input; error is described and announced |
 | `BLabSnackbar` | `BLabSnackbar.show` | `message`, `type`, `icon`, `onDismiss`, required `dismissLabel` when dismissible | Live-region role and assertive error behavior; placement belongs to consumer |
 | `BLabPressableWrapper` | `PressableWrapper` | `children`, `onTap`, `onLongPress`, `scaleEnd`, `brightnessEnd`, `animationDuration` | 150ms press feedback; pointer cancellation clears state |
 | `BLabLoadingState` | Loading surface pattern | required `label`, `size` | Spinner animation is non-essential and clamped by reduced motion |

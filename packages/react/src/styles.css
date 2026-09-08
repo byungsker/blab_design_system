@@ -462,12 +462,12 @@
   color: currentColor;
   cursor: pointer;
   display: inline-flex;
-  height: 24px;
+  height: 44px;
   justify-content: center;
   position: absolute;
   right: 4px;
   top: 4px;
-  width: 24px;
+  width: 44px;
 }
 
 .blab-bottom-bar__action {

@@ -91,6 +91,9 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
         selectedIndex={selectedBottomTab}
         onTabSelected={setSelectedBottomTab}
         ariaLabel="Fixture navigation"
+        showFirstTabChevron
+        onFirstTabChevronTap={() => undefined}
+        firstTabChevronLabel="More"
       />
     </main>
   );
