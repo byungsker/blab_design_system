@@ -73,12 +73,14 @@ consuming product should calculate layout-specific placement itself.
 
 ## Next.js usage
 
-Token objects and static components can be rendered by Server Components. Keep
-interactive consumers at client leaves and pass serializable labels and state
-from the route or feature owner. Import the CSS entry from the root layout or a
-global stylesheet accepted by the Next.js build.
+Interactive component exports carry a Next.js client boundary. Render them at
+client leaves and pass serializable labels and state from the route or feature
+owner. Import the CSS entry from the root layout or a global stylesheet accepted
+by the Next.js build.
 
 ```tsx
+"use client";
+
 import { BLabButton } from "@byungsker/blab-design-system";
 import "@byungsker/blab-design-system/styles.css";
 
@@ -129,7 +131,7 @@ Serve the package directory after `npm run build:fixture` and open
 
 ```bash
 npm run build:fixture
-python3 -m http.server 4173
+node scripts/serve-fixture.mjs 4173
 ```
 
 `npm run test:browser` reserves an isolated loopback port automatically; set

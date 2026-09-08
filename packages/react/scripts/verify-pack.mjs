@@ -34,6 +34,27 @@ try {
   if (packageJson.private !== true || packageJson.license !== "UNLICENSED") {
     throw new Error("Packed package release policy metadata mismatch");
   }
+  const entrySource = readFileSync(join(installedRoot, "dist/index.js"), "utf8");
+  if (!entrySource.startsWith('"use client";')) {
+    throw new Error("Packed public entry is missing the Next.js client boundary");
+  }
+  for (const component of [
+    "blab-bottom-bar",
+    "blab-button",
+    "blab-card",
+    "blab-keyboard-accessory-bar",
+    "blab-pressable-wrapper",
+    "blab-segmented-control",
+    "blab-snackbar",
+    "blab-states",
+    "blab-tab-bar",
+    "blab-text-field",
+  ]) {
+    const source = readFileSync(join(installedRoot, "dist/components", `${component}.js`), "utf8");
+    if (!source.startsWith('"use client";')) {
+      throw new Error(`Packed component is missing the Next.js client boundary: ${component}`);
+    }
+  }
 
   const consumerScript = [
     'const api = await import("@byungsker/blab-design-system");',
