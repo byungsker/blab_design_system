@@ -123,3 +123,6 @@ Serve the package directory after `npm run build:fixture` and open
 npm run build:fixture
 python3 -m http.server 4173
 ```
+
+`npm run test:browser` reserves an isolated loopback port automatically; set
+`PLAYWRIGHT_PORT` only when an explicit port is required by the environment.

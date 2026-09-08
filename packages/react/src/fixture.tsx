@@ -19,7 +19,7 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
   const [selectedTab, setSelectedTab] = useState(0);
   const [selectedBottomTab, setSelectedBottomTab] = useState(0);
   const [value, setValue] = useState("Fixture value");
-  const [undoCount, setUndoCount] = useState(0);
+  const [undoEvents, setUndoEvents] = useState<number[]>([]);
   const [longPressCount, setLongPressCount] = useState(0);
 
   return (
@@ -66,7 +66,7 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
         onDown={() => undefined}
         upLabel="Move up"
         downLabel="Move down"
-        onUndo={() => setUndoCount((count) => count + 1)}
+        onUndo={() => setUndoEvents((events) => [...events, performance.now()])}
         onRedo={() => undefined}
         onCopy={() => undefined}
         onClearAll={() => undefined}
@@ -79,7 +79,8 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
         canCopy
         canClearAll
       />
-      <span className="blab-visually-hidden" data-blab-test-output="undo-count">{undoCount}</span>
+      <span className="blab-visually-hidden" data-blab-test-output="undo-count">{undoEvents.length}</span>
+      <span className="blab-visually-hidden" data-blab-test-output="undo-events">{undoEvents.join(",")}</span>
       <span className="blab-visually-hidden" data-blab-test-output="long-press-count">{longPressCount}</span>
       <BLabSnackbar message="Saved" type="success" />
       <BLabBottomBar

@@ -75,12 +75,32 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   const undoButton = page.getByRole("button", { name: "Undo" });
   await undoButton.scrollIntoViewIfNeeded();
   await undoButton.hover();
+  const undoStart = await page.evaluate(() => performance.now());
   await page.mouse.down();
   await page.waitForTimeout(250);
   await expect(page.locator('[data-blab-test-output="undo-count"]')).toHaveText("0");
   await expect
     .poll(async () => Number(await page.locator('[data-blab-test-output="undo-count"]').textContent()), { timeout: 2_000 })
     .toBeGreaterThan(0);
+  const firstUndoEvent = Number((await page.locator('[data-blab-test-output="undo-events"]').textContent())?.split(",")[0]);
+  expect(firstUndoEvent - undoStart).toBeGreaterThanOrEqual(450);
+  expect(firstUndoEvent - undoStart).toBeLessThan(800);
+  await expect
+    .poll(async () => Number(await page.locator('[data-blab-test-output="undo-count"]').textContent()), { timeout: 1_000 })
+    .toBeGreaterThan(1);
+  const undoEvents = (await page.locator('[data-blab-test-output="undo-events"]').textContent())
+    ?.split(",")
+    .filter(Boolean)
+    .map(Number) ?? [];
+  const firstRepeatEvent = undoEvents[0];
+  const secondRepeatEvent = undoEvents[1];
+  expect(firstRepeatEvent).toBeDefined();
+  expect(secondRepeatEvent).toBeDefined();
+  if (firstRepeatEvent === undefined || secondRepeatEvent === undefined) {
+    throw new Error("Expected two undo repeat events");
+  }
+  expect(secondRepeatEvent - firstRepeatEvent).toBeGreaterThanOrEqual(60);
+  expect(secondRepeatEvent - firstRepeatEvent).toBeLessThan(180);
   await page.mouse.up();
   const stoppedUndoCount = Number(await page.locator('[data-blab-test-output="undo-count"]').textContent());
   await page.waitForTimeout(250);
