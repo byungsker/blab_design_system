@@ -148,7 +148,7 @@ export const BLabTheme = {
     scaffoldBackgroundColor: BLabColors.light.scaffold,
     inputDecoration: {
       filled: true,
-      fillColor: BLabColors.grey100Light,
+      fillColor: BLabColors.grey(100, "light"),
       borderRadius: BLabRadii.control,
       focusedBorder: { color: BLabColors.primary, width: 2 },
       errorBorder: { color: BLabColors.error, width: 1 },
