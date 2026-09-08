@@ -18,7 +18,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `python3 -m http.server ${port}`,
+    command: `node scripts/serve-fixture.mjs ${port}`,
     cwd: ".",
     port,
     reuseExistingServer: false,
