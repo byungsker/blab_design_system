@@ -1,72 +1,8 @@
 import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 
+import { KeyboardAccessoryButton } from "./keyboard-accessory-button.js";
 import { BLabMotion } from "../tokens.js";
-
-type BLabKeyboardAccessoryButtonProps = {
-  readonly ariaLabel: string;
-  readonly children: ReactNode;
-  readonly enabled?: boolean;
-  readonly onTap?: (() => void) | undefined;
-  readonly supportLongPress?: boolean;
-  readonly startRepeat: (action: () => void) => void;
-  readonly stopRepeat: () => void;
-};
-
-function BLabKeyboardAccessoryButton({
-  ariaLabel,
-  children,
-  enabled = true,
-  onTap,
-  supportLongPress = false,
-  startRepeat,
-  stopRepeat,
-}: BLabKeyboardAccessoryButtonProps) {
-  const longPressed = useRef(false);
-
-  const handlePointerDown = () => {
-    if (!enabled || !onTap || !supportLongPress) {
-      return;
-    }
-
-    longPressed.current = false;
-    startRepeat(() => {
-      longPressed.current = true;
-      onTap();
-    });
-  };
-
-  const handlePointerEnd = () => {
-    if (supportLongPress) {
-      stopRepeat();
-    }
-  };
-
-  const handleClick = () => {
-    if (longPressed.current) {
-      longPressed.current = false;
-      return;
-    }
-
-    onTap?.();
-  };
-
-  return (
-    <button
-      className="blab-keyboard-accessory-bar__button"
-      type="button"
-      aria-label={ariaLabel}
-      disabled={!enabled || !onTap}
-      onClick={handleClick}
-      onPointerDown={handlePointerDown}
-      onPointerUp={handlePointerEnd}
-      onPointerCancel={handlePointerEnd}
-      onPointerLeave={handlePointerEnd}
-    >
-      {children}
-    </button>
-  );
-}
 
 type BLabKeyboardAccessoryBaseProps = {
   readonly onDone: () => void;
@@ -175,7 +111,9 @@ export function BLabKeyboardAccessoryBar({
     stopRepeat();
     repeatTimer.current = setTimeout(() => {
       action();
-      repeatTimer.current = setInterval(action, BLabMotion.repeatInterval);
+      repeatTimer.current = setTimeout(() => {
+        repeatTimer.current = setInterval(action, BLabMotion.repeatInterval);
+      }, BLabMotion.longPressDelay);
     }, BLabMotion.longPressDelay);
   };
 
@@ -193,7 +131,7 @@ export function BLabKeyboardAccessoryBar({
         <div className="blab-keyboard-accessory-bar__leading">
           {showNavigation && upLabel && downLabel ? (
             <>
-              <BLabKeyboardAccessoryButton
+              <KeyboardAccessoryButton
                 ariaLabel={upLabel}
                 enabled={canGoUp}
                 onTap={onUp}
@@ -201,9 +139,9 @@ export function BLabKeyboardAccessoryBar({
                 stopRepeat={stopRepeat}
               >
                 ↑
-              </BLabKeyboardAccessoryButton>
+              </KeyboardAccessoryButton>
               <span className="blab-keyboard-accessory-bar__divider" aria-hidden="true" />
-              <BLabKeyboardAccessoryButton
+              <KeyboardAccessoryButton
                 ariaLabel={downLabel}
                 enabled={canGoDown}
                 onTap={onDown}
@@ -211,12 +149,12 @@ export function BLabKeyboardAccessoryBar({
                 stopRepeat={stopRepeat}
               >
                 ↓
-              </BLabKeyboardAccessoryButton>
+              </KeyboardAccessoryButton>
             </>
           ) : null}
           {onCopy && copyLabel ? (
             <>
-              <BLabKeyboardAccessoryButton
+              <KeyboardAccessoryButton
                 ariaLabel={copyLabel}
                 enabled={canCopy}
                 onTap={onCopy}
@@ -224,12 +162,12 @@ export function BLabKeyboardAccessoryBar({
                 stopRepeat={stopRepeat}
               >
                 ⧉
-              </BLabKeyboardAccessoryButton>
+              </KeyboardAccessoryButton>
               <span className="blab-keyboard-accessory-bar__divider" aria-hidden="true" />
             </>
           ) : null}
           {onClearAll && clearAllLabel ? (
-            <BLabKeyboardAccessoryButton
+            <KeyboardAccessoryButton
               ariaLabel={clearAllLabel}
               enabled={canClearAll}
               onTap={onClearAll}
@@ -237,13 +175,13 @@ export function BLabKeyboardAccessoryBar({
               stopRepeat={stopRepeat}
             >
               ⌫
-            </BLabKeyboardAccessoryButton>
+            </KeyboardAccessoryButton>
           ) : null}
         </div>
         <div className="blab-keyboard-accessory-bar__trailing">
           {onUndo && undoLabel ? (
             <>
-              <BLabKeyboardAccessoryButton
+              <KeyboardAccessoryButton
                 ariaLabel={undoLabel}
                 enabled={canUndo}
                 onTap={onUndo}
@@ -252,13 +190,13 @@ export function BLabKeyboardAccessoryBar({
                 stopRepeat={stopRepeat}
               >
                 ↶
-              </BLabKeyboardAccessoryButton>
+              </KeyboardAccessoryButton>
               <span className="blab-keyboard-accessory-bar__divider" aria-hidden="true" />
             </>
           ) : null}
           {onRedo && redoLabel ? (
             <>
-              <BLabKeyboardAccessoryButton
+              <KeyboardAccessoryButton
                 ariaLabel={redoLabel}
                 enabled={canRedo}
                 onTap={onRedo}
@@ -267,18 +205,18 @@ export function BLabKeyboardAccessoryBar({
                 stopRepeat={stopRepeat}
               >
                 ↷
-              </BLabKeyboardAccessoryButton>
+              </KeyboardAccessoryButton>
               <span className="blab-keyboard-accessory-bar__divider" aria-hidden="true" />
             </>
           ) : null}
-          <BLabKeyboardAccessoryButton
+          <KeyboardAccessoryButton
             ariaLabel={doneLabel}
             onTap={onDone}
             startRepeat={startRepeat}
             stopRepeat={stopRepeat}
           >
             {icon ?? "⌨"}
-          </BLabKeyboardAccessoryButton>
+          </KeyboardAccessoryButton>
         </div>
       </div>
     </nav>

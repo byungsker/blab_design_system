@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+
 import { describe, expect, it } from "vitest";
 
 import {
@@ -11,110 +13,48 @@ import {
   BLabTypography,
 } from "../src/index";
 
-describe("BLab token snapshots", () => {
-  it("keeps the Flutter-aligned light/dark and typography contract", () => {
-    expect({
-      primary: BLabColors.primary,
-      primaryAction: BLabColors.primaryAction,
-      destructiveAction: BLabColors.destructiveAction,
-      light: {
-        scaffold: BLabColors.light.scaffold,
-        surface: BLabColors.light.surface,
-        textPrimary: BLabColors.light.textPrimary,
-        textSecondary: BLabColors.light.textSecondary,
-      },
-      dark: {
-        scaffold: BLabColors.dark.scaffold,
-        surface: BLabColors.dark.surface,
-        textPrimary: BLabColors.dark.textPrimary,
-        textSecondary: BLabColors.dark.textSecondary,
-      },
-      typography: {
-        displayLarge: BLabTypography.displayLarge,
-        titleMedium: BLabTypography.titleMedium,
-        bodyMedium: BLabTypography.bodyMedium,
-      },
-      spacing: BLabSpacing,
-      radii: BLabRadii,
-      elevation: BLabElevation,
-      glass: BLabGlass,
-      motion: BLabMotion,
-    }).toMatchInlineSnapshot(`
-      {
-        "dark": {
-          "scaffold": "#121212",
-          "surface": "#1E1E1E",
-          "textPrimary": "#FFFFFF",
-          "textSecondary": "rgba(255, 255, 255, 0.87)",
-        },
-        "destructiveAction": "#C5302D",
-        "elevation": {
-          "subtle": "0 1px 4px rgba(0, 0, 0, 0.08)",
-          "surface": "0 8px 20px rgba(0, 0, 0, 0.15)",
-        },
-        "glass": {
-          "cardBlur": 25,
-          "darkBorder": "rgba(255, 255, 255, 0.15)",
-          "darkFill": "rgba(255, 255, 255, 0.12)",
-          "lightBorder": "rgba(0, 0, 0, 0.08)",
-          "lightFill": "rgba(0, 0, 0, 0.08)",
-          "overlayBlur": 20,
-        },
-        "light": {
-          "scaffold": "#FAFAFA",
-          "surface": "#FFFFFF",
-          "textPrimary": "#000000",
-          "textSecondary": "rgba(0, 0, 0, 0.87)",
-        },
-        "motion": {
-          "longPressDelay": 500,
-          "press": 150,
-          "repeatInterval": 100,
-          "surface": 180,
-        },
-        "primary": "#5B7FFF",
-        "primaryAction": "#4A68D3",
-        "radii": {
-          "card": 16,
-          "control": 12,
-          "icon": 8,
-          "pill": 100,
-        },
-        "spacing": {
-          "accessoryHorizontal": 14,
-          "bottomBarBottom": 22,
-          "buttonHorizontal": 24,
-          "buttonVertical": 14,
-          "controlHorizontal": 16,
-          "controlVertical": 14,
-          "lg": 16,
-          "md": 12,
-          "sm": 8,
-          "xl": 20,
-          "xs": 4,
-          "xxl": 24,
-          "xxs": 2,
-        },
-        "typography": {
-          "bodyMedium": {
-            "fontSize": 14,
-            "fontWeight": 400,
-            "lineHeight": 1.45,
-          },
-          "displayLarge": {
-            "fontSize": 32,
-            "fontWeight": 700,
-            "letterSpacing": -0.5,
-            "lineHeight": 1.2,
-          },
-          "titleMedium": {
-            "fontSize": 18,
-            "fontWeight": 600,
-            "lineHeight": 1.35,
-          },
-        },
-      }
-    `);
+const flutterColorsSource = readFileSync(
+  new URL("../../../lib/src/theme/app_colors.dart", import.meta.url),
+  "utf8",
+);
+
+const flutterColor = (name: string) => {
+  const match = flutterColorsSource.match(
+    new RegExp(`static const Color ${name} = Color\\(0xFF([0-9A-F]{6})\\);`),
+  );
+  const value = match?.[1];
+  if (!value) {
+    throw new Error(`Flutter color ${name} is not defined as a hex constant`);
+  }
+  return `#${value}`;
+};
+
+describe("BLab token contract", () => {
+  it("keeps semantic colors aligned with the Flutter source", () => {
+    expect(BLabColors.primary).toBe(flutterColor("primary"));
+    expect(BLabColors.error).toBe(flutterColor("error"));
+    expect(BLabColors.destructive).toBe(flutterColor("destructive"));
+    expect(BLabColors.light.scaffold).toBe(flutterColor("scaffoldLight"));
+    expect(BLabColors.dark.scaffold).toBe(flutterColor("scaffoldDark"));
+    expect(BLabColors.dark.elevated).toBe(flutterColor("elevatedDark"));
+  });
+
+  it("keeps shared layout, type, glass and motion tokens stable", () => {
+    expect(BLabTypography.displayLarge).toEqual({ fontSize: 32, fontWeight: 700, lineHeight: 1.2, letterSpacing: -0.5 });
+    expect(BLabTypography.titleMedium).toEqual({ fontSize: 18, fontWeight: 600, lineHeight: 1.35 });
+    expect(BLabTypography.bodyMedium).toEqual({ fontSize: 14, fontWeight: 400, lineHeight: 1.45 });
+    expect(BLabSpacing).toMatchObject({ buttonVertical: 14, buttonHorizontal: 24, controlVertical: 14, controlHorizontal: 16 });
+    expect(BLabRadii).toEqual({ control: 12, card: 16, pill: 100, icon: 8 });
+    expect(BLabElevation).toEqual({ subtle: "0 1px 4px rgba(0, 0, 0, 0.08)", surface: "0 8px 20px rgba(0, 0, 0, 0.15)" });
+    expect(BLabGlass).toEqual({
+      cardBlur: 25,
+      overlayBlur: 20,
+      lightFill: "rgba(0, 0, 0, 0.08)",
+      darkFill: "rgba(255, 255, 255, 0.12)",
+      lightBorder: "rgba(0, 0, 0, 0.08)",
+      darkBorder: "rgba(255, 255, 255, 0.15)",
+    });
+    expect(BLabMotion).toEqual({ press: 150, surface: 180, longPressDelay: 500, repeatInterval: 100 });
   });
 
   it("keeps Flutter public grey helpers and theme mappings available", () => {

@@ -13,7 +13,7 @@ const cssToken = (name: string) => {
 describe("BLab CSS token contract", () => {
   it("keeps representative CSS variables aligned with exported tokens", () => {
     expect(cssToken("--blab-color-primary")).toBe(BLabColors.primary.toLowerCase());
-    expect(cssToken("--blab-color-primary-action")).toBe(BLabColors.primaryAction.toLowerCase());
+    expect(cssToken("--blab-color-error")).toBe(BLabColors.error.toLowerCase());
     expect(cssToken("--blab-space-xxl")).toBe(`${BLabSpacing.xxl}px`);
     expect(cssToken("--blab-radius-card")).toBe(`${BLabRadii.card}px`);
     expect(cssToken("--blab-elevation-surface")).toBe(BLabElevation.surface);

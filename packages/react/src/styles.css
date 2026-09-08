@@ -8,14 +8,12 @@
 
 :root {
   --blab-color-primary: #5b7fff;
-  --blab-color-primary-action: #4a68d3;
   --blab-color-primary-light: #6b8aff;
   --blab-color-success: #10b981;
   --blab-color-error: #ff3b30;
   --blab-color-warning: #ff9500;
   --blab-color-info: #4ecdc4;
   --blab-color-destructive: #ff6b6b;
-  --blab-color-destructive-action: #c5302d;
   --blab-surface-scaffold: #fafafa;
   --blab-surface: #ffffff;
   --blab-surface-card: #ffffff;
@@ -140,7 +138,7 @@
 }
 
 .blab-button--primary {
-  background: var(--blab-color-primary-action);
+  background: var(--blab-color-primary);
   color: #ffffff;
 }
 
@@ -151,7 +149,7 @@
 }
 
 .blab-button--destructive {
-  background: var(--blab-color-destructive-action);
+  background: var(--blab-color-error);
   color: #ffffff;
 }
 
@@ -498,7 +496,7 @@
   box-shadow: var(--blab-elevation-surface);
   display: flex;
   gap: var(--blab-space-sm);
-  justify-content: flex-start;
+  justify-content: space-between;
   min-height: 56px;
   max-width: 100%;
   overflow-x: auto;

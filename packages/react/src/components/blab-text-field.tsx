@@ -72,10 +72,11 @@ export function BLabTextField({
   const describedByValue = [describedBy, error ? errorId : ""].filter(Boolean).join(" ") || undefined;
   const fieldClassName = ["blab-field", className ?? ""].filter(Boolean).join(" ");
   const singleLine = obscureText || maxLines <= 1;
+  const renderedValue = obscureText && typeof window === "undefined" ? undefined : value;
   const controlProps = {
     id: controlId,
     name,
-    value,
+    value: renderedValue,
     placeholder: hintText,
     readOnly,
     autoFocus: autofocus,

@@ -2,11 +2,13 @@
   "name": "@byungsker/blab-design-system",
   "version": "0.2.0",
   "description": "Cross-platform BLab design primitives for React and Next.js.",
+  "license": "UNLICENSED",
   "type": "module",
   "private": false,
   "files": [
     "dist",
     "fonts",
+    "LICENSE",
     "src/styles.css",
     "README.md"
   ],

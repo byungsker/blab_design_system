@@ -31,7 +31,6 @@ const darkGreyValues: Record<BLabGreyShade, string> = {
 
 export const BLabColors = {
   primary: "#5B7FFF",
-  primaryAction: "#4A68D3",
   primaryLight: "#6B8AFF",
   success: "#10B981",
   successAlt: "#34C759",
@@ -45,7 +44,6 @@ export const BLabColors = {
   info: "#4ECDC4",
   infoAlt: "#3498DB",
   destructive: "#FF6B6B",
-  destructiveAction: "#C5302D",
   purple: "#9B59B6",
   chartColors: [
     "#5B7FFF",

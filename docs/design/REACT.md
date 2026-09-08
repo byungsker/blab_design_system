@@ -11,7 +11,7 @@ public BLab package. Flutter remains the semantic reference implementation.
 | Theme | `BLabTheme.light/dark` | `BLabTheme.light/dark` serializable Web theme contract |
 | Grey helpers | `BLabColors.grey(shade, context)` | `BLabColors.grey(shade, mode)` plus `grey50Light`/`grey100Light`/`grey200Light` |
 | Type scale | `BLabTypography.*` | `BLabTypography.*` |
-| Primary action | `BLabButton(variant: primary)` | `BLabButton variant="primary"` with contrast-safe `BLabColors.primaryAction` fill |
+| Primary action | `BLabButton(variant: primary)` | `BLabButton variant="primary"` with `BLabColors.primary` fill |
 | Glass surface | `BLabCard` | `BLabCard` with `backdrop-filter` fallback |
 | Form control | `BLabTextField` | Controlled `BLabTextField` |
 | Feedback | `BLabSnackbar.show` | `BLabSnackbar` live-region component |
@@ -59,7 +59,7 @@ Flutter type scale, weight, line height and letter spacing token-mapped.
 | `BLabBottomBar` | `LiquidGlassBottomBar` | `tabs`, `selectedIndex`, `onTabSelected`, required `ariaLabel`, optional labeled action/chevron | Selected item uses `aria-current`; Web action has no native coordinates |
 | `BLabTabBar` | `LiquidGlassTabBar` | `tabs`, `selectedIndex`, `onTabSelected`, required `ariaLabel`, indicator tokens | Roving tab focus with Arrow/Home/End; selected indicator is stateful |
 | `BLabSegmentedControl<T>` | `BLabSegmentedControl<T>` | `items`, `selectedValue`, `onChanged`, required `ariaLabel` | Roving focus with ArrowLeft/Right and `aria-pressed` |
-| `BLabKeyboardAccessoryBar` | `BLabKeyboardAccessoryBar` | required `onDone`, `ariaLabel`, `doneLabel`; optional labeled navigation/editing callbacks and capability flags | 500ms long-press delay, 100ms repeat interval for undo/redo |
+| `BLabKeyboardAccessoryBar` | `BLabKeyboardAccessoryBar` | required `onDone`, `ariaLabel`, `doneLabel`; optional labeled navigation/editing callbacks and capability flags | 500ms long-press recognition, 500ms initial repeat delay, then 100ms repeat interval for undo/redo |
 
 Every user-facing accessible name in the React package is supplied by the
 consumer. The standalone fixture passes English test labels explicitly; it is
@@ -92,9 +92,6 @@ root or `styles.css` entry; they do not depend on `latest` or private paths.
   component anatomy and state transitions remain shared.
 - The browser keyboard accessory exposes native buttons and consumer-owned
   labels; undo and redo preserve Flutter's long-press repeat behavior.
-- The Web primary and destructive action fills use contrast-safe derived
-  tokens while the source semantic colors remain unchanged; this is the only
-  intentional action-color adaptation and is covered by the parity snapshots.
 
 ## Boundaries
 

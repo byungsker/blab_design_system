@@ -54,6 +54,7 @@ describe("BLab React public components", () => {
 
     expect(html).toContain('<input');
     expect(html).toContain('type="password"');
+    expect(html).not.toContain("secret");
     expect(html).not.toContain("<textarea");
   });
 

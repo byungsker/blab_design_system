@@ -16,6 +16,10 @@ npm install @byungsker/blab-design-system
 Until publication, install the package from this repository with
 `npm install ./packages/react`.
 
+The package is currently marked `UNLICENSED` for Byungsker-owned consumers;
+do not publish or redistribute it until the repository owner selects a public
+distribution license.
+
 Import the public package and its shared CSS entry point. The CSS entry also
 loads the package-bundled Inter Latin font used by the parity fixture:
 
@@ -31,6 +35,10 @@ import "@byungsker/blab-design-system/styles.css";
 Set `data-blab-theme="dark"` on the application surface for dark mode. Without
 the attribute, the light token set is used. The package does not read product
 routes or application state.
+
+For `obscureText` fields, the controlled value is omitted from server-rendered
+HTML and applied at the client boundary so password values are not serialized
+into Next.js responses. Keep sensitive field state in a client component.
 
 ## Public surface
 

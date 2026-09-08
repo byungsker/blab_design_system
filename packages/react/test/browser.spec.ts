@@ -32,7 +32,7 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
     const styles = getComputedStyle(element);
     return {
       scaffold: styles.getPropertyValue("--blab-surface-scaffold").trim(),
-      primaryAction: styles.getPropertyValue("--blab-color-primary-action").trim(),
+      primary: styles.getPropertyValue("--blab-color-primary").trim(),
       spacing: styles.getPropertyValue("--blab-space-xxl").trim(),
       radius: styles.getPropertyValue("--blab-radius-card").trim(),
       elevation: styles.getPropertyValue("--blab-elevation-surface").trim(),
@@ -42,7 +42,7 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   });
   expect(darkTokens).toEqual({
     scaffold: "#121212",
-    primaryAction: "#4a68d3",
+    primary: "#5b7fff",
     spacing: "24px",
     radius: "16px",
     elevation: "0 8px 20px rgba(0, 0, 0, 0.15)",
@@ -89,18 +89,22 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   expect(firstUndoEvent - undoStart).toBeLessThan(800);
   await expect
     .poll(async () => Number(await page.locator('[data-blab-test-output="undo-count"]').textContent()), { timeout: 1_000 })
-    .toBeGreaterThan(1);
+    .toBeGreaterThan(2);
   const undoEvents = (await page.locator('[data-blab-test-output="undo-events"]').textContent())
     ?.split(",")
     .filter(Boolean)
     .map(Number) ?? [];
-  const firstRepeatEvent = undoEvents[0];
-  const secondRepeatEvent = undoEvents[1];
+  const firstActionEvent = undoEvents[0];
+  const firstRepeatEvent = undoEvents[1];
+  const secondRepeatEvent = undoEvents[2];
+  expect(firstActionEvent).toBeDefined();
   expect(firstRepeatEvent).toBeDefined();
   expect(secondRepeatEvent).toBeDefined();
-  if (firstRepeatEvent === undefined || secondRepeatEvent === undefined) {
-    throw new Error("Expected two undo repeat events");
+  if (firstActionEvent === undefined || firstRepeatEvent === undefined || secondRepeatEvent === undefined) {
+    throw new Error("Expected an initial undo action and two repeat events");
   }
+  expect(firstRepeatEvent - firstActionEvent).toBeGreaterThanOrEqual(450);
+  expect(firstRepeatEvent - firstActionEvent).toBeLessThan(800);
   expect(secondRepeatEvent - firstRepeatEvent).toBeGreaterThanOrEqual(60);
   expect(secondRepeatEvent - firstRepeatEvent).toBeLessThan(180);
   await undoButton.dispatchEvent("pointercancel", { button: 0, pointerId: 1, pointerType: "mouse", isPrimary: true });
@@ -155,6 +159,21 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   await expect(page.getByRole("button", { name: "Disabled button" })).toBeDisabled();
   await expect(page.getByRole("button", { name: "Saving" })).toHaveAttribute("aria-busy", "true");
   await expect(page.getByLabel("Error field")).toHaveAttribute("aria-invalid", "true");
+  const desktopAccessoryLayout = await page.locator(".blab-keyboard-accessory-bar__surface").evaluate((surface) => {
+    const leading = surface.querySelector<HTMLElement>(".blab-keyboard-accessory-bar__leading");
+    const trailing = surface.querySelector<HTMLElement>(".blab-keyboard-accessory-bar__trailing");
+    if (!leading || !trailing) {
+      throw new Error("Expected keyboard accessory leading and trailing groups");
+    }
+    return {
+      leadingRight: leading.getBoundingClientRect().right,
+      trailingLeft: trailing.getBoundingClientRect().left,
+      scrollWidth: surface.scrollWidth,
+      clientWidth: surface.clientWidth,
+    };
+  });
+  expect(desktopAccessoryLayout.scrollWidth).toBe(desktopAccessoryLayout.clientWidth);
+  expect(desktopAccessoryLayout.trailingLeft).toBeGreaterThan(desktopAccessoryLayout.leadingRight);
   const lightTokens = await page.locator('[data-blab-component="parity-fixture"]').evaluate((element) => {
     const styles = getComputedStyle(element);
     return {
