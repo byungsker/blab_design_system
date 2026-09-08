@@ -4,7 +4,7 @@
   "description": "Cross-platform BLab design primitives for React and Next.js.",
   "license": "UNLICENSED",
   "type": "module",
-  "private": false,
+  "private": true,
   "files": [
     "dist",
     "fonts",
