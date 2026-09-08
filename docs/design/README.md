@@ -12,6 +12,7 @@ Use these files as the source of truth for visual rules, component behavior, int
 - `MOTION.md` — animation, transition, and feedback rules
 - `A11Y.md` — accessibility requirements and constraints
 - `DO_DONT.md` — practical guardrails with strong recommendations and anti-patterns
+- `REACT.md` — typed React/Next.js mapping and cross-platform parity contract
 
 ## Suggested reading order
 1. `BRAND.md`
@@ -21,6 +22,7 @@ Use these files as the source of truth for visual rules, component behavior, int
 5. `MOTION.md`
 6. `A11Y.md`
 7. `DO_DONT.md`
+8. `REACT.md` when implementing or reviewing Web consumers
 
 ## How to use these docs
 - Read `DESIGN.md` at the repository root first.

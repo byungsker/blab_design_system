@@ -4,12 +4,14 @@ class BLabColors {
   BLabColors._();
 
   static const Color primary = Color(0xFF5B7FFF);
+  static const Color onPrimary = Colors.black;
   static const Color primaryLight = Color(0xFF6B8AFF);
 
   static const Color success = Color(0xFF10B981);
   static const Color successAlt = Color(0xFF34C759);
   static const Color successBg = Color(0xFFD1FAE5);
   static const Color error = Color(0xFFFF3B30);
+  static const Color onError = Colors.black;
   static const Color errorAlt = Color(0xFFEF4444);
   static const Color errorBg = Color(0xFFFEE2E2);
   static const Color errorLight = Color(0xFFFCA5A5);

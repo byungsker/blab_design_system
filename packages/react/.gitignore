@@ -1,0 +1,5 @@
+dist/
+fixture/main.js
+node_modules/
+playwright-report/
+test-results/

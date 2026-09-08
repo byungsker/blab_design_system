@@ -36,11 +36,11 @@ class BLabButton extends StatelessWidget {
     switch (variant) {
       case BLabButtonVariant.primary:
         backgroundColor = BLabColors.primary;
-        textColor = Colors.white;
+        textColor = BLabColors.onPrimary;
         break;
       case BLabButtonVariant.destructive:
         backgroundColor = BLabColors.error;
-        textColor = Colors.white;
+        textColor = BLabColors.onError;
         break;
       case BLabButtonVariant.secondary:
         backgroundColor = isDark

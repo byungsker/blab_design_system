@@ -1,10 +1,14 @@
 # BLab Design System
 
-A Flutter UI component library for Byungsker's personal mobile products.
+A cross-platform UI component library for Byungsker's personal products, with
+Flutter as the semantic reference and a typed React/Next.js web package.
 
 BLab started as the shared mobile UI foundation for **BookGolas** and was later separated into a reusable package so the same visual language, tokens, and component rules could be applied to **Baroguni** and future BLab apps.
 
 The goal is not to be a full public design system yet. It is a small, product-driven component foundation that keeps repeated mobile UI decisions consistent across personal apps and agent-assisted development workflows.
+
+The React package extends the same token hierarchy and component contracts to
+web surfaces without importing product routes, data, authentication or copy.
 
 ## What this package contains
 
@@ -22,6 +26,12 @@ The goal is not to be a full public design system yet. It is a small, product-dr
 - `BLabSnackbar` — overlay snackbar for success, error, info, and warning states, including keyboard-aware positioning
 - `BLabPressableWrapper` — reusable press animation wrapper
 - `BLabBottomBar` — bottom navigation component in the same visual language
+
+### React and Next.js package
+
+The typed Web implementation lives in [`packages/react`](packages/react) and
+maps the Flutter exports to React components, CSS tokens and browser-native
+accessibility behavior. It includes the parity fixture used for Chromium QA.
 
 ## Why it exists
 
@@ -51,6 +61,19 @@ Then import it:
 
 ```dart
 import 'package:blab_design_system/blab_design_system.dart';
+```
+
+For React and Next.js consumers, use the package-local release line:
+
+```bash
+npm install ./packages/react
+```
+
+Then import the public Web surface and CSS entry point:
+
+```tsx
+import { BLabButton } from "@byungsker/blab-design-system";
+import "@byungsker/blab-design-system/styles.css";
 ```
 
 ## Basic usage
@@ -162,12 +185,15 @@ This keeps the design system from becoming a dumping ground while still allowing
 
 This package is an early personal design-system foundation.
 
-- Version: `0.0.1`
-- Primary language: Dart / Flutter
+- Flutter package: `0.0.1`
+- React/Next.js package target: `0.2.0`
+- Primary platforms: Flutter mobile and typed React/Next.js Web
 - First consumers: BookGolas and Baroguni
-- Scope: mobile UI foundations, component consistency, and agent-friendly usage rules
+- Scope: shared tokens, component consistency, cross-platform parity, and agent-friendly usage rules
 
-It is not yet published to pub.dev. Use the Git dependency until the package is stabilized.
+The Flutter package is not yet published to pub.dev. The React package is
+prepared for its versioned package PR and registry release; use the repository
+package path until that release is published.
 
 ## Public-facing note
 
