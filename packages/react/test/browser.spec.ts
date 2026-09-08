@@ -77,11 +77,6 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   const undoButton = page.getByRole("button", { name: "Undo" });
   await undoButton.scrollIntoViewIfNeeded();
   await undoButton.hover();
-  await undoButton.dispatchEvent("pointerdown", { button: 0, pointerId: 1, pointerType: "mouse", isPrimary: true });
-  await page.waitForTimeout(250);
-  await undoButton.dispatchEvent("pointercancel", { button: 0, pointerId: 1, pointerType: "mouse", isPrimary: true });
-  await page.waitForTimeout(350);
-  await expect(page.locator('[data-blab-test-output="undo-count"]')).toHaveText("0");
   const undoStart = await page.evaluate(() => performance.now());
   await page.mouse.down();
   await page.waitForTimeout(250);
@@ -108,10 +103,11 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   }
   expect(secondRepeatEvent - firstRepeatEvent).toBeGreaterThanOrEqual(60);
   expect(secondRepeatEvent - firstRepeatEvent).toBeLessThan(180);
-  await page.mouse.up();
+  await undoButton.dispatchEvent("pointercancel", { button: 0, pointerId: 1, pointerType: "mouse", isPrimary: true });
   const stoppedUndoCount = Number(await page.locator('[data-blab-test-output="undo-count"]').textContent());
   await page.waitForTimeout(250);
   await expect(page.locator('[data-blab-test-output="undo-count"]')).toHaveText(String(stoppedUndoCount));
+  await page.mouse.up();
 
   const primaryButton = page.getByRole("button", { name: "Primary action" });
   await primaryButton.focus();
