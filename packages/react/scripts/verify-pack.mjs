@@ -1,10 +1,10 @@
 import { execFileSync } from "node:child_process";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 import { mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { tmpdir } from "node:os";
 
-const packageRoot = dirname(fileURLToPath(import.meta.url)).replace(/\/scripts$/, "");
+const packageRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 const packOutput = execFileSync(npmCommand, ["pack", "--silent"], {
   cwd: packageRoot,
@@ -35,12 +35,18 @@ try {
     throw new Error("Packed package release policy metadata mismatch");
   }
 
-  const api = await import(pathToFileURL(join(installedRoot, "dist/index.js")).href);
-  for (const name of ["BLabButton", "BLabCard", "BLabTextField", "BLabKeyboardAccessoryBar", "BLabTheme", "BLabColors"]) {
-    if (!(name in api)) {
-      throw new Error(`Packed public export missing: ${name}`);
-    }
-  }
+  const consumerScript = [
+    'const api = await import("@byungsker/blab-design-system");',
+    'for (const name of ["BLabButton", "BLabCard", "BLabTextField", "BLabKeyboardAccessoryBar", "BLabTheme", "BLabColors"]) {',
+    '  if (!(name in api)) throw new Error(`Packed public export missing: ${name}`);',
+    '}',
+    'const cssEntry = await import.meta.resolve("@byungsker/blab-design-system/styles.css");',
+    'if (!cssEntry.endsWith("/src/styles.css")) throw new Error(`Unexpected CSS export: ${cssEntry}`);',
+  ].join("\n");
+  execFileSync(process.execPath, ["--input-type=module", "-e", consumerScript], {
+    cwd: consumerRoot,
+    stdio: "inherit",
+  });
 
   console.log("Packed consumer import passed");
 } finally {
