@@ -145,6 +145,19 @@
   font-family: var(--blab-font-body);
 }
 
+.blab-fixture {
+  min-height: 100vh;
+  padding: var(--blab-space-xxl);
+}
+
+.blab-fixture__card {
+  margin-top: var(--blab-space-xxl);
+}
+
+.blab-fixture__primary {
+  margin-top: var(--blab-space-lg);
+}
+
 .blab-button {
   align-items: center;
   border: 0;

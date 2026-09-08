@@ -57,6 +57,7 @@ export function BLabBottomBar({
     pointerId: number;
     active: boolean;
     timer: ReturnType<typeof setTimeout>;
+    index: number | undefined;
   } | undefined>(undefined);
   const suppressClickRef = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -104,6 +105,10 @@ export function BLabBottomBar({
       return;
     }
 
+    const tab = target instanceof Element
+      ? target.closest<HTMLElement>("[data-blab-bottom-bar-index]")
+      : null;
+    const tabIndexValue = tab?.dataset.blabBottomBarIndex;
     event.currentTarget.setPointerCapture(event.pointerId);
     const press = {
       pointerId: event.pointerId,
@@ -113,6 +118,7 @@ export function BLabBottomBar({
         setIsDragging(true);
         setDragIndex(selectedIndex);
       }, BLabMotion.longPressDelay),
+      index: tabIndexValue === undefined ? undefined : Number(tabIndexValue),
     };
     pressRef.current = press;
   };
@@ -140,6 +146,13 @@ export function BLabBottomBar({
     }
 
     if (!wasDragging) {
+      if (press.index !== undefined) {
+        suppressClickRef.current = true;
+        setTimeout(() => {
+          suppressClickRef.current = false;
+        }, 0);
+        onTabSelected(press.index);
+      }
       return;
     }
 
@@ -214,6 +227,7 @@ export function BLabBottomBar({
                 className="blab-bottom-bar__item"
                 type="button"
                 aria-current={selected ? "page" : undefined}
+                data-blab-bottom-bar-index={index}
                 onClick={() => handleTabClick(index)}
               >
                 <span aria-hidden="true">{highlighted ? tab.activeIcon : tab.icon}</span>

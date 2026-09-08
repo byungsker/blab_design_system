@@ -23,11 +23,11 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
   const [longPressCount, setLongPressCount] = useState(0);
 
   return (
-    <main data-blab-theme={theme} data-blab-component="parity-fixture" style={{ minHeight: "100vh", padding: 24 }}>
+    <main className="blab-fixture" data-blab-theme={theme} data-blab-component="parity-fixture">
       <BLabTabBar tabs={["First", "Second"]} selectedIndex={selectedTab} onTabSelected={setSelectedTab} ariaLabel="Fixture tabs" />
-      <BLabCard style={{ marginTop: 24 }}>
+      <BLabCard className="blab-fixture__card">
         <BLabTextField label="Field" value={value} onChange={(event) => setValue(event.target.value)} clearLabel="Clear field" onClear={() => setValue("")} />
-        <BLabButton text="Primary action" isFullWidth style={{ marginTop: 16 }} onClick={() => undefined} />
+        <BLabButton className="blab-fixture__primary" text="Primary action" isFullWidth onClick={() => undefined} />
       </BLabCard>
       <section className="blab-fixture-state-gallery" aria-labelledby="blab-fixture-state-title">
         <h2 id="blab-fixture-state-title">Component states</h2>

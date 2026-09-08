@@ -190,6 +190,10 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   const bottomItems = bottomBar.locator(".blab-bottom-bar__item");
   const firstBottomItem = bottomItems.nth(0);
   const secondBottomItem = bottomItems.nth(1);
+  await secondBottomItem.click();
+  await expect(page.locator('[data-blab-test-output="bottom-selection"]')).toHaveText("1");
+  await firstBottomItem.click();
+  await expect(page.locator('[data-blab-test-output="bottom-selection"]')).toHaveText("0");
   const firstBottomBox = await firstBottomItem.boundingBox();
   const secondBottomBox = await secondBottomItem.boundingBox();
   if (!firstBottomBox || !secondBottomBox) {
