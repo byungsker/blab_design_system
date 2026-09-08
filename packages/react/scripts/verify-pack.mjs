@@ -6,7 +6,8 @@ import { tmpdir } from "node:os";
 
 const packageRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
-const packOutput = execFileSync(npmCommand, ["pack", "--silent"], {
+const artifactRoot = mkdtempSync(join(tmpdir(), "blab-package-artifact-"));
+const packOutput = execFileSync(npmCommand, ["pack", "--silent", "--pack-destination", artifactRoot], {
   cwd: packageRoot,
   encoding: "utf8",
 });
@@ -19,7 +20,7 @@ if (!packageFileName) {
   throw new Error("npm pack did not return a tarball filename");
 }
 
-const packageFile = join(packageRoot, packageFileName);
+const packageFile = join(artifactRoot, packageFileName);
 const consumerRoot = mkdtempSync(join(tmpdir(), "blab-package-consumer-"));
 
 try {
@@ -72,5 +73,5 @@ try {
   console.log("Packed consumer import passed");
 } finally {
   rmSync(consumerRoot, { recursive: true, force: true });
-  rmSync(packageFile, { force: true });
+  rmSync(artifactRoot, { recursive: true, force: true });
 }

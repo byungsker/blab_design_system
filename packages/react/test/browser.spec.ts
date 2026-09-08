@@ -185,6 +185,22 @@ test("renders the standalone fixture across target viewports", async ({ page }) 
   await expect(page).toHaveScreenshot("light-desktop.png", { animations: "disabled" });
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page).toHaveScreenshot("light-mobile.png", { animations: "disabled" });
+  const bottomBar = page.getByRole("navigation", { name: "Fixture navigation" });
+  await bottomBar.scrollIntoViewIfNeeded();
+  const bottomItems = bottomBar.locator(".blab-bottom-bar__item");
+  const firstBottomItem = bottomItems.nth(0);
+  const secondBottomItem = bottomItems.nth(1);
+  const firstBottomBox = await firstBottomItem.boundingBox();
+  const secondBottomBox = await secondBottomItem.boundingBox();
+  if (!firstBottomBox || !secondBottomBox) {
+    throw new Error("Expected bottom bar tab bounds");
+  }
+  await page.mouse.move(firstBottomBox.x + firstBottomBox.width / 2, firstBottomBox.y + firstBottomBox.height / 2);
+  await page.mouse.down();
+  await page.waitForTimeout(550);
+  await page.mouse.move(secondBottomBox.x + secondBottomBox.width / 2, secondBottomBox.y + secondBottomBox.height / 2);
+  await page.mouse.up();
+  await expect(page.locator('[data-blab-test-output="bottom-selection"]')).toHaveText("1");
   expect(pageErrors).toEqual([]);
   expect(failedRequests).toEqual([]);
 });

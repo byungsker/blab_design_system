@@ -95,6 +95,7 @@ export function BLabParityFixture({ theme = "light" }: BLabParityFixtureProps) {
         onFirstTabChevronTap={() => undefined}
         firstTabChevronLabel="More"
       />
+      <span className="blab-visually-hidden" data-blab-test-output="bottom-selection">{selectedBottomTab}</span>
     </main>
   );
 }

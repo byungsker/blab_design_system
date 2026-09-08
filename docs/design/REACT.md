@@ -8,6 +8,7 @@ public BLab package. Flutter remains the semantic reference implementation.
 | Concern | Flutter | React/Next.js |
 | --- | --- | --- |
 | Primary color | `BLabColors.primary` | `BLabColors.primary` and `--blab-color-primary` |
+| Action foreground | `BLabColors.onPrimary` / `onError` | Accessible foreground tokens for primary and destructive actions |
 | Theme | `BLabTheme.light/dark` | `BLabTheme.light/dark` serializable Web theme contract |
 | Grey helpers | `BLabColors.grey(shade, context)` | `BLabColors.grey(shade, mode)` plus `grey50Light`/`grey100Light`/`grey200Light` |
 | Type scale | `BLabTypography.*` | `BLabTypography.*` |
@@ -16,7 +17,7 @@ public BLab package. Flutter remains the semantic reference implementation.
 | Form control | `BLabTextField` | Controlled `BLabTextField` |
 | Feedback | `BLabSnackbar.show` | `BLabSnackbar` live-region component |
 | Press feedback | `BLabPressableWrapper` | `BLabPressableWrapper` pointer and keyboard events |
-| Navigation | `BLabBottomBar` | `BLabBottomBar` with `aria-current` |
+| Navigation | `BLabBottomBar` | `BLabBottomBar` with `aria-current`, droplet indicator, 300ms selection motion and long-press drag |
 | Tabs | `BLabTabBar` | `BLabTabBar` with `role="tablist"` |
 | Segments | `BLabSegmentedControl<T>` | `BLabSegmentedControl<T>` with `aria-pressed` |
 | Keyboard accessory | `BLabKeyboardAccessoryBar` | Capability flags and repeatable undo/redo actions |
@@ -38,7 +39,7 @@ Flutter type scale, weight, line height and letter spacing token-mapped.
 | Card | static, interactive | default, pressed, focus, disabled | Interactive role only when actionable |
 | Text field | single, multiline, obscured, read-only | empty, filled, focused, disabled, error | Explicit label, described error, native control |
 | Snackbar | success, error, info, warning | visible, dismissible | `status` or `alert` live region |
-| Bottom bar | selected, unselected, action | default, focus, selected | Navigation name and current item |
+| Bottom bar | selected, unselected, action | default, focus, selected, long-press drag | Navigation name, current item and draggable selection |
 | Tab bar | distributed, scrollable | selected, unselected, focus | `tablist`, `tab`, arrow keys |
 | Segmented control | generic values | selected, unselected, focus | Group label and `aria-pressed` |
 | Keyboard accessory | navigation, clipboard, editing | enabled, disabled, focus, repeat | Native buttons with consumer labels |
@@ -56,7 +57,7 @@ Flutter type scale, weight, line height and letter spacing token-mapped.
 | `BLabLoadingState` | Loading surface pattern | required `label`, `size` | Spinner animation is non-essential and clamped by reduced motion |
 | `BLabEmptyState` | Empty surface pattern | required `title`, optional `message`, `actionLabel`, `onAction` | Consumer owns localized copy and action state |
 | `BLabErrorState` / `BLabRetryButton` | Error/retry pattern | required `title`, `message`, `retryLabel`, `onRetry`, `retryLoading` | Alert role, disabled/loading-safe retry action |
-| `BLabBottomBar` | `LiquidGlassBottomBar` | `tabs`, `selectedIndex`, `onTabSelected`, required `ariaLabel`, optional labeled action/chevron | Selected item uses `aria-current`; Web action has no native coordinates |
+| `BLabBottomBar` | `LiquidGlassBottomBar` | `tabs`, `selectedIndex`, `onTabSelected`, required `ariaLabel`, optional labeled action/chevron | 300ms droplet indicator motion; 500ms long-press drag selection; selected item uses `aria-current`; Web action has no native coordinates |
 | `BLabTabBar` | `LiquidGlassTabBar` | `tabs`, `selectedIndex`, `onTabSelected`, required `ariaLabel`, indicator tokens | Roving tab focus with Arrow/Home/End; selected indicator is stateful |
 | `BLabSegmentedControl<T>` | `BLabSegmentedControl<T>` | `items`, `selectedValue`, `onChanged`, required `ariaLabel` | Roving focus with ArrowLeft/Right and `aria-pressed` |
 | `BLabKeyboardAccessoryBar` | `BLabKeyboardAccessoryBar` | required `onDone`, `ariaLabel`, `doneLabel`; optional labeled navigation/editing callbacks and capability flags | 500ms long-press recognition, 500ms initial repeat delay, then 100ms repeat interval for undo/redo |

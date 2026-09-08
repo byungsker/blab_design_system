@@ -35,7 +35,7 @@ class BLabTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: BLabColors.primary,
-        foregroundColor: Colors.white,
+        foregroundColor: BLabColors.onPrimary,
         minimumSize: const Size(double.infinity, 52),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
@@ -81,7 +81,7 @@ class BLabTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: BLabColors.primary,
-        foregroundColor: Colors.white,
+        foregroundColor: BLabColors.onPrimary,
         minimumSize: const Size(double.infinity, 52),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,

@@ -31,11 +31,13 @@ const darkGreyValues: Record<BLabGreyShade, string> = {
 
 export const BLabColors = {
   primary: "#5B7FFF",
+  onPrimary: "#000000",
   primaryLight: "#6B8AFF",
   success: "#10B981",
   successAlt: "#34C759",
   successBg: "#D1FAE5",
   error: "#FF3B30",
+  onError: "#000000",
   errorAlt: "#EF4444",
   errorBg: "#FEE2E2",
   errorLight: "#FCA5A5",
@@ -154,7 +156,7 @@ export const BLabTheme = {
     },
     elevatedButton: {
       backgroundColor: BLabColors.primary,
-      foregroundColor: "#FFFFFF",
+      foregroundColor: BLabColors.onPrimary,
       minHeight: 52,
       borderRadius: BLabRadii.control,
       elevation: 0,
@@ -178,7 +180,7 @@ export const BLabTheme = {
     },
     elevatedButton: {
       backgroundColor: BLabColors.primary,
-      foregroundColor: "#FFFFFF",
+      foregroundColor: BLabColors.onPrimary,
       minHeight: 52,
       borderRadius: BLabRadii.control,
       elevation: 0,
@@ -208,6 +210,7 @@ export const BLabGlass = {
 export const BLabMotion = {
   press: 150,
   surface: 180,
+  navigation: 300,
   longPressDelay: 500,
   repeatInterval: 100,
 } as const;

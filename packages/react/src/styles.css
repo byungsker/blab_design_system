@@ -32,6 +32,7 @@
   --blab-radius-pill: 100px;
   --blab-motion-press: 150ms;
   --blab-motion-surface: 180ms;
+  --blab-motion-navigation: 300ms;
   --blab-motion-spin: 800ms;
   --blab-focus-ring: 0 0 0 2px var(--blab-color-focus-surface), 0 0 0 4px var(--blab-color-primary);
   --blab-space-xxs: 2px;
@@ -52,8 +53,8 @@
   --blab-elevation-surface: 0 8px 20px rgba(0, 0, 0, 0.15);
   --blab-glass-card-blur: 25px;
   --blab-glass-overlay-blur: 20px;
-  --blab-color-on-primary: #ffffff;
-  --blab-color-on-destructive: #ffffff;
+  --blab-color-on-primary: #000000;
+  --blab-color-on-destructive: #000000;
   --blab-color-focus-surface: var(--blab-surface-scaffold);
   --blab-color-error-border: color-mix(in srgb, var(--blab-color-error) 70%, transparent);
   --blab-border-subtle: 0.5px;
@@ -472,8 +473,26 @@
   gap: var(--blab-space-xs);
   min-height: var(--blab-size-bottom-bar);
   padding: var(--blab-space-xs);
+  position: relative;
   -webkit-backdrop-filter: blur(var(--blab-glass-card-blur));
   backdrop-filter: blur(var(--blab-glass-card-blur));
+}
+
+.blab-bottom-bar__indicator {
+  background: linear-gradient(135deg, var(--blab-glass-highlight), var(--blab-glass-fill));
+  border-radius: var(--blab-radius-pill);
+  box-shadow: var(--blab-elevation-subtle);
+  inset: var(--blab-space-xs) auto var(--blab-space-xs) var(--blab-space-xs);
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(calc(var(--blab-bottom-bar-indicator-position) * 100%));
+  transition: transform var(--blab-motion-navigation) cubic-bezier(0.22, 1, 0.36, 1);
+  width: calc((100% - var(--blab-space-sm)) / var(--blab-bottom-bar-tab-count));
+  z-index: 0;
+}
+
+.blab-bottom-bar__indicator[data-blab-dragging="true"] {
+  transition: none;
 }
 
 .blab-bottom-bar--no-margin {
@@ -485,6 +504,7 @@
   flex: 1;
   min-width: 0;
   position: relative;
+  z-index: 1;
 }
 
 .blab-bottom-bar__item {
@@ -508,7 +528,6 @@
 }
 
 .blab-bottom-bar__item[aria-current="page"] {
-  background: linear-gradient(135deg, var(--blab-glass-highlight), var(--blab-glass-fill));
   color: var(--blab-text-primary);
 }
 

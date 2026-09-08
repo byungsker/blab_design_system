@@ -8,6 +8,7 @@ import {
   BLabErrorState,
   BLabKeyboardAccessoryBar,
   BLabLoadingState,
+  BLabSnackbar,
   BLabTextField,
 } from "../src/index";
 import { BLabParityFixture } from "../src/fixture";
@@ -91,5 +92,14 @@ describe("BLab React public components", () => {
     expect(html).toContain('aria-label="Undo"');
     expect(html).toContain('disabled=""');
     expect(html).toContain('aria-label="Done"');
+  });
+
+  it("keeps an explicit snackbar alert role assertive", () => {
+    const html = renderToStaticMarkup(
+      <BLabSnackbar message="Saved" role="alert" />,
+    );
+
+    expect(html).toContain('role="alert"');
+    expect(html).toContain('aria-live="assertive"');
   });
 });

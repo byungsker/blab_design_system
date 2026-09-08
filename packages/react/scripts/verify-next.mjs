@@ -7,7 +7,8 @@ import { tmpdir } from "node:os";
 const packageRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 const nextCommand = process.platform === "win32" ? "next.cmd" : "next";
-const packOutput = execFileSync(npmCommand, ["pack", "--silent"], {
+const artifactRoot = mkdtempSync(join(tmpdir(), "blab-next-artifact-"));
+const packOutput = execFileSync(npmCommand, ["pack", "--silent", "--pack-destination", artifactRoot], {
   cwd: packageRoot,
   encoding: "utf8",
 });
@@ -20,7 +21,7 @@ if (!packageFileName) {
   throw new Error("npm pack did not return a tarball filename");
 }
 
-const packageFile = join(packageRoot, packageFileName);
+const packageFile = join(artifactRoot, packageFileName);
 const consumerRoot = mkdtempSync(join(tmpdir(), "blab-next-consumer-"));
 
 try {
@@ -73,5 +74,5 @@ export default function Page() {
   console.log("Packed Next.js App Router consumer build passed");
 } finally {
   rmSync(consumerRoot, { recursive: true, force: true });
-  rmSync(packageFile, { force: true });
+  rmSync(artifactRoot, { recursive: true, force: true });
 }

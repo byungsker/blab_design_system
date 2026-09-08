@@ -38,13 +38,14 @@ export function BLabSnackbar({
     .filter(Boolean)
     .join(" ");
   const marker = type === "success" ? "✓" : type === "error" ? "!" : type === "warning" ? "!" : "i";
+  const resolvedRole = role ?? (type === "error" ? "alert" : "status");
 
   return (
     <div
       {...rest}
       className={snackbarClassName}
-      role={role ?? (type === "error" ? "alert" : "status")}
-      aria-live={type === "error" ? "assertive" : "polite"}
+      role={resolvedRole}
+      aria-live={resolvedRole === "alert" ? "assertive" : "polite"}
       data-blab-component="snackbar"
     >
       <span className="blab-snackbar__icon" aria-hidden="true">{icon ?? marker}</span>
