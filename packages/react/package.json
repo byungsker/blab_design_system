@@ -32,8 +32,9 @@
     "lint": "eslint .",
     "test": "vitest run",
     "prepack": "npm run build",
+    "test:package": "node scripts/verify-pack.mjs",
     "test:browser": "npm run build:fixture && node scripts/run-browser-tests.mjs",
-    "check": "npm run lint && npm run typecheck && npm test && npm run build && npm run test:browser"
+    "check": "npm run lint && npm run typecheck && npm test && npm run build && npm run test:package && npm run test:browser"
   },
   "peerDependencies": {
     "react": ">=18.2.0",

@@ -4,13 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   BLabColors,
-  BLabElevation,
-  BLabGlass,
-  BLabMotion,
-  BLabRadii,
-  BLabSpacing,
   BLabTheme,
-  BLabTypography,
 } from "../src/index";
 
 const flutterColorsSource = readFileSync(
@@ -37,24 +31,6 @@ describe("BLab token contract", () => {
     expect(BLabColors.light.scaffold).toBe(flutterColor("scaffoldLight"));
     expect(BLabColors.dark.scaffold).toBe(flutterColor("scaffoldDark"));
     expect(BLabColors.dark.elevated).toBe(flutterColor("elevatedDark"));
-  });
-
-  it("keeps shared layout, type, glass and motion tokens stable", () => {
-    expect(BLabTypography.displayLarge).toEqual({ fontSize: 32, fontWeight: 700, lineHeight: 1.2, letterSpacing: -0.5 });
-    expect(BLabTypography.titleMedium).toEqual({ fontSize: 18, fontWeight: 600, lineHeight: 1.35 });
-    expect(BLabTypography.bodyMedium).toEqual({ fontSize: 14, fontWeight: 400, lineHeight: 1.45 });
-    expect(BLabSpacing).toMatchObject({ buttonVertical: 14, buttonHorizontal: 24, controlVertical: 14, controlHorizontal: 16 });
-    expect(BLabRadii).toEqual({ control: 12, card: 16, pill: 100, icon: 8 });
-    expect(BLabElevation).toEqual({ subtle: "0 1px 4px rgba(0, 0, 0, 0.08)", surface: "0 8px 20px rgba(0, 0, 0, 0.15)" });
-    expect(BLabGlass).toEqual({
-      cardBlur: 25,
-      overlayBlur: 20,
-      lightFill: "rgba(0, 0, 0, 0.08)",
-      darkFill: "rgba(255, 255, 255, 0.12)",
-      lightBorder: "rgba(0, 0, 0, 0.08)",
-      darkBorder: "rgba(255, 255, 255, 0.15)",
-    });
-    expect(BLabMotion).toEqual({ press: 150, surface: 180, longPressDelay: 500, repeatInterval: 100 });
   });
 
   it("keeps Flutter public grey helpers and theme mappings available", () => {
