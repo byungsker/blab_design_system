@@ -31,6 +31,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
+    "prepack": "npm run build",
     "test:browser": "npm run build:fixture && node scripts/run-browser-tests.mjs",
     "check": "npm run lint && npm run typecheck && npm test && npm run build && npm run test:browser"
   },
